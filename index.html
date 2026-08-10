@@ -382,6 +382,22 @@ body.light .toast{background:#fff;}
       </div>
     </div>
     <div id="fase-cards"></div>
+    <!-- Acesso à Biblioteca -->
+    <div style="margin-top:20px;border-top:1px solid var(--bd);padding-top:16px;">
+      <div class="slbl" style="margin-bottom:10px;">Revisão</div>
+      <div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;" onclick="abrirBiblioteca()">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="color:var(--acc2);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:2px;">Biblioteca</div>
+            <div style="font-size:12px;color:var(--tx2);">Todo vocabulário e expressões por fase — ouça e pratique</div>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -473,7 +489,7 @@ body.light .toast{background:#fff;}
     <div style="width:60px;"></div>
   </div>
   <div class="vi-tela">
-    <div class="vi-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Vocabulário</div>
+    <div class="vi-badge" id="vi-etapa-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Vocabulário</div>
     <div class="vi-sit-nome" id="vi-sit-nome"></div>
     <div class="vi-sit-desc" id="vi-sit-desc"></div>
     <div class="vi-modo-toggle">
@@ -526,6 +542,28 @@ body.light .toast{background:#fff;}
       <button onclick="confirmarSairNao()" style="flex:1;padding:12px;border-radius:var(--r);border:1px solid var(--bd);background:var(--s2);color:var(--tx2);font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">Continuar lição</button>
       <button onclick="confirmarSairSim()" style="flex:1;padding:12px;border-radius:var(--r);border:none;background:var(--red);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">Sair</button>
     </div>
+  </div>
+</div>
+
+<!-- BIBLIOTECA -->
+<div id="tela-biblioteca" class="tela">
+  <div class="hdr">
+    <button onclick="irPara('fases')" style="background:none;border:none;cursor:pointer;color:var(--tx2);display:flex;align-items:center;gap:6px;font-size:13px;font-family:'Inter',sans-serif;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Voltar
+    </button>
+    <div class="logo" style="flex:1;text-align:center;">Biblioteca</div>
+    <div style="width:60px;"></div>
+  </div>
+  <div class="bw" style="padding-bottom:32px;">
+    <!-- Abas Vocab / Expressões -->
+    <div class="tabs" style="margin-bottom:16px;">
+      <div class="tab on" id="bib-tab-vocab" onclick="bibSetAba('vocab')">Vocabulário</div>
+      <div class="tab" id="bib-tab-expr" onclick="bibSetAba('expr')">Expressões</div>
+    </div>
+    <!-- Filtro por fase -->
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;" id="bib-filtros"></div>
+    <!-- Conteúdo -->
+    <div id="bib-corpo"></div>
   </div>
 </div>
 
@@ -698,6 +736,7 @@ function irPara(t){
   document.getElementById('tela-'+t).classList.add('ativa');
   if(t==='fases')renderFases();
   if(t==='dashboard')renderDash();
+  if(t==='biblioteca'){bibRenderFiltros();bibRender();}
   pararTimer();
 }
 
@@ -884,10 +923,10 @@ function abrirMundo(m){
 
 // ── VOCAB INTRODUTÓRIO ───────────────────
 let viVocab=[],viIdx=0,viModo='um',viSitPendente=null;
+let viEtapa='vocab'; // 'vocab' | 'expr'
+let viExpr=[],viExprIdx=0,viExprModo='um';
 
 function coletarVocabSituacao(s){
-  // Pega apenas o vocab do primeiro turno — o vocabulário introdutório
-  // Demais turnos têm vocab contextual que aparece na tela de resultado
   const primeiro=s.dialogo[0];
   if(primeiro&&primeiro.vocab&&primeiro.vocab.length){
     return [...primeiro.vocab];
@@ -895,31 +934,85 @@ function coletarVocabSituacao(s){
   return [];
 }
 
+function coletarExpressoesSituacao(s){
+  // Coleta todas as falas (nativas e do usuário) com traducao + connected como expressões
+  const exprs=[];
+  s.dialogo.forEach(t=>{
+    if(t.fala&&t.traducao){
+      exprs.push({
+        fala: t.fala,
+        traducao: t.traducao,
+        connected: t.sua_vez ? (t.connected_voce||null) : (t.connected||null),
+        sua_vez: t.sua_vez,
+        personagem: t.personagem||'Interlocutor',
+        nativo: t.nativo||null,
+        erro: t.erro||null
+      });
+    }
+  });
+  return exprs;
+}
+
 function iniciarVocabIntro(s){
   if(typeof s==='string')s=JSON.parse(s);
   viSitPendente=s;
   viVocab=coletarVocabSituacao(s);
+  viExpr=coletarExpressoesSituacao(s);
   viIdx=0;
+  viExprIdx=0;
   viModo='um';
+  viExprModo='um';
+  viEtapa='vocab';
   // Preenche cabeçalho
   document.getElementById('vi-sit-nome').textContent=s.titulo||'';
   document.getElementById('vi-sit-desc').textContent=s.descricao||'Aprenda o vocabulário antes de começar o diálogo.';
-  // Atualiza modo
+  viAtualizarBadge();
   document.getElementById('vi-modo-um').classList.add('on');
   document.getElementById('vi-modo-lista').classList.remove('on');
   irPara('vocab-intro');
   viRender();
 }
 
+function viAtualizarBadge(){
+  const badge=document.getElementById('vi-etapa-badge');
+  if(!badge)return;
+  if(viEtapa==='vocab'){
+    badge.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Vocabulário';
+    badge.style.background='rgba(79,142,247,.1)';
+    badge.style.color='var(--acc)';
+    badge.style.borderColor='rgba(79,142,247,.25)';
+  }else{
+    badge.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Expressões';
+    badge.style.background='rgba(124,92,252,.1)';
+    badge.style.color='var(--acc2)';
+    badge.style.borderColor='rgba(124,92,252,.25)';
+  }
+}
+
+function viEntrarExpr(){
+  viEtapa='expr';
+  viExprIdx=0;
+  viExprModo='um';
+  viAtualizarBadge();
+  document.getElementById('vi-modo-um').classList.add('on');
+  document.getElementById('vi-modo-lista').classList.remove('on');
+  // Reseta resultado e shadowing
+  const res=document.getElementById('vi-rec-resultado');
+  if(res){res.style.display='none';res.innerHTML='';}
+  viRender();
+}
+
 function viSetModo(m){
-  viModo=m;
+  if(viEtapa==='vocab')viModo=m;
+  else viExprModo=m;
   document.getElementById('vi-modo-um').classList.toggle('on',m==='um');
   document.getElementById('vi-modo-lista').classList.toggle('on',m==='lista');
   viRender();
 }
 
 function viRender(){
-  if(viModo==='um'){
+  const modo=viEtapa==='vocab'?viModo:viExprModo;
+  if(modo==='um'){
     viRenderUm();
   } else {
     viRenderLista();
@@ -927,6 +1020,7 @@ function viRender(){
 }
 
 function viRenderUm(){
+  if(viEtapa==='expr'){viRenderExprUm();return;}
   if(!viVocab.length){viIniciarDialogo();return;}
   const v=viVocab[viIdx];
   const total=viVocab.length;
@@ -970,8 +1064,14 @@ function viRenderUm(){
   document.getElementById('vi-btn-iniciar').style.display='none';
   const isUltima=viIdx>=total-1;
   const btnProx=document.getElementById('vi-btn-prox');
-  btnProx.textContent=isUltima?'Ver todas':'Próxima';
-  btnProx.onclick=isUltima?viMostrarTodas:viProximo;
+  if(isUltima){
+    // Se tem expressões, vai para lista de vocab e depois expressões
+    btnProx.textContent='Ver todas';
+    btnProx.onclick=viMostrarTodas;
+  } else {
+    btnProx.textContent='Próxima';
+    btnProx.onclick=viProximo;
+  }
   // Toca áudio automaticamente
   setTimeout(()=>{
     const btn=document.getElementById('vi-audio-btn');
@@ -980,6 +1080,7 @@ function viRenderUm(){
 }
 
 function viRenderLista(){
+  if(viEtapa==='expr'){viRenderExprLista();return;}
   document.getElementById('vi-prog-wrap').style.display='none';
   let html=`<div class="vi-lista">`;
   viVocab.forEach((v,i)=>{
@@ -1006,7 +1107,128 @@ function viRenderLista(){
   html+=`</div>`;
   document.getElementById('vi-corpo').innerHTML=html;
   document.getElementById('vi-nav').style.display='none';
-  document.getElementById('vi-btn-iniciar').style.display='block';
+  // Botão: ir para expressões se existirem, senão iniciar diálogo direto
+  const btnIni=document.getElementById('vi-btn-iniciar');
+  if(viExpr.length>0){
+    btnIni.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ver Expressões';
+    btnIni.onclick=viEntrarExpr;
+  } else {
+    btnIni.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Iniciar diálogo';
+    btnIni.onclick=viIniciarDialogo;
+  }
+  btnIni.style.display='block';
+}
+
+// ── EXPRESSÕES INTRODUTÓRIAS ─────────────
+function viRenderExprUm(){
+  const exprs=viExpr;
+  if(!exprs.length){viIniciarDialogo();return;}
+  const e=exprs[viExprIdx];
+  const total=exprs.length;
+  const pct=Math.round((viExprIdx/total)*100);
+  document.getElementById('vi-prog-wrap').style.display='flex';
+  document.getElementById('vi-prog-f').style.width=pct+'%';
+  document.getElementById('vi-prog-txt').textContent=(viExprIdx+1)+' de '+total;
+  const isUser=e.sua_vez;
+  const corBorda=isUser?'rgba(124,92,252,.3)':'rgba(79,142,247,.3)';
+  const corLabel=isUser?'var(--acc2)':'var(--acc)';
+  const labelTag=isUser
+    ?`<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc2);background:rgba(124,92,252,.1);padding:2px 8px;border-radius:6px;">Você</span>`
+    :`<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc);background:rgba(79,142,247,.1);padding:2px 8px;border-radius:6px;">${e.personagem}</span>`;
+  document.getElementById('vi-corpo').innerHTML=`
+    <div class="vi-card" style="border-color:${corBorda};text-align:left;">
+      <div style="margin-bottom:10px;">${labelTag}</div>
+      <div style="font-size:18px;font-weight:600;line-height:1.5;margin-bottom:8px;color:var(--txt);">${e.fala}</div>
+      <div style="font-size:13px;color:var(--tx2);line-height:1.5;padding-top:8px;border-top:1px solid var(--bd);">${e.traducao}</div>
+      ${e.connected?`<div class="vi-connected" style="margin-top:10px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Como nativo fala: <strong style="color:${corLabel};">${e.connected}</strong></div>`:''}
+      ${e.nativo?`<div style="font-size:12px;color:var(--grn);margin-top:8px;line-height:1.4;"><span style="font-weight:700;">Nativo:</span> ${e.nativo}</div>`:''}
+      ${e.erro?`<div style="font-size:12px;color:var(--red);margin-top:4px;line-height:1.4;"><span style="font-weight:700;">Erro comum:</span> ${e.erro}</div>`:''}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;">
+        <button class="vi-audio-btn" id="vi-audio-btn" onclick="viOuvirExpr(this)" style="border-color:${corBorda};color:${corLabel};">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir
+        </button>
+        ${e.connected?`<button class="vi-audio-btn" onclick="falarVocab(${aE(e.connected)},this)" style="background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Nativo
+        </button>`:''}
+      </div>
+    </div>`;
+  // Limpa resultado anterior
+  const res=document.getElementById('vi-rec-resultado');
+  if(res){res.style.display='none';res.innerHTML='';}
+  const shadBtn=document.getElementById('vi-shad-btn');
+  if(shadBtn){
+    viShadEstado='idle';
+    shadBtn.style.background='rgba(34,197,94,.08)';
+    shadBtn.style.borderColor='rgba(34,197,94,.3)';
+    shadBtn.style.color='var(--grn)';
+    shadBtn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';
+  }
+  document.getElementById('vi-nav').style.display='flex';
+  document.getElementById('vi-btn-iniciar').style.display='none';
+  const isUltima=viExprIdx>=total-1;
+  const btnProx=document.getElementById('vi-btn-prox');
+  btnProx.textContent=isUltima?'Ver todas':'Próxima';
+  btnProx.onclick=isUltima?viExprMostrarTodas:viExprProxima;
+  // Toca áudio automaticamente
+  setTimeout(()=>{const btn=document.getElementById('vi-audio-btn');if(btn)viOuvirExpr(btn);},400);
+}
+
+function viRenderExprLista(){
+  document.getElementById('vi-prog-wrap').style.display='none';
+  let html=`<div class="vi-lista">`;
+  viExpr.forEach((e,i)=>{
+    const isUser=e.sua_vez;
+    const corLabel=isUser?'var(--acc2)':'var(--acc)';
+    const labelTag=isUser
+      ?`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc2);background:rgba(124,92,252,.1);padding:2px 6px;border-radius:4px;">Você</span>`
+      :`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc);background:rgba(79,142,247,.1);padding:2px 6px;border-radius:4px;">${e.personagem}</span>`;
+    html+=`<div class="vi-item" style="flex-direction:column;align-items:flex-start;gap:6px;padding:12px 0;">
+      <div style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+        <div style="flex:1;">
+          <div style="margin-bottom:4px;">${labelTag}</div>
+          <div class="vi-item-palavra" style="font-size:14px;">${e.fala}</div>
+          <div class="vi-item-sig">${e.traducao}</div>
+          ${e.connected?`<div style="font-size:12px;color:${corLabel};font-style:italic;margin-top:4px;">"${e.connected}"</div>`:''}
+          ${e.nativo?`<div style="font-size:11px;color:var(--grn);margin-top:4px;"><span style="font-weight:700;">Nativo:</span> ${e.nativo}</div>`:''}
+          ${e.erro?`<div style="font-size:11px;color:var(--red);margin-top:2px;"><span style="font-weight:700;">Erro:</span> ${e.erro}</div>`:''}
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
+          <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(e.fala)},this)" title="Ouvir">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+          ${e.connected?`<button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="falarVocab(${aE(e.connected)},this)" title="Nativo">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>`:'' }
+          <button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--grn);" onclick="viShadowingLista(${aE(e.connected||e.fala)},${aE(e.fala)},this)" title="Repetir">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>`;
+  });
+  html+=`</div>`;
+  document.getElementById('vi-corpo').innerHTML=html;
+  document.getElementById('vi-nav').style.display='none';
+  const btnIni=document.getElementById('vi-btn-iniciar');
+  btnIni.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Iniciar diálogo';
+  btnIni.onclick=viIniciarDialogo;
+  btnIni.style.display='block';
+}
+
+function viOuvirExpr(btn){
+  const e=viExpr[viExprIdx];
+  if(e)falarVocab(e.fala,btn);
+}
+
+function viExprProxima(){
+  if(viExprIdx<viExpr.length-1){viExprIdx++;viRenderExprUm();}
+}
+
+function viExprMostrarTodas(){
+  viExprModo='lista';
+  document.getElementById('vi-modo-lista').classList.add('on');
+  document.getElementById('vi-modo-um').classList.remove('on');
+  viRenderExprLista();
 }
 
 function viOuvir(btn){
@@ -1021,10 +1243,15 @@ function viRepetir(){
 }
 
 function viShadowingNav(btn){
-  // Usa o botão fixo da nav — mesmo padrão dois toques
-  const v=viVocab[viIdx];
-  if(!v)return;
-  viShadowing(v.connected||v.palavra,btn);
+  if(viEtapa==='expr'){
+    const e=viExpr[viExprIdx];
+    if(!e)return;
+    viShadowing(e.connected||e.fala,btn);
+  } else {
+    const v=viVocab[viIdx];
+    if(!v)return;
+    viShadowing(v.connected||v.palavra,btn);
+  }
 }
 
 let viShadRec=null;
@@ -1193,6 +1420,7 @@ function iniciarRevisao(){
 function renderTurno(){
   if(di>=dq.length){finalizarSessao();return;}
   const item=dq[di];itemAt=item;
+  shadEstado='idle';shadFraseAt='';
   document.getElementById('spr').style.width=(di/dq.length*100)+'%';
   document.getElementById('scnt').textContent=(di+1)+' de '+dq.length;
   const p=gP();
@@ -1226,7 +1454,8 @@ function renderTurno(){
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
         <button class="btn-audio" onclick="falar(${aE(item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
         <button class="btn-audio" style="background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="iniciarShadowing(${aE(item.connected||item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
-      </div>`;
+      </div>
+      <div id="shad-pron-r" class="pron-r" style="display:none;margin-top:10px;"></div>`;
     if(item.connected){
       html+=`<div class="conn" style="margin-top:10px">
         <div class="conn-lbl"><span>Como nativo fala</span>
@@ -1260,7 +1489,8 @@ function renderTurno(){
     html+=`<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
       <button class="btn-audio" onclick="falar(${aE(item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
       <button class="btn-audio" style="background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="iniciarShadowing(${aE(item.connected_voce||item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
-    </div>`;
+    </div>
+    <div id="shad-pron-r" class="pron-r" style="display:none;margin-top:10px;"></div>`;
     html+=`</div><button class="btn-p" onclick="irParaRes('exposicao')">Ver detalhes</button>`;
   }
   else if(modoAt==='reconhecimento'){
@@ -1430,7 +1660,14 @@ function compararPronuncia(dito,modelo){
   const pd=norm(dito).split(/\s+/);
   const pm=norm(modelo).split(/\s+/);
   const palavras=modelo.split(/\s+/);
-  let html='<div style="font-size:10px;color:var(--tx3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Comparação palavra a palavra</div>';
+  const acertos=pm.filter((p,i)=>pd[i]===p).length;
+  const pct=pm.length>0?Math.round(acertos/pm.length*100):0;
+  const cor=pct>=80?'var(--grn)':pct>=50?'var(--ylw)':'var(--red)';
+  const msg=pct>=80?'Ótima pronúncia!':pct>=50?'Quase lá, tente mais uma vez':'Continue praticando';
+  let html=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+    <div style="font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;">Comparação palavra a palavra</div>
+    <div style="font-size:12px;font-weight:700;color:${cor};">${pct}% — ${msg}</div>
+  </div>`;
   palavras.forEach((pal,i)=>{
     const puro=norm(pal);
     const dPuro=pd[i]||'';
@@ -1438,7 +1675,22 @@ function compararPronuncia(dito,modelo){
     else if(dPuro)html+=`<span class="pe" title="Você disse: ${dPuro}">${pal} </span>`;
     else html+=`<span style="color:var(--tx3)">${pal} </span>`;
   });
-  const pr=document.getElementById('pron-r');
+  if(pd.length>pm.length){
+    html+=`<div style="font-size:11px;color:var(--tx3);margin-top:6px;">Você disse: "${dito}"</div>`;
+  }
+  let pr=document.getElementById('pron-r');
+  if(!pr){
+    pr=document.getElementById('shad-pron-r');
+    if(!pr){
+      pr=document.createElement('div');
+      pr.id='shad-pron-r';
+      pr.className='pron-r';
+      pr.style.marginTop='10px';
+      const fbox=document.querySelector('.fbox.vc, .fbox.at');
+      if(fbox){fbox.appendChild(pr);}
+      else{const scon=document.getElementById('scon');if(scon)scon.appendChild(pr);}
+    }
+  }
   if(pr){pr.innerHTML=html;pr.style.display='block';}
 }
 
@@ -1942,6 +2194,178 @@ function mostrarToast(m){
   const t=document.getElementById('toast');
   t.textContent=m;t.classList.add('vis');
   clearTimeout(ttt);ttt=setTimeout(()=>t.classList.remove('vis'),2500);
+}
+
+// ── BIBLIOTECA ───────────────────────────
+let bibAba='vocab';      // 'vocab' | 'expr'
+let bibFase=null;        // null = todas
+
+function abrirBiblioteca(){
+  bibAba='vocab';bibFase=null;
+  irPara('biblioteca');
+  bibRenderFiltros();
+  bibRender();
+}
+
+function bibSetAba(a){
+  bibAba=a;
+  document.getElementById('bib-tab-vocab').classList.toggle('on',a==='vocab');
+  document.getElementById('bib-tab-expr').classList.toggle('on',a==='expr');
+  bibRender();
+}
+
+function bibRenderFiltros(){
+  const fases=[
+    {id:null,label:'Todas'},
+    {id:0,label:'Introdução'},
+    {id:1,label:'Fase 1'},
+    {id:2,label:'Fase 2'},
+    {id:3,label:'Fase 3'},
+  ];
+  const el=document.getElementById('bib-filtros');
+  if(!el)return;
+  el.innerHTML=fases.map(f=>`
+    <button onclick="bibSetFase(${f.id===null?'null':f.id})"
+      style="padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .15s;
+      background:${bibFase===f.id?'var(--acc)':'var(--s2)'};
+      border:1px solid ${bibFase===f.id?'var(--acc)':'var(--bd)'};
+      color:${bibFase===f.id?'#fff':'var(--tx2)'};">
+      ${f.label}
+    </button>`).join('');
+}
+
+function bibSetFase(f){
+  bibFase=f;
+  bibRenderFiltros();
+  bibRender();
+}
+
+function bibRender(){
+  const corpo=document.getElementById('bib-corpo');
+  if(!corpo)return;
+  corpo.innerHTML='';
+
+  // Filtra mundos pela fase selecionada
+  const mcs=bibFase===null?MCFG:MCFG.filter(mc=>mc.fase===bibFase);
+
+  mcs.forEach(mc=>{
+    const m=mundos.find(x=>x.id===mc.id);
+    if(!m||!m.situacoes||!m.situacoes.length)return;
+
+    m.situacoes.forEach(s=>{
+      const items=bibAba==='vocab'?bibColetarVocab(s):bibColetarExpr(s);
+      if(!items.length)return;
+
+      // Cabeçalho do grupo (mundo + situação)
+      const grp=document.createElement('div');
+      grp.style.cssText='margin-bottom:18px;';
+      const nvCor=['','var(--grn)','var(--ylw)','var(--red)'][s.nivel]||'var(--tx3)';
+      grp.innerHTML=`
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+          <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--tx3);">${m.nome}</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <span style="font-size:13px;font-weight:600;color:var(--txt);">${s.titulo}</span>
+          <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;background:${nvCor}22;color:${nvCor};">N${s.nivel}</span>
+        </div>
+        <div class="vi-lista" id="bib-lista-${mc.id}-${s.id.replace(/[^a-z0-9]/gi,'_')}"></div>`;
+      corpo.appendChild(grp);
+
+      const lista=grp.querySelector('.vi-lista');
+      if(bibAba==='vocab'){
+        items.forEach(v=>{
+          lista.innerHTML+=`<div class="vi-item">
+            <div class="vi-item-info">
+              <div class="vi-item-palavra">${v.palavra}</div>
+              <div class="vi-item-sig">${v.significado}</div>
+              ${v.acento?`<div class="vi-item-acento">${v.acento}</div>`:''}
+              ${v.connected?`<div style="font-size:12px;color:var(--acc2);font-style:italic;margin-top:2px;">"${v.connected}"</div>`:''}
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
+              <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(v.palavra)},this)" title="Ouvir">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              ${v.connected?`<button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="falarVocab(${aE(v.connected)},this)" title="Nativo">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>`:'' }
+              <button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--grn);" onclick="viShadowingLista(${aE(v.connected||v.palavra)},${aE(v.palavra)},this)" title="Repetir">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </button>
+            </div>
+          </div>`;
+        });
+      } else {
+        // Expressões
+        items.forEach(e=>{
+          const isUser=e.sua_vez;
+          const corLabel=isUser?'var(--acc2)':'var(--acc)';
+          const labelTag=isUser
+            ?`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc2);background:rgba(124,92,252,.1);padding:2px 6px;border-radius:4px;">Você</span>`
+            :`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc);background:rgba(79,142,247,.1);padding:2px 6px;border-radius:4px;">${e.personagem}</span>`;
+          lista.innerHTML+=`<div class="vi-item" style="flex-direction:column;align-items:flex-start;gap:6px;padding:12px 0;">
+            <div style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+              <div style="flex:1;">
+                <div style="margin-bottom:4px;">${labelTag}</div>
+                <div class="vi-item-palavra" style="font-size:14px;">${e.fala}</div>
+                <div class="vi-item-sig">${e.traducao}</div>
+                ${e.connected?`<div style="font-size:12px;color:${corLabel};font-style:italic;margin-top:4px;">"${e.connected}"</div>`:''}
+                ${e.nativo?`<div style="font-size:11px;color:var(--grn);margin-top:4px;"><span style="font-weight:700;">Nativo:</span> ${e.nativo}</div>`:''}
+                ${e.erro?`<div style="font-size:11px;color:var(--red);margin-top:2px;"><span style="font-weight:700;">Erro:</span> ${e.erro}</div>`:''}
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
+                <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(e.fala)},this)" title="Ouvir">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+                ${e.connected?`<button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="falarVocab(${aE(e.connected)},this)" title="Nativo">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>`:'' }
+                <button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--grn);" onclick="viShadowingLista(${aE(e.connected||e.fala)},${aE(e.fala)},this)" title="Repetir">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>`;
+        });
+      }
+    });
+  });
+
+  if(!corpo.children.length){
+    corpo.innerHTML=`<div style="text-align:center;color:var(--tx3);padding:40px 20px;font-size:14px;">
+      Nenhum item encontrado.<br>Complete algumas situações primeiro.
+    </div>`;
+  }
+}
+
+function bibColetarVocab(s){
+  // Coleta vocab de todos os turnos da situação
+  const items=[];
+  const vistas=new Set();
+  s.dialogo.forEach(t=>{
+    if(t.vocab&&t.vocab.length){
+      t.vocab.forEach(v=>{
+        if(!vistas.has(v.palavra)){
+          vistas.add(v.palavra);
+          items.push(v);
+        }
+      });
+    }
+  });
+  return items;
+}
+
+function bibColetarExpr(s){
+  // Coleta todas as falas com traducao
+  return s.dialogo
+    .filter(t=>t.fala&&t.traducao)
+    .map(t=>({
+      fala:t.fala,
+      traducao:t.traducao,
+      connected:t.sua_vez?(t.connected_voce||null):(t.connected||null),
+      sua_vez:t.sua_vez,
+      personagem:t.personagem||'Interlocutor',
+      nativo:t.nativo||null,
+      erro:t.erro||null
+    }));
 }
 
 // ── TEMA ─────────────────────────────────
