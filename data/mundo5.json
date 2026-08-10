@@ -1,0 +1,433 @@
+{
+  "id": 5,
+  "nome": "Hotel — Check-in",
+  "descricao": "Reserva, confirmação, entrega de chave e resolução de problemas na chegada ao hotel.",
+  "imagem": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+  "situacoes": [
+    {
+      "id": "hotel-01",
+      "titulo": "Fazendo o check-in",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800",
+      "dialogo": [
+        {
+          "id": "hotel-01-01",
+          "turno": 1,
+          "cena": "Você chega à recepção do hotel após uma longa viagem.",
+          "personagem": "Receptionist",
+          "fala": "Good evening! Checking in?",
+          "traducao": "Boa noite! Fazendo check-in?",
+          "connected": "Good evening! Checking in?",
+          "blocos": [
+            { "bloco": "Checking in?", "significa": "forma reduzida de 'Are you checking in?'" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "reservation", "significado": "reserva", "acento": "reserVAtion" },
+            { "palavra": "check-in / check-out", "significado": "entrada / saída do hotel", "acento": "CHECK-in / CHECK-out" },
+            { "palavra": "confirmation number", "significado": "número de confirmação", "acento": "confirMAtion NUMber" },
+            { "palavra": "key card", "significado": "cartão-chave", "acento": "KEY card" },
+            { "palavra": "front desk", "significado": "recepção", "acento": "FRONT desk" }
+          ],
+          "nativo": "'Checking in?' sozinho é super comum na recepção — não precisa da pergunta completa.",
+          "erro": "Não diga 'I want to check-in' — o mais natural é simplesmente confirmar 'Yes, checking in'."
+        },
+        {
+          "id": "hotel-01-02",
+          "turno": 2,
+          "cena": "Você confirma e dá seu nome.",
+          "personagem": "Você",
+          "fala": "Yes, under Juliano Coco.",
+          "traducao": "Sim, no nome de Juliano Coco.",
+          "sua_vez": true,
+          "connected_voce": "Yes, under Juliano Coco.",
+          "acento": "Yes, UNder juLIano COco.",
+          "alternativas": [
+            "Yes, the reservation is under Juliano Coco.",
+            "Yes, I have a reservation. Juliano Coco.",
+            "Yes, checking in — name's Juliano Coco."
+          ],
+          "alts_traducoes": [
+            "Sim, a reserva está no nome de Juliano Coco.",
+            "Sim, tenho uma reserva. Juliano Coco.",
+            "Sim, fazendo check-in — o nome é Juliano Coco."
+          ],
+          "vocab": [
+            { "palavra": "under [name]", "significado": "no nome de", "acento": "UNder" }
+          ],
+          "nativo": "'Under [name]' é a forma padrão de referenciar uma reserva — muito usado em hotéis e restaurantes.",
+          "erro": "Não diga 'in the name of' — soa mais formal e menos natural que simplesmente 'under'."
+        },
+        {
+          "id": "hotel-01-03",
+          "turno": 3,
+          "cena": "A recepcionista confirma os detalhes.",
+          "personagem": "Receptionist",
+          "fala": "Perfect, I have you for 3 nights, one king bed?",
+          "traducao": "Perfeito, tenho aqui 3 noites, uma cama king?",
+          "connected": "Perfect, I have ya for three nights, one king bed?",
+          "blocos": [
+            { "bloco": "I have you for", "significa": "Tenho registrado para você — usado para confirmar reserva" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "king bed / queen bed", "significado": "cama king / queen (tamanhos)", "acento": "KING bed / QUEEN bed" },
+            { "palavra": "I have you for...", "significado": "Tenho registrado para você...", "acento": "I have you for" }
+          ],
+          "nativo": "'I have you for X nights' é a forma padrão de confirmar reserva — recepcionistas usam isso o tempo todo.",
+          "erro": "Não confunda 'king bed' (cama de casal extra grande) com 'queen bed' (casal padrão) — são tamanhos diferentes."
+        },
+        {
+          "id": "hotel-01-04",
+          "turno": 4,
+          "cena": "Você confirma.",
+          "personagem": "Você",
+          "fala": "That's right, three nights.",
+          "traducao": "Isso mesmo, três noites.",
+          "sua_vez": true,
+          "connected_voce": "That's right, three nights.",
+          "acento": "that's RIGHT, three NIGHTS.",
+          "alternativas": [
+            "Correct, three nights.",
+            "Yes, that's it.",
+            "That's correct."
+          ],
+          "alts_traducoes": [
+            "Correto, três noites.",
+            "Sim, isso mesmo.",
+            "Está correto."
+          ],
+          "vocab": [
+            { "palavra": "That's right", "significado": "Isso mesmo", "acento": "that's RIGHT" }
+          ],
+          "nativo": "'That's right' é a confirmação mais natural em inglês — muito mais usado que 'that is correct' em conversa.",
+          "erro": "Não diga 'It's correct' — soa mais formal. 'That's right' é mais natural no dia a dia."
+        },
+        {
+          "id": "hotel-01-05",
+          "turno": 5,
+          "cena": "A recepcionista pede o cartão de crédito.",
+          "personagem": "Receptionist",
+          "fala": "I'll need a credit card for incidentals.",
+          "traducao": "Vou precisar de um cartão de crédito para incidentais.",
+          "connected": "I'll need a credit card for incidentals.",
+          "blocos": [
+            { "bloco": "incidentals", "significa": "gastos extras/incidentais — como frigobar, room service" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "incidentals", "significado": "gastos extras (frigobar, serviços)", "acento": "inciDENtals" },
+            { "palavra": "deposit", "significado": "depósito / caução", "acento": "dePOsit" }
+          ],
+          "nativo": "'Incidentals' é sempre mencionado no check-in — é uma pré-autorização, não uma cobrança imediata.",
+          "erro": "Não se assuste com esse pedido — é padrão em hotéis americanos, mesmo com reserva já paga."
+        },
+        {
+          "id": "hotel-01-06",
+          "turno": 6,
+          "cena": "Você entrega o cartão.",
+          "personagem": "Você",
+          "fala": "Sure, here you go.",
+          "traducao": "Claro, aqui está.",
+          "sua_vez": true,
+          "connected_voce": "Sure, here ya go.",
+          "acento": "SURE, here you GO.",
+          "alternativas": [
+            "No problem, here it is.",
+            "Of course, here you go.",
+            "Sure thing, here's my card."
+          ],
+          "alts_traducoes": [
+            "Sem problema, aqui está.",
+            "Claro, aqui está.",
+            "Claro, aqui está meu cartão."
+          ],
+          "vocab": [
+            { "palavra": "Sure thing", "significado": "Claro / Com certeza (casual)", "acento": "SURE thing" }
+          ],
+          "nativo": "'Sure thing' é uma resposta casual e amigável muito comum nos EUA.",
+          "erro": "Não hesite ao entregar o cartão — é procedimento padrão, não gere estranhamento."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The receptionist finishes processing and hands you your key.",
+        "turnos": [
+          {
+            "id": "dl-hotel01-01",
+            "personagem": "Receptionist",
+            "fala": "Here's your key. You're in room 512, elevators are to your left. Anything else?",
+            "traducao": "Aqui está sua chave. Você está no quarto 512, os elevadores ficam à sua esquerda. Mais alguma coisa?",
+            "connected": "Here's yer key. Yer in room five-twelve, elevators are to yer left. Anything else?",
+            "respostas_esperadas": [
+              "No, that's all. Thank you!",
+              "No, this is great, thanks.",
+              "That's everything, thank you so much."
+            ],
+            "resposta_modelo": "No, this is perfect. Thank you so much for your help!",
+            "feedback_modelo": "Encerrar o check-in com um agradecimento específico ('for your help') é mais caloroso que um 'thanks' genérico. 'This is perfect' confirma que tudo está resolvido sem soar seco."
+          }
+        ]
+      }
+    },
+    {
+      "id": "hotel-02",
+      "titulo": "Problema com a reserva",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800",
+      "dialogo": [
+        {
+          "id": "hotel-02-01",
+          "turno": 1,
+          "cena": "A recepcionista não encontra sua reserva no sistema.",
+          "personagem": "Receptionist",
+          "fala": "I'm sorry, I'm not finding a reservation under that name.",
+          "traducao": "Sinto muito, não estou encontrando uma reserva nesse nome.",
+          "connected": "I'm sorry, I'm not finding a reservation under that name.",
+          "blocos": [
+            { "bloco": "I'm not finding", "significa": "Não estou encontrando — present continuous para ação em andamento" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "I'm not finding", "significado": "Não estou encontrando", "acento": "I'm not FINDing" },
+            { "palavra": "confirmation email", "significado": "email de confirmação", "acento": "confirMAtion email" },
+            { "palavra": "booking reference", "significado": "código de reserva", "acento": "BOOKing REFerence" },
+            { "palavra": "double-check", "significado": "verificar novamente", "acento": "DOUble-check" },
+            { "palavra": "system", "significado": "sistema", "acento": "SYStem" }
+          ],
+          "nativo": "'I'm not finding' é mais suave que 'I can't find' — usado para não soar tão definitivo enquanto ainda procura.",
+          "erro": "Não entre em pânico — problemas de reserva são comuns e geralmente resolvidos rapidamente com o email de confirmação."
+        },
+        {
+          "id": "hotel-02-02",
+          "turno": 2,
+          "cena": "Você mostra a confirmação no celular.",
+          "personagem": "Você",
+          "fala": "I have the confirmation email right here.",
+          "traducao": "Tenho o email de confirmação bem aqui.",
+          "sua_vez": true,
+          "connected_voce": "I have the confirmation email right here.",
+          "acento": "I have the confirMAtion email RIGHT here.",
+          "alternativas": [
+            "Let me show you the confirmation email.",
+            "I've got the booking confirmation on my phone.",
+            "Here, I have the confirmation on my phone."
+          ],
+          "alts_traducoes": [
+            "Deixa eu te mostrar o email de confirmação.",
+            "Tenho a confirmação da reserva no celular.",
+            "Aqui, tenho a confirmação no celular."
+          ],
+          "vocab": [
+            { "palavra": "right here", "significado": "bem aqui", "acento": "RIGHT here" },
+            { "palavra": "on my phone", "significado": "no meu celular", "acento": "on my PHONE" }
+          ],
+          "nativo": "Sempre tenha a confirmação salva offline ou por email — internet do aeroporto/hotel pode falhar no momento crítico.",
+          "erro": "Não fique nervoso ou impaciente — mostrar o documento calmamente resolve rapidamente."
+        },
+        {
+          "id": "hotel-02-03",
+          "turno": 3,
+          "cena": "A recepcionista pede o código de reserva.",
+          "personagem": "Receptionist",
+          "fala": "Great, do you see a booking reference number?",
+          "traducao": "Ótimo, você vê um número de código de reserva?",
+          "connected": "Great, d'ya see a booking reference number?",
+          "blocos": [
+            { "bloco": "Do you see", "significa": "D'ya see — 'do you' some em fala rápida" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "booking reference number", "significado": "número de código de reserva", "acento": "BOOKing REFerence" }
+          ],
+          "nativo": "O booking reference geralmente tem letras e números misturados — leia devagar e com clareza.",
+          "erro": "Não leia o código rápido demais — soletre se necessário para evitar erros de transcrição."
+        },
+        {
+          "id": "hotel-02-04",
+          "turno": 4,
+          "cena": "Você fornece o código.",
+          "personagem": "Você",
+          "fala": "Yes, it's ABC123.",
+          "traducao": "Sim, é ABC123.",
+          "sua_vez": true,
+          "connected_voce": "Yes, it's A-B-C one-two-three.",
+          "acento": "Yes, it's A-B-C one-two-three.",
+          "alternativas": [
+            "Yes, here it is: ABC123.",
+            "Got it — ABC123.",
+            "Yes, the code is ABC123."
+          ],
+          "alts_traducoes": [
+            "Sim, aqui está: ABC123.",
+            "Achei — ABC123.",
+            "Sim, o código é ABC123."
+          ],
+          "vocab": [
+            { "palavra": "the code is...", "significado": "o código é...", "acento": "the CODE is" }
+          ],
+          "nativo": "Ao soletrar letras e números, fale devagar e pause entre cada caractere para clareza.",
+          "erro": "Não diga os números como uma sequência única confusa — separe claramente cada caractere."
+        },
+        {
+          "id": "hotel-02-05",
+          "turno": 5,
+          "cena": "A recepcionista encontra a reserva.",
+          "personagem": "Receptionist",
+          "fala": "Found it! Sorry about that. Here's your key.",
+          "traducao": "Encontrei! Desculpe por isso. Aqui está sua chave.",
+          "connected": "Found it! Sorry about that. Here's yer key.",
+          "blocos": [
+            { "bloco": "Sorry about that", "significa": "Desculpe por isso — pedido de desculpas casual" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "Found it!", "significado": "Encontrei!", "acento": "FOUND it!" },
+            { "palavra": "Sorry about that", "significado": "Desculpe por isso", "acento": "SORry about THAT" }
+          ],
+          "nativo": "'Sorry about that' é uma forma casual e genuína de pedir desculpas por um pequeno inconveniente.",
+          "erro": "Não guarde ressentimento por pequenos erros de sistema — são comuns e geralmente resolvidos rápido."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "With the issue resolved, the receptionist wants to make sure everything else is fine.",
+        "turnos": [
+          {
+            "id": "dl-hotel02-01",
+            "personagem": "Receptionist",
+            "fala": "Again, sorry for the confusion. Is there anything I can do to make it up to you?",
+            "traducao": "De novo, desculpe pela confusão. Tem algo que eu possa fazer para compensar?",
+            "connected": "Again, sorry for the confusion. Is there anything I can do to make it up to ya?",
+            "respostas_esperadas": [
+              "No worries, it happens.",
+              "It's totally fine, don't worry about it.",
+              "No, really, it's not a big deal."
+            ],
+            "resposta_modelo": "No worries at all, it happens. I appreciate you sorting it out quickly.",
+            "feedback_modelo": "'No worries' é uma forma muito natural e amigável de aceitar desculpas em inglês americano/australiano. 'It happens' mostra compreensão. Elogiar a rapidez na resolução ('sorting it out quickly') deixa a interação positiva."
+          }
+        ]
+      }
+    },
+    {
+      "id": "hotel-03",
+      "titulo": "Perguntando sobre comodidades",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800",
+      "dialogo": [
+        {
+          "id": "hotel-03-01",
+          "turno": 1,
+          "cena": "Antes de subir ao quarto, você pergunta sobre as comodidades do hotel.",
+          "personagem": "Você",
+          "fala": "Does the hotel have a gym or pool?",
+          "traducao": "O hotel tem academia ou piscina?",
+          "sua_vez": true,
+          "connected_voce": "Does the hotel have a gym or pool?",
+          "acento": "DOES the hoTEL have a GYM or POOL?",
+          "alternativas": [
+            "Is there a gym in the hotel?",
+            "Do you guys have a pool?",
+            "What amenities does the hotel have?"
+          ],
+          "alts_traducoes": [
+            "Tem academia no hotel?",
+            "Vocês têm piscina?",
+            "Que comodidades o hotel tem?"
+          ],
+          "vocab": [
+            { "palavra": "gym", "significado": "academia", "acento": "GYM" },
+            { "palavra": "pool", "significado": "piscina", "acento": "POOL" },
+            { "palavra": "amenities", "significado": "comodidades", "acento": "aMEnities" },
+            { "palavra": "breakfast included", "significado": "café da manhã incluso", "acento": "BREAKfast inCLUDed" },
+            { "palavra": "Wi-Fi password", "significado": "senha do Wi-Fi", "acento": "Wi-Fi PASSword" }
+          ],
+          "nativo": "'Amenities' é o termo formal para comodidades do hotel — usado em placas e sites oficiais.",
+          "erro": "Não diga 'facilities' quando quer dizer comodidades gerais — 'amenities' é mais específico para hotéis."
+        },
+        {
+          "id": "hotel-03-02",
+          "turno": 2,
+          "cena": "A recepcionista responde.",
+          "personagem": "Receptionist",
+          "fala": "Yes, both are on the 3rd floor, open 24 hours.",
+          "traducao": "Sim, ambos ficam no 3º andar, abertos 24 horas.",
+          "connected": "Yes, both are on the third floor, open twenty-four hours.",
+          "blocos": [
+            { "bloco": "open 24 hours", "significa": "aberto 24 horas" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "3rd floor", "significado": "3º andar", "acento": "THIRD floor" },
+            { "palavra": "open 24 hours", "significado": "aberto 24 horas", "acento": "open twenty-FOUR hours" }
+          ],
+          "nativo": "Nos EUA o térreo é o '1st floor' — diferente do Brasil onde o térreo não conta como andar.",
+          "erro": "Não confunda numeração de andares — pergunte se tiver dúvida, já que varia entre países."
+        },
+        {
+          "id": "hotel-03-03",
+          "turno": 3,
+          "cena": "Você pergunta sobre o café da manhã.",
+          "personagem": "Você",
+          "fala": "Is breakfast included?",
+          "traducao": "O café da manhã está incluso?",
+          "sua_vez": true,
+          "connected_voce": "Izz breakfast included?",
+          "acento": "is BREAKfast inCLUDed?",
+          "alternativas": [
+            "Does the room rate include breakfast?",
+            "Is there breakfast with the room?",
+            "Do you guys serve breakfast?"
+          ],
+          "alts_traducoes": [
+            "A diária inclui café da manhã?",
+            "Tem café da manhã com o quarto?",
+            "Vocês servem café da manhã?"
+          ],
+          "vocab": [
+            { "palavra": "included", "significado": "incluso", "acento": "inCLUDed" },
+            { "palavra": "room rate", "significado": "diária / tarifa do quarto", "acento": "ROOM rate" }
+          ],
+          "nativo": "'Is X included?' é a estrutura padrão para perguntar sobre o que está ou não na diária.",
+          "erro": "Não presuma que café da manhã está incluso — sempre confirme, pois varia muito entre hotéis."
+        },
+        {
+          "id": "hotel-03-04",
+          "turno": 4,
+          "cena": "A recepcionista informa o horário do café.",
+          "personagem": "Receptionist",
+          "fala": "Yes, from 6 to 10 AM in the lobby restaurant.",
+          "traducao": "Sim, das 6 às 10 da manhã no restaurante do lobby.",
+          "connected": "Yes, from six to ten AM in the lobby restaurant.",
+          "blocos": [
+            { "bloco": "in the lobby restaurant", "significa": "no restaurante do lobby" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "lobby", "significado": "saguão / recepção", "acento": "LOBby" }
+          ],
+          "nativo": "'Lobby' se refere à área de entrada/recepção do hotel — diferente de 'front desk', que é especificamente o balcão.",
+          "erro": "Não confunda 'lobby' com 'front desk' — lobby é o espaço, front desk é o balcão de atendimento."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You have one more question before heading to your room.",
+        "turnos": [
+          {
+            "id": "dl-hotel03-01",
+            "personagem": "Receptionist",
+            "fala": "Anything else you'd like to know?",
+            "traducao": "Mais alguma coisa que gostaria de saber?",
+            "connected": "Anything else you'd like ta know?",
+            "respostas_esperadas": [
+              "What's the Wi-Fi password?",
+              "Just the Wi-Fi password, please.",
+              "Yes, what's the Wi-Fi password?"
+            ],
+            "resposta_modelo": "Yes, actually — what's the Wi-Fi password?",
+            "feedback_modelo": "'Actually' antes da pergunta soa natural quando você está lembrando de algo no momento. Wi-Fi é uma das perguntas mais comuns e esperadas em check-ins — não hesite em perguntar."
+          }
+        ]
+      }
+    }
+  ]
+}

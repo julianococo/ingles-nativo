@@ -1,0 +1,1070 @@
+{
+  "id": 10,
+  "nome": "Passeios e Turismo",
+  "descricao": "Ingressos, tours guiados, atrações, museus e dicas locais. Tudo para aproveitar qualquer destino com confiança.",
+  "imagem": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800",
+  "situacoes": [
+    {
+      "id": "tur-01",
+      "titulo": "Comprando ingressos",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800",
+      "dialogo": [
+        {
+          "id": "tur-01-01",
+          "turno": 1,
+          "cena": "Você chega na bilheteria de um museu.",
+          "personagem": "Atendente",
+          "fala": "Hi! How many tickets would you like today?",
+          "traducao": "Oi! Quantos ingressos você gostaria hoje?",
+          "connected": "Hi! How many tickets would ya like today?",
+          "blocos": [
+            { "bloco": "would you", "significa": "vira 'would ya' — redução comum em atendimento" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "ticket", "significado": "ingresso", "acento": "TICKet" },
+            { "palavra": "adult / child", "significado": "adulto / criança", "acento": "aDULT" },
+            { "palavra": "guided tour", "significado": "tour guiado", "acento": "GUIDed tour" },
+            { "palavra": "skip the line", "significado": "pular a fila", "acento": "skip the LINE" },
+            { "palavra": "general admission", "significado": "entrada geral (sem horário fixo)", "acento": "GENeral adMISsion" }
+          ],
+          "nativo": "Nos EUA, 'line' é usado para fila; 'queue' é mais comum no inglês britânico.",
+          "erro": "Não diga 'how many tickets you want' sem inversão — o correto é 'how many tickets would you like'."
+        },
+        {
+          "id": "tur-01-02",
+          "turno": 2,
+          "cena": "Você pede dois ingressos, um adulto e uma criança.",
+          "personagem": "Você",
+          "fala": "Two tickets please — one adult and one child.",
+          "traducao": "Dois ingressos por favor — um adulto e uma criança.",
+          "sua_vez": true,
+          "acento": "TWO tickets please — one aDULT and one CHILD.",
+          "alternativas": [
+            "Can I get two tickets, one adult, one child?",
+            "I'd like two, please — an adult and a kid's ticket.",
+            "We need two tickets total, one adult one child."
+          ],
+          "alts_traducoes": [
+            "Posso pegar dois ingressos, um adulto, uma criança?",
+            "Eu gostaria de dois, por favor — um adulto e um infantil.",
+            "Precisamos de dois ingressos no total, um adulto uma criança."
+          ],
+          "vocab": [
+            { "palavra": "kid's ticket", "significado": "ingresso infantil (informal)", "acento": "KID's ticket" }
+          ],
+          "nativo": "'Kid's ticket' é uma forma mais informal e comum de dizer 'ingresso infantil' no dia a dia.",
+          "erro": "Não diga 'ticket for child' sem artigo — o correto é 'a child's ticket' ou 'one for a child'.",
+          "connected_voce": "Two tickets please — one adult an' one child."
+        },
+        {
+          "id": "tur-01-03",
+          "turno": 3,
+          "cena": "O atendente informa o preço total.",
+          "personagem": "Atendente",
+          "fala": "That'll be thirty five dollars in total.",
+          "traducao": "Vai dar trinta e cinco dólares no total.",
+          "connected": "That'll be thirty five dollars in total.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "in total", "significado": "no total", "acento": "in TOtal" }
+          ],
+          "nativo": "'That'll be' é a forma mais comum de informar um valor — igual ao que o caixa de qualquer loja diz.",
+          "erro": "Não diga 'the price is' de forma muito formal — 'that'll be' é o padrão natural no atendimento."
+        },
+        {
+          "id": "tur-01-04",
+          "turno": 4,
+          "cena": "O atendente oferece o tour guiado.",
+          "personagem": "Atendente",
+          "fala": "Would you like to add a guided tour? It's an extra ten dollars per person.",
+          "traducao": "Você gostaria de adicionar um tour guiado? São dez dólares extras por pessoa.",
+          "connected": "Would ya like ta add a guided tour? It's an extra ten dollars per person.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "per person", "significado": "por pessoa", "acento": "per PERson" }
+          ],
+          "nativo": "'Extra' antes do valor é o jeito comum de indicar um custo adicional nos EUA.",
+          "erro": "Não diga 'more ten dollars' — o correto é 'an extra ten dollars' ou 'ten dollars more'."
+        },
+        {
+          "id": "tur-01-05",
+          "turno": 5,
+          "cena": "Você decide não adicionar o tour.",
+          "personagem": "Você",
+          "fala": "No thanks, we'll just explore on our own.",
+          "traducao": "Não, obrigado, nós vamos só explorar sozinhos.",
+          "sua_vez": true,
+          "acento": "No THANKS, we'll just exPLORE on our OWN.",
+          "alternativas": [
+            "That's okay, we'll walk around by ourselves.",
+            "No thank you, we'll do it on our own.",
+            "We're good thanks — self-guided is fine."
+          ],
+          "alts_traducoes": [
+            "Tudo bem, vamos andar por conta própria.",
+            "Não obrigado, vamos fazer por conta própria.",
+            "Estamos bem, obrigado — autoguiado está ótimo."
+          ],
+          "vocab": [
+            { "palavra": "self-guided", "significado": "autoguiado (sem guia)", "acento": "SELF-guided" }
+          ],
+          "nativo": "'Self-guided' é o termo oficial usado em museus para quem visita sem guia.",
+          "erro": "Não diga 'by our self' — o correto no plural é 'by ourselves' ou 'on our own'.",
+          "connected_voce": "No thanks, we'll just explore on our own."
+        },
+        {
+          "id": "tur-01-06",
+          "turno": 6,
+          "cena": "O atendente entrega os ingressos e dá uma dica.",
+          "personagem": "Atendente",
+          "fala": "Here are your tickets. Audio guides are available at the entrance if you change your mind.",
+          "traducao": "Aqui estão seus ingressos. Audioguias estão disponíveis na entrada se você mudar de ideia.",
+          "connected": "Here er yer tickets. Audio guides er available at the entrance if ya change yer mind.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "audio guide", "significado": "audioguia", "acento": "AUdio guide" },
+            { "palavra": "change your mind", "significado": "mudar de ideia", "acento": "change yer MIND" }
+          ],
+          "nativo": "'If you change your mind' é uma forma educada de deixar a porta aberta para o cliente reconsiderar.",
+          "erro": "Não diga 'if you think different' — a expressão idiomática correta é 'if you change your mind'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You're buying tickets and the attendant mentions a combo deal with another attraction.",
+        "turnos": [
+          {
+            "id": "dl-tur01-01",
+            "personagem": "Atendente",
+            "fala": "We also have a combo deal with the aquarium next door. Want to hear about it?",
+            "traducao": "Também temos um pacote combinado com o aquário ao lado. Quer ouvir sobre?",
+            "connected": "We also have a combo deal with the aquarium next door. Wanna hear about it?",
+            "respostas_esperadas": [
+              "Sure, tell me more about it.",
+              "Yes, how much would that be?",
+              "Not right now, thanks."
+            ],
+            "resposta_modelo": "Sure, tell me more — how much would that be in total?",
+            "feedback_modelo": "Perguntar o valor total logo após demonstrar interesse é a forma mais direta e prática de avaliar uma oferta.",
+            "vocab_apoio": [
+              { "palavra": "combo deal", "significado": "pacote combinado com desconto", "acento": "COMbo deal" }
+            ]
+          },
+          {
+            "id": "dl-tur01-02",
+            "personagem": "Atendente",
+            "fala": "With the combo, you'd pay fifty instead of sixty. Valid all day.",
+            "traducao": "Com o combo, você pagaria cinquenta em vez de sessenta. Válido o dia todo.",
+            "connected": "With the combo, you'd pay fifty inSTEAD of sixty. Valid all day.",
+            "respostas_esperadas": [
+              "That sounds like a good deal, I'll take it.",
+              "Sure, let's add the combo.",
+              "That's a nice saving, yes please."
+            ],
+            "resposta_modelo": "That sounds like a great deal — let's go with the combo.",
+            "feedback_modelo": "'Let's go with' é uma forma natural e decisiva de confirmar a escolha após avaliar as opções.",
+            "vocab_apoio": [
+              { "palavra": "valid all day", "significado": "válido o dia todo", "acento": "VALid all day" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tur-02",
+      "titulo": "Participando de um tour guiado",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=800",
+      "dialogo": [
+        {
+          "id": "tur-02-01",
+          "turno": 1,
+          "cena": "O guia turístico reúne o grupo e se apresenta.",
+          "personagem": "Guia",
+          "fala": "Welcome everyone, my name's Sarah and I'll be your guide today.",
+          "traducao": "Bem-vindos a todos, meu nome é Sarah e eu serei o guia de vocês hoje.",
+          "connected": "Welcome everyone, my name's Sarah an' I'll be yer guide today.",
+          "blocos": [
+            { "bloco": "I'll be your guide", "significa": "estrutura padrão de apresentação de guia" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "feel free to", "significado": "fique à vontade para", "acento": "feel FREE to" },
+            { "palavra": "keep up", "significado": "acompanhar o ritmo do grupo", "acento": "keep UP" },
+            { "palavra": "meeting point", "significado": "ponto de encontro", "acento": "MEETing point" },
+            { "palavra": "built in", "significado": "construído em (ano)", "acento": "built IN" },
+            { "palavra": "free time", "significado": "tempo livre", "acento": "FREE time" }
+          ],
+          "nativo": "Guias americanos costumam usar primeiro nome e criar um tom descontraído desde o início.",
+          "erro": "Não diga 'nice to meet you all' de forma muito formal em tours — um simples 'welcome' e 'thanks for joining' já basta."
+        },
+        {
+          "id": "tur-02-02",
+          "turno": 2,
+          "cena": "O guia instrui o grupo sobre o ritmo.",
+          "personagem": "Guia",
+          "fala": "Feel free to ask questions along the way, and just let me know if I'm going too fast.",
+          "traducao": "Fique à vontade para fazer perguntas durante o caminho, e só me avise se estiver indo rápido demais.",
+          "connected": "Feel free ta ask questions along the way, an' just let me know if I'm going too fast.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "along the way", "significado": "durante o caminho", "acento": "aLONG the way" }
+          ],
+          "nativo": "'Feel free to' é uma das expressões mais comuns para convidar alguém a agir sem hesitação.",
+          "erro": "Não diga 'you are free to ask' — funciona, mas soa menos natural que 'feel free to ask'."
+        },
+        {
+          "id": "tur-02-03",
+          "turno": 3,
+          "cena": "Você pergunta sobre a idade de um prédio histórico.",
+          "personagem": "Você",
+          "fala": "Excuse me, do you know when this building was built?",
+          "traducao": "Com licença, você sabe quando esse prédio foi construído?",
+          "sua_vez": true,
+          "acento": "ExCUSE me, do you know WHEN this BUILDing was BUILT?",
+          "alternativas": [
+            "Quick question — how old is this building?",
+            "Sorry, do you know the history of this one?",
+            "Excuse me, what year was this constructed?"
+          ],
+          "alts_traducoes": [
+            "Pergunta rápida — quantos anos esse prédio tem?",
+            "Desculpa, você sabe a história desse aqui?",
+            "Com licença, em que ano isso foi construído?"
+          ],
+          "vocab": [
+            { "palavra": "quick question", "significado": "pergunta rápida", "acento": "QUICK question" }
+          ],
+          "nativo": "'Quick question' é uma forma educada e comum de interromper alguém para perguntar algo breve.",
+          "erro": "Não diga 'how many years has this building' — o correto e natural é 'when was this built' ou 'how old is this building'.",
+          "connected_voce": "'Scuse me, d'ya know when this building was built?"
+        },
+        {
+          "id": "tur-02-04",
+          "turno": 4,
+          "cena": "O guia responde com a data e um fato interessante.",
+          "personagem": "Guia",
+          "fala": "Great question! It was built in eighteen ninety two, and it's one of the oldest in the city.",
+          "traducao": "Ótima pergunta! Foi construído em 1892, e é um dos mais antigos da cidade.",
+          "connected": "Great question! It was built in eighteen ninety two, an' it's one of the oldest in the city.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "one of the oldest", "significado": "um dos mais antigos", "acento": "one of the OLDest" }
+          ],
+          "nativo": "Anos são falados em dois blocos de dois dígitos: 'eighteen ninety two' para 1892.",
+          "erro": "Não diga 'one thousand eight hundred ninety two' — nunca se fala assim em inglês. Use o padrão de dois blocos."
+        },
+        {
+          "id": "tur-02-05",
+          "turno": 5,
+          "cena": "O guia avisa sobre o tempo livre e o ponto de encontro.",
+          "personagem": "Guia",
+          "fala": "We'll have twenty minutes of free time here. Meet back at the fountain at three o'clock.",
+          "traducao": "Teremos vinte minutos de tempo livre aqui. Nos encontramos de volta na fonte às três horas.",
+          "connected": "We'll have twenty minutes of free time here. Meet back at the fountain at three o'clock.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "meet back", "significado": "se encontrar de volta (no mesmo lugar)", "acento": "meet BACK" }
+          ],
+          "nativo": "'Meet back' é a expressão usada quando você combina de retornar ao mesmo ponto.",
+          "erro": "Não diga 'we will see us again' — estrutura estranha. O correto é 'meet back at...' ou 'I'll see you back at...'."
+        },
+        {
+          "id": "tur-02-06",
+          "turno": 6,
+          "cena": "Você pede uma recomendação de foto durante o tempo livre.",
+          "personagem": "Você",
+          "fala": "Any good spots for photos nearby during the free time?",
+          "traducao": "Tem algum bom lugar para fotos por perto durante o tempo livre?",
+          "sua_vez": true,
+          "acento": "Any GOOD spots for PHOtos NEARby during the FREE time?",
+          "alternativas": [
+            "Where's the best spot for a photo around here?",
+            "Is there a good photo opportunity nearby?",
+            "Any recommended photo spots while we have free time?"
+          ],
+          "alts_traducoes": [
+            "Qual é o melhor lugar para uma foto por aqui?",
+            "Tem uma boa oportunidade de foto por perto?",
+            "Algum lugar recomendado para fotos enquanto temos tempo livre?"
+          ],
+          "vocab": [
+            { "palavra": "photo spot", "significado": "ponto de fotografia", "acento": "PHOto spot" }
+          ],
+          "nativo": "Perguntar ao guia sobre spots de fotos é algo que todos os turistas fazem — não há constrangimento nisso.",
+          "erro": "Não diga 'place to take picture' sem artigo — o natural é 'spot for photos' ou 'good place for a photo'.",
+          "connected_voce": "Any good spots fer photos nearby during the free time?"
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "During free time, you ask the guide for a local restaurant recommendation.",
+        "turnos": [
+          {
+            "id": "dl-tur02-01",
+            "personagem": "Guia",
+            "fala": "If you want good food nearby, there's a local favorite two blocks from here.",
+            "traducao": "Se você quiser boa comida por perto, tem um lugar preferido dos locais a dois quarteirões daqui.",
+            "connected": "If ya want good food nearby, there's a local favorite two blocks from here.",
+            "respostas_esperadas": [
+              "That sounds great, what's it called?",
+              "Perfect, thanks for the tip!",
+              "Awesome, I'll check it out."
+            ],
+            "resposta_modelo": "That sounds great, what's it called? I'll check it out during the break.",
+            "feedback_modelo": "Perguntar o nome do lugar antes de agradecer mostra interesse genuíno e é a resposta mais natural nesse contexto.",
+            "vocab_apoio": [
+              { "palavra": "local favorite", "significado": "preferido dos locais", "acento": "LOcal FAvorite" }
+            ]
+          },
+          {
+            "id": "dl-tur02-02",
+            "personagem": "Guia",
+            "fala": "It's called The Blue Door. They have great sandwiches and it's very affordable.",
+            "traducao": "Se chama The Blue Door. Eles têm ótimos sanduíches e é bem em conta.",
+            "connected": "It's called The Blue Door. They have great sandwiches an' it's very affordable.",
+            "respostas_esperadas": [
+              "Perfect, I'll definitely check it out.",
+              "Sounds great, thanks for the recommendation!",
+              "Great tip, I'll head there after the tour."
+            ],
+            "resposta_modelo": "Perfect, I'll definitely check it out after the tour. Thanks for the tip!",
+            "feedback_modelo": "'Thanks for the tip' é uma expressão comum para agradecer uma dica informal — diferente de 'thanks for the recommendation' que soa mais formal.",
+            "vocab_apoio": [
+              { "palavra": "affordable", "significado": "acessível (em preço)", "acento": "aFORDable" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tur-03",
+      "titulo": "Perguntando sobre horários e entradas",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=800",
+      "dialogo": [
+        {
+          "id": "tur-03-01",
+          "turno": 1,
+          "cena": "Você pergunta na recepção sobre horários de funcionamento.",
+          "personagem": "Você",
+          "fala": "What time does this place open and close?",
+          "traducao": "Que horas esse lugar abre e fecha?",
+          "sua_vez": true,
+          "acento": "What TIME does this place OPEN and CLOSE?",
+          "alternativas": [
+            "What are the opening hours here?",
+            "Could you tell me the hours of operation?",
+            "When does this open, and what time does it close?"
+          ],
+          "alts_traducoes": [
+            "Quais são os horários de funcionamento aqui?",
+            "Você poderia me dizer as horas de funcionamento?",
+            "Quando isso abre, e que horas fecha?"
+          ],
+          "vocab": [
+            { "palavra": "opening hours", "significado": "horário de funcionamento", "acento": "OPening hours" },
+            { "palavra": "last entry", "significado": "última entrada permitida", "acento": "last ENtry" },
+            { "palavra": "closed on", "significado": "fechado em (dia da semana)", "acento": "CLOSED on" },
+            { "palavra": "worth visiting", "significado": "vale a pena visitar", "acento": "worth VIsiting" },
+            { "palavra": "seasonal hours", "significado": "horários por temporada", "acento": "SEAsonal hours" }
+          ],
+          "nativo": "'Hours of operation' é a forma mais formal, comum em placas e sites; 'opening hours' é mais falado.",
+          "erro": "Não diga 'what hour it opens' sem inversão — o correto é 'what time does it open'.",
+          "connected_voce": "What time does this place open an' close?"
+        },
+        {
+          "id": "tur-03-02",
+          "turno": 2,
+          "cena": "O recepcionista informa o horário e a última entrada.",
+          "personagem": "Recepcionista",
+          "fala": "We're open from nine to five, but last entry is at four thirty.",
+          "traducao": "Estamos abertos das nove às cinco, mas a última entrada é às quatro e meia.",
+          "connected": "We're open from nine ta five, but last entry's at four thirty.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "last entry", "significado": "última entrada (antes do fechamento)", "acento": "last ENtry" }
+          ],
+          "nativo": "Museus e atrações quase sempre têm 'last entry' antes do horário de fechamento oficial — sempre vale perguntar.",
+          "erro": "Não diga 'the entrance last is at' — a ordem correta é 'last entry is at'."
+        },
+        {
+          "id": "tur-03-03",
+          "turno": 3,
+          "cena": "Você pergunta se a atração abre todos os dias.",
+          "personagem": "Você",
+          "fala": "Are you open every day, or are there days you're closed?",
+          "traducao": "Vocês abrem todo dia, ou tem dias que fecham?",
+          "sua_vez": true,
+          "acento": "Are you OPEN EVery day, or are there days you're CLOSED?",
+          "alternativas": [
+            "Do you close on any particular days?",
+            "What days are you closed?",
+            "Is there a day of the week you don't open?"
+          ],
+          "alts_traducoes": [
+            "Vocês fecham em algum dia específico?",
+            "Em que dias vocês estão fechados?",
+            "Tem algum dia da semana que vocês não abrem?"
+          ],
+          "vocab": [
+            { "palavra": "any particular days", "significado": "algum dia específico", "acento": "any parTIcular days" }
+          ],
+          "nativo": "Muitos museus nos EUA fecham às segundas-feiras — sempre vale verificar antes de ir.",
+          "erro": "Não diga 'do you have closed days' — a estrutura correta é 'are there days you're closed' ou 'what days are you closed'.",
+          "connected_voce": "Are you open every day, or are there days you're closed?"
+        },
+        {
+          "id": "tur-03-04",
+          "turno": 4,
+          "cena": "O recepcionista explica o dia de folga.",
+          "personagem": "Recepcionista",
+          "fala": "We're closed on Mondays and on major holidays.",
+          "traducao": "Estamos fechados às segundas-feiras e em feriados principais.",
+          "connected": "We're closed on Mondays an' on major holidays.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "major holidays", "significado": "feriados principais", "acento": "MAjor HOlidays" }
+          ],
+          "nativo": "Nos EUA, 'major holidays' geralmente se refere a Thanksgiving, Christmas, July 4th e Memorial Day.",
+          "erro": "Não diga 'federal days' — o correto é 'holidays' ou 'public holidays'."
+        },
+        {
+          "id": "tur-03-05",
+          "turno": 5,
+          "cena": "Você pergunta se vale a pena visitar também uma atração próxima.",
+          "personagem": "Você",
+          "fala": "Is the sculpture garden next door worth a visit too?",
+          "traducao": "O jardim de esculturas ao lado também vale uma visita?",
+          "sua_vez": true,
+          "acento": "Is the SCULPture GAR-den next door WORTH a VIsit too?",
+          "alternativas": [
+            "Would you recommend the sculpture garden as well?",
+            "Is it worth checking out the garden next door?",
+            "Should we visit the sculpture garden too?"
+          ],
+          "alts_traducoes": [
+            "Você recomendaria o jardim de esculturas também?",
+            "Vale a pena conferir o jardim ao lado?",
+            "Devemos visitar o jardim de esculturas também?"
+          ],
+          "vocab": [
+            { "palavra": "worth a visit", "significado": "vale a pena visitar", "acento": "worth a VIsit" }
+          ],
+          "nativo": "'Worth a visit' e 'worth visiting' são intercambiáveis — use o que soar mais natural.",
+          "erro": "Não diga 'is worth to visit' — em inglês não se usa 'to' depois de 'worth'. O correto é 'worth visiting'.",
+          "connected_voce": "Is the sculpture garden next door worth a visit too?"
+        },
+        {
+          "id": "tur-03-06",
+          "turno": 6,
+          "cena": "O recepcionista recomenda e dá uma dica de horário.",
+          "personagem": "Recepcionista",
+          "fala": "Definitely! And it's free if you go in the morning — gets crowded in the afternoon.",
+          "traducao": "Com certeza! E é grátis se você for de manhã — fica cheio à tarde.",
+          "connected": "Definitely! An' it's free if ya go in the morning — gets crowded in the afternoon.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "gets crowded", "significado": "fica cheio, lotado", "acento": "gets CROWded" }
+          ],
+          "nativo": "'Definitely' sozinho como resposta é uma confirmação forte e muito usada no dia a dia.",
+          "erro": "Não diga 'it's for free' — o correto em inglês é apenas 'it's free', sem o 'for'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You're at the front desk asking about a rainy day alternative activity.",
+        "turnos": [
+          {
+            "id": "dl-tur03-01",
+            "personagem": "Recepcionista",
+            "fala": "If it rains tomorrow, there's a great indoor activity just around the corner.",
+            "traducao": "Se chover amanhã, tem uma ótima atividade coberta bem na esquina.",
+            "connected": "If it rains tomorrow, there's a great indoor activity just around the corner.",
+            "respostas_esperadas": [
+              "Oh nice, what kind of activity is it?",
+              "Good to know, thanks for the heads up.",
+              "That's helpful, what's it called?"
+            ],
+            "resposta_modelo": "Good to know, thanks for the heads up — what kind of activity is it?",
+            "feedback_modelo": "'Thanks for the heads up' é uma expressão comum para agradecer um aviso útil antes de pedir mais detalhes.",
+            "vocab_apoio": [
+              { "palavra": "heads up", "significado": "aviso antecipado, alerta", "acento": "HEADS up" }
+            ]
+          },
+          {
+            "id": "dl-tur03-02",
+            "personagem": "Recepcionista",
+            "fala": "It's an interactive science museum, great for kids and adults alike.",
+            "traducao": "É um museu de ciências interativo, ótimo para crianças e adultos igualmente.",
+            "connected": "It's an interactive science museum, great for kids an' adults alike.",
+            "respostas_esperadas": [
+              "That sounds perfect for us!",
+              "Sounds great, we'll check it out if it rains.",
+              "Perfect, we'll definitely keep that in mind."
+            ],
+            "resposta_modelo": "That sounds perfect — we'll definitely keep that as our backup plan.",
+            "feedback_modelo": "'Backup plan' é uma expressão natural para alternativa de reserva — mostra planejamento e soa bem em qualquer contexto.",
+            "vocab_apoio": [
+              { "palavra": "alike", "significado": "igualmente, para ambos", "acento": "aLIKE" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tur-04",
+      "titulo": "Pedindo dicas ao guia local",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800",
+      "dialogo": [
+        {
+          "id": "tur-04-01",
+          "turno": 1,
+          "cena": "Você encontra um guia local na praça e pede sugestões.",
+          "personagem": "Você",
+          "fala": "Excuse me, you look like you know this area well. Any hidden gems around here?",
+          "traducao": "Com licença, você parece conhecer bem essa área. Tem alguma joia escondida por aqui?",
+          "sua_vez": true,
+          "acento": "ExCUSE me, you look like you KNOW this ARea well. Any HIDden GEMS around here?",
+          "alternativas": [
+            "Hi, do you know this area? Any local spots worth visiting?",
+            "Excuse me, any recommendations for off the beaten path things to do?",
+            "Sorry to bother you, but any insider tips for this neighborhood?"
+          ],
+          "alts_traducoes": [
+            "Oi, você conhece essa área? Algum lugar local que vale a pena visitar?",
+            "Com licença, alguma recomendação de coisas fora do roteiro turístico?",
+            "Desculpa incomodar, mas tem alguma dica interna para esse bairro?"
+          ],
+          "vocab": [
+            { "palavra": "hidden gem", "significado": "joia escondida, lugar especial pouco conhecido", "acento": "HIDden gem" },
+            { "palavra": "off the beaten path", "significado": "fora do roteiro turístico", "acento": "off the BEAten path" },
+            { "palavra": "insider tip", "significado": "dica de quem conhece bem", "acento": "INsider tip" },
+            { "palavra": "touristy", "significado": "muito turístico (pode ter conotação negativa)", "acento": "TOUristy" },
+            { "palavra": "neighborhood", "significado": "bairro, vizinhança", "acento": "NEIGHborhood" }
+          ],
+          "nativo": "'Hidden gem' é uma expressão muito popular para descrever lugares especiais que poucos conhecem.",
+          "erro": "Não diga 'secret places' de forma tão literal — 'hidden gems' é a expressão idiomática mais usada nesse contexto.",
+          "connected_voce": "'Scuse me, you look like ya know this area well. Any hidden gems around here?"
+        },
+        {
+          "id": "tur-04-02",
+          "turno": 2,
+          "cena": "O guia se anima e começa a sugerir.",
+          "personagem": "Guia",
+          "fala": "Oh, definitely! Avoid the main square — it's way too touristy.",
+          "traducao": "Ah, com certeza! Evite a praça principal — é turístico demais.",
+          "connected": "Oh, deFinitely! aVOID the main square — it's WAY too TOUristy.",
+          "blocos": [
+            { "bloco": "way too", "significa": "muito demais — 'way' reforça 'too', expressão muito comum" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "way too", "significado": "demais, excessivamente (informal)", "acento": "WAY too" }
+          ],
+          "nativo": "'Way too touristy' é o jeito natural de dizer que um lugar perdeu o charme por excesso de turismo.",
+          "erro": "Não diga 'very much touristy' — 'touristy' já carrega a conotação, e o reforço correto é 'way too'."
+        },
+        {
+          "id": "tur-04-03",
+          "turno": 3,
+          "cena": "Você pergunta onde os locais costumam ir.",
+          "personagem": "Você",
+          "fala": "Where do locals actually hang out around here?",
+          "traducao": "Onde os moradores realmente passam o tempo por aqui?",
+          "sua_vez": true,
+          "acento": "Where do LOcals ACTually HANG out around HERE?",
+          "alternativas": [
+            "What spots do the locals prefer?",
+            "Where would you recommend we go instead?",
+            "What's the neighborhood that locals actually visit?"
+          ],
+          "alts_traducoes": [
+            "Quais lugares os moradores preferem?",
+            "Onde você recomendaria que fôssemos no lugar?",
+            "Qual é o bairro que os moradores realmente visitam?"
+          ],
+          "vocab": [
+            { "palavra": "hang out", "significado": "passar o tempo, ficar", "acento": "HANG out" }
+          ],
+          "nativo": "'Hang out' é usado tanto para passar tempo em casa quanto em lugares públicos — contexto amplo.",
+          "erro": "Não diga 'where do locals stay' — 'stay' implica hospedagem. O correto é 'hang out' ou 'spend time'.",
+          "connected_voce": "Where do locals actually hang out around here?"
+        },
+        {
+          "id": "tur-04-04",
+          "turno": 4,
+          "cena": "O guia recomenda um bairro específico.",
+          "personagem": "Guia",
+          "fala": "Check out the Riverside district — great food, live music, very authentic.",
+          "traducao": "Dê uma olhada no distrito Riverside — boa comida, música ao vivo, muito autêntico.",
+          "connected": "Check out the Riverside district — great food, live music, very authentic.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "check out", "significado": "dar uma olhada em, conferir", "acento": "CHECK out" }
+          ],
+          "nativo": "'Check out' em recomendações é um convite informal para visitar ou conhecer algo.",
+          "erro": "Não confunda 'check out' de hotel (sair do hotel) com 'check out' de recomendação (ir conhecer)."
+        },
+        {
+          "id": "tur-04-05",
+          "turno": 5,
+          "cena": "Você pergunta a melhor hora de ir.",
+          "personagem": "Você",
+          "fala": "What's the best time to go there, morning or evening?",
+          "traducao": "Qual é o melhor horário para ir lá, de manhã ou à noite?",
+          "sua_vez": true,
+          "acento": "What's the BEST time to GO there, MORning or EVening?",
+          "alternativas": [
+            "When's the best time to visit?",
+            "Should we go in the morning or evening?",
+            "Is it better to go earlier or later in the day?"
+          ],
+          "alts_traducoes": [
+            "Qual é o melhor horário para visitar?",
+            "Devemos ir de manhã ou à noite?",
+            "É melhor ir mais cedo ou mais tarde no dia?"
+          ],
+          "vocab": [
+            { "palavra": "earlier / later", "significado": "mais cedo / mais tarde", "acento": "EARlier" }
+          ],
+          "nativo": "Perguntar sobre o melhor horário é sempre útil — cada lugar tem seu pico de movimento.",
+          "erro": "Não diga 'which time is better' sem inversão — o natural é 'what's the best time' ou 'when's the best time'.",
+          "connected_voce": "What's the best time ta go there, morning or evening?"
+        },
+        {
+          "id": "tur-04-06",
+          "turno": 6,
+          "cena": "O guia recomenda o período da noite.",
+          "personagem": "Guia",
+          "fala": "Evening for sure — the vibe is completely different at night. Much more alive.",
+          "traducao": "À noite com certeza — o clima é completamente diferente à noite. Muito mais animado.",
+          "connected": "Evening fer sure — the vibe's completely different at night. Much more alive.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "vibe", "significado": "clima, vibração, atmosfera", "acento": "VIBE" }
+          ],
+          "nativo": "'Vibe' é uma das palavras mais usadas em inglês informal para descrever a atmosfera de um lugar.",
+          "erro": "Não diga 'the environment is different' de forma tão literal — 'the vibe is different' é muito mais natural."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The guide is giving you one final tip before you head out.",
+        "turnos": [
+          {
+            "id": "dl-tur04-01",
+            "personagem": "Guia",
+            "fala": "Oh, and avoid the seafood place on the corner — it's overpriced and underwhelming.",
+            "traducao": "Ah, e evite o lugar de frutos do mar na esquina — é caro demais e decepcionante.",
+            "connected": "Oh, an' avoid the seafood place on the corner — it's overPRICED an' underWHELMing.",
+            "respostas_esperadas": [
+              "Good to know, thanks for the warning!",
+              "I'll steer clear of that one.",
+              "Noted! Thanks for the honest tip."
+            ],
+            "resposta_modelo": "Good to know — I'll steer clear of that. Thanks for the honest tip!",
+            "feedback_modelo": "'Steer clear of' é uma expressão idiomática muito usada para dizer que vai evitar algo — muito mais natural do que apenas 'avoid it'.",
+            "vocab_apoio": [
+              { "palavra": "steer clear of", "significado": "evitar, dar distância de", "acento": "steer CLEAR of" }
+            ]
+          },
+          {
+            "id": "dl-tur04-02",
+            "personagem": "Guia",
+            "fala": "Enjoy your time here — this city has a lot to offer if you know where to look.",
+            "traducao": "Aproveite seu tempo aqui — essa cidade tem muito a oferecer se você sabe onde olhar.",
+            "connected": "Enjoy yer time here — this city has a lot ta offer if ya know where ta look.",
+            "respostas_esperadas": [
+              "Thank you so much, this was really helpful!",
+              "You've been so helpful, thanks!",
+              "Appreciate it! We'll definitely explore more."
+            ],
+            "resposta_modelo": "Thank you so much, this was genuinely helpful. We'll make the most of it!",
+            "feedback_modelo": "'Make the most of it' é uma expressão muito usada para dizer que vai aproveitar ao máximo uma oportunidade — natural e positivo.",
+            "vocab_apoio": [
+              { "palavra": "make the most of it", "significado": "aproveitar ao máximo", "acento": "make the MOST of it" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tur-05",
+      "titulo": "Tirando foto e pedindo ajuda",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1476900164809-ff19b8ae5968?w=800",
+      "dialogo": [
+        {
+          "id": "tur-05-01",
+          "turno": 1,
+          "cena": "Você pede a um turista para tirar uma foto sua.",
+          "personagem": "Você",
+          "fala": "Excuse me, would you mind taking a photo of us?",
+          "traducao": "Com licença, você se importaria de tirar uma foto nossa?",
+          "sua_vez": true,
+          "acento": "ExCUSE me, would you MIND TAking a PHOto of us?",
+          "alternativas": [
+            "Sorry, could you take a picture of us?",
+            "Would you be able to snap a photo of us?",
+            "Excuse me, could I ask you to take a photo?"
+          ],
+          "alts_traducoes": [
+            "Desculpa, você poderia tirar uma foto nossa?",
+            "Você conseguiria tirar uma foto nossa?",
+            "Com licença, poderia te pedir para tirar uma foto?"
+          ],
+          "vocab": [
+            { "palavra": "would you mind", "significado": "você se importaria (pedido educado)", "acento": "would you MIND" },
+            { "palavra": "snap a photo", "significado": "tirar uma foto (informal)", "acento": "snap a PHOto" },
+            { "palavra": "selfie stick", "significado": "bastão de selfie", "acento": "SELfie stick" },
+            { "palavra": "landscape / portrait", "significado": "horizontal / vertical (orientação da foto)", "acento": "LANDscape" },
+            { "palavra": "tap the screen", "significado": "tocar na tela", "acento": "TAP the screen" }
+          ],
+          "nativo": "'Would you mind + gerúndio' é uma das estruturas mais educadas do inglês para fazer pedidos.",
+          "erro": "Não diga 'can you take a photo TO me' — a preposição correta é 'OF us' ou 'FOR us'.",
+          "connected_voce": "'Scuse me, would ya mind taking a photo of us?"
+        },
+        {
+          "id": "tur-05-02",
+          "turno": 2,
+          "cena": "A pessoa concorda em ajudar.",
+          "personagem": "Turista",
+          "fala": "Of course! Happy to help.",
+          "traducao": "Claro! Com prazer.",
+          "connected": "Of course! Happy ta help.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "happy to help", "significado": "com prazer em ajudar", "acento": "HAPpy ta help" }
+          ],
+          "nativo": "'Happy to help' é uma resposta gentil e comum em qualquer situação de colaboração.",
+          "erro": "Não diga apenas 'yes' de forma seca quando alguém pede favor — 'of course' ou 'happy to help' são muito mais naturais."
+        },
+        {
+          "id": "tur-05-03",
+          "turno": 3,
+          "cena": "Você explica como usar o celular.",
+          "personagem": "Você",
+          "fala": "Just tap the big button on the screen. And could you take a couple?",
+          "traducao": "Só toque no botão grande na tela. E poderia tirar algumas?",
+          "sua_vez": true,
+          "acento": "Just TAP the BIG BUTton on the SCREEN. And could you take a COUple?",
+          "alternativas": [
+            "Just press the button and take two or three if you don't mind.",
+            "You just tap here, and maybe take a few shots?",
+            "Just tap the screen — and could you take a couple for safety?"
+          ],
+          "alts_traducoes": [
+            "Só pressione o botão e tire duas ou três se não se importar.",
+            "Só toque aqui, e talvez tire algumas fotos?",
+            "Só toque na tela — e poderia tirar algumas por precaução?"
+          ],
+          "vocab": [
+            { "palavra": "a couple", "significado": "algumas, um par", "acento": "a COUple" }
+          ],
+          "nativo": "Pedir 'a couple' de fotos é uma prática comum — uma pode sair com os olhos fechados ou borrada.",
+          "erro": "Não diga 'take more photos' de forma vaga — 'take a couple' é mais específico e educado.",
+          "connected_voce": "Just tap the big button on the screen. An' could ya take a couple?"
+        },
+        {
+          "id": "tur-05-04",
+          "turno": 4,
+          "cena": "A pessoa tira a foto e pergunta se ficou boa.",
+          "personagem": "Turista",
+          "fala": "How does this look? I can take another if you want.",
+          "traducao": "Como ficou? Posso tirar outra se quiser.",
+          "connected": "How does this look? I can take another if ya want.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "how does this look", "significado": "como ficou / está bom?", "acento": "how does THIS look" }
+          ],
+          "nativo": "'How does this look?' é uma forma natural de mostrar algo para aprovação sem pressionar.",
+          "erro": "Não diga 'is the photo good' de forma muito direta — 'how does this look' é a forma mais natural e social."
+        },
+        {
+          "id": "tur-05-05",
+          "turno": 5,
+          "cena": "Você vê que ficou ótima e agradece.",
+          "personagem": "Você",
+          "fala": "That's perfect, thank you so much! Really appreciate it.",
+          "traducao": "Ficou perfeita, muito obrigado! Realmente agradeço.",
+          "sua_vez": true,
+          "acento": "That's PERfect, THANK you so MUCH! REally apPREciate it.",
+          "alternativas": [
+            "Oh, it's great! Thank you so much!",
+            "That came out perfectly, thanks a lot!",
+            "Wonderful! You're so kind, thank you."
+          ],
+          "alts_traducoes": [
+            "Oh, ficou ótima! Muito obrigado!",
+            "Saiu perfeitamente, muito obrigado!",
+            "Maravilhoso! Você é muito gentil, obrigado."
+          ],
+          "vocab": [
+            { "palavra": "came out great", "significado": "saiu ótima (a foto)", "acento": "came out GREAT" }
+          ],
+          "nativo": "'Came out great' é a expressão natural para dizer que uma foto ficou boa.",
+          "erro": "Não diga 'the photo is beautiful' para a foto que você mesma tirou/pediu — soa um pouco estranho. 'That's perfect' é mais natural.",
+          "connected_voce": "That's perfect, thank you so much! Really appreciate it."
+        },
+        {
+          "id": "tur-05-06",
+          "turno": 6,
+          "cena": "A pessoa pergunta de onde vocês são.",
+          "personagem": "Turista",
+          "fala": "Are you visiting from out of town?",
+          "traducao": "Vocês estão visitando de fora da cidade?",
+          "connected": "Er ya visiting from out of town?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "out of town", "significado": "de fora da cidade", "acento": "out of TOWN" }
+          ],
+          "nativo": "'Out of town' é uma expressão muito usada para se referir a visitantes ou pessoas que vêm de fora.",
+          "erro": "Não diga 'from another city' de forma literal — 'from out of town' é a expressão idiomática mais comum."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The tourist who took your photo starts a conversation about where you're from.",
+        "turnos": [
+          {
+            "id": "dl-tur05-01",
+            "personagem": "Turista",
+            "fala": "Where are you visiting from? Is this your first time here?",
+            "traducao": "De onde você está visitando? É sua primeira vez aqui?",
+            "connected": "Where er ya visiting from? Izzis yer first time here?",
+            "respostas_esperadas": [
+              "We're from Brazil, and yes, first time!",
+              "We're visiting from Brazil, first time here.",
+              "Brazil! And yes, it's our first visit."
+            ],
+            "resposta_modelo": "We're from Brazil, and yes, it's our first time here — loving it so far!",
+            "feedback_modelo": "'Loving it so far' é uma forma entusiasmada e natural de expressar satisfação com algo que ainda está acontecendo.",
+            "vocab_apoio": [
+              { "palavra": "first time", "significado": "primeira vez", "acento": "FIRST time" }
+            ]
+          },
+          {
+            "id": "dl-tur05-02",
+            "personagem": "Turista",
+            "fala": "How long are you here for?",
+            "traducao": "Por quanto tempo vocês vão ficar?",
+            "connected": "How long er ya here for?",
+            "respostas_esperadas": [
+              "Just a week.",
+              "We're here for about ten days.",
+              "Five days, unfortunately not enough."
+            ],
+            "resposta_modelo": "We're here for about a week — wish it were longer!",
+            "feedback_modelo": "'Wish it were longer' é uma expressão natural para expressar que você gostaria de ter mais tempo, sem soar dramático.",
+            "vocab_apoio": [
+              { "palavra": "wish it were longer", "significado": "queria que fosse mais longo", "acento": "wish it were LONGer" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tur-06",
+      "titulo": "Visitando um museu — interagindo com a exposição",
+      "nivel": 3,
+      "imagem": "https://images.unsplash.com/photo-1565060169194-19fabf63012c?w=800",
+      "dialogo": [
+        {
+          "id": "tur-06-01",
+          "turno": 1,
+          "cena": "Você conversa com um curador do museu sobre uma obra exposta.",
+          "personagem": "Você",
+          "fala": "Could you tell me more about this exhibit?",
+          "traducao": "Você poderia me contar mais sobre essa exposição?",
+          "sua_vez": true,
+          "acento": "Could you TELL me MORE about this EXhibit?",
+          "alternativas": [
+            "What can you tell me about this piece?",
+            "I'd love to know more about this one.",
+            "Is there any background on this exhibit?"
+          ],
+          "alts_traducoes": [
+            "O que você pode me contar sobre essa peça?",
+            "Eu adoraria saber mais sobre essa aqui.",
+            "Tem alguma história por trás dessa exposição?"
+          ],
+          "vocab": [
+            { "palavra": "exhibit", "significado": "exposição, peça exposta", "acento": "EXhibit" },
+            { "palavra": "curator", "significado": "curador", "acento": "CUrator" },
+            { "palavra": "artifact", "significado": "artefato", "acento": "ARtifact" },
+            { "palavra": "on display", "significado": "em exibição", "acento": "on disPLAY" },
+            { "palavra": "permanent / temporary", "significado": "permanente / temporário", "acento": "PERmanent" }
+          ],
+          "nativo": "Em museus americanos, funcionários e curadores adoram quando visitantes demonstram curiosidade genuína.",
+          "erro": "Não diga 'tell me things about this' de forma vaga — 'tell me more about' é a estrutura mais natural.",
+          "connected_voce": "Could ya tell me more about this exhibit?"
+        },
+        {
+          "id": "tur-06-02",
+          "turno": 2,
+          "cena": "O curador explica o contexto histórico.",
+          "personagem": "Curador",
+          "fala": "Of course! This piece dates back to the sixteen hundreds, found in Egypt.",
+          "traducao": "Claro! Essa peça data dos anos 1600, encontrada no Egito.",
+          "connected": "Of course! This piece dates back to the sixteen hundreds, found in Egypt.",
+          "blocos": [
+            { "bloco": "dates back to", "significa": "data de, remonta a — expressão padrão para origem histórica" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "dates back to", "significado": "data de, remonta a", "acento": "DATES back to" }
+          ],
+          "nativo": "'Dates back to' é a expressão padrão em inglês para indicar a origem temporal de algo histórico.",
+          "erro": "Não diga 'is from the year 1600' de forma tão literal — 'dates back to the sixteen hundreds' é o modo correto e natural."
+        },
+        {
+          "id": "tur-06-03",
+          "turno": 3,
+          "cena": "Você pergunta se a exposição é permanente ou temporária.",
+          "personagem": "Você",
+          "fala": "Is this part of the permanent collection, or is it a temporary exhibit?",
+          "traducao": "Essa faz parte da coleção permanente, ou é uma exposição temporária?",
+          "sua_vez": true,
+          "acento": "Is this PART of the PERmanent coLLECtion, or is it a TEMporary EXhibit?",
+          "alternativas": [
+            "Will this exhibit be here for long?",
+            "Is this a permanent or temporary display?",
+            "How long will this be on display?"
+          ],
+          "alts_traducoes": [
+            "Essa exposição vai ficar aqui por muito tempo?",
+            "Isso é uma exibição permanente ou temporária?",
+            "Por quanto tempo isso ficará em exibição?"
+          ],
+          "vocab": [
+            { "palavra": "permanent collection", "significado": "coleção permanente do museu", "acento": "PERmanent coLLECtion" }
+          ],
+          "nativo": "Saber se é permanente ou temporária ajuda a priorizar o que ver em uma visita com tempo limitado.",
+          "erro": "Não diga 'for how long will this be' sem inversão — o correto é 'how long will this be on display'.",
+          "connected_voce": "Is this part of the permanent collection, or is it a temporary exhibit?"
+        },
+        {
+          "id": "tur-06-04",
+          "turno": 4,
+          "cena": "O curador responde sobre a natureza da exposição.",
+          "personagem": "Curador",
+          "fala": "This one is permanent. But we have a new temporary exhibit opening next month.",
+          "traducao": "Essa aqui é permanente. Mas temos uma nova exposição temporária abrindo no próximo mês.",
+          "connected": "This one is permanent. But we have a new temporary exhibit opening next month.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "opening next month", "significado": "abrindo no próximo mês", "acento": "OPening next month" }
+          ],
+          "nativo": "Museus americanos frequentemente promovem exposições futuras — boa oportunidade de planejar uma visita de retorno.",
+          "erro": "Não diga 'will open in the next month' — em inglês americano, 'opens next month' sem artigo é o natural."
+        },
+        {
+          "id": "tur-06-05",
+          "turno": 5,
+          "cena": "Você pergunta se pode tirar foto da obra.",
+          "personagem": "Você",
+          "fala": "Is it okay to take photos of the exhibits?",
+          "traducao": "É permitido tirar fotos das exposições?",
+          "sua_vez": true,
+          "acento": "Is it OKay to take PHOtos of the EXhibits?",
+          "alternativas": [
+            "Are photos allowed here?",
+            "Can I photograph this piece?",
+            "Is photography permitted in this section?"
+          ],
+          "alts_traducoes": [
+            "Fotos são permitidas aqui?",
+            "Posso fotografar essa peça?",
+            "Fotografia é permitida nessa seção?"
+          ],
+          "vocab": [
+            { "palavra": "photography permitted", "significado": "fotografia permitida", "acento": "photoGRAPHy perMITted" }
+          ],
+          "nativo": "Sempre pergunte antes de fotografar — algumas obras têm restrições de direitos autorais.",
+          "erro": "Não diga 'can I make photos' — 'make photos' não existe em inglês americano. O correto é 'take photos'.",
+          "connected_voce": "Is it okay ta take photos of the exhibits?"
+        },
+        {
+          "id": "tur-06-06",
+          "turno": 6,
+          "cena": "O curador explica a política de fotos.",
+          "personagem": "Curador",
+          "fala": "Yes, personal photography is fine, just no flash and no tripods.",
+          "traducao": "Sim, fotografia pessoal é permitida, só sem flash e sem tripés.",
+          "connected": "Yes, personal photography is fine, just no flash an' no tripods.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "no flash", "significado": "sem flash", "acento": "no FLASH" },
+            { "palavra": "tripod", "significado": "tripé", "acento": "TRIpod" }
+          ],
+          "nativo": "A maioria dos museus americanos permite fotos pessoais sem flash — mas sempre confirme.",
+          "erro": "Não diga 'you can't take with flash' — a forma natural e comum é 'no flash' ou 'flash is not allowed'."
+        },
+        {
+          "id": "tur-06-07",
+          "turno": 7,
+          "cena": "Você agradece e menciona que vai indicar o museu.",
+          "personagem": "Você",
+          "fala": "Great, thank you. I'll definitely be recommending this museum to friends.",
+          "traducao": "Ótimo, obrigado. Com certeza vou recomendar esse museu para amigos.",
+          "sua_vez": true,
+          "acento": "Great, THANK you. I'll DeFInitely be recomMENDing this muSEum to FRIENDS.",
+          "alternativas": [
+            "Thanks so much! I'll tell everyone about this place.",
+            "Really appreciated! I'll recommend this for sure.",
+            "Thank you! This was absolutely worth visiting."
+          ],
+          "alts_traducoes": [
+            "Muito obrigado! Vou contar para todo mundo sobre esse lugar.",
+            "Muito agradecido! Vou recomendar com certeza.",
+            "Obrigado! Isso definitivamente valeu a pena visitar."
+          ],
+          "vocab": [
+            { "palavra": "worth visiting", "significado": "que vale a pena visitar", "acento": "worth VIsiting" }
+          ],
+          "nativo": "Dizer que vai recomendar um lugar é o maior elogio que você pode fazer a quem trabalha no local.",
+          "erro": "Não diga 'I will indicate this museum' — 'indicate' não é usado assim em inglês. O correto é 'recommend'.",
+          "connected_voce": "Great, thank you. I'll definitely be recommending this museum ta friends."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You're leaving the museum and asking the curator about other exhibits in the city.",
+        "turnos": [
+          {
+            "id": "dl-tur06-01",
+            "personagem": "Curador",
+            "fala": "If you enjoyed this, you'd love the contemporary art museum downtown.",
+            "traducao": "Se você gostou disso, você vai adorar o museu de arte contemporânea no centro.",
+            "connected": "If ya enjoyed this, you'd love the contemporary art museum downtown.",
+            "respostas_esperadas": [
+              "That sounds great, is it far from here?",
+              "I'll definitely check it out.",
+              "Contemporary art is exactly my thing, thanks!"
+            ],
+            "resposta_modelo": "That sounds right up my alley — is it far from here?",
+            "feedback_modelo": "'Right up my alley' é uma expressão idiomática muito natural para dizer que algo combina exatamente com seu gosto.",
+            "vocab_apoio": [
+              { "palavra": "right up my alley", "significado": "exatamente a minha praia, combina com meu gosto", "acento": "right up my ALley" }
+            ]
+          },
+          {
+            "id": "dl-tur06-02",
+            "personagem": "Curador",
+            "fala": "It's about a mile away — easy cab ride or a nice walk if the weather's good.",
+            "traducao": "Fica a cerca de uma milha de distância — uma corrida de táxi fácil ou uma caminhada agradável se o tempo estiver bom.",
+            "connected": "It's about a mile away — easy cab ride er a nice walk if the weather's good.",
+            "respostas_esperadas": [
+              "I'll walk, the weather's perfect today.",
+              "A cab sounds easier, thanks for the tip.",
+              "Great, I'll make my way there now."
+            ],
+            "resposta_modelo": "I'll walk — the weather's perfect today. Thanks for everything!",
+            "feedback_modelo": "Combinar a decisão com o motivo ('the weather's perfect') é mais natural do que só 'I'll walk' sem explicação.",
+            "vocab_apoio": [
+              { "palavra": "cab ride", "significado": "corrida de táxi", "acento": "CAB ride" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "id": 4,
+  "nome": "Transportes",
+  "descricao": "Táxi, Uber, metrô e locação de carro — como se deslocar no destino.",
+  "imagem": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800",
+  "situacoes": [
+    {
+      "id": "trans-01",
+      "titulo": "Pegando um táxi",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=800",
+      "dialogo": [
+        {
+          "id": "trans-01-01",
+          "turno": 1,
+          "cena": "Você entra num táxi na saída do aeroporto. O motorista pergunta o destino.",
+          "personagem": "Driver",
+          "fala": "Where to?",
+          "traducao": "Para onde?",
+          "connected": "Where to?",
+          "blocos": [
+            { "bloco": "Where to?", "significa": "forma reduzida de 'Where are you going?' — muito comum em táxis" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "Where to?", "significado": "Para onde?", "acento": "WHERE to?" },
+            { "palavra": "fare", "significado": "tarifa", "acento": "FARE" },
+            { "palavra": "meter", "significado": "taxímetro", "acento": "MEter" },
+            { "palavra": "address", "significado": "endereço", "acento": "adDRESS" },
+            { "palavra": "drop me off", "significado": "me deixar (em algum lugar)", "acento": "DROP me off" }
+          ],
+          "nativo": "'Where to?' é extremamente comum — motoristas raramente perguntam a frase completa.",
+          "erro": "Não diga apenas o nome da rua sem contexto — dê o endereço completo ou o nome do local conhecido."
+        },
+        {
+          "id": "trans-01-02",
+          "turno": 2,
+          "cena": "Você informa o destino.",
+          "personagem": "Você",
+          "fala": "The Marriott downtown, please.",
+          "traducao": "O Marriott no centro, por favor.",
+          "sua_vez": true,
+          "connected_voce": "The Marriott downtown, please.",
+          "acento": "The MARRiott DOWNtown, please.",
+          "alternativas": [
+            "Can you take me to the Marriott downtown?",
+            "The Marriott hotel, downtown area.",
+            "Downtown, to the Marriott please."
+          ],
+          "alts_traducoes": [
+            "Você pode me levar ao Marriott no centro?",
+            "O hotel Marriott, na área central.",
+            "Centro, para o Marriott por favor."
+          ],
+          "vocab": [
+            { "palavra": "downtown", "significado": "centro da cidade", "acento": "DOWNtown" },
+            { "palavra": "Can you take me to...?", "significado": "Você pode me levar a...?", "acento": "can you TAKE me to" }
+          ],
+          "nativo": "Dizer o nome do hotel ou ponto de referência é mais eficaz que dar o endereço completo — motoristas geralmente conhecem os principais.",
+          "erro": "Não diga 'To the center' quando quer dizer centro da cidade — o termo correto em inglês americano é 'downtown'."
+        },
+        {
+          "id": "trans-01-03",
+          "turno": 3,
+          "cena": "Durante o trajeto, o motorista confirma quanto tempo falta.",
+          "personagem": "Driver",
+          "fala": "About 20 minutes, depending on traffic.",
+          "traducao": "Cerca de 20 minutos, dependendo do trânsito.",
+          "connected": "About twenty minutes, depending on traffic.",
+          "blocos": [
+            { "bloco": "depending on traffic", "significa": "dependendo do trânsito" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "traffic", "significado": "trânsito", "acento": "TRAFfic" },
+            { "palavra": "depending on", "significado": "dependendo de", "acento": "dePENding on" }
+          ],
+          "nativo": "'Depending on traffic' é uma ressalva muito comum — motoristas evitam prometer tempo exato.",
+          "erro": "Não confunda 'traffic' (trânsito) com 'transit' (trânsito no sentido de transporte público)."
+        },
+        {
+          "id": "trans-01-04",
+          "turno": 4,
+          "cena": "Vocês chegam. Você pergunta o valor.",
+          "personagem": "Você",
+          "fala": "How much do I owe you?",
+          "traducao": "Quanto eu te devo?",
+          "sua_vez": true,
+          "connected_voce": "How much do I owe ya?",
+          "acento": "how MUCH do I OWE you?",
+          "alternativas": [
+            "What's the total?",
+            "How much is the fare?",
+            "What do I owe?"
+          ],
+          "alts_traducoes": [
+            "Qual é o total?",
+            "Quanto é a tarifa?",
+            "Quanto eu devo?"
+          ],
+          "vocab": [
+            { "palavra": "How much do I owe you?", "significado": "Quanto eu te devo?", "acento": "how MUCH do I OWE you?" },
+            { "palavra": "What's the total?", "significado": "Qual é o total?", "acento": "WHAT'S the TOtal?" }
+          ],
+          "nativo": "'How much do I owe you?' é mais pessoal e comum em táxi do que 'What's the fare?' — soa mais natural falando diretamente com o motorista.",
+          "erro": "Não diga 'How much I need to pay' — a ordem correta é 'How much do I owe you?' ou 'How much is it?'"
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You arrive and pay the driver. He helps with your bags.",
+        "turnos": [
+          {
+            "id": "dl-trans01-01",
+            "personagem": "Driver",
+            "fala": "That'll be $32. Need help with your bags?",
+            "traducao": "Serão $32. Precisa de ajuda com as malas?",
+            "connected": "That'll be thirty-two dollars. Need help with yer bags?",
+            "respostas_esperadas": [
+              "No, I'm good, thanks.",
+              "Sure, that would be great.",
+              "No, I've got it, thank you."
+            ],
+            "resposta_modelo": "No, I've got it, but thank you for offering!",
+            "feedback_modelo": "'I've got it' significa 'eu consigo sozinho' — expressão muito natural para recusar ajuda educadamente. 'Thank you for offering' reconhece a gentileza mesmo recusando, o que é bem visto culturalmente."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trans-02",
+      "titulo": "Pedindo um Uber",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800",
+      "dialogo": [
+        {
+          "id": "trans-02-01",
+          "turno": 1,
+          "cena": "Você pediu um Uber e o motorista liga ao chegar próximo.",
+          "personagem": "Driver",
+          "fala": "Hi, is this Juliano? I'm outside, silver Honda.",
+          "traducao": "Oi, esse é o Juliano? Estou aqui fora, Honda prata.",
+          "connected": "Hi, izz this Juliano? I'm outside, silver Honda.",
+          "blocos": [
+            { "bloco": "Is this...?", "significa": "usado ao telefone para confirmar identidade" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "I'm outside", "significado": "Estou aqui fora", "acento": "I'm OUTside" },
+            { "palavra": "pickup spot", "significado": "ponto de embarque", "acento": "PICKup spot" },
+            { "palavra": "license plate", "significado": "placa do carro", "acento": "LIcense plate" },
+            { "palavra": "ride", "significado": "corrida / carona", "acento": "RIDE" },
+            { "palavra": "ETA", "significado": "tempo estimado de chegada", "acento": "E-T-A" }
+          ],
+          "nativo": "Motoristas de app sempre confirmam o nome e descrevem o carro — cor e modelo são padrão.",
+          "erro": "Não ignore a ligação do motorista — sempre confirme sua identidade rapidamente."
+        },
+        {
+          "id": "trans-02-02",
+          "turno": 2,
+          "cena": "Você confirma.",
+          "personagem": "Você",
+          "fala": "Yes, that's me. I'll be right out.",
+          "traducao": "Sim, sou eu. Já vou sair.",
+          "sua_vez": true,
+          "connected_voce": "Yes, that's me. I'll be right out.",
+          "acento": "Yes, THAT'S me. I'll be RIGHT out.",
+          "alternativas": [
+            "Yes, speaking. I'm on my way out.",
+            "That's me, I'll be there in a minute.",
+            "Yes! Coming out now."
+          ],
+          "alts_traducoes": [
+            "Sim, é ele mesmo. Estou saindo agora.",
+            "É ele, estarei aí em um minuto.",
+            "Sim! Saindo agora."
+          ],
+          "vocab": [
+            { "palavra": "I'll be right out", "significado": "Já vou sair", "acento": "I'll be RIGHT out" },
+            { "palavra": "on my way", "significado": "a caminho", "acento": "on my WAY" }
+          ],
+          "nativo": "'I'll be right out' comunica que você está prestes a sair — frase padrão para essa situação.",
+          "erro": "Não diga 'I am coming' sozinho — soa incompleto. 'I'll be right out' é mais natural e completo."
+        },
+        {
+          "id": "trans-02-03",
+          "turno": 3,
+          "cena": "Você entra no carro e o motorista confirma o destino.",
+          "personagem": "Driver",
+          "fala": "Heading to the airport, right?",
+          "traducao": "Indo para o aeroporto, certo?",
+          "connected": "Heading to the airport, right?",
+          "blocos": [
+            { "bloco": "Heading to", "significa": "Indo para / se dirigindo a" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "Heading to", "significado": "Indo para", "acento": "HEADing to" }
+          ],
+          "nativo": "Motoristas confirmam o destino no app antes de partir — sempre confirme para evitar erros.",
+          "erro": "Não assuma que o motorista sabe o destino certo — sempre confirme verbalmente."
+        },
+        {
+          "id": "trans-02-04",
+          "turno": 4,
+          "cena": "Você confirma.",
+          "personagem": "Você",
+          "fala": "Yes, that's right. Terminal 3.",
+          "traducao": "Sim, isso mesmo. Terminal 3.",
+          "sua_vez": true,
+          "connected_voce": "Yes, that's right. Terminal three.",
+          "acento": "Yes, that's RIGHT. TERminal three.",
+          "alternativas": [
+            "Yep, Terminal 3 specifically.",
+            "Correct, heading to Terminal 3.",
+            "Yes — Terminal 3, please."
+          ],
+          "alts_traducoes": [
+            "Sim, Terminal 3 especificamente.",
+            "Correto, indo ao Terminal 3.",
+            "Sim — Terminal 3, por favor."
+          ],
+          "vocab": [
+            { "palavra": "that's right", "significado": "isso mesmo", "acento": "that's RIGHT" },
+            { "palavra": "specifically", "significado": "especificamente", "acento": "speCIfically" }
+          ],
+          "nativo": "Especificar o terminal evita confusão em aeroportos grandes — sempre mencione se souber.",
+          "erro": "Não diga apenas 'Yes' sem confirmar o detalhe específico como o número do terminal."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "Mid-ride, the driver makes conversation.",
+        "turnos": [
+          {
+            "id": "dl-trans02-01",
+            "personagem": "Driver",
+            "fala": "Flying out today? Business or pleasure?",
+            "traducao": "Viajando hoje? Negócios ou lazer?",
+            "connected": "Flying out today? Business er pleasure?",
+            "respostas_esperadas": [
+              "Business, heading home actually.",
+              "Business trip, flying back to Brazil.",
+              "Business — my trip is over."
+            ],
+            "resposta_modelo": "Business, actually — flying back home to Brazil after a great trip.",
+            "feedback_modelo": "'Flying back home' é mais natural que 'returning to my country'. Adicionar 'after a great trip' cria uma conexão simpática com o motorista, tornando a conversa mais agradável."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trans-03",
+      "titulo": "Usando o metrô",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800",
+      "dialogo": [
+        {
+          "id": "trans-03-01",
+          "turno": 1,
+          "cena": "Você está na estação de metrô e não sabe qual linha pegar. Pergunta a um funcionário.",
+          "personagem": "Você",
+          "fala": "Excuse me, which line goes downtown?",
+          "traducao": "Com licença, qual linha vai para o centro?",
+          "sua_vez": true,
+          "connected_voce": "Scuse me, which line goes downtown?",
+          "acento": "exCUSE me, which LINE goes DOWNtown?",
+          "alternativas": [
+            "Hi, which train do I take downtown?",
+            "Sorry, how do I get downtown from here?",
+            "Excuse me, is this the right line for downtown?"
+          ],
+          "alts_traducoes": [
+            "Oi, qual trem eu pego para o centro?",
+            "Desculpe, como eu chego ao centro daqui?",
+            "Com licença, essa é a linha certa para o centro?"
+          ],
+          "vocab": [
+            { "palavra": "line", "significado": "linha (do metrô)", "acento": "LINE" },
+            { "palavra": "platform", "significado": "plataforma", "acento": "PLATform" },
+            { "palavra": "fare card", "significado": "cartão de passagem", "acento": "FARE card" },
+            { "palavra": "transfer", "significado": "baldeação / transferir", "acento": "TRANSfer" },
+            { "palavra": "next stop", "significado": "próxima parada", "acento": "next STOP" }
+          ],
+          "nativo": "'Which line' é a pergunta padrão em sistemas de metrô — funcionários entendem imediatamente.",
+          "erro": "Não diga 'Which way' quando quer perguntar sobre linha específica — 'which line' é mais preciso."
+        },
+        {
+          "id": "trans-03-02",
+          "turno": 2,
+          "cena": "O funcionário responde.",
+          "personagem": "Staff",
+          "fala": "Take the blue line, platform 2.",
+          "traducao": "Pegue a linha azul, plataforma 2.",
+          "connected": "Take the blue line, platform two.",
+          "blocos": [
+            { "bloco": "Take the...", "significa": "Pegue a... — instrução comum para direções" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "blue line", "significado": "linha azul", "acento": "BLUE line" }
+          ],
+          "nativo": "As linhas de metrô são nomeadas por cor na maioria das cidades americanas — memorize a cor, não o número.",
+          "erro": "Não confunda 'platform' (plataforma) com 'track' (trilho) — são usados de forma diferente dependendo da cidade."
+        },
+        {
+          "id": "trans-03-03",
+          "turno": 3,
+          "cena": "Você pergunta sobre o cartão de passagem.",
+          "personagem": "Você",
+          "fala": "Where can I buy a fare card?",
+          "traducao": "Onde posso comprar um cartão de passagem?",
+          "sua_vez": true,
+          "connected_voce": "Where can I buy a fare card?",
+          "acento": "WHERE can I buy a FARE card?",
+          "alternativas": [
+            "Where do I get a ticket?",
+            "Is there a machine to buy cards?",
+            "Where's the ticket machine?"
+          ],
+          "alts_traducoes": [
+            "Onde eu pego uma passagem?",
+            "Tem uma máquina para comprar cartões?",
+            "Onde fica a máquina de bilhetes?"
+          ],
+          "vocab": [
+            { "palavra": "ticket machine", "significado": "máquina de bilhetes", "acento": "TICKet maCHINE" }
+          ],
+          "nativo": "'Fare card' é o termo usado em muitas cidades americanas — em outros lugares pode ser 'metro card' ou 'travel card'.",
+          "erro": "Não diga 'Where I can buy' — a ordem correta é 'Where can I buy'."
+        },
+        {
+          "id": "trans-03-04",
+          "turno": 4,
+          "cena": "O funcionário indica a máquina.",
+          "personagem": "Staff",
+          "fala": "Right over there, by the entrance.",
+          "traducao": "Bem ali, perto da entrada.",
+          "connected": "Right over there, by the entrance.",
+          "blocos": [
+            { "bloco": "by the entrance", "significa": "perto da entrada" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "by the entrance", "significado": "perto da entrada", "acento": "by the ENtrance" }
+          ],
+          "nativo": "'By' aqui significa 'perto de' — muito usado para indicar proximidade de um ponto de referência.",
+          "erro": "Não confunda 'by' (perto de) com 'near' (próximo) — são intercambiáveis nesse contexto, mas 'by' é mais casual."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You bought your fare card. Someone asks you for directions.",
+        "turnos": [
+          {
+            "id": "dl-trans03-01",
+            "personagem": "Stranger",
+            "fala": "Excuse me, does this train go to the airport?",
+            "traducao": "Com licença, esse trem vai para o aeroporto?",
+            "connected": "Scuse me, does this train go to the airport?",
+            "respostas_esperadas": [
+              "I'm not sure, sorry.",
+              "I don't know, I'm new here too.",
+              "Sorry, I'm not from here either."
+            ],
+            "resposta_modelo": "I'm not sure, sorry — I'm actually visiting too.",
+            "feedback_modelo": "É perfeitamente natural admitir que não sabe — 'I'm not sure' é honesto e educado. Compartilhar que você também é visitante ('I'm visiting too') cria empatia e explica por que não sabe a resposta."
+          }
+        ]
+      }
+    }
+  ]
+}

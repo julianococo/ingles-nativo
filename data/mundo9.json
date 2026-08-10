@@ -1,0 +1,1113 @@
+{
+  "id": 9,
+  "nome": "Direções",
+  "descricao": "Pedir e entender direções na rua, no carro, usando GPS e quando você está perdido. Tudo para chegar onde precisa.",
+  "imagem": "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800",
+  "situacoes": [
+    {
+      "id": "dir-01",
+      "titulo": "Pedindo direções na rua",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1508963493744-76fce69379c0?w=800",
+      "dialogo": [
+        {
+          "id": "dir-01-01",
+          "turno": 1,
+          "cena": "Você para um pedestre na calçada para pedir informação.",
+          "personagem": "Você",
+          "fala": "Excuse me, do you know how to get to the train station?",
+          "traducao": "Com licença, você sabe como chegar à estação de trem?",
+          "sua_vez": true,
+          "acento": "ExCUSE me, do you know HOW to get to the TRAIN station?",
+          "alternativas": [
+            "Excuse me, could you tell me the way to the train station?",
+            "Sorry, how do I get to the train station from here?",
+            "Hi, is the train station near here?"
+          ],
+          "alts_traducoes": [
+            "Com licença, você poderia me dizer o caminho para a estação de trem?",
+            "Desculpa, como eu chego na estação de trem daqui?",
+            "Oi, a estação de trem é perto daqui?"
+          ],
+          "vocab": [
+            { "palavra": "straight ahead", "significado": "em frente, reto", "acento": "straight aHEAD" },
+            { "palavra": "turn left / right", "significado": "vire à esquerda / direita", "acento": "turn LEFT" },
+            { "palavra": "block", "significado": "quarteirão", "acento": "BLOCK" },
+            { "palavra": "on the corner", "significado": "na esquina", "acento": "on the CORner" },
+            { "palavra": "across from", "significado": "em frente a, do outro lado de", "acento": "aCROSS from" }
+          ],
+          "nativo": "Começar com 'Excuse me' é essencial antes de pedir qualquer informação a um estranho nos EUA.",
+          "erro": "Não diga 'how can I arrive' — soa estranho em inglês. O correto é 'how do I get to'.",
+          "connected_voce": "'Scuse me, d'ya know how ta get to the train station?"
+        },
+        {
+          "id": "dir-01-02",
+          "turno": 2,
+          "cena": "O pedestre concorda em ajudar e começa a explicar.",
+          "personagem": "Pedestre",
+          "fala": "Sure! Go straight ahead for two blocks, then turn left.",
+          "traducao": "Claro! Siga reto por dois quarteirões, depois vire à esquerda.",
+          "connected": "Sure! Go straight ahead fer two blocks, then turn left.",
+          "blocos": [
+            { "bloco": "for two blocks", "significa": "'for' átono vira 'fer' — muito comum em fala rápida" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "go straight", "significado": "siga em frente, vá reto", "acento": "go STRAIGHT" }
+          ],
+          "nativo": "Americanos costumam medir distância em 'blocks' (quarteirões) em vez de metros ou minutos.",
+          "erro": "Não diga 'go direct' — o correto é 'go straight' para indicar 'seguir reto'."
+        },
+        {
+          "id": "dir-01-03",
+          "turno": 3,
+          "cena": "O pedestre continua com mais detalhes.",
+          "personagem": "Pedestre",
+          "fala": "You'll see a big pharmacy on the corner. The station is right across from it.",
+          "traducao": "Você vai ver uma farmácia grande na esquina. A estação fica bem do outro lado.",
+          "connected": "You'll see a big pharmacy on the corner. The station's right across from it.",
+          "blocos": [
+            { "bloco": "right across from", "significa": "'right' aqui reforça 'bem na frente de' — não significa 'direita'" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "you'll see", "significado": "você vai ver (é fácil de encontrar)", "acento": "you'll SEE" }
+          ],
+          "nativo": "Usar pontos de referência ('a big pharmacy') é mais eficaz que só dizer distância.",
+          "erro": "Não diga 'in front the pharmacy' — falta o 'of'. O correto é 'in front of it' ou 'across from it'."
+        },
+        {
+          "id": "dir-01-04",
+          "turno": 4,
+          "cena": "Você confirma se entendeu certo.",
+          "personagem": "Você",
+          "fala": "So two blocks straight, then left, and it's across from the pharmacy. Got it.",
+          "traducao": "Então dois quarteirões reto, depois esquerda, e fica do outro lado da farmácia. Entendi.",
+          "sua_vez": true,
+          "acento": "So TWO blocks STRAIGHT, then LEFT, and it's aCROSS from the PHARmacy. GOT it.",
+          "alternativas": [
+            "Okay, two blocks then left, right? And it's next to the pharmacy?",
+            "Got it — straight two blocks, left turn, station across from the pharmacy.",
+            "Two blocks and then a left, and I'll see the pharmacy as a landmark?"
+          ],
+          "alts_traducoes": [
+            "Ok, dois quarteirões e depois esquerda, certo? E fica ao lado da farmácia?",
+            "Entendi — reto dois quarteirões, vira à esquerda, estação do outro lado da farmácia.",
+            "Dois quarteirões e depois uma esquerda, e vou ver a farmácia como referência?"
+          ],
+          "vocab": [
+            { "palavra": "landmark", "significado": "ponto de referência", "acento": "LANDmark" }
+          ],
+          "nativo": "Repetir a direção de volta ('So... then...') é uma forma natural de confirmar sem soar inseguro.",
+          "erro": "Não diga 'I understood' sozinho e seco — 'Got it' soa mais natural e confirma no mesmo tom da conversa.",
+          "connected_voce": "So two blocks straight, then left, an' it's across from the pharmacy. Got it."
+        },
+        {
+          "id": "dir-01-05",
+          "turno": 5,
+          "cena": "O pedestre confirma e adiciona um detalhe útil.",
+          "personagem": "Pedestre",
+          "fala": "Exactly. It's about a ten minute walk. You can't miss it.",
+          "traducao": "Exatamente. São cerca de dez minutos a pé. Você não vai conseguir errar.",
+          "connected": "Exactly. It's about a ten minute walk. Ya can't miss it.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "you can't miss it", "significado": "é impossível errar, vai encontrar fácil", "acento": "ya can't MISS it" }
+          ],
+          "nativo": "'You can't miss it' é uma expressão fixa muito usada para tranquilizar quem está pedindo direção.",
+          "erro": "Não diga 'you cannot lose it' — tradução literal errada. A expressão correta é 'you can't miss it'."
+        },
+        {
+          "id": "dir-01-06",
+          "turno": 6,
+          "cena": "Você agradece e se despede.",
+          "personagem": "Você",
+          "fala": "Thank you so much, really appreciate it!",
+          "traducao": "Muito obrigado, realmente agradeço!",
+          "sua_vez": true,
+          "acento": "THANK you so MUCH, REally apPREciate it!",
+          "alternativas": [
+            "Thanks a lot, that was very helpful!",
+            "Thank you, you've been really helpful.",
+            "Great, thanks so much for the help!"
+          ],
+          "alts_traducoes": [
+            "Muito obrigado, isso foi muito útil!",
+            "Obrigado, você foi muito prestativo.",
+            "Ótimo, muito obrigado pela ajuda!"
+          ],
+          "vocab": [
+            { "palavra": "that was helpful", "significado": "isso foi útil", "acento": "that was HELPful" }
+          ],
+          "nativo": "'Really appreciate it' é uma forma mais enfática e sincera de agradecer do que apenas 'thank you'.",
+          "erro": "Não diga 'thank you very much for your help' — é correto mas formal demais para uma interação casual na rua.",
+          "connected_voce": "Thank you so much, really appreciate it!"
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You ask a stranger for directions to the nearest pharmacy.",
+        "turnos": [
+          {
+            "id": "dl-dir01-01",
+            "personagem": "Pedestre",
+            "fala": "The pharmacy is two blocks down, right next to the bank.",
+            "traducao": "A farmácia é dois quarteirões adiante, bem ao lado do banco.",
+            "connected": "The pharmacy's two blocks down, right next ta the bank.",
+            "respostas_esperadas": [
+              "Great, thank you so much!",
+              "Two blocks down, next to the bank, got it, thanks!",
+              "Perfect, I appreciate it."
+            ],
+            "resposta_modelo": "Two blocks down, next to the bank — got it, thank you so much!",
+            "feedback_modelo": "Repetir a informação antes de agradecer confirma que você entendeu e é uma prática comum e educada.",
+            "vocab_apoio": [
+              { "palavra": "next to", "significado": "ao lado de", "acento": "NEXT to" }
+            ]
+          },
+          {
+            "id": "dl-dir01-02",
+            "personagem": "Pedestre",
+            "fala": "No problem! It should take you about five minutes on foot.",
+            "traducao": "Sem problema! Deve levar cerca de cinco minutos a pé.",
+            "connected": "No problem! It should take ya about five minutes on foot.",
+            "respostas_esperadas": [
+              "Perfect, thanks again!",
+              "Great, that's close. Thanks!",
+              "Awesome, I'll head there now."
+            ],
+            "resposta_modelo": "Perfect, that's close enough. Thanks again, really appreciate it!",
+            "feedback_modelo": "'That's close enough' expressa satisfação com a proximidade de forma natural — mais expressivo do que só 'that's close'.",
+            "vocab_apoio": [
+              { "palavra": "on foot", "significado": "a pé", "acento": "on FOOT" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "dir-02",
+      "titulo": "Entendendo direções complexas",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800",
+      "dialogo": [
+        {
+          "id": "dir-02-01",
+          "turno": 1,
+          "cena": "Um motorista para e te dá direções mais detalhadas.",
+          "personagem": "Morador",
+          "fala": "Okay, so you're going to take this road all the way down to the light.",
+          "traducao": "Ok, então você vai seguir essa estrada até o semáforo.",
+          "connected": "Okay, so yer gonna take this road all the way down ta the light.",
+          "blocos": [
+            { "bloco": "going to", "significa": "vira 'gonna' em fala rápida e casual" },
+            { "bloco": "to the light", "significa": "'the light' = o semáforo — uso comum no dia a dia" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "the light", "significado": "o semáforo (tráfego)", "acento": "the LIGHT" },
+            { "palavra": "all the way", "significado": "todo o caminho, até o fim", "acento": "all the WAY" },
+            { "palavra": "make a left/right", "significado": "fazer/virar à esquerda/direita", "acento": "make a LEFT" },
+            { "palavra": "past the", "significado": "passando o/a", "acento": "PAST the" },
+            { "palavra": "dead end", "significado": "beco sem saída", "acento": "DEAD end" }
+          ],
+          "nativo": "'The light' para semáforo é um dos usos mais comuns no inglês americano — aprenda a reconhecer.",
+          "erro": "Não diga 'traffic light' toda vez — na fala informal é só 'the light'."
+        },
+        {
+          "id": "dir-02-02",
+          "turno": 2,
+          "cena": "Você pede para ele ir mais devagar.",
+          "personagem": "Você",
+          "fala": "Sorry, could you slow down a little? I want to make sure I get this right.",
+          "traducao": "Desculpa, você poderia ir um pouco mais devagar? Eu quero ter certeza que estou entendendo certo.",
+          "sua_vez": true,
+          "acento": "SORry, could you SLOW down a LIttle? I want to make SURE I get this RIGHT.",
+          "alternativas": [
+            "Sorry, could you repeat that more slowly?",
+            "Could you go over that again? I want to get it right.",
+            "Sorry, I missed that — could you say it again, slowly?"
+          ],
+          "alts_traducoes": [
+            "Desculpa, você poderia repetir isso mais devagar?",
+            "Você poderia passar por isso de novo? Quero entender certo.",
+            "Desculpa, eu perdi — você poderia dizer de novo, devagar?"
+          ],
+          "vocab": [
+            { "palavra": "slow down", "significado": "ir mais devagar, desacelerar", "acento": "SLOW down" }
+          ],
+          "nativo": "Pedir para repetir mais devagar é completamente natural — nativos fazem isso entre si também.",
+          "erro": "Não diga 'speak slowly please' de forma seca — 'could you slow down a little' soa mais educado e natural.",
+          "connected_voce": "SORry, could you slow down a little? I wanna make sure I get this right."
+        },
+        {
+          "id": "dir-02-03",
+          "turno": 3,
+          "cena": "O morador recomeça mais devagar.",
+          "personagem": "Morador",
+          "fala": "Sure. At the light, make a left. Then go past the school.",
+          "traducao": "Claro. No semáforo, vire à esquerda. Depois passe pela escola.",
+          "connected": "Sure. At the light, make a left. Then go past the school.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "make a left", "significado": "vire à esquerda", "acento": "make a LEFT" }
+          ],
+          "nativo": "'Make a left' e 'turn left' são intercambiáveis — 'make a left' é mais informal e muito comum na fala.",
+          "erro": "Não diga 'do a left' — essa combinação não existe. Use 'make a left' ou 'turn left'."
+        },
+        {
+          "id": "dir-02-04",
+          "turno": 4,
+          "cena": "O morador continua com a última parte.",
+          "personagem": "Morador",
+          "fala": "After the school, take the second right. That's your street.",
+          "traducao": "Depois da escola, pegue a segunda rua à direita. Essa é a sua rua.",
+          "connected": "After the school, take the second right. That's yer street.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "take the second right", "significado": "pegue a segunda à direita", "acento": "take the SECond right" }
+          ],
+          "nativo": "'Take the first/second left/right' é a estrutura padrão para direções com contagem de ruas.",
+          "erro": "Não diga 'the second street to the right' — é longo demais. O padrão é 'take the second right'."
+        },
+        {
+          "id": "dir-02-05",
+          "turno": 5,
+          "cena": "Você repete as direções para confirmar.",
+          "personagem": "Você",
+          "fala": "Okay, left at the light, past the school, then second right. Is that correct?",
+          "traducao": "Ok, esquerda no semáforo, passa pela escola, depois segunda à direita. Está correto?",
+          "sua_vez": true,
+          "acento": "Okay, LEFT at the LIGHT, past the SCHOOL, then SECond RIGHT. Is that corRECT?",
+          "alternativas": [
+            "Let me repeat: left at the light, past the school, and second right?",
+            "So I go left at the light, past the school, take the second right. Did I get that?",
+            "Left at the light, school on the left, second right — right?"
+          ],
+          "alts_traducoes": [
+            "Deixa eu repetir: esquerda no semáforo, passa pela escola, e segunda à direita?",
+            "Então eu vou à esquerda no semáforo, passo pela escola, pego a segunda à direita. Entendi certo?",
+            "Esquerda no semáforo, escola à esquerda, segunda à direita — certo?"
+          ],
+          "vocab": [
+            { "palavra": "did I get that?", "significado": "entendi certo?", "acento": "did I GET that?" }
+          ],
+          "nativo": "Confirmar repetindo as direções em voz alta é a forma mais eficaz de garantir que você entendeu tudo.",
+          "erro": "Não saia sem confirmar — o risco de errar é alto quando as direções têm mais de dois passos.",
+          "connected_voce": "Okay, left at the light, past the school, then second right. Is that correct?"
+        },
+        {
+          "id": "dir-02-06",
+          "turno": 6,
+          "cena": "O morador confirma e deseja boa sorte.",
+          "personagem": "Morador",
+          "fala": "That's it! You've got it. Good luck!",
+          "traducao": "É isso! Você pegou. Boa sorte!",
+          "connected": "That's it! You've got it. Good luck!",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "you've got it", "significado": "você entendeu, pegou o jeito", "acento": "you've GOT it" }
+          ],
+          "nativo": "'You've got it' é uma expressão de aprovação — significa que você entendeu corretamente.",
+          "erro": "Não diga 'you have it' sozinho nesse contexto — 'you've got it' é a expressão fixa correta."
+        },
+        {
+          "id": "dir-02-07",
+          "turno": 7,
+          "cena": "Você agradece de forma calorosa.",
+          "personagem": "Você",
+          "fala": "Perfect, thank you so much for your patience!",
+          "traducao": "Perfeito, muito obrigado pela sua paciência!",
+          "sua_vez": true,
+          "acento": "PERfect, THANK you so MUCH for your PAtience!",
+          "alternativas": [
+            "Thanks so much, you were really helpful!",
+            "I really appreciate your help, thank you!",
+            "Thank you, that was very clear!"
+          ],
+          "alts_traducoes": [
+            "Muito obrigado, você foi muito prestativo!",
+            "Eu realmente agradeço sua ajuda, obrigado!",
+            "Obrigado, ficou muito claro!"
+          ],
+          "vocab": [
+            { "palavra": "for your patience", "significado": "pela sua paciência", "acento": "for yer PAtience" }
+          ],
+          "nativo": "Agradecer pela paciência é especialmente elegante quando a pessoa precisou repetir as instruções.",
+          "erro": "Não diga 'thank you for being patient' de forma tão longa — 'thank you for your patience' é a expressão mais usada.",
+          "connected_voce": "PERfect, thank you so much fer yer patience!"
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You're following the directions but got confused and call the person back.",
+        "turnos": [
+          {
+            "id": "dl-dir02-01",
+            "personagem": "Morador",
+            "fala": "Did you find it okay, or did you get turned around?",
+            "traducao": "Você encontrou certo, ou ficou desorientado?",
+            "connected": "Did ya find it okay, er did ya get turned around?",
+            "respostas_esperadas": [
+              "I found it, thank you!",
+              "I got a little turned around, but I'm back on track.",
+              "I passed the school and took the second right, I think I'm here."
+            ],
+            "resposta_modelo": "I got a little turned around at the school, but I think I'm back on track now.",
+            "feedback_modelo": "'Turned around' é a expressão idiomática para dizer que você ficou desorientado ou perdeu o rumo — muito mais natural que 'confused'.",
+            "vocab_apoio": [
+              { "palavra": "turned around", "significado": "desorientado, sem saber que direção tomar", "acento": "turned aROUND" }
+            ]
+          },
+          {
+            "id": "dl-dir02-02",
+            "personagem": "Morador",
+            "fala": "You should be able to see a blue building on your left now.",
+            "traducao": "Você deve conseguir ver um prédio azul à sua esquerda agora.",
+            "connected": "You should be able ta see a blue building on yer left now.",
+            "respostas_esperadas": [
+              "Yes! I can see it now, I'm here.",
+              "I see it! Thank you so much.",
+              "Got it, I can see the blue building."
+            ],
+            "resposta_modelo": "Yes, I can see it! I'm here. Thank you so much for your help!",
+            "feedback_modelo": "Confirmar que você chegou e agradecer é o fechamento mais natural e satisfatório para essa interação.",
+            "vocab_apoio": [
+              { "palavra": "on your left", "significado": "à sua esquerda", "acento": "on yer LEFT" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "dir-03",
+      "titulo": "Explicando um caminho",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800",
+      "dialogo": [
+        {
+          "id": "dir-03-01",
+          "turno": 1,
+          "cena": "Um turista para você na rua e pede ajuda.",
+          "personagem": "Turista",
+          "fala": "Sorry, do you happen to know where the nearest ATM is?",
+          "traducao": "Desculpa, por acaso você sabe onde fica o caixa eletrônico mais próximo?",
+          "connected": "Sorry, d'ya happen ta know where the nearest ATM is?",
+          "blocos": [
+            { "bloco": "do you happen to know", "significa": "vira 'd'ya happen ta know' — forma educada e indireta de perguntar" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "nearest", "significado": "mais próximo", "acento": "NEArest" },
+            { "palavra": "do you happen to know", "significado": "por acaso você sabe", "acento": "d'ya HAPpen ta know" },
+            { "palavra": "can't miss it", "significado": "não tem como errar", "acento": "can't MISS it" },
+            { "palavra": "on the right-hand side", "significado": "do lado direito", "acento": "on the RIGHT-hand side" },
+            { "palavra": "facing", "significado": "de frente para", "acento": "FAcing" }
+          ],
+          "nativo": "'Do you happen to know' é uma forma educada e indireta de perguntar, muito usada com estranhos.",
+          "erro": "Não diga 'the more near' — comparativo errado. O correto é 'the nearest'."
+        },
+        {
+          "id": "dir-03-02",
+          "turno": 2,
+          "cena": "Você diz que conhece e começa a explicar.",
+          "personagem": "Você",
+          "fala": "Yeah, there's one just past the coffee shop, right across the street.",
+          "traducao": "Sim, tem um logo depois da cafeteria, bem do outro lado da rua.",
+          "sua_vez": true,
+          "acento": "Yeah, there's one just PAST the COFfee shop, right aCROSS the STREET.",
+          "alternativas": [
+            "Yes, it's just past the coffee shop, across the street.",
+            "There's one right there, past the coffee shop on the left.",
+            "Yeah, you'll see it right after the coffee shop, across the road."
+          ],
+          "alts_traducoes": [
+            "Sim, é logo depois da cafeteria, do outro lado da rua.",
+            "Tem um bem ali, depois da cafeteria à esquerda.",
+            "Sim, você vai ver logo depois da cafeteria, do outro lado da via."
+          ],
+          "vocab": [
+            { "palavra": "just past", "significado": "logo depois de, passando", "acento": "just PAST" }
+          ],
+          "nativo": "Usar pontos de referência conhecidos (loja, banco, cafeteria) é mais eficaz que só dizer distância.",
+          "erro": "Não diga 'in front the coffee shop' — falta o 'of'. O correto é 'in front of' ou, aqui, 'past'.",
+          "connected_voce": "Yeah, there's one just past the coffee shop, right across the street."
+        },
+        {
+          "id": "dir-03-03",
+          "turno": 3,
+          "cena": "O turista pede mais detalhes para não errar.",
+          "personagem": "Turista",
+          "fala": "Is it easy to spot, or should I keep an eye out?",
+          "traducao": "É fácil de ver, ou eu devo ficar de olho?",
+          "connected": "Izzit easy ta spot, er should I keep an eye out?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "keep an eye out", "significado": "ficar de olho, prestar atenção", "acento": "keep an EYE out" }
+          ],
+          "nativo": "'Keep an eye out' é uma expressão idiomática muito usada para dizer 'fique atento/procurando'.",
+          "erro": "Não diga 'be careful to see' — esse uso não é natural. O correto é 'keep an eye out' ou 'look out for'."
+        },
+        {
+          "id": "dir-03-04",
+          "turno": 4,
+          "cena": "Você garante que é fácil de achar.",
+          "personagem": "Você",
+          "fala": "Don't worry, you can't miss it — it has a big blue sign.",
+          "traducao": "Não se preocupa, você não vai conseguir errar — tem uma placa azul grande.",
+          "sua_vez": true,
+          "acento": "Don't WORry, you CAN'T miss it — it has a BIG blue SIGN.",
+          "alternativas": [
+            "It's pretty hard to miss, there's a big sign.",
+            "You'll spot it right away, there's a huge blue sign.",
+            "It's obvious — just look for the big blue sign."
+          ],
+          "alts_traducoes": [
+            "É bem difícil de perder, tem uma placa grande.",
+            "Você vai achar rapidinho, tem uma placa azul enorme.",
+            "É óbvio — só procure pela placa azul grande."
+          ],
+          "vocab": [
+            { "palavra": "hard to miss", "significado": "difícil de não ver, óbvio", "acento": "hard ta MISS" }
+          ],
+          "nativo": "'You can't miss it' é uma expressão fixa — sempre usada para tranquilizar quem está com medo de errar.",
+          "erro": "Não diga 'you cannot lose it' — tradução literal errada. A expressão correta é 'you can't miss it'.",
+          "connected_voce": "Don't worry, ya can't miss it — it has a big blue sign."
+        },
+        {
+          "id": "dir-03-05",
+          "turno": 5,
+          "cena": "O turista agradece e pergunta quanto tempo leva.",
+          "personagem": "Turista",
+          "fala": "How far is it, roughly?",
+          "traducao": "Quão longe fica, mais ou menos?",
+          "connected": "How far is it, roughly?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "roughly", "significado": "mais ou menos, aproximadamente", "acento": "ROUGHly" }
+          ],
+          "nativo": "'Roughly' é uma palavra útil para qualquer estimativa — mais natural que 'approximately' na fala.",
+          "erro": "Não diga 'how much far' — erro comum de brasileiro. O correto é 'how far is it'."
+        },
+        {
+          "id": "dir-03-06",
+          "turno": 6,
+          "cena": "Você estima a distância.",
+          "personagem": "Você",
+          "fala": "Just a couple of minutes on foot, maybe less.",
+          "traducao": "Só uns dois minutos a pé, talvez menos.",
+          "sua_vez": true,
+          "acento": "Just a COUple of MInutes on FOOT, MAYbe less.",
+          "alternativas": [
+            "Maybe two or three minutes walking.",
+            "Not far at all, two minutes tops.",
+            "Less than five minutes on foot, for sure."
+          ],
+          "alts_traducoes": [
+            "Talvez dois ou três minutos caminhando.",
+            "Nem longe, dois minutos no máximo.",
+            "Menos de cinco minutos a pé, com certeza."
+          ],
+          "vocab": [
+            { "palavra": "two minutes tops", "significado": "dois minutos no máximo", "acento": "two minutes TOPS" }
+          ],
+          "nativo": "'Tops' no final de uma estimativa indica o valor máximo — expressão informal muito comum.",
+          "erro": "Não diga 'a couple of minutes' sempre que quiser dizer 2 — 'a couple' pode ser 2 a 5 na fala informal.",
+          "connected_voce": "Just a couple of minutes on foot, maybe less."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "Someone stops you to ask how to get to the nearest park.",
+        "turnos": [
+          {
+            "id": "dl-dir03-01",
+            "personagem": "Pedestre",
+            "fala": "Excuse me, how far is the nearest park from here?",
+            "traducao": "Com licença, quão longe fica o parque mais próximo daqui?",
+            "connected": "'Scuse me, how far is the nearest park from here?",
+            "respostas_esperadas": [
+              "It's about a ten minute walk from here.",
+              "It's pretty close, just a few blocks.",
+              "Not far, maybe five minutes on foot."
+            ],
+            "resposta_modelo": "It's not far at all, about a ten minute walk from here.",
+            "feedback_modelo": "Dar uma estimativa em minutos de caminhada é a forma mais prática e comum de responder 'how far' nos EUA.",
+            "vocab_apoio": [
+              { "palavra": "a few minutes' walk", "significado": "alguns minutos a pé", "acento": "a few MInutes' walk" }
+            ]
+          },
+          {
+            "id": "dl-dir03-02",
+            "personagem": "Pedestre",
+            "fala": "Is there a shortcut, or should I just take the main road?",
+            "traducao": "Tem um atalho, ou eu devo seguir só pela estrada principal?",
+            "connected": "Is there a shortcut, er should I just take the main road?",
+            "respostas_esperadas": [
+              "The main road is easier, just go straight.",
+              "There's a shortcut through the alley.",
+              "I'd just stick to the main road if I were you."
+            ],
+            "resposta_modelo": "I'd just stick to the main road — it's easier and you can't get lost.",
+            "feedback_modelo": "'I'd just stick to' é uma forma natural de dar uma recomendação pessoal sem soar como ordem.",
+            "vocab_apoio": [
+              { "palavra": "shortcut", "significado": "atalho", "acento": "SHORTcut" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "dir-04",
+      "titulo": "Perdido — pedindo ajuda urgente",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800",
+      "dialogo": [
+        {
+          "id": "dir-04-01",
+          "turno": 1,
+          "cena": "Você está claramente perdido e para alguém na rua.",
+          "personagem": "Você",
+          "fala": "Excuse me, I think I'm lost. I'm trying to get to the downtown area.",
+          "traducao": "Com licença, acho que estou perdido. Estou tentando chegar na área central.",
+          "sua_vez": true,
+          "acento": "ExCUSE me, I think I'm LOST. I'm TRYing to get to the DOWNtown ARea.",
+          "alternativas": [
+            "Sorry, I'm completely lost. How do I get to downtown?",
+            "Excuse me, can you help me? I can't figure out where I am.",
+            "Hi, I got turned around — I'm trying to reach the city center."
+          ],
+          "alts_traducoes": [
+            "Desculpa, estou completamente perdido. Como eu chego no centro?",
+            "Com licença, você pode me ajudar? Eu não consigo descobrir onde estou.",
+            "Oi, fiquei desorientado — estou tentando chegar no centro da cidade."
+          ],
+          "vocab": [
+            { "palavra": "lost", "significado": "perdido", "acento": "LOST" },
+            { "palavra": "downtown", "significado": "centro da cidade", "acento": "DOWNtown" },
+            { "palavra": "got turned around", "significado": "ficou desorientado, se perdeu", "acento": "got turned aROUND" },
+            { "palavra": "wrong direction", "significado": "direção errada", "acento": "wrong diRECtion" },
+            { "palavra": "heading", "significado": "se dirigindo a, indo para", "acento": "HEADing" }
+          ],
+          "nativo": "Admitir que está perdido diretamente ('I think I'm lost') é a forma mais eficaz e honesta de pedir ajuda.",
+          "erro": "Não diga 'I am confused with the directions' de forma longa — 'I think I'm lost' é mais claro e direto.",
+          "connected_voce": "'Scuse me, I think I'm lost. I'm trying ta get to the downtown area."
+        },
+        {
+          "id": "dir-04-02",
+          "turno": 2,
+          "cena": "O pedestre verifica onde você está.",
+          "personagem": "Pedestre",
+          "fala": "Oh, you're actually heading in the wrong direction. Downtown is that way.",
+          "traducao": "Oh, você está indo na direção errada. O centro é para aquele lado.",
+          "connected": "Oh, yer actually heading in the wrong direction. Downtown's that way.",
+          "blocos": [
+            { "bloco": "actually", "significa": "na verdade — usado para corrigir uma suposição" },
+            { "bloco": "that way", "significa": "para aquele lado — sempre acompanhado de gesto" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "that way", "significado": "para aquele lado (com gesto)", "acento": "THAT way" }
+          ],
+          "nativo": "'Actually' usado para corrigir algo é muito comum — não tem conotação negativa, só de precisão.",
+          "erro": "Não interprete 'actually' como grosseria — é um marcador neutro de correção no inglês americano."
+        },
+        {
+          "id": "dir-04-03",
+          "turno": 3,
+          "cena": "Você reage com surpresa e pergunta quanto demorou.",
+          "personagem": "Você",
+          "fala": "Oh no, how far off am I?",
+          "traducao": "Que pena, quão longe eu fui?",
+          "sua_vez": true,
+          "acento": "Oh NO, how FAR off am I?",
+          "alternativas": [
+            "Oh no, how far did I go in the wrong direction?",
+            "Oh wow, how far off track am I?",
+            "Really? How long will it take to double back?"
+          ],
+          "alts_traducoes": [
+            "Que pena, quão longe eu fui na direção errada?",
+            "Nossa, quão fora do caminho eu estou?",
+            "Sério? Quanto tempo vai levar para voltar?"
+          ],
+          "vocab": [
+            { "palavra": "how far off", "significado": "quão longe do caminho certo", "acento": "how FAR off" }
+          ],
+          "nativo": "'How far off am I?' é uma forma compacta e natural de perguntar o quão errada foi sua direção.",
+          "erro": "Não diga 'how far wrong' — a expressão natural é 'how far off' ou 'how far off track'.",
+          "connected_voce": "Oh no, how far off am I?"
+        },
+        {
+          "id": "dir-04-04",
+          "turno": 4,
+          "cena": "O pedestre tranquiliza e dá instrução de retorno.",
+          "personagem": "Pedestre",
+          "fala": "Not too bad, maybe ten minutes. Just double back and head toward the tall buildings.",
+          "traducao": "Não muito longe, talvez dez minutos. Só volte pelo mesmo caminho e siga em direção aos prédios altos.",
+          "connected": "Not too bad, maybe ten minutes. Just double back an' head toward the tall buildings.",
+          "blocos": [
+            { "bloco": "double back", "significa": "voltar pelo mesmo caminho que você veio" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "double back", "significado": "voltar pelo mesmo caminho", "acento": "DOUble back" }
+          ],
+          "nativo": "'Double back' é a forma natural de dizer 'voltar pelo caminho que você veio'.",
+          "erro": "Não diga 'return the way you came' de forma longa — 'double back' é o termo compacto e comum."
+        },
+        {
+          "id": "dir-04-05",
+          "turno": 5,
+          "cena": "Você confirma a instrução.",
+          "personagem": "Você",
+          "fala": "Head toward the tall buildings, got it. Thank you!",
+          "traducao": "Em direção aos prédios altos, entendi. Obrigado!",
+          "sua_vez": true,
+          "acento": "HEAD toward the TALL BUILDings, GOT it. THANK you!",
+          "alternativas": [
+            "Got it, toward the tall buildings. Thanks so much!",
+            "Double back and look for the tall buildings, understood!",
+            "Perfect, I'll just follow the skyline. Thanks!"
+          ],
+          "alts_traducoes": [
+            "Entendi, em direção aos prédios altos. Muito obrigado!",
+            "Voltar e procurar pelos prédios altos, entendido!",
+            "Perfeito, vou só seguir o horizonte. Obrigado!"
+          ],
+          "vocab": [
+            { "palavra": "follow the skyline", "significado": "seguir o horizonte da cidade", "acento": "FOLlow the SKYline" }
+          ],
+          "nativo": "Os prédios do centro são uma ótima referência visual em qualquer cidade americana.",
+          "erro": "Não diga 'I go now' sem verbo auxiliar — o natural é 'I'll head there now' ou simplesmente 'got it, thanks'.",
+          "connected_voce": "Head toward the tall buildings, got it. THANK you!"
+        },
+        {
+          "id": "dir-04-06",
+          "turno": 6,
+          "cena": "O pedestre avisa sobre um detalhe importante.",
+          "personagem": "Pedestre",
+          "fala": "One more thing — watch out for the construction on Fifth Avenue.",
+          "traducao": "Mais uma coisa — cuidado com a construção na Quinta Avenida.",
+          "connected": "One more thing — watch out fer the construction on Fifth Avenue.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "watch out for", "significado": "cuidado com, fique atento a", "acento": "WATCH out fer" }
+          ],
+          "nativo": "'One more thing' é uma transição clássica quando alguém quer adicionar uma informação extra antes de encerrar.",
+          "erro": "Não diga 'be careful with the construction' — o correto e natural é 'watch out for the construction'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You're trying to get back on track and spot a landmark you recognize.",
+        "turnos": [
+          {
+            "id": "dl-dir04-01",
+            "personagem": "Pedestre",
+            "fala": "Do you see that red church at the end of the block?",
+            "traducao": "Você está vendo aquela igreja vermelha no final do quarteirão?",
+            "connected": "Do ya see that red church at the end of the block?",
+            "respostas_esperadas": [
+              "Yes, I can see it.",
+              "Yes, I see the red church.",
+              "Got it, I can see it from here."
+            ],
+            "resposta_modelo": "Yes, I can see it from here!",
+            "feedback_modelo": "Confirmar o ponto de referência ('I can see it') é importante para o pedestre saber que você está se orientando corretamente.",
+            "vocab_apoio": [
+              { "palavra": "at the end of the block", "significado": "no final do quarteirão", "acento": "at the END of the block" }
+            ]
+          },
+          {
+            "id": "dl-dir04-02",
+            "personagem": "Pedestre",
+            "fala": "Great, just walk toward it and downtown is right behind it.",
+            "traducao": "Ótimo, só caminhe em direção a ela e o centro fica bem atrás.",
+            "connected": "Great, just walk toward it an' downtown's right behind it.",
+            "respostas_esperadas": [
+              "Perfect, I've got it now. Thank you!",
+              "Wonderful, that makes sense. Thanks so much!",
+              "Got it! Much appreciated."
+            ],
+            "resposta_modelo": "Perfect, that makes total sense now. Thank you so much for your help!",
+            "feedback_modelo": "'That makes total sense' confirma que você entendeu completamente — 'total' reforça a clareza da explicação e soa mais genuíno.",
+            "vocab_apoio": [
+              { "palavra": "right behind it", "significado": "bem atrás disso", "acento": "right beHIND it" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "dir-05",
+      "titulo": "Usando o GPS — problemas e soluções",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800",
+      "dialogo": [
+        {
+          "id": "dir-05-01",
+          "turno": 1,
+          "cena": "Seu GPS deu uma rota errada e você para alguém para confirmar.",
+          "personagem": "Você",
+          "fala": "Excuse me, my GPS is acting up. Is this the right way to Oak Street?",
+          "traducao": "Com licença, meu GPS está com problema. Esse é o caminho certo para Oak Street?",
+          "sua_vez": true,
+          "acento": "ExCUSE me, my G-P-S is ACTing up. Is this the RIGHT way to OAK Street?",
+          "alternativas": [
+            "Sorry, my GPS isn't working right. Am I heading toward Oak Street?",
+            "Excuse me, my GPS died. Is this the direction for Oak Street?",
+            "Hi, my phone's GPS is off — is Oak Street this way?"
+          ],
+          "alts_traducoes": [
+            "Desculpa, meu GPS não está funcionando direito. Estou indo em direção à Oak Street?",
+            "Com licença, meu GPS morreu. Essa é a direção para Oak Street?",
+            "Oi, o GPS do meu celular deu erro — Oak Street é por aqui?"
+          ],
+          "vocab": [
+            { "palavra": "acting up", "significado": "dando problema, com defeito", "acento": "ACTing up" },
+            { "palavra": "signal", "significado": "sinal (de internet/GPS)", "acento": "SIGnal" },
+            { "palavra": "recalculating", "significado": "recalculando (rota)", "acento": "reCALculating" },
+            { "palavra": "off route", "significado": "fora da rota", "acento": "off ROUTE" },
+            { "palavra": "GPS died", "significado": "GPS descarregou/parou", "acento": "GPS DIED" }
+          ],
+          "nativo": "'Acting up' é uma expressão informal comum para qualquer aparelho que não funciona direito.",
+          "erro": "Não diga 'my GPS is not working good' — o correto é 'properly' ou 'right', não 'good'.",
+          "connected_voce": "'Scuse me, my GPS is acting up. Is this the right way to Oak Street?"
+        },
+        {
+          "id": "dir-05-02",
+          "turno": 2,
+          "cena": "O morador avisa que você foi jogado na rota errada.",
+          "personagem": "Morador",
+          "fala": "Actually, GPS sends people the wrong way here all the time. Oak Street is the other direction.",
+          "traducao": "Na verdade, o GPS manda as pessoas pelo caminho errado aqui o tempo todo. Oak Street é na outra direção.",
+          "connected": "Actually, GPS sends people the wrong way here all the time. Oak Street's the other direction.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "the other direction", "significado": "a outra direção, o sentido oposto", "acento": "the OTHER diRECtion" }
+          ],
+          "nativo": "GPS erros em áreas com muitos prédios altos ou zonas rurais são muito comuns nos EUA.",
+          "erro": "Não diga 'contrary direction' — não é natural em inglês. O correto é 'the other direction' ou 'the opposite direction'."
+        },
+        {
+          "id": "dir-05-03",
+          "turno": 3,
+          "cena": "Você pergunta a melhor forma de chegar sem GPS.",
+          "personagem": "Você",
+          "fala": "Good to know! What's the easiest way to get there without GPS?",
+          "traducao": "Bom saber! Qual é a forma mais fácil de chegar lá sem GPS?",
+          "sua_vez": true,
+          "acento": "Good to KNOW! What's the EAsiest WAY to get THERE without G-P-S?",
+          "alternativas": [
+            "Thanks for the heads up! How do I get there without relying on the GPS?",
+            "Good call — can you give me directions the old-fashioned way?",
+            "Got it. Can you just point me in the right direction?"
+          ],
+          "alts_traducoes": [
+            "Obrigado pelo aviso! Como eu chego lá sem depender do GPS?",
+            "Boa observação — você pode me dar direções do jeito antigo?",
+            "Entendi. Você pode só me apontar na direção certa?"
+          ],
+          "vocab": [
+            { "palavra": "the old-fashioned way", "significado": "do jeito antigo (sem tecnologia)", "acento": "the old-FASHioned way" }
+          ],
+          "nativo": "'The old-fashioned way' é uma expressão comum para se referir a métodos tradicionais sem tecnologia.",
+          "erro": "Não diga 'without using GPS' de forma redundante — 'without GPS' já é suficiente.",
+          "connected_voce": "Good ta know! What's the easiest way ta get there without GPS?"
+        },
+        {
+          "id": "dir-05-04",
+          "turno": 4,
+          "cena": "O morador dá direções simples usando referências visuais.",
+          "personagem": "Morador",
+          "fala": "Easy — see that tall red building? Head toward it and Oak Street is right in front.",
+          "traducao": "Fácil — está vendo aquele prédio vermelho alto? Vá em direção a ele e Oak Street fica bem na frente.",
+          "connected": "Easy — see that tall red building? Head toward it an' Oak Street's right in front.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "right in front", "significado": "bem na frente", "acento": "right in FRONT" }
+          ],
+          "nativo": "Usar marcos visuais altos (prédios, torres, pontes) é a forma mais eficaz de orientação sem GPS.",
+          "erro": "Não diga 'go in the direction of the building' de forma longa — 'head toward it' é mais compacto e natural."
+        },
+        {
+          "id": "dir-05-05",
+          "turno": 5,
+          "cena": "Você confirma e menciona que vai desligar o GPS.",
+          "personagem": "Você",
+          "fala": "Perfect, I'll just ignore the GPS then and use the building as a reference.",
+          "traducao": "Perfeito, vou só ignorar o GPS então e usar o prédio como referência.",
+          "sua_vez": true,
+          "acento": "PERfect, I'll just IGnore the G-P-S then and use the BUILDing as a REFerence.",
+          "alternativas": [
+            "Got it, I'll turn off the GPS and just look for the red building.",
+            "Makes sense — I'll use the building as my landmark.",
+            "Perfect, building as a reference, got it. Thanks!"
+          ],
+          "alts_traducoes": [
+            "Entendi, vou desligar o GPS e só procurar o prédio vermelho.",
+            "Faz sentido — vou usar o prédio como meu ponto de referência.",
+            "Perfeito, prédio como referência, entendido. Obrigado!"
+          ],
+          "vocab": [
+            { "palavra": "use as a reference", "significado": "usar como referência", "acento": "use as a REFerence" }
+          ],
+          "nativo": "Confirmar sua estratégia ('I'll use the building as a reference') mostra que você entendeu o conselho.",
+          "erro": "Não diga 'I will off the GPS' — o correto é 'I'll turn off the GPS' ou 'I'll ignore the GPS'.",
+          "connected_voce": "PERfect, I'll just ignore the GPS then an' use the building as a reference."
+        },
+        {
+          "id": "dir-05-06",
+          "turno": 6,
+          "cena": "O morador deseja boa sorte.",
+          "personagem": "Morador",
+          "fala": "You'll be fine! It's harder to get lost here than the GPS makes it seem.",
+          "traducao": "Você vai ficar bem! É mais difícil se perder aqui do que o GPS faz parecer.",
+          "connected": "You'll be fine! It's harder ta get lost here than the GPS makes it seem.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "you'll be fine", "significado": "você vai ficar bem, vai dar certo", "acento": "you'll be FINE" }
+          ],
+          "nativo": "'You'll be fine' é uma frase de encorajamento muito usada em inglês — simples e genuína.",
+          "erro": "Não diga 'don't be worried' — o natural e comum é 'you'll be fine' ou 'don't worry, you've got this'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "Your GPS died completely and you're asking a gas station attendant for help.",
+        "turnos": [
+          {
+            "id": "dl-dir05-01",
+            "personagem": "Atendente",
+            "fala": "No signal out here. Do you remember any street names nearby?",
+            "traducao": "Sem sinal aqui. Você lembra de algum nome de rua por perto?",
+            "connected": "No signal out here. D'ya remember any street names nearby?",
+            "respostas_esperadas": [
+              "I think it was near Main Street.",
+              "I remember something with 'Park' in the name.",
+              "Not really, just that it was close to a big hotel."
+            ],
+            "resposta_modelo": "I think it was somewhere near Main Street, close to a big hotel.",
+            "feedback_modelo": "Combinar um nome parcial de rua com um ponto de referência ('close to a big hotel') ajuda muito quando você não lembra o endereço exato.",
+            "vocab_apoio": [
+              { "palavra": "nearby", "significado": "por perto, nas proximidades", "acento": "NEARby" }
+            ]
+          },
+          {
+            "id": "dl-dir05-02",
+            "personagem": "Atendente",
+            "fala": "I know that hotel — you're actually pretty close, just about three blocks north.",
+            "traducao": "Eu conheço esse hotel — você está bem perto na verdade, só uns três quarteirões ao norte.",
+            "connected": "I know that hotel — yer actually pretty close, just about three blocks north.",
+            "respostas_esperadas": [
+              "Oh great, north — that's helpful. Thanks!",
+              "Perfect, three blocks north. Got it!",
+              "Three blocks north, which direction is north from here?"
+            ],
+            "resposta_modelo": "That's a relief! Three blocks north — which way is north from here?",
+            "feedback_modelo": "'That's a relief' expressa genuinamente que você ficou aliviado — muito mais natural do que só 'good' nessa situação.",
+            "vocab_apoio": [
+              { "palavra": "that's a relief", "significado": "que alívio", "acento": "that's a reLIEF" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "dir-06",
+      "titulo": "Direções dentro de um shopping ou prédio",
+      "nivel": 3,
+      "imagem": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800",
+      "dialogo": [
+        {
+          "id": "dir-06-01",
+          "turno": 1,
+          "cena": "Você está dentro de um shopping e pergunta onde fica uma loja específica.",
+          "personagem": "Você",
+          "fala": "Excuse me, do you know where I can find the Apple Store in here?",
+          "traducao": "Com licença, você sabe onde eu posso achar a Apple Store aqui dentro?",
+          "sua_vez": true,
+          "acento": "ExCUSE me, do you KNOW where I can FIND the Apple Store in HERE?",
+          "alternativas": [
+            "Hi, can you tell me where the Apple Store is?",
+            "Excuse me, where's the Apple Store in this mall?",
+            "Sorry, is the Apple Store on this floor?"
+          ],
+          "alts_traducoes": [
+            "Oi, você pode me dizer onde fica a Apple Store?",
+            "Com licença, onde fica a Apple Store neste shopping?",
+            "Desculpa, a Apple Store fica neste andar?"
+          ],
+          "vocab": [
+            { "palavra": "floor", "significado": "andar (de um prédio)", "acento": "FLOOR" },
+            { "palavra": "elevator / escalator", "significado": "elevador / escada rolante", "acento": "ELevator" },
+            { "palavra": "directory", "significado": "mapa do shopping / lista de lojas", "acento": "diRECtory" },
+            { "palavra": "food court", "significado": "praça de alimentação", "acento": "FOOD court" },
+            { "palavra": "wing", "significado": "ala (do shopping)", "acento": "WING" }
+          ],
+          "nativo": "Shoppings americanos frequentemente têm mapas digitais em totens — mas perguntar a um funcionário é sempre mais rápido.",
+          "erro": "Não diga 'in this store' para se referir ao shopping — o correto é 'in this mall' ou 'in here'.",
+          "connected_voce": "'Scuse me, d'ya know where I can find the Apple Store in here?"
+        },
+        {
+          "id": "dir-06-02",
+          "turno": 2,
+          "cena": "Um funcionário do shopping responde com o andar e a ala.",
+          "personagem": "Funcionário",
+          "fala": "Sure, it's on the second floor, in the east wing, near the food court.",
+          "traducao": "Claro, fica no segundo andar, na ala leste, perto da praça de alimentação.",
+          "connected": "Sure, it's on the second floor, in the east wing, near the food court.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "east / west wing", "significado": "ala leste / oeste", "acento": "EAST wing" }
+          ],
+          "nativo": "Shoppings americanos são frequentemente divididos em 'wings' (alas) com nomes ou pontos cardinais.",
+          "erro": "Não diga 'second floor' pensando em segundo andar europeu — nos EUA, 'second floor' é o segundo andar (no Brasil seria o 3° andamento em alguns contextos)."
+        },
+        {
+          "id": "dir-06-03",
+          "turno": 3,
+          "cena": "Você pergunta como chegar à escada rolante.",
+          "personagem": "Você",
+          "fala": "And where's the escalator from here?",
+          "traducao": "E onde fica a escada rolante daqui?",
+          "sua_vez": true,
+          "acento": "And WHERE's the ESCalator from HERE?",
+          "alternativas": [
+            "How do I get to the escalator from here?",
+            "Where can I find an escalator to the second floor?",
+            "Is there an elevator nearby?"
+          ],
+          "alts_traducoes": [
+            "Como eu chego na escada rolante daqui?",
+            "Onde posso encontrar uma escada rolante para o segundo andar?",
+            "Tem um elevador perto?"
+          ],
+          "vocab": [
+            { "palavra": "escalator", "significado": "escada rolante", "acento": "ESCalator" }
+          ],
+          "nativo": "'Escalator' (escada rolante) e 'elevator' (elevador) são facilmente confundidos — aprenda os dois.",
+          "erro": "Não diga 'electric stairs' — não existe em inglês. O correto é 'escalator'."
+        },
+        {
+          "id": "dir-06-04",
+          "turno": 4,
+          "cena": "O funcionário explica como chegar.",
+          "personagem": "Funcionário",
+          "fala": "Just go straight down this hallway, past the restrooms, and you'll see it on your left.",
+          "traducao": "Só siga em frente por esse corredor, passe os banheiros, e você vai ver à sua esquerda.",
+          "connected": "Just go straight down this hallway, past the restrooms, an' you'll see it on yer left.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "hallway", "significado": "corredor", "acento": "HALLway" },
+            { "palavra": "restrooms", "significado": "banheiros", "acento": "RESTrooms" }
+          ],
+          "nativo": "'Restroom' é o termo mais formal e universal para banheiro nos EUA — mais adequado que 'bathroom' em espaços públicos.",
+          "erro": "Não diga 'toilet' em público nos EUA — soa muito direto. Prefira 'restroom' ou 'bathroom'."
+        },
+        {
+          "id": "dir-06-05",
+          "turno": 5,
+          "cena": "Você confirma as direções.",
+          "personagem": "Você",
+          "fala": "Down the hallway, past the restrooms, escalator on the left. Perfect, thanks!",
+          "traducao": "Pelo corredor, passa os banheiros, escada rolante à esquerda. Perfeito, obrigado!",
+          "sua_vez": true,
+          "acento": "DOWN the HALLway, PAST the RESTrooms, ESCalator on the LEFT. PERfect, THANKS!",
+          "alternativas": [
+            "Got it — hallway, past the bathrooms, escalator on the left.",
+            "Straight down the hallway, past the restrooms — got it, thanks!",
+            "Perfect, hallway, restrooms, escalator on the left. Thank you!"
+          ],
+          "alts_traducoes": [
+            "Entendi — corredor, passa os banheiros, escada rolante à esquerda.",
+            "Reto pelo corredor, passa os banheiros — entendido, obrigado!",
+            "Perfeito, corredor, banheiros, escada rolante à esquerda. Obrigado!"
+          ],
+          "vocab": [
+            { "palavra": "got it", "significado": "entendido, peguei", "acento": "GOT it" }
+          ],
+          "nativo": "Repetir as direções de forma compacta antes de agradecer confirma o entendimento de forma eficaz.",
+          "erro": "Não diga 'I understood' — soa formal demais. 'Got it' é a resposta natural e moderna.",
+          "connected_voce": "Down the hallway, past the restrooms, escalator on the left. Perfect, thanks!"
+        },
+        {
+          "id": "dir-06-06",
+          "turno": 6,
+          "cena": "O funcionário oferece um mapa do shopping.",
+          "personagem": "Funcionário",
+          "fala": "No problem! Would you like a mall map just in case?",
+          "traducao": "Sem problema! Você gostaria de um mapa do shopping só por precaução?",
+          "connected": "No problem! Would ya like a mall map just in case?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "mall map", "significado": "mapa do shopping", "acento": "MALL map" }
+          ],
+          "nativo": "Muitos shoppings americanos ainda oferecem mapas físicos — prático em locais grandes.",
+          "erro": "Não diga 'map of the mall' de forma invertida — o natural em inglês é 'mall map'."
+        },
+        {
+          "id": "dir-06-07",
+          "turno": 7,
+          "cena": "Você aceita o mapa e agradece.",
+          "personagem": "Você",
+          "fala": "Sure, that would be helpful, thank you so much!",
+          "traducao": "Claro, isso seria útil, muito obrigado!",
+          "sua_vez": true,
+          "acento": "SURE, that would be HELPful, THANK you so MUCH!",
+          "alternativas": [
+            "Yes please, that'd be great!",
+            "Sure, I'll take one. Thanks!",
+            "That would actually be very helpful, thank you!"
+          ],
+          "alts_traducoes": [
+            "Sim por favor, seria ótimo!",
+            "Claro, vou pegar um. Obrigado!",
+            "Isso realmente seria muito útil, obrigado!"
+          ],
+          "vocab": [
+            { "palavra": "that'd be great", "significado": "isso seria ótimo", "acento": "that'd be GREAT" }
+          ],
+          "nativo": "'That would be helpful' é um aceite educado e genuíno sem exageros — perfeito para situações de atendimento.",
+          "erro": "Não diga 'I want the map' de forma seca — 'that would be helpful' ou 'yes please' soam muito mais naturais.",
+          "connected_voce": "Sure, that would be helpful, thank you so much!"
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You're looking at the mall map and trying to find the food court.",
+        "turnos": [
+          {
+            "id": "dl-dir06-01",
+            "personagem": "Funcionário",
+            "fala": "You're right here on the map. The food court is on the third floor.",
+            "traducao": "Você está bem aqui no mapa. A praça de alimentação fica no terceiro andar.",
+            "connected": "Yer right here on the map. The food court's on the third floor.",
+            "respostas_esperadas": [
+              "Got it, third floor. Thank you!",
+              "Perfect, I can see it on the map now.",
+              "Great, third floor food court — I'll head up now."
+            ],
+            "resposta_modelo": "Perfect, I can see it on the map now — third floor. Thanks for pointing it out!",
+            "feedback_modelo": "'Thanks for pointing it out' é uma forma calorosa de agradecer especificamente pelo ato de mostrar algo no mapa.",
+            "vocab_apoio": [
+              { "palavra": "you're right here", "significado": "você está bem aqui (no mapa)", "acento": "you're RIGHT here" }
+            ]
+          },
+          {
+            "id": "dl-dir06-02",
+            "personagem": "Funcionário",
+            "fala": "There's also a directory screen near every elevator if you need it.",
+            "traducao": "Tem também uma tela de diretório perto de cada elevador se precisar.",
+            "connected": "There's also a directory screen near every elevator if ya need it.",
+            "respostas_esperadas": [
+              "Good to know, thanks!",
+              "That's helpful, thank you.",
+              "Perfect, I'll check that if I get confused."
+            ],
+            "resposta_modelo": "Good to know — I'll check that if I get turned around again. Thanks!",
+            "feedback_modelo": "Usar 'turned around' de volta mostra que você absorveu o vocabulário da conversa, e 'if I get turned around again' é uma autorreferência natural e bem-humorada.",
+            "vocab_apoio": [
+              { "palavra": "directory screen", "significado": "tela de diretório (mapa digital)", "acento": "diRECtory screen" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

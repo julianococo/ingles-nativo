@@ -1,0 +1,1081 @@
+{
+  "id": 11,
+  "nome": "Hospital",
+  "descricao": "Triagem, consulta médica, exames, farmácia e seguro de saúde. Tudo para navegar o sistema de saúde americano.",
+  "imagem": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800",
+  "situacoes": [
+    {
+      "id": "hosp-01",
+      "titulo": "Chegando na recepção",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800",
+      "dialogo": [
+        {
+          "id": "hosp-01-01",
+          "turno": 1,
+          "cena": "Você chega na recepção do hospital ou clínica e se anuncia.",
+          "personagem": "Você",
+          "fala": "Hi, I'm not feeling well. Do I need an appointment, or can I walk in?",
+          "traducao": "Oi, não estou me sentindo bem. Eu preciso de um agendamento, ou posso entrar sem hora marcada?",
+          "sua_vez": true,
+          "acento": "Hi, I'm not FEELing WELL. Do I need an apPOINTment, or can I WALK in?",
+          "alternativas": [
+            "Hello, I'd like to see a doctor today if possible.",
+            "Hi, I need medical attention — is there a walk-in option?",
+            "I'm feeling sick — do you take walk-ins here?"
+          ],
+          "alts_traducoes": [
+            "Olá, eu gostaria de ver um médico hoje se possível.",
+            "Oi, eu preciso de atendimento médico — tem opção sem agendamento?",
+            "Estou me sentindo mal — vocês atendem sem agendamento aqui?"
+          ],
+          "vocab": [
+            { "palavra": "appointment", "significado": "agendamento, consulta marcada", "acento": "apPOINTment" },
+            { "palavra": "walk-in", "significado": "atendimento sem hora marcada", "acento": "WALK-in" },
+            { "palavra": "urgent care", "significado": "pronto atendimento (não emergência)", "acento": "URgent care" },
+            { "palavra": "insurance card", "significado": "cartão do plano de saúde", "acento": "inSURance card" },
+            { "palavra": "co-pay", "significado": "copagamento (valor fixo que o paciente paga)", "acento": "CO-pay" }
+          ],
+          "nativo": "'Walk-in' é o termo padrão para atendimento sem agendamento nos EUA — todo clinic tem essa opção.",
+          "erro": "Não diga 'I am sick' isoladamente como abertura — contextualize com o que está sentindo ou o que precisa.",
+          "connected_voce": "Hi, I'm not feeling well. Do I need an appointment, or can I walk in?"
+        },
+        {
+          "id": "hosp-01-02",
+          "turno": 2,
+          "cena": "A recepcionista explica as opções de atendimento.",
+          "personagem": "Recepcionista",
+          "fala": "We do take walk-ins. First I'll need your insurance card and a photo ID.",
+          "traducao": "Sim, atendemos sem agendamento. Primeiro vou precisar do seu cartão do plano e um documento com foto.",
+          "connected": "We do take walk-ins. First I'll need yer insurance card an' a photo ID.",
+          "blocos": [
+            { "bloco": "We do take", "significa": "'do' aqui reforça a confirmação — 'sim, aceitamos'" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "photo ID", "significado": "documento com foto", "acento": "PHOto I-D" }
+          ],
+          "nativo": "Nos EUA, sempre tenha seguro de saúde e documento com foto ao ir a qualquer serviço médico.",
+          "erro": "Não diga 'identity document' de forma tão formal — o padrão é 'photo ID' ou 'ID'."
+        },
+        {
+          "id": "hosp-01-03",
+          "turno": 3,
+          "cena": "Você entrega os documentos.",
+          "personagem": "Você",
+          "fala": "Here's my insurance card and passport.",
+          "traducao": "Aqui está meu cartão do plano e passaporte.",
+          "sua_vez": true,
+          "acento": "HERE's my inSURance card and PASSport.",
+          "alternativas": [
+            "Here you go, insurance and passport.",
+            "I have my insurance card right here and my passport.",
+            "Here are my documents — insurance and ID."
+          ],
+          "alts_traducoes": [
+            "Aqui está, plano e passaporte.",
+            "Tenho meu cartão do plano bem aqui e meu passaporte.",
+            "Aqui estão meus documentos — plano e identificação."
+          ],
+          "vocab": [
+            { "palavra": "here you go", "significado": "aqui está (ao entregar algo)", "acento": "HERE ya go" }
+          ],
+          "nativo": "'Here you go' é a expressão mais natural ao entregar documentos ou objetos a outra pessoa.",
+          "erro": "Não diga 'take my documents' de forma imperativa — 'here you go' ou 'here's my...' são muito mais naturais.",
+          "connected_voce": "Here's my insurance card and passport."
+        },
+        {
+          "id": "hosp-01-04",
+          "turno": 4,
+          "cena": "A recepcionista menciona o copagamento.",
+          "personagem": "Recepcionista",
+          "fala": "Your co-pay for a walk-in visit is thirty dollars, payable today.",
+          "traducao": "Seu copagamento para uma consulta sem agendamento é trinta dólares, a ser pago hoje.",
+          "connected": "Yer co-pay fer a walk-in visit is thirty dollars, payable today.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "payable today", "significado": "a ser pago hoje", "acento": "PAYable today" }
+          ],
+          "nativo": "O co-pay é um valor fixo que você paga independente do que o seguro cobre — normal e esperado.",
+          "erro": "Não diga 'how much is the consultation' de forma muito formal — 'what's the co-pay' é o termo específico correto."
+        },
+        {
+          "id": "hosp-01-05",
+          "turno": 5,
+          "cena": "Você pergunta como pagar.",
+          "personagem": "Você",
+          "fala": "Can I pay with card, or is cash only?",
+          "traducao": "Posso pagar com cartão, ou é só dinheiro?",
+          "sua_vez": true,
+          "acento": "Can I PAY with CARD, or is CASH only?",
+          "alternativas": [
+            "Do you accept card payments?",
+            "Is card okay, or do you prefer cash?",
+            "What payment methods do you accept?"
+          ],
+          "alts_traducoes": [
+            "Vocês aceitam pagamentos com cartão?",
+            "Cartão está ok, ou preferem dinheiro?",
+            "Quais formas de pagamento vocês aceitam?"
+          ],
+          "vocab": [
+            { "palavra": "payment methods", "significado": "formas de pagamento", "acento": "PAYment methods" }
+          ],
+          "nativo": "Clínicas e hospitais americanos quase sempre aceitam cartão — perguntar é só por precaução.",
+          "erro": "Não diga 'do you accept credit' sem completar — 'credit card' é o termo correto.",
+          "connected_voce": "Can I pay with card, or is cash only?"
+        },
+        {
+          "id": "hosp-01-06",
+          "turno": 6,
+          "cena": "A recepcionista confirma e orienta sobre a espera.",
+          "personagem": "Recepcionista",
+          "fala": "Card is fine. Please have a seat — the wait is about twenty minutes.",
+          "traducao": "Cartão funciona. Por favor sente-se — a espera é de cerca de vinte minutos.",
+          "connected": "Card is fine. Please have a seat — the wait's about twenty minutes.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "have a seat", "significado": "sente-se, tome assento", "acento": "have a SEAT" }
+          ],
+          "nativo": "'Have a seat' é a expressão educada padrão para pedir que alguém se sente em qualquer atendimento.",
+          "erro": "Não diga 'sit down' de forma direta — soa mandão. 'Have a seat' é a expressão correta em contexto formal."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The receptionist asks you to fill out a patient intake form.",
+        "turnos": [
+          {
+            "id": "dl-hosp01-01",
+            "personagem": "Recepcionista",
+            "fala": "Could you fill out this form while you wait? It's just basic information.",
+            "traducao": "Você poderia preencher esse formulário enquanto espera? São só informações básicas.",
+            "connected": "Could ya fill out this form while ya wait? It's just basic information.",
+            "respostas_esperadas": [
+              "Of course, no problem.",
+              "Sure, happy to.",
+              "Yes, is there a pen I can use?"
+            ],
+            "resposta_modelo": "Of course — is there a pen I can borrow?",
+            "feedback_modelo": "'Borrow' é o verbo correto para pedir algo emprestado temporariamente — 'use' também funciona mas 'borrow' é mais preciso.",
+            "vocab_apoio": [
+              { "palavra": "fill out a form", "significado": "preencher um formulário", "acento": "fill OUT a form" }
+            ]
+          },
+          {
+            "id": "dl-hosp01-02",
+            "personagem": "Recepcionista",
+            "fala": "Do you have any known allergies we should note on the form?",
+            "traducao": "Você tem alguma alergia conhecida que devemos anotar no formulário?",
+            "connected": "D'ya have any known allergies we should note on the form?",
+            "respostas_esperadas": [
+              "No known allergies.",
+              "Yes, I'm allergic to penicillin.",
+              "Not that I know of."
+            ],
+            "resposta_modelo": "No known allergies, not that I'm aware of.",
+            "feedback_modelo": "'Not that I'm aware of' é uma forma de expressar incerteza educada — mais completo do que só 'no'.",
+            "vocab_apoio": [
+              { "palavra": "known allergies", "significado": "alergias conhecidas", "acento": "KNOWN allergies" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "hosp-02",
+      "titulo": "Descrevendo sintomas na triagem",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800",
+      "dialogo": [
+        {
+          "id": "hosp-02-01",
+          "turno": 1,
+          "cena": "A enfermeira da triagem pergunta o motivo da visita.",
+          "personagem": "Enfermeira",
+          "fala": "What brings you in today?",
+          "traducao": "O que te traz aqui hoje?",
+          "connected": "What brings ya in today?",
+          "blocos": [
+            { "bloco": "brings you in", "significa": "frase idiomática padrão de triagem — significa 'qual é seu motivo de visita'" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "symptoms", "significado": "sintomas", "acento": "SYMPtoms" },
+            { "palavra": "fever", "significado": "febre", "acento": "FEver" },
+            { "palavra": "nauseous", "significado": "enjoado", "acento": "NAUseous" },
+            { "palavra": "pain scale", "significado": "escala de dor de 0 a 10", "acento": "PAIN scale" },
+            { "palavra": "comes and goes", "significado": "vai e volta, intermitente", "acento": "comes and GOES" }
+          ],
+          "nativo": "'What brings you in?' é a forma padrão nos EUA para perguntar o motivo da consulta.",
+          "erro": "Não diga 'why did you come here' na triagem — soa muito direto. O padrão é 'what brings you in'."
+        },
+        {
+          "id": "hosp-02-02",
+          "turno": 2,
+          "cena": "Você descreve seus sintomas principais.",
+          "personagem": "Você",
+          "fala": "I've had a fever and a bad headache since yesterday.",
+          "traducao": "Tenho tido febre e uma dor de cabeça forte desde ontem.",
+          "sua_vez": true,
+          "acento": "I've HAD a FEver and a BAD HEADache since YESterday.",
+          "alternativas": [
+            "I've been running a fever and my head hurts since yesterday.",
+            "I have a fever and a bad headache, it started yesterday.",
+            "I've had a fever with a headache for about a day now."
+          ],
+          "alts_traducoes": [
+            "Tenho tido febre e minha cabeça dói desde ontem.",
+            "Tenho febre e uma dor de cabeça forte, começou ontem.",
+            "Tenho tido febre com dor de cabeça há cerca de um dia."
+          ],
+          "vocab": [
+            { "palavra": "running a fever", "significado": "estar com febre", "acento": "RUNning a FEver" }
+          ],
+          "nativo": "'Running a fever' é uma expressão muito comum para dizer que está com febre.",
+          "erro": "Não diga 'I am with fever' — em inglês não se usa 'with' assim. O correto é 'I have a fever'.",
+          "connected_voce": "I've had a fever an' a bad headache since yesterday."
+        },
+        {
+          "id": "hosp-02-03",
+          "turno": 3,
+          "cena": "A enfermeira pergunta sobre a intensidade da dor.",
+          "personagem": "Enfermeira",
+          "fala": "On a scale of one to ten, how would you rate the pain?",
+          "traducao": "Numa escala de um a dez, como você avaliaria a dor?",
+          "connected": "On a scale of one ta ten, how would ya rate the pain?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "rate the pain", "significado": "avaliar/classificar a dor", "acento": "RATE the pain" }
+          ],
+          "nativo": "A 'pain scale' de 1 a 10 é padrão em qualquer atendimento médico nos EUA — vale já saber responder.",
+          "erro": "Não diga 'how much is the pain' — o padrão médico é 'how would you rate the pain' ou 'how bad is the pain'."
+        },
+        {
+          "id": "hosp-02-04",
+          "turno": 4,
+          "cena": "Você responde com o nível e acrescenta mais detalhes.",
+          "personagem": "Você",
+          "fala": "About a six. It comes and goes, and gets worse when I move.",
+          "traducao": "Mais ou menos um seis. Vai e volta, e piora quando eu me mexo.",
+          "sua_vez": true,
+          "acento": "About a SIX. It COMES and GOES, and gets WORSE when I MOVE.",
+          "alternativas": [
+            "Maybe a six — it's not constant, it comes and goes.",
+            "Around a six out of ten, and it gets worse with movement.",
+            "I'd say a six, it's intermittent and worse when I move around."
+          ],
+          "alts_traducoes": [
+            "Talvez um seis — não é constante, vai e volta.",
+            "Por volta de um seis de dez, e piora com movimento.",
+            "Diria um seis, é intermitente e piora quando me movo."
+          ],
+          "vocab": [
+            { "palavra": "intermittent", "significado": "intermitente, que vai e vem", "acento": "interMITtent" }
+          ],
+          "nativo": "'It comes and goes' é a forma padrão de dizer que um sintoma é intermitente.",
+          "erro": "Não diga 'sometimes yes sometimes no' — expressão informal demais para um contexto médico. Use 'it comes and goes'.",
+          "connected_voce": "About a six. It comes an' goes, an' gets worse when I move."
+        },
+        {
+          "id": "hosp-02-05",
+          "turno": 5,
+          "cena": "A enfermeira pergunta sobre outros sintomas.",
+          "personagem": "Enfermeira",
+          "fala": "Any other symptoms — chills, cough, sore throat?",
+          "traducao": "Algum outro sintoma — calafrios, tosse, dor de garganta?",
+          "connected": "Any other symptoms — chills, cough, sore throat?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "chills", "significado": "calafrios", "acento": "CHILLS" },
+            { "palavra": "sore throat", "significado": "dor de garganta", "acento": "sore THROAT" }
+          ],
+          "nativo": "Enfermeiras enumeram sintomas para acelerar a triagem — você pode responder confirmando ou negando cada um.",
+          "erro": "Não responda só 'yes' ou 'no' sem especificar quais sintomas tem — seja específico para ajudar o profissional."
+        },
+        {
+          "id": "hosp-02-06",
+          "turno": 6,
+          "cena": "Você descreve os sintomas adicionais.",
+          "personagem": "Você",
+          "fala": "Yes, I've had some chills too, but no cough or sore throat.",
+          "traducao": "Sim, também tive alguns calafrios, mas sem tosse nem dor de garganta.",
+          "sua_vez": true,
+          "acento": "Yes, I've had some CHILLS too, but no COUGH or SORE throat.",
+          "alternativas": [
+            "I have chills as well, but the throat and cough are fine.",
+            "Some chills yes, but no throat or cough issues.",
+            "Chills, yes — but I haven't had a cough or sore throat."
+          ],
+          "alts_traducoes": [
+            "Calafrios também, mas a garganta e tosse estão bem.",
+            "Alguns calafrios sim, mas sem problemas de garganta ou tosse.",
+            "Calafrios, sim — mas não tive tosse nem dor de garganta."
+          ],
+          "vocab": [
+            { "palavra": "as well", "significado": "também", "acento": "as WELL" }
+          ],
+          "nativo": "Confirmar o que tem e explicitamente negar o que não tem ajuda o profissional a fechar o quadro mais rápido.",
+          "erro": "Não diga 'I don't have the cough' com artigo desnecessário — o correto é 'no cough' ou 'I don't have a cough'.",
+          "connected_voce": "Yes, I've had some chills too, but no cough or sore throat."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The nurse takes your temperature and blood pressure.",
+        "turnos": [
+          {
+            "id": "dl-hosp02-01",
+            "personagem": "Enfermeira",
+            "fala": "Your temperature is a hundred and one. I'll get the doctor right away.",
+            "traducao": "Sua temperatura é de cento e um graus. Vou chamar o médico imediatamente.",
+            "connected": "Yer temperature's a hundred an' one. I'll get the doctor right away.",
+            "respostas_esperadas": [
+              "Thank you, I really appreciate it.",
+              "Okay, thank you for the update.",
+              "I figured, I've been feeling terrible."
+            ],
+            "resposta_modelo": "Okay, thank you. I figured something was off — I've been feeling terrible.",
+            "feedback_modelo": "'I figured something was off' é uma forma natural de dizer que você suspeitava que havia algo errado sem soar dramático.",
+            "vocab_apoio": [
+              { "palavra": "a hundred and one", "significado": "101°F (equivale a aproximadamente 38,3°C)", "acento": "a HUNdred and ONE" }
+            ]
+          },
+          {
+            "id": "dl-hosp02-02",
+            "personagem": "Enfermeira",
+            "fala": "Your blood pressure is a little high too. Have you been stressed lately?",
+            "traducao": "Sua pressão está um pouco alta também. Você tem estado estressado ultimamente?",
+            "connected": "Yer blood pressure's a little high too. Have ya been stressed lately?",
+            "respostas_esperadas": [
+              "Yes, work has been quite stressful.",
+              "A little, yes.",
+              "Not more than usual."
+            ],
+            "resposta_modelo": "Yes, work has been pretty stressful lately — could that be causing this?",
+            "feedback_modelo": "Fazer uma pergunta de acompanhamento ('could that be causing this?') mostra que você está engajado e quer entender a conexão entre estresse e sintomas.",
+            "vocab_apoio": [
+              { "palavra": "blood pressure", "significado": "pressão arterial", "acento": "BLOOD pressure" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "hosp-03",
+      "titulo": "Na consulta com o médico",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800",
+      "dialogo": [
+        {
+          "id": "hosp-03-01",
+          "turno": 1,
+          "cena": "O médico entra e se apresenta.",
+          "personagem": "Médico",
+          "fala": "Hi, I'm Dr. Williams. What seems to be the problem today?",
+          "traducao": "Oi, sou o Dr. Williams. Qual parece ser o problema hoje?",
+          "connected": "Hi, I'm Dr. Williams. What seems ta be the problem today?",
+          "blocos": [
+            { "bloco": "What seems to be", "significa": "forma padrão e suave de médico perguntar sobre o problema" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "diagnosis", "significado": "diagnóstico", "acento": "diagNOsis" },
+            { "palavra": "prescription", "significado": "receita médica", "acento": "preSCRIPtion" },
+            { "palavra": "it looks like", "significado": "parece ser (diagnóstico suave)", "acento": "it LOOKS like" },
+            { "palavra": "follow up", "significado": "retorno, consulta de acompanhamento", "acento": "FOLlow up" },
+            { "palavra": "take twice a day", "significado": "tomar duas vezes ao dia", "acento": "TWICE a day" }
+          ],
+          "nativo": "'What seems to be the problem?' é a abertura clássica de médicos americanos — é padrão, não indica preocupação especial.",
+          "erro": "Não diga 'I am sick' de forma muito genérica — descreva seus sintomas específicos logo de início."
+        },
+        {
+          "id": "hosp-03-02",
+          "turno": 2,
+          "cena": "Você resume os sintomas de forma clara.",
+          "personagem": "Você",
+          "fala": "I've had a fever, headache, and chills since yesterday. About a hundred and one degrees.",
+          "traducao": "Tenho tido febre, dor de cabeça e calafrios desde ontem. Cerca de cento e um graus.",
+          "sua_vez": true,
+          "acento": "I've had a FEver, HEADache, and CHILLS since YESterday. About a HUNdred and ONE degrees.",
+          "alternativas": [
+            "Since yesterday I've had fever, headache and chills — the nurse said it was a hundred and one.",
+            "Fever, chills, and a bad headache starting yesterday. Temp was a hundred and one.",
+            "I started with a fever yesterday, then headache and chills followed."
+          ],
+          "alts_traducoes": [
+            "Desde ontem tenho febre, dor de cabeça e calafrios — a enfermeira disse que era cento e um.",
+            "Febre, calafrios e uma dor de cabeça forte começando ontem. Temperatura era cento e um.",
+            "Comecei com febre ontem, depois vieram dor de cabeça e calafrios."
+          ],
+          "vocab": [
+            { "palavra": "I started with", "significado": "comecei com, o primeiro sintoma foi", "acento": "I STARted with" }
+          ],
+          "nativo": "Apresentar os sintomas em ordem cronológica ajuda o médico a entender a progressão da doença.",
+          "erro": "Não diga 'since yesterday I am having' — use o present perfect: 'since yesterday I've had'.",
+          "connected_voce": "I've had a fever, headache, an' chills since yesterday. About a hundred an' one degrees."
+        },
+        {
+          "id": "hosp-03-03",
+          "turno": 3,
+          "cena": "O médico pergunta sobre alergias a medicamentos.",
+          "personagem": "Médico",
+          "fala": "Are you allergic to any medications?",
+          "traducao": "Você é alérgico a algum medicamento?",
+          "connected": "Er ya allergic ta any medications?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "allergic to", "significado": "alérgico a", "acento": "alLERgic to" }
+          ],
+          "nativo": "Perguntar sobre alergias é padrão obrigatório antes de qualquer prescrição nos EUA.",
+          "erro": "Não diga 'you have allergy of' — o correto é 'allergic to' com a preposição 'to'."
+        },
+        {
+          "id": "hosp-03-04",
+          "turno": 4,
+          "cena": "Você responde sobre alergias.",
+          "personagem": "Você",
+          "fala": "No, not that I know of.",
+          "traducao": "Não, que eu saiba não.",
+          "sua_vez": true,
+          "acento": "No, NOT that I know OF.",
+          "alternativas": [
+            "No, I don't have any known allergies.",
+            "Not that I'm aware of.",
+            "No allergies, as far as I know."
+          ],
+          "alts_traducoes": [
+            "Não, eu não tenho alergias conhecidas.",
+            "Não que eu saiba.",
+            "Sem alergias, até onde eu sei."
+          ],
+          "vocab": [
+            { "palavra": "not that I know of", "significado": "que eu saiba não", "acento": "not that I KNOW of" }
+          ],
+          "nativo": "'Not that I know of' é uma expressão muito usada para responder com incerteza educada.",
+          "erro": "Não diga 'I don't know allergies' — falta estrutura. O correto é 'not that I know of' ou 'no known allergies'.",
+          "connected_voce": "No, not that I know of."
+        },
+        {
+          "id": "hosp-03-05",
+          "turno": 5,
+          "cena": "O médico dá o diagnóstico.",
+          "personagem": "Médico",
+          "fala": "It looks like a sinus infection. I'll write you a prescription for antibiotics.",
+          "traducao": "Parece ser uma infecção sinusal. Vou te passar uma receita de antibióticos.",
+          "connected": "It looks like a sinus infection. I'll write ya a prescription fer antibiotics.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "sinus infection", "significado": "infecção sinusal", "acento": "SInus inFECtion" }
+          ],
+          "nativo": "'It looks like' é a forma padrão dos médicos para dar um diagnóstico inicial sem soar 100% definitivo.",
+          "erro": "Não diga 'I will give a receipt' — 'receipt' é recibo de compra, não receita médica. O correto é 'prescription'."
+        },
+        {
+          "id": "hosp-03-06",
+          "turno": 6,
+          "cena": "Você pergunta sobre como tomar o remédio e restrições.",
+          "personagem": "Você",
+          "fala": "How often should I take it, and is there anything I should avoid?",
+          "traducao": "Com que frequência eu devo tomar, e tem alguma coisa que eu devo evitar?",
+          "sua_vez": true,
+          "acento": "How OFTEN should I TAKE it, and is there ANYthing I should aVOID?",
+          "alternativas": [
+            "What's the dosage, and any restrictions I should know about?",
+            "How many times a day and what should I not do?",
+            "How do I take this, and are there any side effects to watch for?"
+          ],
+          "alts_traducoes": [
+            "Qual é a dosagem, e tem alguma restrição que devo saber?",
+            "Quantas vezes ao dia e o que não devo fazer?",
+            "Como eu tomo isso, e tem efeitos colaterais que devo observar?"
+          ],
+          "vocab": [
+            { "palavra": "side effects to watch for", "significado": "efeitos colaterais para ficar atento", "acento": "SIDE effects ta WATCH for" }
+          ],
+          "nativo": "Perguntar sobre restrições ('anything to avoid') é uma boa prática além de só perguntar a dose.",
+          "erro": "Não diga 'how many times I take' sem inversão — o correto é 'how often should I take this'.",
+          "connected_voce": "How often should I take it, an' is there anything I should avoid?"
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The doctor is wrapping up and asking if you have any final questions.",
+        "turnos": [
+          {
+            "id": "dl-hosp03-01",
+            "personagem": "Médico",
+            "fala": "Any other questions before I send you on your way?",
+            "traducao": "Mais alguma pergunta antes de eu te liberar?",
+            "connected": "Any other questions before I send ya on yer way?",
+            "respostas_esperadas": [
+              "Yes, when should I start feeling better?",
+              "Just one — how long until the antibiotics kick in?",
+              "No, I think I have everything, thank you."
+            ],
+            "resposta_modelo": "Just one — how long until I should start feeling better?",
+            "feedback_modelo": "'How long until I should start feeling better' é uma pergunta muito prática e comum ao receber prescrição de antibióticos.",
+            "vocab_apoio": [
+              { "palavra": "send you on your way", "significado": "liberar você, deixar você ir", "acento": "send ya on yer WAY" }
+            ]
+          },
+          {
+            "id": "dl-hosp03-02",
+            "personagem": "Médico",
+            "fala": "You should start feeling better in two to three days. Rest up.",
+            "traducao": "Você deve começar a se sentir melhor em dois a três dias. Descanse bastante.",
+            "connected": "You should start feeling better in two ta three days. Rest up.",
+            "respostas_esperadas": [
+              "Okay, I will. Thank you, doctor.",
+              "Got it, two to three days. Thanks so much.",
+              "Thank you, I'll make sure to rest."
+            ],
+            "resposta_modelo": "Got it, two to three days. I'll make sure to rest up. Thank you, doctor.",
+            "feedback_modelo": "Confirmar o prazo ('two to three days') e agradecer pelo nome ('doctor') é um fechamento completo e respeitoso.",
+            "vocab_apoio": [
+              { "palavra": "rest up", "significado": "descansar bem, repousar bastante", "acento": "rest UP" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "hosp-04",
+      "titulo": "Na farmácia",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800",
+      "dialogo": [
+        {
+          "id": "hosp-04-01",
+          "turno": 1,
+          "cena": "Você entrega a receita ao farmacêutico.",
+          "personagem": "Você",
+          "fala": "Hi, I'd like to fill this prescription, please.",
+          "traducao": "Oi, eu gostaria de aviar essa receita, por favor.",
+          "sua_vez": true,
+          "acento": "Hi, I'd LIKE to FILL this preSCRIPtion, please.",
+          "alternativas": [
+            "Hi, can you fill this prescription for me?",
+            "Hello, I have a prescription to fill.",
+            "Hi, I need to pick up a prescription."
+          ],
+          "alts_traducoes": [
+            "Oi, você pode aviar essa receita para mim?",
+            "Olá, eu tenho uma receita para aviar.",
+            "Oi, eu preciso pegar uma receita."
+          ],
+          "vocab": [
+            { "palavra": "fill a prescription", "significado": "aviar uma receita", "acento": "fill a preSCRIPtion" },
+            { "palavra": "pick up", "significado": "retirar, pegar", "acento": "pick UP" },
+            { "palavra": "over the counter", "significado": "sem necessidade de receita, venda livre", "acento": "O-ver the COUNter" },
+            { "palavra": "side effects", "significado": "efeitos colaterais", "acento": "SIDE effects" },
+            { "palavra": "dosage", "significado": "dosagem", "acento": "DOsage" }
+          ],
+          "nativo": "'Fill a prescription' é a expressão padrão nos EUA — não se diz 'aviar' literalmente traduzido.",
+          "erro": "Não diga 'I want to buy the medicine of my prescription' — 'fill a prescription' já diz tudo isso.",
+          "connected_voce": "Hi, I'd like ta fill this prescription, please."
+        },
+        {
+          "id": "hosp-04-02",
+          "turno": 2,
+          "cena": "O farmacêutico pergunta sobre seguro de saúde.",
+          "personagem": "Farmacêutico",
+          "fala": "Do you have insurance with you today?",
+          "traducao": "Você tem o seguro com você hoje?",
+          "connected": "D'ya have insurance with ya today?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "insurance card", "significado": "cartão do seguro de saúde", "acento": "inSURance card" }
+          ],
+          "nativo": "É comum precisar apresentar o cartão do seguro de saúde na farmácia americana antes de pagar.",
+          "erro": "Não diga 'health card' apenas — o termo correto usado é 'insurance' ou 'insurance card'."
+        },
+        {
+          "id": "hosp-04-03",
+          "turno": 3,
+          "cena": "Você entrega o cartão e pergunta quanto tempo vai demorar.",
+          "personagem": "Você",
+          "fala": "Yes, here's my card. How long will this take to fill?",
+          "traducao": "Sim, aqui está meu cartão. Quanto tempo vai demorar para aviar?",
+          "sua_vez": true,
+          "acento": "Yes, HERE's my CARD. How LONG will this TAKE to fill?",
+          "alternativas": [
+            "Here's my insurance. How long is the wait?",
+            "Sure, here you go. What's the wait time?",
+            "Here's the card — is there a long wait?"
+          ],
+          "alts_traducoes": [
+            "Aqui está meu seguro. Qual é o tempo de espera?",
+            "Claro, aqui está. Qual é o tempo de espera?",
+            "Aqui está o cartão — tem uma espera longa?"
+          ],
+          "vocab": [
+            { "palavra": "wait time", "significado": "tempo de espera", "acento": "WAIT time" }
+          ],
+          "nativo": "Farmácias americanas geralmente têm espera de 15-30 minutos para preparar medicamentos.",
+          "erro": "Não diga 'how much time will take' sem sujeito — o correto é 'how long will this take'.",
+          "connected_voce": "Yes, here's my card. How long will this take ta fill?"
+        },
+        {
+          "id": "hosp-04-04",
+          "turno": 4,
+          "cena": "O farmacêutico estima o tempo.",
+          "personagem": "Farmacêutico",
+          "fala": "About fifteen minutes. I'll call your name when it's ready.",
+          "traducao": "Cerca de quinze minutos. Vou chamar seu nome quando estiver pronto.",
+          "connected": "About fifteen minutes. I'll call yer name when it's ready.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "when it's ready", "significado": "quando estiver pronto", "acento": "when it's REAdy" }
+          ],
+          "nativo": "Nas farmácias americanas, eles chamam seu nome em voz alta — fique perto para ouvir.",
+          "erro": "Não diga 'I will wait' de forma desnecessariamente formal — 'okay, sounds good' já é suficiente como resposta."
+        },
+        {
+          "id": "hosp-04-05",
+          "turno": 5,
+          "cena": "Você pergunta sobre efeitos colaterais enquanto espera.",
+          "personagem": "Você",
+          "fala": "Are there any side effects I should watch out for?",
+          "traducao": "Tem algum efeito colateral que eu devo ficar atento?",
+          "sua_vez": true,
+          "acento": "Are there any SIDE effects I should WATCH out for?",
+          "alternativas": [
+            "What side effects should I expect?",
+            "Is there anything I need to be careful about with this medication?",
+            "Should I watch for anything specific?"
+          ],
+          "alts_traducoes": [
+            "Quais efeitos colaterais eu devo esperar?",
+            "Tem alguma coisa que eu preciso ter cuidado com esse remédio?",
+            "Devo ficar atento a alguma coisa específica?"
+          ],
+          "vocab": [
+            { "palavra": "watch out for", "significado": "ficar atento a, ter cuidado com", "acento": "WATCH out for" }
+          ],
+          "nativo": "'Watch out for' é uma expressão essencial para dizer 'ficar atento/prevenido' em qualquer contexto.",
+          "erro": "Não diga 'effects colateral' (ordem errada) — o correto é 'side effects'.",
+          "connected_voce": "Are there any side effects I should watch out for?"
+        },
+        {
+          "id": "hosp-04-06",
+          "turno": 6,
+          "cena": "O farmacêutico explica os principais efeitos e dá instruções.",
+          "personagem": "Farmacêutico",
+          "fala": "It might make you a little drowsy. Take it with food and avoid alcohol.",
+          "traducao": "Pode te deixar um pouco sonolento. Tome com comida e evite álcool.",
+          "connected": "It might make ya a little drowsy. Take it with food an' avoid alcohol.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "drowsy", "significado": "sonolento", "acento": "DROWsy" }
+          ],
+          "nativo": "'Drowsy' é o termo técnico e comum para 'sonolento' em bulas e orientações médicas.",
+          "erro": "Não diga 'sleepy a little' — a ordem correta em inglês é 'a little drowsy/sleepy'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The pharmacist calls your name and goes over the dosage instructions.",
+        "turnos": [
+          {
+            "id": "dl-hosp04-01",
+            "personagem": "Farmacêutico",
+            "fala": "Take one pill twice a day — morning and evening, preferably with food.",
+            "traducao": "Tome um comprimido duas vezes ao dia — de manhã e à noite, de preferência com comida.",
+            "connected": "Take one pill twice a day — morning an' evening, preferably with food.",
+            "respostas_esperadas": [
+              "Got it, one pill twice a day with food.",
+              "Okay, morning and evening. Thank you.",
+              "Understood, I'll take it with meals."
+            ],
+            "resposta_modelo": "Got it — one pill, morning and evening, with food. Thank you.",
+            "feedback_modelo": "Repetir a dosagem exata antes de agradecer confirma o entendimento e evita erros de administração do remédio.",
+            "vocab_apoio": [
+              { "palavra": "preferably with food", "significado": "de preferência com comida", "acento": "PREferably with food" }
+            ]
+          },
+          {
+            "id": "dl-hosp04-02",
+            "personagem": "Farmacêutico",
+            "fala": "Complete the full course even if you start feeling better early.",
+            "traducao": "Complete o tratamento completo mesmo se começar a se sentir melhor mais cedo.",
+            "connected": "Complete the full course even if ya start feeling better early.",
+            "respostas_esperadas": [
+              "Of course, I'll finish the full course.",
+              "Understood, I won't stop early.",
+              "Got it, thanks for the reminder."
+            ],
+            "resposta_modelo": "Understood — I won't stop early even if I feel better. Thanks for the reminder.",
+            "feedback_modelo": "'I won't stop early' é uma confirmação ativa e clara de que você seguirá as instruções, não apenas um agradecimento passivo.",
+            "vocab_apoio": [
+              { "palavra": "full course", "significado": "tratamento completo (sem interromper)", "acento": "full COURSE" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "hosp-05",
+      "titulo": "Pedindo um exame ou encaminhamento",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1581595219315-a187dd40c322?w=800",
+      "dialogo": [
+        {
+          "id": "hosp-05-01",
+          "turno": 1,
+          "cena": "Você pergunta ao médico se precisa de exames.",
+          "personagem": "Você",
+          "fala": "Should I get any blood tests done, or is medication enough?",
+          "traducao": "Devo fazer algum exame de sangue, ou o medicamento já é suficiente?",
+          "sua_vez": true,
+          "acento": "Should I GET any BLOOD tests done, or is mediCATion ENOUGH?",
+          "alternativas": [
+            "Do you think any tests are needed?",
+            "Is a blood test necessary, or can we just go with medication?",
+            "Would you recommend running any tests first?"
+          ],
+          "alts_traducoes": [
+            "Você acha que algum exame é necessário?",
+            "Um exame de sangue é necessário, ou podemos só usar medicação?",
+            "Você recomendaria fazer algum exame primeiro?"
+          ],
+          "vocab": [
+            { "palavra": "blood test", "significado": "exame de sangue", "acento": "BLOOD test" },
+            { "palavra": "referral", "significado": "encaminhamento médico", "acento": "reFERral" },
+            { "palavra": "specialist", "significado": "especialista", "acento": "SPEcialist" },
+            { "palavra": "lab results", "significado": "resultados de laboratório", "acento": "LAB results" },
+            { "palavra": "run some tests", "significado": "fazer alguns exames", "acento": "run some TESTS" }
+          ],
+          "nativo": "'Get a blood test done' é a forma natural — 'done' indica que você está pedindo que façam o exame em você.",
+          "erro": "Não diga 'make a blood exam' — 'exam' é mais para provas escolares. O correto é 'blood test' ou 'blood work'.",
+          "connected_voce": "Should I get any blood tests done, or is medication enough?"
+        },
+        {
+          "id": "hosp-05-02",
+          "turno": 2,
+          "cena": "O médico decide pedir um exame.",
+          "personagem": "Médico",
+          "fala": "Let's run some blood work just to be safe. I'll write you a lab order.",
+          "traducao": "Vamos fazer um hemograma só para garantir. Vou te passar uma ordem de laboratório.",
+          "connected": "Let's run some blood work just ta be safe. I'll write ya a lab order.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "blood work", "significado": "hemograma, exame de sangue", "acento": "BLOOD work" },
+            { "palavra": "just to be safe", "significado": "só para garantir, por precaução", "acento": "just ta be SAFE" }
+          ],
+          "nativo": "'Just to be safe' é uma frase muito usada por médicos para justificar exames adicionais sem alarmar.",
+          "erro": "Não diga 'blood exam' — o padrão em inglês americano é 'blood work' ou 'blood test'."
+        },
+        {
+          "id": "hosp-05-03",
+          "turno": 3,
+          "cena": "Você pergunta onde fazer o exame.",
+          "personagem": "Você",
+          "fala": "Where do I go to get the blood work done?",
+          "traducao": "Para onde eu vou para fazer o hemograma?",
+          "sua_vez": true,
+          "acento": "WHERE do I go to get the BLOOD work DONE?",
+          "alternativas": [
+            "Where should I go for the blood test?",
+            "Is there a lab I need to go to?",
+            "Should I go to the hospital lab or somewhere else?"
+          ],
+          "alts_traducoes": [
+            "Para onde eu devo ir para o exame de sangue?",
+            "Tem um laboratório para onde eu preciso ir?",
+            "Devo ir ao laboratório do hospital ou em outro lugar?"
+          ],
+          "vocab": [
+            { "palavra": "lab", "significado": "laboratório (clínico)", "acento": "LAB" }
+          ],
+          "nativo": "Nos EUA, os exames de laboratório frequentemente são feitos em locais separados da clínica ou hospital.",
+          "erro": "Não diga 'laboratory' de forma muito formal na fala — 'lab' é o termo coloquial padrão.",
+          "connected_voce": "Where do I go ta get the blood work done?"
+        },
+        {
+          "id": "hosp-05-04",
+          "turno": 4,
+          "cena": "O médico explica o processo.",
+          "personagem": "Médico",
+          "fala": "There's a lab on the third floor. Take this form with you and they'll handle it.",
+          "traducao": "Tem um laboratório no terceiro andar. Leve esse formulário com você e eles cuidam disso.",
+          "connected": "There's a lab on the third floor. Take this form with ya an' they'll handle it.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "they'll handle it", "significado": "eles cuidam disso", "acento": "they'll HAndle it" }
+          ],
+          "nativo": "'Handle it' é muito usado para indicar que outra pessoa vai resolver/cuidar de algo.",
+          "erro": "Não diga 'they will do it for you' de forma mais longa — 'they'll handle it' é mais compacto e natural."
+        },
+        {
+          "id": "hosp-05-05",
+          "turno": 5,
+          "cena": "Você pergunta quando os resultados ficam prontos.",
+          "personagem": "Você",
+          "fala": "When can I expect the results?",
+          "traducao": "Quando posso esperar os resultados?",
+          "sua_vez": true,
+          "acento": "WHEN can I exPECT the reSULTS?",
+          "alternativas": [
+            "How long before I get the lab results?",
+            "When will the results be ready?",
+            "How soon will I hear back about the tests?"
+          ],
+          "alts_traducoes": [
+            "Quanto tempo antes de eu receber os resultados do laboratório?",
+            "Quando os resultados estarão prontos?",
+            "Quando vou ter retorno sobre os exames?"
+          ],
+          "vocab": [
+            { "palavra": "hear back", "significado": "receber uma resposta", "acento": "hear BACK" }
+          ],
+          "nativo": "'Hear back' é muito usado quando você está aguardando um contato ou resposta sobre algo.",
+          "erro": "Não diga 'when I receive the results' de forma tão longa — 'when can I expect the results' é mais direto e natural.",
+          "connected_voce": "When can I expect the results?"
+        },
+        {
+          "id": "hosp-05-06",
+          "turno": 6,
+          "cena": "O médico informa o prazo e o próximo passo.",
+          "personagem": "Médico",
+          "fala": "Usually within twenty four hours. We'll call you if anything comes up.",
+          "traducao": "Geralmente dentro de vinte e quatro horas. A gente te liga se aparecer alguma coisa.",
+          "connected": "Usually withIN twenty four hours. We'll call ya if anything comes up.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "if anything comes up", "significado": "se aparecer algo, se houver algo relevante", "acento": "if ANYthing comes UP" }
+          ],
+          "nativo": "'If anything comes up' é uma expressão muito natural para dizer que o contato só acontece se houver algo importante.",
+          "erro": "Não diga 'if something appears' de forma literal — 'if anything comes up' é a expressão idiomática correta."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The lab technician is explaining what will happen during the blood draw.",
+        "turnos": [
+          {
+            "id": "dl-hosp05-01",
+            "personagem": "Técnico de lab",
+            "fala": "This will only take a minute. You might feel a small pinch.",
+            "traducao": "Isso vai levar só um minuto. Você pode sentir uma pequena picada.",
+            "connected": "This will only take a minute. Ya might feel a small pinch.",
+            "respostas_esperadas": [
+              "Okay, I'm ready.",
+              "That's fine, go ahead.",
+              "No problem, I'm used to it."
+            ],
+            "resposta_modelo": "Okay, go ahead — I'm ready.",
+            "feedback_modelo": "'Go ahead' é a forma mais natural e concisa de dar permissão para o profissional prosseguir.",
+            "vocab_apoio": [
+              { "palavra": "a small pinch", "significado": "uma pequena picada (sensação)", "acento": "a small PINCH" }
+            ]
+          },
+          {
+            "id": "dl-hosp05-02",
+            "personagem": "Técnico de lab",
+            "fala": "All done. Press here for about a minute to stop the bleeding.",
+            "traducao": "Tudo pronto. Pressione aqui por cerca de um minuto para parar o sangramento.",
+            "connected": "All done. Press here fer about a minute ta stop the bleeding.",
+            "respostas_esperadas": [
+              "Got it, thanks.",
+              "Okay, will do.",
+              "Thank you, that was quick."
+            ],
+            "resposta_modelo": "Got it, will do. That was quick — thank you!",
+            "feedback_modelo": "'That was quick' é uma forma natural de expressar agradável surpresa com a eficiência — cria rapport com o profissional.",
+            "vocab_apoio": [
+              { "palavra": "stop the bleeding", "significado": "parar o sangramento", "acento": "stop the BLEEDing" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "hosp-06",
+      "titulo": "Emergência — chamando ajuda urgente",
+      "nivel": 3,
+      "imagem": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800",
+      "dialogo": [
+        {
+          "id": "hosp-06-01",
+          "turno": 1,
+          "cena": "Alguém desmaia perto de você e você liga para o número de emergência.",
+          "personagem": "Atendente 911",
+          "fala": "911, what's your emergency?",
+          "traducao": "911, qual é a sua emergência?",
+          "connected": "Nine one one, what's yer emergency?",
+          "blocos": [
+            { "bloco": "Nine one one", "significa": "sempre se fala 'nine one one', nunca 'nine eleven'" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "emergency", "significado": "emergência", "acento": "eMERgency" },
+            { "palavra": "unconscious", "significado": "inconsciente", "acento": "unCONscious" },
+            { "palavra": "ambulance", "significado": "ambulância", "acento": "AMbulance" },
+            { "palavra": "breathing", "significado": "respirando", "acento": "BREATHing" },
+            { "palavra": "stay on the line", "significado": "fique na linha", "acento": "stay on the LINE" }
+          ],
+          "nativo": "Nos EUA, o número de emergência é 911 e se fala 'nine one one', não 'nine hundred eleven'.",
+          "erro": "Não diga 'nine eleven' para o número — soa confuso com o evento histórico. Fale sempre 'nine one one'."
+        },
+        {
+          "id": "hosp-06-02",
+          "turno": 2,
+          "cena": "Você explica a situação com clareza.",
+          "personagem": "Você",
+          "fala": "Someone collapsed and is unconscious. We need an ambulance immediately.",
+          "traducao": "Alguém desmaiou e está inconsciente. Precisamos de uma ambulância imediatamente.",
+          "sua_vez": true,
+          "acento": "SOmeone coLLAPSED and is unCONscious. We NEED an AMbulance imMEdiately.",
+          "alternativas": [
+            "A person just fainted and isn't responding — send help now.",
+            "Someone collapsed here, they're not conscious. Need an ambulance.",
+            "There's a medical emergency — someone is unconscious and needs help."
+          ],
+          "alts_traducoes": [
+            "Uma pessoa acabou de desmaiar e não está respondendo — mande ajuda agora.",
+            "Alguém desmaiou aqui, não está consciente. Precisamos de ambulância.",
+            "Tem uma emergência médica — alguém está inconsciente e precisa de ajuda."
+          ],
+          "vocab": [
+            { "palavra": "collapsed", "significado": "desmaiou, desabou", "acento": "coLLAPSED" }
+          ],
+          "nativo": "Em emergências, ser claro e direto é mais importante do que ser educado — vá direto ao ponto.",
+          "erro": "Não diga 'someone is hurted' — passado irregular errado. O correto é 'someone is hurt' ou 'someone collapsed'.",
+          "connected_voce": "Someone collapsed an' is unconscious. We need an ambulance immediately."
+        },
+        {
+          "id": "hosp-06-03",
+          "turno": 3,
+          "cena": "O atendente pede o endereço.",
+          "personagem": "Atendente 911",
+          "fala": "Okay, what's the exact address of your location?",
+          "traducao": "Ok, qual é o endereço exato da sua localização?",
+          "connected": "Okay, what's the exact address of yer location?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "exact address", "significado": "endereço exato", "acento": "exACT address" }
+          ],
+          "nativo": "Manter a calma e falar o endereço devagar e claro é essencial nessas ligações.",
+          "erro": "Não diga 'the direction' para endereço — 'direction' é direção. O correto é 'address'."
+        },
+        {
+          "id": "hosp-06-04",
+          "turno": 4,
+          "cena": "Você fornece o endereço.",
+          "personagem": "Você",
+          "fala": "We're at three forty two Main Street, in front of the coffee shop.",
+          "traducao": "Estamos na rua Main, número trezentos e quarenta e dois, em frente à cafeteria.",
+          "sua_vez": true,
+          "acento": "We're at THREE forTY TWO MAIN Street, in FRONT of the COFfee shop.",
+          "alternativas": [
+            "Three forty two Main Street, near the coffee shop on the corner.",
+            "It's three forty two Main, you'll see a coffee shop right there.",
+            "Three forty two Main Street — there's a coffee shop landmark right here."
+          ],
+          "alts_traducoes": [
+            "Trezentos e quarenta e dois na Main Street, perto da cafeteria na esquina.",
+            "É o trezentos e quarenta e dois na Main, você vai ver uma cafeteria bem ali.",
+            "Trezentos e quarenta e dois na Main Street — tem uma cafeteria como referência bem aqui."
+          ],
+          "vocab": [
+            { "palavra": "in front of", "significado": "em frente a", "acento": "in FRONT of" }
+          ],
+          "nativo": "Dar um ponto de referência além do endereço numérico ajuda o serviço de emergência a chegar mais rápido.",
+          "erro": "Não diga 'we are on Main Street number 342' — a ordem americana é o número antes do nome da rua: 'three forty two Main Street'.",
+          "connected_voce": "We're at three forty two Main Street, in front of the coffee shop."
+        },
+        {
+          "id": "hosp-06-05",
+          "turno": 5,
+          "cena": "O atendente pergunta sobre o estado da pessoa.",
+          "personagem": "Atendente 911",
+          "fala": "Is the person breathing? Can you check for a pulse?",
+          "traducao": "A pessoa está respirando? Você pode verificar o pulso?",
+          "connected": "Is the person BREATHing? Can ya check fer a pulse?",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "pulse", "significado": "pulso (batimento cardíaco)", "acento": "PULSE" }
+          ],
+          "nativo": "O atendente do 911 pode pedir que você realize primeiros socorros enquanto aguarda a ambulância.",
+          "erro": "Não diga 'heart beat' como verbo — o correto como substantivo é 'pulse' ou 'heartbeat'."
+        },
+        {
+          "id": "hosp-06-06",
+          "turno": 6,
+          "cena": "Você relata o estado da pessoa.",
+          "personagem": "Você",
+          "fala": "Yes, they're breathing and have a pulse, but they're not responding.",
+          "traducao": "Sim, está respirando e tem pulso, mas não está respondendo.",
+          "sua_vez": true,
+          "acento": "Yes, they're BREATHing and have a PULSE, but they're NOT resPONDing.",
+          "alternativas": [
+            "Breathing yes, and I feel a pulse, but they won't wake up.",
+            "They're breathing and I can feel a pulse — but completely unresponsive.",
+            "Yes to breathing, yes to pulse — but they're not coming to."
+          ],
+          "alts_traducoes": [
+            "Respirando sim, e eu sinto um pulso, mas não vão acordar.",
+            "Estão respirando e eu posso sentir um pulso — mas completamente sem resposta.",
+            "Sim para respiração, sim para pulso — mas não estão voltando a si."
+          ],
+          "vocab": [
+            { "palavra": "not responding / unresponsive", "significado": "sem resposta, não reage", "acento": "not resPONDing" }
+          ],
+          "nativo": "'Not coming to' significa não recuperar a consciência — expressão informal mas muito usada.",
+          "erro": "Não diga 'they don't answer' para descrever inconsciência — 'not responding' é o termo correto nesse contexto.",
+          "connected_voce": "Yes, they're breathing and have a pulse, but they're not responding."
+        },
+        {
+          "id": "hosp-06-07",
+          "turno": 7,
+          "cena": "O atendente confirma ajuda a caminho e pede para ficar na linha.",
+          "personagem": "Atendente 911",
+          "fala": "Help is on the way. Please stay on the line and keep monitoring their breathing.",
+          "traducao": "A ajuda está a caminho. Por favor fique na linha e continue monitorando a respiração deles.",
+          "connected": "Help's on the way. Please stay on the line an' keep monitoring their BREATHing.",
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "on the way", "significado": "a caminho", "acento": "on the WAY" }
+          ],
+          "nativo": "'On the way' é a expressão universal para dizer que algo/alguém já está se deslocando até você.",
+          "erro": "Não diga 'coming to you' sozinho no contexto de emergência formal — o padrão usado é 'on the way'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The 911 operator asks you to check if the person is conscious and gives you instructions.",
+        "turnos": [
+          {
+            "id": "dl-hosp06-01",
+            "personagem": "Atendente 911",
+            "fala": "Can you try to get them to respond? Call their name or tap their shoulder.",
+            "traducao": "Você pode tentar fazê-los responder? Chame pelo nome ou toque no ombro deles.",
+            "connected": "Can ya try ta get them ta respond? Call their name er tap their shoulder.",
+            "respostas_esperadas": [
+              "I tried, no response.",
+              "I'm trying now — no response yet.",
+              "I called their name, nothing."
+            ],
+            "resposta_modelo": "I tried calling their name and tapping their shoulder — no response at all.",
+            "feedback_modelo": "Detalhar as duas ações que você tentou ('calling their name and tapping their shoulder') é mais informativo do que só dizer 'I tried'.",
+            "vocab_apoio": [
+              { "palavra": "tap their shoulder", "significado": "bater levemente no ombro deles", "acento": "tap their SHOULder" }
+            ]
+          },
+          {
+            "id": "dl-hosp06-02",
+            "personagem": "Atendente 911",
+            "fala": "The ambulance is about two minutes away. Stay calm and keep talking to me.",
+            "traducao": "A ambulância está a cerca de dois minutos. Fique calmo e continue falando comigo.",
+            "connected": "The ambulance's about two minutes away. Stay CALM an' keep talking ta me.",
+            "respostas_esperadas": [
+              "Okay, I'm staying calm. I can see them breathing still.",
+              "Two minutes, okay. They're still breathing.",
+              "Got it. They're still breathing, I'm watching them."
+            ],
+            "resposta_modelo": "Okay, staying calm — they're still breathing. I can see the ambulance coming now.",
+            "feedback_modelo": "Confirmar o estado ('still breathing') e o que você está vendo ('ambulance coming') dá ao operador a informação em tempo real que ele precisa.",
+            "vocab_apoio": [
+              { "palavra": "stay calm", "significado": "fique calmo", "acento": "stay CALM" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

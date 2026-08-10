@@ -1,0 +1,472 @@
+{
+  "id": 2,
+  "nome": "No Avião",
+  "descricao": "Tripulação, refeições, entretenimento e problemas durante o voo.",
+  "imagem": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800",
+  "situacoes": [
+    {
+      "id": "aviao-01",
+      "titulo": "Encontrando seu assento",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1540339832862-474599807836?w=800",
+      "dialogo": [
+        {
+          "id": "aviao-01-01",
+          "turno": 1,
+          "cena": "Você embarca e uma comissária confere seu cartão de embarque.",
+          "personagem": "Flight Attendant",
+          "fala": "Welcome aboard! Can I see your boarding pass?",
+          "traducao": "Bem-vindo a bordo! Posso ver seu cartão de embarque?",
+          "connected": "Welcome aboard! Can I see yer boarding pass?",
+          "blocos": [
+            { "bloco": "Welcome aboard", "significa": "Bem-vindo a bordo — saudação padrão ao entrar no avião" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "aboard", "significado": "a bordo", "acento": "aBOARD" },
+            { "palavra": "seat", "significado": "assento", "acento": "SEAT" },
+            { "palavra": "aisle / window", "significado": "corredor / janela", "acento": "AISLE / WINdow" },
+            { "palavra": "overhead bin", "significado": "compartimento superior de bagagem", "acento": "OVERhead bin" },
+            { "palavra": "seatbelt", "significado": "cinto de segurança", "acento": "SEATbelt" }
+          ],
+          "nativo": "'Welcome aboard' é usado só em embarque de avião, trem ou navio — não confundir com 'welcome' genérico.",
+          "erro": "Não diga 'Welcome in' — a expressão correta é sempre 'Welcome aboard'."
+        },
+        {
+          "id": "aviao-01-02",
+          "turno": 2,
+          "cena": "Você mostra o cartão de embarque.",
+          "personagem": "Você",
+          "fala": "Here you go. I'm in 26A.",
+          "traducao": "Aqui está. Estou no 26A.",
+          "sua_vez": true,
+          "connected_voce": "Here ya go. I'm in twenty-six A.",
+          "acento": "HERE you go. I'm in twenty-six A.",
+          "alternativas": [
+            "Here it is. My seat is 26A.",
+            "Sure, here you go. I'm looking for 26A.",
+            "This is me — seat 26A."
+          ],
+          "alts_traducoes": [
+            "Aqui está. Meu assento é o 26A.",
+            "Claro, aqui está. Estou procurando o 26A.",
+            "Este sou eu — assento 26A."
+          ],
+          "vocab": [
+            { "palavra": "I'm in...", "significado": "Estou no... (assento)", "acento": "I'm IN" }
+          ],
+          "nativo": "'I'm in 26A' é mais natural que 'My seat number is 26A' — nativos simplificam.",
+          "erro": "Não diga 'I am number 26A' — o correto é 'I'm in 26A' ou 'My seat is 26A'."
+        },
+        {
+          "id": "aviao-01-03",
+          "turno": 3,
+          "cena": "A comissária indica o caminho.",
+          "personagem": "Flight Attendant",
+          "fala": "It's right down the aisle, on your left.",
+          "traducao": "É logo pelo corredor, à sua esquerda.",
+          "connected": "It's right down the aisle, on yer left.",
+          "blocos": [
+            { "bloco": "right down the aisle", "significa": "logo pelo corredor — 'right' intensifica a direção" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "down the aisle", "significado": "pelo corredor", "acento": "down the AISLE" },
+            { "palavra": "on your left / right", "significado": "à sua esquerda / direita", "acento": "on your LEFT / RIGHT" }
+          ],
+          "nativo": "'Right down the aisle' é a forma padrão de indicar direção dentro do avião — memorize essa estrutura.",
+          "erro": "Não confunda 'aisle' (corredor do avião) com 'hall' (corredor de prédio) — contextos diferentes."
+        },
+        {
+          "id": "aviao-01-04",
+          "turno": 4,
+          "cena": "Você agradece e segue até o assento.",
+          "personagem": "Você",
+          "fala": "Thank you! Could I put my bag up there?",
+          "traducao": "Obrigado! Posso colocar minha mala ali em cima?",
+          "sua_vez": true,
+          "connected_voce": "Thank you! Could I put my bag up there?",
+          "acento": "THANK you! Could I PUT my bag up THERE?",
+          "alternativas": [
+            "Thanks! Is there room in the overhead bin?",
+            "Great, thank you. Can I store my bag up top?",
+            "Perfect, thanks. Room for my carry-on up there?"
+          ],
+          "alts_traducoes": [
+            "Obrigado! Tem espaço no compartimento superior?",
+            "Ótimo, obrigado. Posso guardar minha mala em cima?",
+            "Perfeito, obrigado. Tem espaço para minha bagagem de mão ali?"
+          ],
+          "vocab": [
+            { "palavra": "up there / up top", "significado": "ali em cima", "acento": "up THERE / up TOP" },
+            { "palavra": "store", "significado": "guardar", "acento": "STORE" }
+          ],
+          "nativo": "'Up there' aponta para o compartimento — sempre acompanhe com um gesto se estiver falando pessoalmente.",
+          "erro": "Não diga 'Can I place my bag on top' — mais natural é 'up there' ou 'up top'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You're settled in your seat. The passenger next to you says hello.",
+        "vocab_apoio": [
+          { "palavra": "seatmate", "significado": "vizinho de assento", "acento": "SEATmate" },
+          { "palavra": "buckle up", "significado": "apertar o cinto", "acento": "BUCKle up" }
+        ],
+        "turnos": [
+          {
+            "id": "dl-aviao01-01",
+            "personagem": "Passenger",
+            "fala": "Looks like we're seatmates! Heading to New York for work or fun?",
+            "traducao": "Parece que somos vizinhos de assento! Indo para Nova York a trabalho ou lazer?",
+            "connected": "Looks like we're seatmates! Heading to New York for work er fun?",
+            "respostas_esperadas": [
+              "Work, actually.",
+              "A bit of both.",
+              "Mostly work, but I'll enjoy the city too."
+            ],
+            "resposta_modelo": "Mostly work, but I'm hoping to enjoy the city a bit too.",
+            "feedback_modelo": "'A bit of both' é uma resposta muito natural quando a situação mistura propósitos. 'Hoping to' soa mais leve e esperançoso que 'planning to' — funciona bem em conversa casual com um estranho."
+          }
+        ]
+      }
+    },
+    {
+      "id": "aviao-02",
+      "titulo": "Decolagem e instruções de segurança",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=800",
+      "dialogo": [
+        {
+          "id": "aviao-02-01",
+          "turno": 1,
+          "cena": "Antes da decolagem, a comissária faz um anúncio de segurança.",
+          "personagem": "Flight Attendant",
+          "fala": "Please fasten your seatbelt and return your tray table to the upright position.",
+          "traducao": "Por favor, aperte o cinto e retorne a mesinha à posição vertical.",
+          "connected": "Please fasten yer seatbelt an' return yer tray table to the upright position.",
+          "blocos": [
+            { "bloco": "fasten your seatbelt", "significa": "apertar o cinto de segurança" },
+            { "bloco": "upright position", "significa": "posição vertical — usado para mesinha e encosto do banco" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "fasten", "significado": "apertar / prender", "acento": "FASten" },
+            { "palavra": "tray table", "significado": "mesinha retrátil", "acento": "TRAY table" },
+            { "palavra": "upright position", "significado": "posição vertical", "acento": "UPright poSItion" },
+            { "palavra": "turbulence", "significado": "turbulência", "acento": "TURbulence" },
+            { "palavra": "emergency exit", "significado": "saída de emergência", "acento": "eMERgency exit" }
+          ],
+          "nativo": "'Fasten your seatbelt' é sempre formal — nunca 'tie your seatbelt' ou 'close your seatbelt'.",
+          "erro": "Não diga 'close the seatbelt' — o verbo correto é sempre 'fasten'."
+        },
+        {
+          "id": "aviao-02-02",
+          "turno": 2,
+          "cena": "Ela verifica se você apertou o cinto.",
+          "personagem": "Flight Attendant",
+          "fala": "Is your seatbelt fastened?",
+          "traducao": "Seu cinto está apertado?",
+          "connected": "Izz yer seatbelt fastened?",
+          "blocos": [
+            { "bloco": "Is your", "significa": "Izz yer — 'is your' some em fala rápida" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "fastened", "significado": "apertado / preso", "acento": "FASTened" }
+          ],
+          "nativo": "Resposta simples esperada — 'Yes, it is' ou apenas 'Yes'.",
+          "erro": "Não complique a resposta — perguntas de segurança pedem respostas curtas e diretas."
+        },
+        {
+          "id": "aviao-02-03",
+          "turno": 3,
+          "cena": "Você confirma.",
+          "personagem": "Você",
+          "fala": "Yes, it is. All set.",
+          "traducao": "Sim, está. Tudo pronto.",
+          "sua_vez": true,
+          "connected_voce": "Yes, it is. All set.",
+          "acento": "Yes, it IS. All SET.",
+          "alternativas": [
+            "Yes, all buckled up.",
+            "Yep, I'm good to go.",
+            "Yes, ready for takeoff."
+          ],
+          "alts_traducoes": [
+            "Sim, tudo com cinto apertado.",
+            "Sim, estou pronto.",
+            "Sim, pronto para decolagem."
+          ],
+          "vocab": [
+            { "palavra": "All set", "significado": "Tudo pronto", "acento": "all SET" },
+            { "palavra": "buckled up", "significado": "com cinto apertado", "acento": "BUCKled up" }
+          ],
+          "nativo": "'All set' é extremamente comum para confirmar que está pronto — use em muitos contextos diferentes.",
+          "erro": "Não diga 'I am ready' de forma isolada e seca — 'All set' ou 'Yep, all good' soa mais natural."
+        },
+        {
+          "id": "aviao-02-04",
+          "turno": 4,
+          "cena": "Durante o voo há uma leve turbulência e a comissária avisa.",
+          "personagem": "Flight Attendant",
+          "fala": "We're experiencing some turbulence. Please remain seated.",
+          "traducao": "Estamos passando por uma turbulência. Por favor, permaneçam sentados.",
+          "connected": "We're experiencing some turbulence. Please remain seated.",
+          "blocos": [
+            { "bloco": "remain seated", "significa": "permanecer sentado — instrução formal usada em anúncios" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "remain seated", "significado": "permanecer sentado", "acento": "reMAIN SEATed" },
+            { "palavra": "experiencing", "significado": "passando por / vivenciando", "acento": "exPERiencing" }
+          ],
+          "nativo": "'Remain seated' é mais formal que 'stay in your seat' — comum em anúncios oficiais.",
+          "erro": "Não se levante durante turbulência mesmo que pareça leve — siga sempre a instrução da tripulação."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The turbulence has passed. Your seatmate makes a comment.",
+        "turnos": [
+          {
+            "id": "dl-aviao02-01",
+            "personagem": "Passenger",
+            "fala": "That was a bit scary, huh? I hate turbulence.",
+            "traducao": "Isso foi um pouco assustador, né? Eu odeio turbulência.",
+            "connected": "That was a bit scary, huh? I hate turbulence.",
+            "respostas_esperadas": [
+              "Yeah, me too.",
+              "It wasn't too bad, but yeah.",
+              "I know, right? Glad it's over."
+            ],
+            "resposta_modelo": "I know, right? Glad it's over — I'm not a fan of turbulence either.",
+            "feedback_modelo": "'I know, right?' é uma expressão de concordância muito forte e natural. 'Not a fan of' é uma forma leve e educada de dizer que não gosta de algo — mais suave que 'I hate it too'."
+          }
+        ]
+      }
+    },
+    {
+      "id": "aviao-03",
+      "titulo": "Refeição a bordo",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1583396060243-8b28cfe17631?w=800",
+      "dialogo": [
+        {
+          "id": "aviao-03-01",
+          "turno": 1,
+          "cena": "O carrinho de refeições chega. A comissária pergunta sua opção.",
+          "personagem": "Flight Attendant",
+          "fala": "Chicken or pasta for you today?",
+          "traducao": "Frango ou macarrão para você hoje?",
+          "connected": "Chicken er pasta for ya today?",
+          "blocos": [
+            { "bloco": "Chicken or pasta", "significa": "opções de refeição — formato comum em voos internacionais" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "meal", "significado": "refeição", "acento": "MEAL" },
+            { "palavra": "beverage", "significado": "bebida (formal)", "acento": "BEVerage" },
+            { "palavra": "snack", "significado": "lanche", "acento": "SNACK" },
+            { "palavra": "vegetarian option", "significado": "opção vegetariana", "acento": "vegeTARian OPtion" },
+            { "palavra": "tray", "significado": "bandeja", "acento": "TRAY" }
+          ],
+          "nativo": "Nas refeições de voo, a pergunta é sempre direta com as duas opções — responda só com a escolha.",
+          "erro": "Não elabore demais a resposta — 'Chicken, please' já é suficiente e esperado."
+        },
+        {
+          "id": "aviao-03-02",
+          "turno": 2,
+          "cena": "Você escolhe.",
+          "personagem": "Você",
+          "fala": "Chicken, please.",
+          "traducao": "Frango, por favor.",
+          "sua_vez": true,
+          "connected_voce": "Chicken, please.",
+          "acento": "CHICKen, please.",
+          "alternativas": [
+            "I'll have the chicken, thanks.",
+            "Chicken sounds good.",
+            "I'll try the chicken."
+          ],
+          "alts_traducoes": [
+            "Vou querer o frango, obrigado.",
+            "Frango parece bom.",
+            "Vou tentar o frango."
+          ],
+          "vocab": [
+            { "palavra": "sounds good", "significado": "parece bom", "acento": "SOUNDS good" }
+          ],
+          "nativo": "'Chicken sounds good' é uma resposta casual muito natural quando você está decidindo entre opções.",
+          "erro": "Não diga 'I want chicken' sem 'please' — soa rude mesmo sendo uma resposta rápida."
+        },
+        {
+          "id": "aviao-03-03",
+          "turno": 3,
+          "cena": "Ela pergunta sobre bebida.",
+          "personagem": "Flight Attendant",
+          "fala": "And something to drink? Water, juice, or soda?",
+          "traducao": "E algo para beber? Água, suco ou refrigerante?",
+          "connected": "An' something to drink? Water, juice, er soda?",
+          "blocos": [
+            { "bloco": "something to drink", "significa": "algo para beber" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "something to drink", "significado": "algo para beber", "acento": "SOMEthing to DRINK" },
+            { "palavra": "soda", "significado": "refrigerante (EUA)", "acento": "SOda" }
+          ],
+          "nativo": "Nos EUA 'soda' é refrigerante. Em outros países de língua inglesa pode ser 'pop' ou 'fizzy drink'.",
+          "erro": "Não diga 'sparkling water' esperando refrigerante — é água com gás, diferente de soda."
+        },
+        {
+          "id": "aviao-03-04",
+          "turno": 4,
+          "cena": "Você escolhe a bebida.",
+          "personagem": "Você",
+          "fala": "Water is fine, thank you.",
+          "traducao": "Água está bom, obrigado.",
+          "sua_vez": true,
+          "connected_voce": "Water's fine, thank you.",
+          "acento": "WAter is FINE, thank you.",
+          "alternativas": [
+            "Just water, please.",
+            "I'll take water, thanks.",
+            "Water works for me."
+          ],
+          "alts_traducoes": [
+            "Só água, por favor.",
+            "Vou querer água, obrigado.",
+            "Água está bom para mim."
+          ],
+          "vocab": [
+            { "palavra": "is fine", "significado": "está bom / serve", "acento": "is FINE" },
+            { "palavra": "works for me", "significado": "funciona para mim / está bom", "acento": "WORKS for me" }
+          ],
+          "nativo": "'Water is fine' é educado e simples — não precisa elaborar mais que isso.",
+          "erro": "Não diga 'Water is good' — soa estranho. 'Water is fine' ou 'Just water' é mais natural."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You finished your meal. The flight attendant collects your tray.",
+        "turnos": [
+          {
+            "id": "dl-aviao03-01",
+            "personagem": "Flight Attendant",
+            "fala": "All done with your tray? Can I take that for you?",
+            "traducao": "Terminou com sua bandeja? Posso levar para você?",
+            "connected": "All done with yer tray? Can I take that for ya?",
+            "respostas_esperadas": [
+              "Yes, thank you.",
+              "Yes, all done. Thanks!",
+              "Yes please, thank you."
+            ],
+            "resposta_modelo": "Yes, all done. Thank you so much!",
+            "feedback_modelo": "'All done' repete a expressão usada pela comissária — isso é natural em inglês, mostra que você entendeu e concorda. Encerrar com 'thank you so much' é sempre bem recebido pela tripulação."
+          }
+        ]
+      }
+    },
+    {
+      "id": "aviao-04",
+      "titulo": "Pedindo algo à tripulação",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=800",
+      "dialogo": [
+        {
+          "id": "aviao-04-01",
+          "turno": 1,
+          "cena": "Você está com frio e quer chamar a atenção de uma comissária que passa pelo corredor.",
+          "personagem": "Você",
+          "fala": "Excuse me, could I get a blanket, please?",
+          "traducao": "Com licença, posso pegar um cobertor, por favor?",
+          "sua_vez": true,
+          "connected_voce": "Scuse me, could I get a blanket, please?",
+          "acento": "exCUSE me, could I GET a BLANket, please?",
+          "alternativas": [
+            "Sorry, do you have any blankets?",
+            "Excuse me, is it possible to get a blanket?",
+            "Hi, could I have a blanket please?"
+          ],
+          "alts_traducoes": [
+            "Desculpe, vocês têm cobertores?",
+            "Com licença, é possível pegar um cobertor?",
+            "Oi, posso ter um cobertor por favor?"
+          ],
+          "vocab": [
+            { "palavra": "blanket", "significado": "cobertor", "acento": "BLANket" },
+            { "palavra": "pillow", "significado": "travesseiro", "acento": "PILlow" },
+            { "palavra": "headphones", "significado": "fones de ouvido", "acento": "HEADphones" },
+            { "palavra": "Could I get...?", "significado": "Posso pegar...?", "acento": "COULD I get" },
+            { "palavra": "Is it possible to...?", "significado": "É possível...?", "acento": "is it POSsible to" }
+          ],
+          "nativo": "'Could I get' é a forma mais educada e natural de pedir algo em voo — melhor que 'give me' ou 'I need'.",
+          "erro": "Não diga 'Give me a blanket' — soa rude. Use sempre 'Could I get' ou 'Could I have'."
+        },
+        {
+          "id": "aviao-04-02",
+          "turno": 2,
+          "cena": "A comissária responde.",
+          "personagem": "Flight Attendant",
+          "fala": "Of course! I'll bring one right over.",
+          "traducao": "Claro! Vou trazer um agora mesmo.",
+          "connected": "Of course! I'll bring one right over.",
+          "blocos": [
+            { "bloco": "right over", "significa": "agora mesmo / imediatamente" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "right over", "significado": "agora mesmo / imediatamente", "acento": "right OVer" },
+            { "palavra": "I'll bring", "significado": "vou trazer", "acento": "I'll BRING" }
+          ],
+          "nativo": "'Right over' depois de 'I'll bring' indica que será rápido — comum em atendimento de serviço.",
+          "erro": "Não confunda 'bring' (trazer, na direção de quem fala) com 'take' (levar, para longe)."
+        },
+        {
+          "id": "aviao-04-03",
+          "turno": 3,
+          "cena": "Você agradece e faz outro pedido.",
+          "personagem": "Você",
+          "fala": "Thank you! Also, do you have any headphones?",
+          "traducao": "Obrigado! Além disso, vocês têm fones de ouvido?",
+          "sua_vez": true,
+          "connected_voce": "Thank you! Also, d'ya have any headphones?",
+          "acento": "THANK you! ALso, do you HAVE any HEADphones?",
+          "alternativas": [
+            "Thanks! And could I also get headphones?",
+            "Appreciate it. One more thing — any headphones?",
+            "Thank you. By the way, are headphones available?"
+          ],
+          "alts_traducoes": [
+            "Obrigado! E eu também poderia pegar fones de ouvido?",
+            "Agradeço. Mais uma coisa — tem fones de ouvido?",
+            "Obrigado. A propósito, fones estão disponíveis?"
+          ],
+          "vocab": [
+            { "palavra": "Also,", "significado": "Além disso, / Também,", "acento": "ALso" },
+            { "palavra": "One more thing", "significado": "Mais uma coisa", "acento": "one more THING" },
+            { "palavra": "By the way", "significado": "A propósito", "acento": "by the WAY" }
+          ],
+          "nativo": "'Also' no início de frase conecta pedidos naturalmente — evita soar repetitivo dizendo 'Excuse me' de novo.",
+          "erro": "Não repita 'Excuse me' toda vez — depois do primeiro pedido, use 'Also' ou 'One more thing'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The flight attendant returns with your items.",
+        "turnos": [
+          {
+            "id": "dl-aviao04-01",
+            "personagem": "Flight Attendant",
+            "fala": "Here's your blanket and headphones. Anything else I can get you?",
+            "traducao": "Aqui está seu cobertor e fones. Mais alguma coisa que eu possa pegar?",
+            "connected": "Here's yer blanket an' headphones. Anything else I can get ya?",
+            "respostas_esperadas": [
+              "No, that's all. Thank you!",
+              "No, this is perfect, thanks.",
+              "That's everything, thank you so much!"
+            ],
+            "resposta_modelo": "No, this is perfect. Thank you so much for your help!",
+            "feedback_modelo": "'This is perfect' encerra a interação de forma calorosa. 'Thank you so much for your help' reconhece o esforço da comissária — nativos valorizam esse tipo de gratidão específica em vez de um 'thanks' genérico."
+          }
+        ]
+      }
+    }
+  ]
+}
