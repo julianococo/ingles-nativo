@@ -1289,7 +1289,7 @@ function viShadowing(frase,btn){
       btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
     }
     const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-    viShadRec=new SR();viShadRec.lang='en-US';viShadRec.continuous=false;viShadRec.interimResults=false;
+    viShadRec=new SR();viShadRec.lang='en-US';viShadRec.continuous=false;viShadRec.interimResults=false;viShadRec.maxAlternatives=3;
     const v=viVocab[viIdx];
     const palavraAlvo=v?v.palavra:frase;
     function resetBtn(){
@@ -1297,9 +1297,16 @@ function viShadowing(frase,btn){
       if(btn){btn.style.background='rgba(34,197,94,.08)';btn.style.borderColor='rgba(34,197,94,.3)';btn.style.color='var(--grn)';btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';}
     }
     viShadRec.onresult=e=>{
-      const txt=e.results[0][0].transcript.trim().toLowerCase();
+      // Verifica todas as alternativas; usa a que mais se aproxima do alvo
+      const res=e.results[0];
       const alvo=palavraAlvo.toLowerCase().replace(/[^a-z\s]/g,'').trim();
-      const acertou=txt.includes(alvo)||alvo.includes(txt)||(txt.split(' ')[0]===alvo.split(' ')[0]);
+      let melhor=res[0].transcript.trim().toLowerCase();
+      for(let k=0;k<res.length;k++){
+        const alt=res[k].transcript.trim().toLowerCase();
+        if(simTokens(alt,alvo)>simTokens(melhor,alvo))melhor=alt;
+      }
+      const txt=melhor;
+      const acertou=txt.includes(alvo)||alvo.includes(txt)||(txt.split(' ')[0]===alvo.split(' ')[0])||(simTokens(txt,alvo)>=0.7);
       viShadRec=null;resetBtn();
       // Resultado no div externo (fora do card)
       const res=document.getElementById('vi-rec-resultado');
@@ -1316,7 +1323,18 @@ function viShadowing(frase,btn){
       }
     };
     viShadRec.onerror=()=>{viShadRec=null;resetBtn();mostrarToast('Não captei. Tente de novo.');};
-    try{viShadRec.start();}catch(e){resetBtn();mostrarToast('Erro ao abrir microfone.');}
+    // Fix1: indicador visual + delay 400ms
+    if(btn){
+      btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg> Preparando…';
+    }
+    setTimeout(()=>{
+      if(viShadEstado!=='gravando')return;
+      if(btn){
+        btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+      }
+      try{viShadRec.start();}catch(e){resetBtn();mostrarToast('Erro ao abrir microfone.');}
+    },400);
     return;
   }
   // Estado gravando → para gravação
@@ -1350,17 +1368,31 @@ function viShadowingLista(frase,palavra,btn){
     btn.setAttribute('data-shad','gravando');
     btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
     const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-    const rec=new SR();rec.lang='en-US';rec.continuous=false;rec.interimResults=false;
+    const rec=new SR();rec.lang='en-US';rec.continuous=false;rec.interimResults=false;rec.maxAlternatives=3;
     const alvo=palavra.toLowerCase().replace(/[^a-z\s]/g,'').trim();
     function resetLista(){btn.setAttribute('data-shad','idle');btn.style.background='';btn.style.borderColor='';btn.style.color='';}
     rec.onresult=e=>{
-      const txt=e.results[0][0].transcript.trim().toLowerCase();
-      const acertou=txt.includes(alvo)||alvo.includes(txt)||(txt.split(' ')[0]===alvo.split(' ')[0]);
+      const res=e.results[0];
+      let melhor=res[0].transcript.trim().toLowerCase();
+      for(let k=0;k<res.length;k++){
+        const alt=res[k].transcript.trim().toLowerCase();
+        if(simTokens(alt,alvo)>simTokens(melhor,alvo))melhor=alt;
+      }
+      const txt=melhor;
+      const acertou=txt.includes(alvo)||alvo.includes(txt)||(txt.split(' ')[0]===alvo.split(' ')[0])||(simTokens(txt,alvo)>=0.7);
       resetLista();
       mostrarToast(acertou?`✓ "${txt}"`:`"${txt}" — tente de novo`);
     };
     rec.onerror=()=>{resetLista();mostrarToast('Não captei. Tente de novo.');};
-    try{rec.start();}catch(e){resetLista();mostrarToast('Erro ao abrir microfone.');}
+    // Fix1: indicador visual + delay 400ms
+    btn.style.background='rgba(79,142,247,.1)';btn.style.borderColor='var(--acc)';btn.style.color='var(--acc)';
+    btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg> Preparando…';
+    setTimeout(()=>{
+      if(btn.getAttribute('data-shad')!=='gravando')return;
+      btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+      btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+      try{rec.start();}catch(e){resetLista();mostrarToast('Erro ao abrir microfone.');}
+    },400);
     return;
   }
   if(estado==='gravando'){
@@ -1609,16 +1641,35 @@ function iniciarShadowing(frase,btn){
       btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
     }
     const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-    shadRec=new SR();shadRec.lang='en-US';shadRec.continuous=false;shadRec.interimResults=false;
+    shadRec=new SR();shadRec.lang='en-US';shadRec.continuous=false;shadRec.interimResults=false;shadRec.maxAlternatives=3;
     shadRec.onresult=e=>{
-      const txt=e.results[0][0].transcript;
+      const res=e.results[0];
+      // Escolhe a alternativa com maior similaridade ao modelo
+      let melhor=res[0].transcript,melhorConf=res[0].confidence;
+      for(let k=0;k<res.length;k++){
+        if(simTokens(res[k].transcript,shadFraseAt)>simTokens(melhor,shadFraseAt)){
+          melhor=res[k].transcript;melhorConf=res[k].confidence;
+        }
+      }
+      const txt=melhor;
       shadRec=null;shadEstado='idle';shadResetBtn(btn);
       const ri=document.getElementById('ri');if(ri)ri.value=txt;
-      compararPronuncia(txt,shadFraseAt);
+      compararPronuncia(txt,shadFraseAt,melhorConf);
       mostrarToast('Veja a comparação abaixo.');
     };
     shadRec.onerror=()=>{shadRec=null;shadEstado='idle';shadResetBtn(btn);mostrarToast('Não captei. Tente de novo.');};
-    try{shadRec.start();}catch(e){shadEstado='idle';shadResetBtn(btn);mostrarToast('Erro ao abrir microfone.');}
+    // Fix1: indicador visual + delay 400ms para mic inicializar antes do usuário falar
+    if(btn){
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg> Preparando…';
+    }
+    setTimeout(()=>{
+      if(shadEstado!=='gravando')return;
+      if(btn){
+        btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+      }
+      try{shadRec.start();}catch(e){shadEstado='idle';shadResetBtn(btn);mostrarToast('Erro ao abrir microfone.');}
+    },400);
     return;
   }
 
@@ -1642,42 +1693,119 @@ function toggleMic(){
   const btn=document.getElementById('mbtn');
   if(rec&&rec.at){rec.stop();rec.at=false;btn.classList.remove('gr');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone';return;}
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  rec=new SR();rec.lang='en-US';rec.continuous=false;rec.interimResults=false;rec.at=true;
+  rec=new SR();rec.lang='en-US';rec.continuous=false;rec.interimResults=false;rec.at=true;rec.maxAlternatives=3;
   pararTimer();
   btn.classList.add('gr');btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
   rec.onresult=e=>{
-    const txt=e.results[0][0].transcript;
+    const res=e.results[0];
+    const modelo=itemAt.connected_voce||itemAt.fala;
+    let melhor=res[0].transcript,melhorConf=res[0].confidence;
+    for(let k=0;k<res.length;k++){
+      if(simTokens(res[k].transcript,modelo)>simTokens(melhor,modelo)){
+        melhor=res[k].transcript;melhorConf=res[k].confidence;
+      }
+    }
+    const txt=melhor;
     const ri=document.getElementById('ri');if(ri)ri.value=txt;
     btn.classList.remove('gr');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone';rec.at=false;
-    compararPronuncia(txt,itemAt.fala);
+    compararPronuncia(txt,modelo,melhorConf);
   };
   rec.onerror=()=>{btn.classList.remove('gr');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone';rec.at=false;mostrarToast('Erro no microfone. Tente de novo.');};
   rec.start();
 }
 
-function compararPronuncia(dito,modelo){
+// ── PRONÚNCIA — utilitários ───────────────
+// Mapa de contrações e reduções fonéticas aceitas como equivalentes
+const CONTRACOES={
+  "want to":"wanna","going to":"gonna","got to":"gotta","have to":"hafta",
+  "has to":"hasta","out of":"outta","kind of":"kinda","sort of":"sorta",
+  "i am":"i'm","you are":"you're","he is":"he's","she is":"she's",
+  "it is":"it's","we are":"we're","they are":"they're","that is":"that's",
+  "there is":"there's","what is":"what's","who is":"who's","how is":"how's",
+  "i will":"i'll","you will":"you'll","he will":"he'll","she will":"she'll",
+  "we will":"we'll","they will":"they'll","i would":"i'd","you would":"you'd",
+  "he would":"he'd","she would":"she'd","we would":"we'd","they would":"they'd",
+  "i have":"i've","you have":"you've","we have":"we've","they have":"they've",
+  "do not":"don't","does not":"doesn't","did not":"didn't","will not":"won't",
+  "would not":"wouldn't","could not":"couldn't","should not":"shouldn't",
+  "cannot":"can't","is not":"isn't","are not":"aren't","was not":"wasn't",
+  "were not":"weren't","let me":"lemme","give me":"gimme","come on":"c'mon",
+  "and":"'n","to":"ta","for":"fer","of":"o'"
+};
+
+function normTexto(s){
+  return s.toLowerCase().replace(/['']/g,"'").replace(/[^a-z'\s]/g,'').trim();
+}
+
+// Expande contrações de ambos os lados para comparação justa
+function expandirContracoes(s){
+  let r=normTexto(s);
+  // expande forma curta → longa
+  const rev={};
+  Object.entries(CONTRACOES).forEach(([longa,curta])=>{rev[curta]=longa;});
+  Object.entries(rev).forEach(([curta,longa])=>{
+    r=r.replace(new RegExp('\\b'+curta.replace(/'/g,"'?")+'\\b','g'),longa);
+  });
+  return r;
+}
+
+// Normaliza para comparação: expande contrações e remove apóstrofos residuais
+function normParaComp(s){
+  return expandirContracoes(s).replace(/'/g,'').replace(/\s+/g,' ').trim();
+}
+
+// Levenshtein em nível de tokens (palavras)
+function levenshteinTokens(a,b){
+  const ta=a.split(/\s+/),tb=b.split(/\s+/);
+  const m=ta.length,n=tb.length;
+  const dp=Array.from({length:m+1},(_,i)=>Array.from({length:n+1},(_,j)=>i===0?j:j===0?i:0));
+  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){
+    if(ta[i-1]===tb[j-1])dp[i][j]=dp[i-1][j-1];
+    else dp[i][j]=1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
+  }
+  return dp[m][n];
+}
+
+// Similaridade 0–1 baseada em Levenshtein de tokens (após normalização)
+function simTokens(dito,modelo){
+  const d=normParaComp(dito),m=normParaComp(modelo);
+  const td=d.split(/\s+/),tm=m.split(/\s+/);
+  const dist=levenshteinTokens(d,m);
+  const maxLen=Math.max(td.length,tm.length);
+  return maxLen===0?1:Math.max(0,1-dist/maxLen);
+}
+
+function compararPronuncia(dito,modelo,confidence){
   const norm=s=>s.toLowerCase().replace(/[^a-z\s]/g,'').trim();
-  const pd=norm(dito).split(/\s+/);
-  const pm=norm(modelo).split(/\s+/);
-  const palavras=modelo.split(/\s+/);
-  const acertos=pm.filter((p,i)=>pd[i]===p).length;
-  const pct=pm.length>0?Math.round(acertos/pm.length*100):0;
-  const cor=pct>=80?'var(--grn)':pct>=50?'var(--ylw)':'var(--red)';
-  const msg=pct>=80?'Ótima pronúncia!':pct>=50?'Quase lá, tente mais uma vez':'Continue praticando';
+  // Calcula similaridade usando Levenshtein token-level com expansão de contrações
+  const sim=simTokens(dito,modelo);
+  const pct=Math.round(sim*100);
+  // Bonus de confiança: se o reconhecedor tinha alta confiança, o usuário pronunciou bem
+  // mesmo que a transcrição seja diferente do modelo
+  const confBonus=confidence&&confidence>0.85?5:0;
+  const pctFinal=Math.min(100,pct+confBonus);
+  const cor=pctFinal>=75?'var(--grn)':pctFinal>=50?'var(--ylw)':'var(--red)';
+  const msg=pctFinal>=75?'Ótima pronúncia!':pctFinal>=50?'Quase lá, tente mais uma vez':'Continue praticando';
+  // Comparação visual token-a-token usando LCS para alinhar palavras
+  const tm=normParaComp(modelo).split(/\s+/);
+  const td=normParaComp(dito).split(/\s+/);
+  const palavrasOrig=modelo.split(/\s+/);
   let html=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
     <div style="font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;">Comparação palavra a palavra</div>
-    <div style="font-size:12px;font-weight:700;color:${cor};">${pct}% — ${msg}</div>
+    <div style="font-size:12px;font-weight:700;color:${cor};">${pctFinal}% — ${msg}</div>
   </div>`;
-  palavras.forEach((pal,i)=>{
-    const puro=norm(pal);
-    const dPuro=pd[i]||'';
-    if(dPuro===puro)html+=`<span class="pw">${pal} </span>`;
-    else if(dPuro)html+=`<span class="pe" title="Você disse: ${dPuro}">${pal} </span>`;
+  // Alinha tokens do modelo com os do usuário pela posição mais próxima
+  palavrasOrig.forEach((pal,i)=>{
+    const puro=tm[i]||'';
+    // Procura a palavra em até 2 posições de distância no que foi dito
+    const encontrado=td.some((w,j)=>Math.abs(j-i)<=2&&w===puro);
+    const exato=td[i]===puro;
+    if(exato)html+=`<span class="pw">${pal} </span>`;
+    else if(encontrado)html+=`<span class="pw" style="opacity:.8">${pal} </span>`;
+    else if(td[i])html+=`<span class="pe" title="Você disse: ${td[i]}">${pal} </span>`;
     else html+=`<span style="color:var(--tx3)">${pal} </span>`;
   });
-  if(pd.length>pm.length){
-    html+=`<div style="font-size:11px;color:var(--tx3);margin-top:6px;">Você disse: "${dito}"</div>`;
-  }
+  html+=`<div style="font-size:11px;color:var(--tx3);margin-top:6px;">Você disse: "${dito}"</div>`;
   let pr=document.getElementById('pron-r');
   if(!pr){
     pr=document.getElementById('shad-pron-r');
@@ -1696,11 +1824,8 @@ function compararPronuncia(dito,modelo){
 
 // ── RESULTADO ────────────────────────────
 function calcularSimilaridade(dito,modelo){
-  const norm=s=>s.toLowerCase().replace(/[^a-z\s]/g,'').trim();
-  const pd=norm(dito).split(/\s+/);
-  const pm=norm(modelo).split(/\s+/);
-  const acertos=pm.filter((p,i)=>pd[i]===p).length;
-  return pm.length>0?acertos/pm.length:0;
+  // Usa Levenshtein token-level com expansão de contrações
+  return simTokens(dito,modelo);
 }
 
 function irParaRes(origem){
@@ -1932,10 +2057,17 @@ function dlToggleMic(){
     return;
   }
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  dlRecAt=new SR();dlRecAt.lang='en-US';dlRecAt.continuous=false;dlRecAt.interimResults=false;
+  dlRecAt=new SR();dlRecAt.lang='en-US';dlRecAt.continuous=false;dlRecAt.interimResults=false;dlRecAt.maxAlternatives=3;
   if(btn){btn.classList.add('on');btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar gravação';}
   dlRecAt.onresult=e=>{
-    const txt=e.results[0][0].transcript;
+    const res=e.results[0];
+    const t=dlTurnos[dlIdx];
+    const modeloDl=(t&&t.resposta_modelo)||'';
+    let melhor=res[0].transcript;
+    for(let k=0;k<res.length;k++){
+      if(simTokens(res[k].transcript,modeloDl)>simTokens(melhor,modeloDl))melhor=res[k].transcript;
+    }
+    const txt=melhor;
     dlRecAt=null;
     if(btn){btn.classList.remove('on');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Toque para falar';}
     dlProcessarResposta(txt);
