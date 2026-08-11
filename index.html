@@ -1323,15 +1323,16 @@ function viShadowing(frase,btn){
       }
     };
     viShadRec.onerror=()=>{viShadRec=null;resetBtn();mostrarToast('Não captei. Tente de novo.');};
-    // Fix1: indicador visual + delay 400ms
+    // Fix1: âmbar imediato → verde quando mic ativo
     if(btn){
-      btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg> Preparando…';
+      btn.style.background='rgba(234,179,8,.15)';btn.style.borderColor='var(--ylw)';btn.style.color='var(--ylw)';
+      btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg> Preparando…';
     }
     setTimeout(()=>{
       if(viShadEstado!=='gravando')return;
       if(btn){
         btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
-        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Fale agora';
       }
       try{viShadRec.start();}catch(e){resetBtn();mostrarToast('Erro ao abrir microfone.');}
     },400);
@@ -1384,13 +1385,13 @@ function viShadowingLista(frase,palavra,btn){
       mostrarToast(acertou?`✓ "${txt}"`:`"${txt}" — tente de novo`);
     };
     rec.onerror=()=>{resetLista();mostrarToast('Não captei. Tente de novo.');};
-    // Fix1: indicador visual + delay 400ms
-    btn.style.background='rgba(79,142,247,.1)';btn.style.borderColor='var(--acc)';btn.style.color='var(--acc)';
-    btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg> Preparando…';
+    // Fix1: âmbar imediato → verde quando mic ativo
+    btn.style.background='rgba(234,179,8,.15)';btn.style.borderColor='var(--ylw)';btn.style.color='var(--ylw)';
+    btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg> Preparando…';
     setTimeout(()=>{
       if(btn.getAttribute('data-shad')!=='gravando')return;
       btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
-      btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+      btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Fale agora';
       try{rec.start();}catch(e){resetLista();mostrarToast('Erro ao abrir microfone.');}
     },400);
     return;
@@ -1634,17 +1635,17 @@ function iniciarShadowing(frase,btn){
   if(shadEstado==='pronto'||shadEstado==='ouvindo'){
     if(synth.speaking){try{synth.cancel();}catch(e){}}
     shadEstado='gravando';
+    // Fix1: estado âmbar "Preparando…" — distinto visualmente, só vira verde quando mic ativo
     if(btn){
-      btn.style.background='rgba(34,197,94,.2)';
-      btn.style.borderColor='var(--grn)';
-      btn.style.color='var(--grn)';
-      btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+      btn.style.background='rgba(234,179,8,.15)';
+      btn.style.borderColor='var(--ylw)';
+      btn.style.color='var(--ylw)';
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg> Preparando…';
     }
     const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
     shadRec=new SR();shadRec.lang='en-US';shadRec.continuous=false;shadRec.interimResults=false;shadRec.maxAlternatives=3;
     shadRec.onresult=e=>{
       const res=e.results[0];
-      // Escolhe a alternativa com maior similaridade ao modelo
       let melhor=res[0].transcript,melhorConf=res[0].confidence;
       for(let k=0;k<res.length;k++){
         if(simTokens(res[k].transcript,shadFraseAt)>simTokens(melhor,shadFraseAt)){
@@ -1658,15 +1659,12 @@ function iniciarShadowing(frase,btn){
       mostrarToast('Veja a comparação abaixo.');
     };
     shadRec.onerror=()=>{shadRec=null;shadEstado='idle';shadResetBtn(btn);mostrarToast('Não captei. Tente de novo.');};
-    // Fix1: indicador visual + delay 400ms para mic inicializar antes do usuário falar
-    if(btn){
-      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg> Preparando…';
-    }
     setTimeout(()=>{
       if(shadEstado!=='gravando')return;
+      // Mic ativo → vira verde
       if(btn){
         btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
-        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Fale agora';
       }
       try{shadRec.start();}catch(e){shadEstado='idle';shadResetBtn(btn);mostrarToast('Erro ao abrir microfone.');}
     },400);
