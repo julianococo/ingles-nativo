@@ -1309,17 +1309,17 @@ function viShadowing(frase,btn){
       const acertou=txt.includes(alvo)||alvo.includes(txt)||(txt.split(' ')[0]===alvo.split(' ')[0])||(simTokens(txt,alvo)>=0.7);
       viShadRec=null;resetBtn();
       // Resultado no div externo (fora do card)
-      const res=document.getElementById('vi-rec-resultado');
-      if(res){
-        res.style.display='block';
+      const elRes=document.getElementById('vi-rec-resultado');
+      if(elRes){
+        elRes.style.display='block';
         if(acertou){
-          res.style.background='rgba(34,197,94,.1)';res.style.border='1px solid rgba(34,197,94,.3)';res.style.color='var(--grn)';
-          res.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Reconhecido: "${txt}"`;
+          elRes.style.background='rgba(34,197,94,.1)';elRes.style.border='1px solid rgba(34,197,94,.3)';elRes.style.color='var(--grn)';
+          elRes.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Reconhecido: "${txt}"`;
         }else{
-          res.style.background='rgba(239,68,68,.08)';res.style.border='1px solid rgba(239,68,68,.2)';res.style.color='var(--red)';
-          res.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Você disse: "${txt}" — tente de novo`;
+          elRes.style.background='rgba(239,68,68,.08)';elRes.style.border='1px solid rgba(239,68,68,.2)';elRes.style.color='var(--red)';
+          elRes.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Você disse: "${txt}" — tente de novo`;
         }
-        setTimeout(()=>{if(res)res.style.display='none';},4000);
+        setTimeout(()=>{if(elRes)elRes.style.display='none';},4000);
       }
     };
     viShadRec.onerror=()=>{viShadRec=null;resetBtn();mostrarToast('Não captei. Tente de novo.');};
