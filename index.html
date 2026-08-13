@@ -331,6 +331,9 @@ body.light .toast{background:#fff;}
 .fase-barra-f.f2{background:linear-gradient(90deg,var(--grn),#16c784);}
 .fase-barra-f.f3{background:linear-gradient(90deg,var(--ylw),#f97316);}
 </style>
+  <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
 </head>
 <body>
 
@@ -472,6 +475,7 @@ body.light .toast{background:#fff;}
       <div class="sb2 a"><span class="sn" id="fim-qse">0</span><span class="sl">Quase</span></div>
       <div class="sb2 r"><span class="sn" id="fim-nao">0</span><span class="sl">Não sabia</span></div>
     </div>
+    <div id="fim-dl-stats" style="display:none;width:100%;margin-bottom:24px;"></div>
     <div class="fim-btns">
       <button class="btn-sec" id="btn-refazer" onclick="refazerSessao()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg> Refazer</button>
       <button class="btn-p" style="flex:2" onclick="irPara('fases')">Voltar ao início</button>
@@ -663,6 +667,9 @@ let rec=null,tmr=null,tSec=0;
 let modoRefazer=false;
 const synth=window.speechSynthesis;
 let voz=null;
+let shadObrigatorioFeito=false;
+let dlAcertos=0;
+let dlTotal=0;
 
 // ── STORAGE ──────────────────────────────
 function gP(){return JSON.parse(localStorage.getItem('ing_p')||'{}');}
@@ -1382,7 +1389,7 @@ function viShadowingLista(frase,palavra,btn){
       const txt=melhor;
       const acertou=txt.includes(alvo)||alvo.includes(txt)||(txt.split(' ')[0]===alvo.split(' ')[0])||(simTokens(txt,alvo)>=0.7);
       resetLista();
-      mostrarToast(acertou?`✓ "${txt}"`:`"${txt}" — tente de novo`);
+      mostrarToast(acertou?`Reconhecido: "${txt}"`:`"${txt}" — tente de novo`);
     };
     rec.onerror=()=>{resetLista();mostrarToast('Não captei. Tente de novo.');};
     // Fix1: âmbar imediato → verde quando mic ativo
@@ -1416,6 +1423,7 @@ function viIniciarDialogo(){
   if(!viSitPendente)return;
   const s=viSitPendente;
   sitAt=s;dq=[...s.dialogo];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
+  dlAcertos=0;dlTotal=0;
   irPara('sessao');renderTurno();
 }
 
@@ -1428,6 +1436,7 @@ function iniciarSessao(s){
     iniciarVocabIntro(s);
   } else {
     sitAt=s;dq=[...s.dialogo];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
+    dlAcertos=0;dlTotal=0;
     irPara('sessao');renderTurno();
   }
 }
@@ -1435,6 +1444,7 @@ function iniciarSessao(s){
 function refazer(s){
   if(typeof s==='string')s=JSON.parse(s);
   sitAt=s;dq=[...s.dialogo];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=true;
+  dlAcertos=0;dlTotal=0;
   irPara('sessao');renderTurno();
 }
 
@@ -1447,6 +1457,7 @@ function iniciarRevisao(){
   const items=revs.map(([id])=>gItemById(id)).filter(Boolean);
   if(!items.length){mostrarToast('Nenhuma revisão pendente!');return;}
   sitAt=null;dq=items;di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
+  dlAcertos=0;dlTotal=0;
   irPara('sessao');renderTurno();
 }
 
@@ -1454,6 +1465,7 @@ function renderTurno(){
   if(di>=dq.length){finalizarSessao();return;}
   const item=dq[di];itemAt=item;
   shadEstado='idle';shadFraseAt='';
+  shadObrigatorioFeito=false;
   document.getElementById('spr').style.width=(di/dq.length*100)+'%';
   document.getElementById('scnt').textContent=(di+1)+' de '+dq.length;
   const p=gP();
@@ -1462,7 +1474,7 @@ function renderTurno(){
   else if(hist.length===0)modoAt='exposicao';
   else if(hist.length<3)modoAt='reconhecimento';
   else modoAt='producao';
-  const fases={leitura:'Ouça e leia',exposicao:'Nível 1 — Veja a resposta',reconhecimento:'Nível 2 — Escolha',producao:'Nível 3 — Produza'};
+  const fases={leitura:'Ouça e leia',exposicao:'Nível 1 — Tente responder',reconhecimento:'Nível 2 — Escolha',producao:'Nível 3 — Produza'};
   document.getElementById('sfase').textContent=fases[modoAt];
   let html='';
 
@@ -1505,42 +1517,10 @@ function renderTurno(){
     html+=`</div><button class="btn-p" onclick="avancarLeitura()">Continuar</button>`;
   }
   else if(modoAt==='exposicao'){
-    html+=`<div class="fbox ${bc}">
-      <div class="flbl ${lc}"><span>${pnome} — resposta modelo</span></div>
-      <div class="ftxt">${item.fala}</div>
-      <div class="ftrad-lbl">Tradução</div>
-      <div class="ftrad">${item.traducao||''}</div>`;
-    if(item.acento)html+=`<div class="atag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${item.acento}</div>`;
-    if(item.connected_voce){
-      html+=`<div class="conn" style="margin-top:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
-        <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
-          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="falar(${aE(item.connected_voce)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
-        </div>
-        <div class="conn-txt" style="color:var(--acc2);">"${item.connected_voce}"</div>
-      </div>`;
-    }
-    html+=`<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
-      <button class="btn-audio" onclick="falar(${aE(item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
-      <button class="btn-audio" style="background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="iniciarShadowing(${aE(item.connected_voce||item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
-    </div>
-    <div id="shad-pron-r" class="pron-r" style="display:none;margin-top:10px;"></div>`;
-    html+=`</div><button class="btn-p" onclick="irParaRes('exposicao')">Ver detalhes</button>`;
-  }
-  else if(modoAt==='reconhecimento'){
-    const ops=gerarOps(item);
-    html+=`<div class="og" id="og">`;
-    ops.forEach(op=>{
-      html+=`<button class="ob" onclick="escolher(this,${op.c},${JSON.stringify(op.trad).replace(/"/g,'&quot;')})">
-        ${op.t}
-        <div class="ob-trad">${op.trad||''}</div>
-      </button>`;
-    });
-    html+=`</div><button class="btn-p" id="btn-rc" style="display:none" onclick="irParaRes('reconhecimento')">Ver detalhes</button>`;
-  }
-  else{
-    html+=`<div class="timer-w">
-      <div class="timer-bar"><div class="timer-f" id="tfill" style="width:100%;background:var(--grn)"></div></div>
-      <span class="timer-n" id="tnum">15</span>
+    // Alteração 2: Tente antes de ver — mostra prompt + textarea + mic, sem revelar a resposta
+    html+=`<div style="background:rgba(234,179,8,.06);border:1px solid rgba(234,179,8,.2);border-radius:var(--r2);padding:10px 14px;margin-bottom:12px;font-size:13px;color:var(--ylw);font-weight:600;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Tente responder antes de ver a resposta
     </div>`;
     if(item.connected_voce){
       html+=`<div class="conn" style="margin-bottom:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
@@ -1560,8 +1540,40 @@ function renderTurno(){
       <textarea class="ri" id="ri" placeholder="Digite ou fale sua resposta em inglês..."></textarea>
       <div id="pron-r" style="display:none" class="pron-r"></div>
     </div>
+    <button class="btn-p" onclick="irParaRes('exposicao')">Ver resposta</button>`;
+  }
+  else if(modoAt==='reconhecimento'){
+    const ops=gerarOps(item);
+    html+=`<div class="og" id="og">`;
+    ops.forEach(op=>{
+      html+=`<button class="ob" onclick="escolher(this,${op.c},${JSON.stringify(op.trad).replace(/"/g,'&quot;')})">
+        ${op.t}
+        <div class="ob-trad">${op.trad||''}</div>
+      </button>`;
+    });
+    html+=`</div><button class="btn-p" id="btn-rc" style="display:none" onclick="irParaRes('reconhecimento')">Ver detalhes</button>`;
+  }
+  else{
+    // Alteração 1: Timer removido — usuário responde no seu ritmo
+    if(item.connected_voce){
+      html+=`<div class="conn" style="margin-bottom:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
+        <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
+          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="falar(${aE(item.connected_voce)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+        </div>
+        <div class="conn-txt" style="color:var(--acc2);">"${item.connected_voce}"</div>
+      </div>`;
+    }
+    html+=`<div class="ra">
+      <div class="ra-lbl"><span>Sua resposta em inglês</span>
+        <div style="display:flex;gap:6px;">
+          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="iniciarShadowing(${aE(item.connected_voce||item.fala)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
+          <button class="mic-btn" id="mbtn" onclick="toggleMic()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone</button>
+        </div>
+      </div>
+      <textarea class="ri" id="ri" placeholder="Digite ou fale sua resposta em inglês..."></textarea>
+      <div id="pron-r" style="display:none" class="pron-r"></div>
+    </div>
     <button class="btn-p" onclick="irParaRes('producao')">Ver resposta correta</button>`;
-    iniciarTimer();
   }
   document.getElementById('scon').innerHTML=html;
 }
@@ -1656,6 +1668,9 @@ function iniciarShadowing(frase,btn){
       shadRec=null;shadEstado='idle';shadResetBtn(btn);
       const ri=document.getElementById('ri');if(ri)ri.value=txt;
       compararPronuncia(txt,shadFraseAt,melhorConf);
+      // Alteração 3: marca shadowing como feito e habilita autoavaliação
+      shadObrigatorioFeito=true;
+      habilitarAval();
       mostrarToast('Veja a comparação abaixo.');
     };
     shadRec.onerror=()=>{shadRec=null;shadEstado='idle';shadResetBtn(btn);mostrarToast('Não captei. Tente de novo.');};
@@ -1683,6 +1698,16 @@ function shadResetBtn(btn){
   btn.style.borderColor='rgba(124,92,252,.35)';
   btn.style.color='var(--acc2)';
   btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';
+}
+
+// Alteração 3: habilita botões de autoavaliação após shadowing
+function habilitarAval(){
+  document.querySelectorAll('.av').forEach(b=>{
+    b.style.opacity='1';
+    b.style.pointerEvents='auto';
+  });
+  const aviso=document.getElementById('aval-aviso');
+  if(aviso)aviso.style.display='none';
 }
 
 // ── MICROFONE ────────────────────────────
@@ -1834,7 +1859,7 @@ function irParaRes(origem){
   const respostaUsuario=ri?ri.value.trim():'';
   const modeloComparacao=item.connected_voce||item.fala;
   let avaliacaoSugerida=null;
-  if(respostaUsuario&&origem==='producao'){
+  if(respostaUsuario&&(origem==='producao'||origem==='exposicao')){
     const sim=calcularSimilaridade(respostaUsuario,modeloComparacao);
     if(sim>=0.8)avaliacaoSugerida='sim';
     else if(sim>=0.5)avaliacaoSugerida='qse';
@@ -1861,6 +1886,18 @@ function irParaRes(origem){
     </div>`;
   }
   html+=`</div>`;
+
+  // Alteração 3: Botão de shadowing obrigatório na tela de resultado
+  if(item.sua_vez){
+    html+=`<div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 18px;margin-bottom:10px;">
+      <div style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--acc2);">Repita em voz alta antes de avaliar</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn-audio" style="margin-top:0;" onclick="falar(${aE(item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+        <button class="btn-audio" style="margin-top:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="iniciarShadowingRes(${aE(item.connected_voce||item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
+      </div>
+      <div id="res-shad-pron" class="pron-r" style="display:none;margin-top:10px;"></div>
+    </div>`;
+  }
 
   // Avaliação sugerida com destaque
   if(avaliacaoSugerida){
@@ -1931,13 +1968,16 @@ function irParaRes(origem){
     html+=`</div></div></div>`;
   }
 
-  // Auto-avaliação
+  // Auto-avaliação — Alteração 3: botões começam desabilitados até shadowing
   if(item.sua_vez){
+    const bloqueado = shadObrigatorioFeito ? '' : 'style="opacity:.4;pointer-events:none;"';
+    const aviso = shadObrigatorioFeito ? '' : '<div id="aval-aviso" style="font-size:12px;color:var(--ylw);margin-bottom:10px;text-align:center;">Toque em "Repetir" acima e fale a frase para liberar a avaliação.</div>';
     html+=`<div class="aval"><h3>Como foi?</h3><p>Define quando este turno volta para revisão.</p>
+    ${aviso}
     <div class="avbtns">
-      <button class="av nao" onclick="avaliar('nao')"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><span class="tit">Não sabia</span><span class="sub">Volta em breve</span></button>
-      <button class="av qse" onclick="avaliar('qse')"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="tit">Quase</span><span class="sub">Volta amanhã</span></button>
-      <button class="av sim" onclick="avaliar('sim')"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 3 4 3 4-3 4-3"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><span class="tit">Sabia!</span><span class="sub">Volta em 3 dias</span></button>
+      <button class="av nao" onclick="avaliar('nao')" ${bloqueado}><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><span class="tit">Não sabia</span><span class="sub">Volta em breve</span></button>
+      <button class="av qse" onclick="avaliar('qse')" ${bloqueado}><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="tit">Quase</span><span class="sub">Volta amanhã</span></button>
+      <button class="av sim" onclick="avaliar('sim')" ${bloqueado}><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 3 4 3 4-3 4-3"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><span class="tit">Sabia!</span><span class="sub">Volta em 3 dias</span></button>
     </div></div>`;
   }else{
     html+=`<button class="btn-p" onclick="avancarLeitura()" style="margin-top:8px">Continuar</button>`;
@@ -1948,10 +1988,85 @@ function irParaRes(origem){
   irPara('resultado');
 }
 
+// Alteração 3: Shadowing na tela de resultado
+function iniciarShadowingRes(frase,btn){
+  if(!('webkitSpeechRecognition'in window)&&!('SpeechRecognition'in window)){
+    // Sem suporte a mic — libera avaliação mesmo assim
+    shadObrigatorioFeito=true;
+    habilitarAval();
+    mostrarToast('Use o Chrome para o microfone. Avaliação liberada.');
+    return;
+  }
+  if(shadEstado==='idle'){
+    shadEstado='ouvindo';
+    shadFraseAt=frase;
+    if(btn){
+      btn.style.background='rgba(79,142,247,.15)';
+      btn.style.borderColor='var(--acc)';
+      btn.style.color='var(--acc)';
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Toque para gravar';
+    }
+    const u=new SpeechSynthesisUtterance(String(frase));
+    u.lang='en-US';u.rate=0.85;u.pitch=1;
+    if(voz)u.voice=voz;
+    u.onend=()=>{shadEstado='pronto';};
+    u.onerror=()=>{shadEstado='idle';shadResetBtn(btn);};
+    try{synth.resume();synth.speak(u);}catch(e){shadEstado='idle';shadResetBtn(btn);}
+    return;
+  }
+  if(shadEstado==='pronto'||shadEstado==='ouvindo'){
+    if(synth.speaking){try{synth.cancel();}catch(e){}}
+    shadEstado='gravando';
+    if(btn){
+      btn.style.background='rgba(234,179,8,.15)';
+      btn.style.borderColor='var(--ylw)';
+      btn.style.color='var(--ylw)';
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg> Preparando…';
+    }
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    shadRec=new SR();shadRec.lang='en-US';shadRec.continuous=false;shadRec.interimResults=false;shadRec.maxAlternatives=3;
+    shadRec.onresult=e=>{
+      const res=e.results[0];
+      let melhor=res[0].transcript,melhorConf=res[0].confidence;
+      for(let k=0;k<res.length;k++){
+        if(simTokens(res[k].transcript,shadFraseAt)>simTokens(melhor,shadFraseAt)){
+          melhor=res[k].transcript;melhorConf=res[k].confidence;
+        }
+      }
+      const txt=melhor;
+      shadRec=null;shadEstado='idle';shadResetBtn(btn);
+      // Mostra comparação na tela de resultado
+      const pr=document.getElementById('res-shad-pron');
+      if(pr){
+        const sim=simTokens(txt,shadFraseAt);
+        const pct=Math.round(sim*100);
+        const cor=pct>=75?'var(--grn)':pct>=50?'var(--ylw)':'var(--red)';
+        pr.style.display='block';
+        pr.innerHTML=`<div style="font-size:12px;font-weight:700;color:${cor};margin-bottom:6px;">${pct}% similaridade</div><div style="font-size:13px;color:var(--tx2);">Você disse: "${txt}"</div>`;
+      }
+      shadObrigatorioFeito=true;
+      habilitarAval();
+      mostrarToast('Shadowing concluído. Avaliação liberada.');
+    };
+    shadRec.onerror=()=>{shadRec=null;shadEstado='idle';shadResetBtn(btn);mostrarToast('Não captei. Tente de novo.');};
+    setTimeout(()=>{
+      if(shadEstado!=='gravando')return;
+      if(btn){
+        btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Fale agora';
+      }
+      try{shadRec.start();}catch(e){shadEstado='idle';shadResetBtn(btn);mostrarToast('Erro ao abrir microfone.');}
+    },400);
+    return;
+  }
+  if(shadEstado==='gravando'&&shadRec){
+    shadRec.stop();shadRec=null;shadEstado='idle';shadResetBtn(btn);
+  }
+}
+
 function avaliar(tipo){
   if(!modoRefazer){sP(itemAt.id,tipo);}
   stats[tipo]=(stats[tipo]||0)+1;
-  document.querySelectorAll('.av').forEach(b=>b.disabled=true);
   di++;
   setTimeout(()=>{irPara('sessao');renderTurno();},300);
 }
@@ -1968,6 +2083,8 @@ function iniciarDialogoLivre(){
   dlTurnos=sitAt.dialogo_livre.turnos;
   dlIdx=0;
   dlUsarMic=true;
+  dlAcertos=0;
+  dlTotal=0;
   document.getElementById('dl-ctx').textContent=sitAt.dialogo_livre.contexto||'';
   irPara('dialogo-livre');
   renderDlTurno();
@@ -2084,6 +2201,9 @@ function dlProcessarResposta(txt){
   const dito=norm(txt);
   const esperadas=t.respostas_esperadas||[];
   const acertou=esperadas.some(r=>norm(r)===dito||dito.includes(norm(r).split(' ')[0]));
+  // Alteração 4: contabiliza acerto/total do Diálogo Livre
+  dlTotal++;
+  if(acertou)dlAcertos++;
   // Mostrar comparação palavra a palavra
   const modelo=t.resposta_modelo;
   const palavras=modelo.split(/\s+/);
@@ -2127,6 +2247,18 @@ function dlMostrarModelo(){
 }
 
 function dlProximo(){
+  // Alteração 4: Registra desempenho do Diálogo Livre no SRS ao concluir
+  if(dlIdx>=dlTurnos.length-1&&sitAt&&sitAt.id){
+    const pctDl=dlTotal>0?dlAcertos/dlTotal:0;
+    const avDl=pctDl>=0.8?'sim':pctDl>=0.5?'qse':'nao';
+    sP(sitAt.id+'_dl',avDl);
+    const msgs={
+      sim:'Diálogo livre concluído com sucesso — revisão em 3 dias.',
+      qse:'Quase lá no diálogo livre — revisão amanhã.',
+      nao:'Diálogo livre difícil — voltará em breve para reforço.'
+    };
+    mostrarToast(msgs[avDl]);
+  }
   dlIdx++;
   if(dlIdx>=dlTurnos.length){finalizarSessao();return;}
   renderDlTurno();
@@ -2145,6 +2277,18 @@ function finalizarSessao(){
   document.getElementById('fim-sim').textContent=stats.sim||0;
   document.getElementById('fim-qse').textContent=stats.qse||0;
   document.getElementById('fim-nao').textContent=stats.nao||0;
+  // Alteração 4: mostrar resultado do Diálogo Livre na tela de fim
+  const dlStats=document.getElementById('fim-dl-stats');
+  if(dlStats){
+    if(dlTotal>0){
+      const pctDl=Math.round((dlAcertos/dlTotal)*100);
+      const cor=pctDl>=80?'var(--grn)':pctDl>=50?'var(--ylw)':'var(--red)';
+      dlStats.style.display='block';
+      dlStats.innerHTML=`<div class="sb2" style="border-color:${cor};"><span class="sn" style="color:${cor};">${pctDl}%</span><span class="sl">Diálogo livre (${dlAcertos}/${dlTotal})</span></div>`;
+    }else{
+      dlStats.style.display='none';
+    }
+  }
   const tot=Object.values(stats).reduce((a,b)=>a+b,0);
   const pct=tot>0?Math.round(((stats.sim||0)/tot)*100):0;
   document.getElementById('fim-s').textContent=pct>=80?`Excelente! ${pct}% de acerto.`:pct>=50?'Bom progresso! Continue com os que não sabia.':'Sessão concluída. Os turnos difíceis voltam em breve.';
@@ -2370,6 +2514,38 @@ function bibSetFase(f){
   bibRender();
 }
 
+// Alteração 5: incluir turnoId no vocabulário e expressões da Biblioteca
+function bibColetarVocab(s){
+  const items=[];
+  const vistas=new Set();
+  s.dialogo.forEach(t=>{
+    if(t.vocab&&t.vocab.length){
+      t.vocab.forEach(v=>{
+        if(!vistas.has(v.palavra)){
+          vistas.add(v.palavra);
+          items.push({...v, turnoId: t.id});
+        }
+      });
+    }
+  });
+  return items;
+}
+
+function bibColetarExpr(s){
+  return s.dialogo
+    .filter(t=>t.fala&&t.traducao)
+    .map(t=>({
+      fala:t.fala,
+      traducao:t.traducao,
+      connected:t.sua_vez?(t.connected_voce||null):(t.connected||null),
+      sua_vez:t.sua_vez,
+      personagem:t.personagem||'Interlocutor',
+      nativo:t.nativo||null,
+      erro:t.erro||null,
+      turnoId:t.id
+    }));
+}
+
 function bibRender(){
   const corpo=document.getElementById('bib-corpo');
   if(!corpo)return;
@@ -2401,14 +2577,23 @@ function bibRender(){
       corpo.appendChild(grp);
 
       const lista=grp.querySelector('.vi-lista');
+      const p=gP();
       if(bibAba==='vocab'){
         items.forEach(v=>{
+          // Alteração 5: indicador SRS no vocabulário
+          const nivelSrs=v.turnoId?(p[v.turnoId]?.n||0):0;
+          const corPonto=nivelSrs===0?'var(--tx3)':nivelSrs<=2?'var(--ylw)':'var(--grn)';
+          const tituloPonto=nivelSrs===0?'Não praticado':nivelSrs<=2?'Em progresso':'Dominado';
+          const indicadorSrs=`<span title="${tituloPonto}" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${corPonto};margin-right:6px;flex-shrink:0;margin-top:5px;"></span>`;
           lista.innerHTML+=`<div class="vi-item">
-            <div class="vi-item-info">
-              <div class="vi-item-palavra">${v.palavra}</div>
-              <div class="vi-item-sig">${v.significado}</div>
-              ${v.acento?`<div class="vi-item-acento">${v.acento}</div>`:''}
-              ${v.connected?`<div style="font-size:12px;color:var(--acc2);font-style:italic;margin-top:2px;">"${v.connected}"</div>`:''}
+            <div class="vi-item-info" style="display:flex;align-items:flex-start;">
+              ${indicadorSrs}
+              <div style="flex:1;">
+                <div class="vi-item-palavra">${v.palavra}</div>
+                <div class="vi-item-sig">${v.significado}</div>
+                ${v.acento?`<div class="vi-item-acento">${v.acento}</div>`:''}
+                ${v.connected?`<div style="font-size:12px;color:var(--acc2);font-style:italic;margin-top:2px;">"${v.connected}"</div>`:''}
+              </div>
             </div>
             <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
               <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(v.palavra)},this)" title="Ouvir">
@@ -2431,15 +2616,23 @@ function bibRender(){
           const labelTag=isUser
             ?`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc2);background:rgba(124,92,252,.1);padding:2px 6px;border-radius:4px;">Você</span>`
             :`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc);background:rgba(79,142,247,.1);padding:2px 6px;border-radius:4px;">${e.personagem}</span>`;
+          // Alteração 5: indicador SRS nas expressões
+          const nivelSrs=e.turnoId?(p[e.turnoId]?.n||0):0;
+          const corPonto=nivelSrs===0?'var(--tx3)':nivelSrs<=2?'var(--ylw)':'var(--grn)';
+          const tituloPonto=nivelSrs===0?'Não praticado':nivelSrs<=2?'Em progresso':'Dominado';
+          const indicadorSrs=`<span title="${tituloPonto}" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${corPonto};margin-right:6px;flex-shrink:0;margin-top:5px;"></span>`;
           lista.innerHTML+=`<div class="vi-item" style="flex-direction:column;align-items:flex-start;gap:6px;padding:12px 0;">
             <div style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
-              <div style="flex:1;">
-                <div style="margin-bottom:4px;">${labelTag}</div>
-                <div class="vi-item-palavra" style="font-size:14px;">${e.fala}</div>
-                <div class="vi-item-sig">${e.traducao}</div>
-                ${e.connected?`<div style="font-size:12px;color:${corLabel};font-style:italic;margin-top:4px;">"${e.connected}"</div>`:''}
-                ${e.nativo?`<div style="font-size:11px;color:var(--grn);margin-top:4px;"><span style="font-weight:700;">Nativo:</span> ${e.nativo}</div>`:''}
-                ${e.erro?`<div style="font-size:11px;color:var(--red);margin-top:2px;"><span style="font-weight:700;">Erro:</span> ${e.erro}</div>`:''}
+              <div style="flex:1;display:flex;align-items:flex-start;">
+                ${indicadorSrs}
+                <div style="flex:1;">
+                  <div style="margin-bottom:4px;">${labelTag}</div>
+                  <div class="vi-item-palavra" style="font-size:14px;">${e.fala}</div>
+                  <div class="vi-item-sig">${e.traducao}</div>
+                  ${e.connected?`<div style="font-size:12px;color:${corLabel};font-style:italic;margin-top:4px;">"${e.connected}"</div>`:''}
+                  ${e.nativo?`<div style="font-size:11px;color:var(--grn);margin-top:4px;"><span style="font-weight:700;">Nativo:</span> ${e.nativo}</div>`:''}
+                  ${e.erro?`<div style="font-size:11px;color:var(--red);margin-top:2px;"><span style="font-weight:700;">Erro:</span> ${e.erro}</div>`:''}
+                </div>
               </div>
               <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
                 <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(e.fala)},this)" title="Ouvir">
@@ -2464,38 +2657,6 @@ function bibRender(){
       Nenhum item encontrado.<br>Complete algumas situações primeiro.
     </div>`;
   }
-}
-
-function bibColetarVocab(s){
-  // Coleta vocab de todos os turnos da situação
-  const items=[];
-  const vistas=new Set();
-  s.dialogo.forEach(t=>{
-    if(t.vocab&&t.vocab.length){
-      t.vocab.forEach(v=>{
-        if(!vistas.has(v.palavra)){
-          vistas.add(v.palavra);
-          items.push(v);
-        }
-      });
-    }
-  });
-  return items;
-}
-
-function bibColetarExpr(s){
-  // Coleta todas as falas com traducao
-  return s.dialogo
-    .filter(t=>t.fala&&t.traducao)
-    .map(t=>({
-      fala:t.fala,
-      traducao:t.traducao,
-      connected:t.sua_vez?(t.connected_voce||null):(t.connected||null),
-      sua_vez:t.sua_vez,
-      personagem:t.personagem||'Interlocutor',
-      nativo:t.nativo||null,
-      erro:t.erro||null
-    }));
 }
 
 // ── TEMA ─────────────────────────────────
