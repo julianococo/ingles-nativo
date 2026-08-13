@@ -1461,6 +1461,24 @@ function iniciarRevisao(){
   irPara('sessao');renderTurno();
 }
 
+function expoRevelar(){
+  const a=document.getElementById('expo-estado-a');
+  const b=document.getElementById('expo-estado-b');
+  // Captura o que o usuário digitou/falou para passar para irParaRes via ri oculto
+  const riA=document.getElementById('ri');
+  if(a)a.style.display='none';
+  if(b){
+    b.style.display='block';
+    // Preserva o valor da tentativa em campo oculto para a comparação em irParaRes
+    if(riA&&riA.value){
+      let riB=document.getElementById('ri-expo-hidden');
+      if(!riB){riB=document.createElement('textarea');riB.id='ri-expo-hidden';riB.style.display='none';riB.className='ri';document.getElementById('scon').appendChild(riB);}
+      riB.id='ri';
+      riA.id='ri-tentativa';
+    }
+  }
+}
+
 function renderTurno(){
   if(di>=dq.length){finalizarSessao();return;}
   const item=dq[di];itemAt=item;
@@ -1514,33 +1532,67 @@ function renderTurno(){
       }
       html+=`</div>`;
     }
-    html+=`</div><button class="btn-p" onclick="avancarLeitura()">Continuar</button>`;
+    // Alteração 3: Continuar bloqueado até shadowing — só em turnos sua_vez:false (leitura do interlocutor)
+    if(!item.sua_vez){
+      html+=`</div>
+      <button class="btn-p" id="btn-continuar-leitura" onclick="avancarLeitura()" style="opacity:.4;pointer-events:none;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px;"><polyline points="9 18 15 12 9 6"/></svg>Continuar
+      </button>
+      <div style="text-align:center;margin-top:10px;">
+        <span onclick="avancarLeitura()" style="font-size:12px;color:var(--tx3);cursor:pointer;text-decoration:underline;">Pular shadowing</span>
+      </div>
+      <div style="font-size:12px;color:var(--tx2);text-align:center;margin-top:8px;">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px;"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Ouça e repita antes de continuar
+      </div>`;
+    } else {
+      html+=`</div><button class="btn-p" onclick="avancarLeitura()">Continuar</button>`;
+    }
   }
   else if(modoAt==='exposicao'){
-    // Alteração 2: Tente antes de ver — mostra prompt + textarea + mic, sem revelar a resposta
-    html+=`<div style="background:rgba(234,179,8,.06);border:1px solid rgba(234,179,8,.2);border-radius:var(--r2);padding:10px 14px;margin-bottom:12px;font-size:13px;color:var(--ylw);font-weight:600;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Tente responder antes de ver a resposta
-    </div>`;
-    if(item.connected_voce){
-      html+=`<div class="conn" style="margin-bottom:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
-        <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
-          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="falar(${aE(item.connected_voce)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
-        </div>
-        <div class="conn-txt" style="color:var(--acc2);">"${item.connected_voce}"</div>
-      </div>`;
-    }
-    html+=`<div class="ra">
-      <div class="ra-lbl"><span>Sua resposta em inglês</span>
-        <div style="display:flex;gap:6px;">
-          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="iniciarShadowing(${aE(item.connected_voce||item.fala)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
-          <button class="mic-btn" id="mbtn" onclick="toggleMic()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone</button>
+    // Alteração 2: Tente antes de ver — Estado A oculta resposta; Estado B revela após tentativa
+    html+=`<div id="expo-estado-a">
+      <div class="fbox vc" style="margin-bottom:12px;">
+        <div class="flbl vc"><span>Você — tente antes de ver</span></div>
+        <div style="font-size:13px;color:var(--tx2);margin-bottom:12px;line-height:1.5;">O que você diria nessa situação?</div>
+        <div class="ra" style="margin-bottom:0;">
+          <div class="ra-lbl"><span>Sua tentativa em inglês</span>
+            <div style="display:flex;gap:6px;">
+              <button class="mic-btn" id="mbtn" onclick="toggleMic()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Falar</button>
+            </div>
+          </div>
+          <textarea class="ri" id="ri" placeholder="Digite ou fale sua tentativa..."></textarea>
+          <div id="pron-r" style="display:none" class="pron-r"></div>
         </div>
       </div>
-      <textarea class="ri" id="ri" placeholder="Digite ou fale sua resposta em inglês..."></textarea>
-      <div id="pron-r" style="display:none" class="pron-r"></div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn-p" style="flex:1;background:var(--s2);border:1px solid var(--bd);color:var(--tx2);font-size:13px;" onclick="expoRevelar()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Ver resposta modelo
+        </button>
+      </div>
     </div>
-    <button class="btn-p" onclick="irParaRes('exposicao')">Ver resposta</button>`;
+    <div id="expo-estado-b" style="display:none;">
+      <div class="fbox vc">
+        <div class="flbl vc"><span>${pnome} — resposta modelo</span></div>
+        <div class="ftxt">${item.fala}</div>
+        <div class="ftrad-lbl">Tradução</div>
+        <div class="ftrad">${item.traducao||''}</div>
+        ${item.acento?`<div class="atag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${item.acento}</div>`:''}
+        ${item.connected_voce?`<div class="conn" style="margin-top:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
+          <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
+            <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="falar(${aE(item.connected_voce)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+          </div>
+          <div class="conn-txt" style="color:var(--acc2);">"${item.connected_voce}"</div>
+        </div>`:''}
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+          <button class="btn-audio" onclick="falar(${aE(item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+          <button class="btn-audio" style="background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="iniciarShadowing(${aE(item.connected_voce||item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
+        </div>
+        <div id="shad-pron-r" class="pron-r" style="display:none;margin-top:10px;"></div>
+      </div>
+      <button class="btn-p" style="margin-top:10px;" onclick="irParaRes('exposicao')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:5px;"><polyline points="9 18 15 12 9 6"/></svg>Ver detalhes e avaliar
+      </button>
+    </div>`;
   }
   else if(modoAt==='reconhecimento'){
     const ops=gerarOps(item);
@@ -1668,12 +1720,14 @@ function iniciarShadowing(frase,btn){
       shadRec=null;shadEstado='idle';shadResetBtn(btn);
       const ri=document.getElementById('ri');if(ri)ri.value=txt;
       compararPronuncia(txt,shadFraseAt,melhorConf);
-      // Alteração 3: marca shadowing como feito e habilita autoavaliação
+      // Alteração 3: marca shadowing como feito, habilita autoavaliação e libera Continuar
       shadObrigatorioFeito=true;
       habilitarAval();
+      const btnC=document.getElementById('btn-continuar-leitura');
+      if(btnC){btnC.style.opacity='1';btnC.style.pointerEvents='auto';}
       mostrarToast('Veja a comparação abaixo.');
     };
-    shadRec.onerror=()=>{shadRec=null;shadEstado='idle';shadResetBtn(btn);mostrarToast('Não captei. Tente de novo.');};
+    shadRec.onerror=()=>{shadRec=null;shadEstado='idle';shadResetBtn(btn);const btnC=document.getElementById('btn-continuar-leitura');if(btnC){btnC.style.opacity='1';btnC.style.pointerEvents='auto';}mostrarToast('Não captei. Tente de novo.');};
     setTimeout(()=>{
       if(shadEstado!=='gravando')return;
       // Mic ativo → vira verde
