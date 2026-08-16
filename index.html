@@ -2,10 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Inglês Nativo — sua jornada rumo à fluência. Diálogos reais, connected speech, shadowing com microfone e revisão espaçada.">
+<meta name="theme-color" content="#0d0f14">
 <title>Inglês Nativo</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
@@ -330,14 +329,39 @@ body.light .toast{background:#fff;}
 .fase-barra-f.f1{background:linear-gradient(90deg,var(--acc),var(--acc2));}
 .fase-barra-f.f2{background:linear-gradient(90deg,var(--grn),#16c784);}
 .fase-barra-f.f3{background:linear-gradient(90deg,var(--ylw),#f97316);}
+/* ── ACESSIBILIDADE / UX ─────────────────── */
+.tela{opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease;}
+.tela.ativa{opacity:1;transform:none;}
+button:focus-visible,a:focus-visible,[role="button"]:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--acc);outline-offset:2px;}
+.skip-link{position:absolute;left:-9999px;top:8px;background:var(--acc);color:#fff;padding:8px 12px;border-radius:0 0 8px 0;z-index:300;}
+.skip-link:focus{left:0;}
+#loader{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:250;}
+.spinner{width:38px;height:38px;border:3px solid var(--bd);border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loader-txt{font-size:14px;color:var(--tx2);}
+#mic-banner{display:none;background:rgba(234,179,8,.08);border:1px solid rgba(234,179,8,.25);border-radius:var(--r2);padding:10px 14px;margin:0 0 14px;font-size:13px;color:var(--ylw);line-height:1.5;text-align:center;}
+#mic-banner .mb-x{float:right;font-size:16px;line-height:1;padding:0 4px;cursor:pointer;}
+.sit-img,.ancora-img{background:var(--s2);}
 </style>
-  <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+  <meta property="og:title" content="Inglês Nativo">
+  <meta property="og:description" content="Diálogos reais, connected speech, shadowing e revisão espaçada rumo à fluência.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inglês Nativo">
+  <meta name="twitter:description" content="Diálogos reais, connected speech, shadowing e revisão espaçada rumo à fluência.">
+  <meta name="twitter:image" content="./icon.png">
 </head>
-<body>
+<body data-autoplay="1">
+<a class="skip-link" href="#inp-tel">Pular para o topo do app</a>
+<!-- TELA DE CARREGAMENTO -->
+<div id="loader" aria-live="polite" aria-busy="true">
+  <div class="spinner" role="img" aria-label="Carregando"></div>
+  <div id="loader-txt">Carregando diálogos…</div>
+</div>
 
 <!-- LOGIN -->
+<div id="conteudo-app" hidden></div>
 <div id="tela-login" class="tela ativa">
   <div class="login-wrap">
     <div style="text-align:center;margin-bottom:32px;">
@@ -371,6 +395,7 @@ body.light .toast{background:#fff;}
     <div class="logo" style="width:100%;text-align:center;">Inglês Nativo</div>
     <div style="position:absolute;right:20px;display:flex;align-items:center;gap:8px;">
       <div class="streak"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 6-8 8-8 14a8 8 0 0 0 16 0c0-6-8-8-8-14z"/><path d="M12 12c0 3-2 4-2 6a2 2 0 0 0 4 0c0-2-2-3-2-6z" fill="currentColor"/></svg> <span id="streak-f">0 dias</span></div>
+      <button class="logout-btn" id="btn-autoplay" onclick="toggleAutoplay()" title="Som automático ao abrir cada palavra" aria-label="Alternar reprodução automática de áudio" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;padding:0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
       <button class="logout-btn" onclick="toggleTema()" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;padding:0;"><svg id="ico-lua-f" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg id="ico-sol-f" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
       <button class="logout-btn" onclick="fazerLogout()">Sair</button>
     </div>
@@ -444,6 +469,7 @@ body.light .toast{background:#fff;}
     <div class="logo" style="width:100%;text-align:center;">Inglês Nativo</div>
   </div>
   <div class="sb">
+    <div id="mic-banner" data-esc="sessao"></div>
     <div class="pt"><div class="pt-f" id="spr"></div></div>
     <div class="smeta">
       <div class="scnt" id="scnt"></div>
@@ -493,6 +519,7 @@ body.light .toast{background:#fff;}
     <div style="width:60px;"></div>
   </div>
   <div class="vi-tela">
+    <div id="mic-banner" data-esc="vocab"></div>
     <div class="vi-badge" id="vi-etapa-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Vocabulário</div>
     <div class="vi-sit-nome" id="vi-sit-nome"></div>
     <div class="vi-sit-desc" id="vi-sit-desc"></div>
@@ -682,8 +709,7 @@ function sP(id,av){
   else{h.n=0;h.prox=now+600000;}
   p[id]=h;
   localStorage.setItem('ing_p',JSON.stringify(p));
-  console.log('Salvo:',id,av,h);
-}
+  }
 
 function gStreak(){
   const s=JSON.parse(localStorage.getItem('ing_st')||'{"d":0,"u":0}');
@@ -744,7 +770,18 @@ function irPara(t){
   if(t==='fases')renderFases();
   if(t==='dashboard')renderDash();
   if(t==='biblioteca'){bibRenderFiltros();bibRender();}
+  if(t==='sessao'||t==='vocab-intro'||t==='dialogo-livre')exibirAvisoMic(t==='dialogo-livre'?'sessao':t);
+  _a11yMelhorar();
   pararTimer();
+}
+
+// ── ACESSIBILIDADE PÓS-RENDER ──────────
+function _a11yMelhorar(){
+  document.querySelectorAll("button.abtn, button.vi-btn, button.alt-a, button.vi-full-btn").forEach(b=>{
+    if(b.getAttribute("aria-label")||b.getAttribute("title"))return;
+    if(b.textContent.trim())return;
+    b.setAttribute("aria-label","Ouvir");
+  });
 }
 
 function confirmarSair(){
@@ -764,16 +801,25 @@ function confirmarSairNao(){
 }
 
 // ── CARREGAR ─────────────────────────────
+function esconderLoader(){
+  const l=document.getElementById('loader');if(l)l.style.display='none';
+  const app=document.getElementById('conteudo-app');if(app)app.hidden=false;
+}
+let mundosFalhados=[];
 async function init(){
+  const loaderTxt=document.getElementById('loader-txt');
   for(const mc of MCFG){
+    if(loaderTxt)loaderTxt.textContent='Carregando: '+mc.nome;
     if(mc.disponivel&&mc.arquivo&&mc.arquivo.startsWith('data/')){
       try{
         const r=await fetch(mc.arquivo);
         if(!r.ok)throw new Error('HTTP '+r.status);
         const d=await r.json();
+        if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
         mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
       }catch(e){
         console.warn('Erro ao carregar',mc.arquivo,e);
+        mundosFalhados.push(mc.nome);
         mundos.push({...mc,situacoes:[],disponivel:false});
       }
     }else{
@@ -781,7 +827,9 @@ async function init(){
     }
   }
   carregarVoz();
-  irPara('fases');
+  esconderLoader();
+  if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
+  irPara(verificarSessao()?'fases':'login');
 }
 
 // ── ABAS ─────────────────────────────────
@@ -894,7 +942,7 @@ function abrirMundo(m){
   // imagem do mundo
   if(m.imagem){
     const img=document.createElement('img');
-    img.src=m.imagem;img.className='sit-img';img.alt=m.nome;
+    img.src=m.imagem;img.className='sit-img';img.alt=m.nome;img.loading='lazy';img.decoding='async';
     img.onerror=()=>img.style.display='none';
     lista.appendChild(img);
   }
@@ -1079,11 +1127,13 @@ function viRenderUm(){
     btnProx.textContent='Próxima';
     btnProx.onclick=viProximo;
   }
-  // Toca áudio automaticamente
-  setTimeout(()=>{
-    const btn=document.getElementById('vi-audio-btn');
-    if(btn)viOuvir(btn);
-  },400);
+  // Toca áudio automaticamente (respeita preferência do usuário)
+  if(document.body.dataset.autoplay!=='0'){
+    setTimeout(()=>{
+      const btn=document.getElementById('vi-audio-btn');
+      if(btn)viOuvir(btn);
+    },400);
+  }
 }
 
 function viRenderLista(){
@@ -1176,8 +1226,8 @@ function viRenderExprUm(){
   const btnProx=document.getElementById('vi-btn-prox');
   btnProx.textContent=isUltima?'Ver todas':'Próxima';
   btnProx.onclick=isUltima?viExprMostrarTodas:viExprProxima;
-  // Toca áudio automaticamente
-  setTimeout(()=>{const btn=document.getElementById('vi-audio-btn');if(btn)viOuvirExpr(btn);},400);
+  // Toca áudio automaticamente (respeita preferência do usuário)
+  if(document.body.dataset.autoplay!=='0')setTimeout(()=>{const btn=document.getElementById('vi-audio-btn');if(btn)viOuvirExpr(btn);},400);
 }
 
 function viRenderExprLista(){
@@ -1326,7 +1376,7 @@ function viShadowing(frase,btn){
           elRes.style.background='rgba(239,68,68,.08)';elRes.style.border='1px solid rgba(239,68,68,.2)';elRes.style.color='var(--red)';
           elRes.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Você disse: "${txt}" — tente de novo`;
         }
-        setTimeout(()=>{if(elRes)elRes.style.display='none';},4000);
+        setTimeout(()=>{if(elRes)elRes.style.display='none';},8000);
       }
     };
     viShadRec.onerror=()=>{viShadRec=null;resetBtn();mostrarToast('Não captei. Tente de novo.');};
@@ -1480,7 +1530,7 @@ function renderTurno(){
 
   // Imagem âncora emocional
   if(sitAt&&sitAt.imagem){
-    html+=`<img class="ancora-img" src="${sitAt.imagem}" alt="situação" onerror="this.style.display='none'">`;
+    html+=`<img class="ancora-img" src="${sitAt.imagem}" alt="situação" loading="lazy" decoding="async" onerror="this.style.display='none'">`;
   }
   // Cena
   if(item.cena)html+=`<div class="cena">${item.cena}</div>`;
@@ -2377,11 +2427,15 @@ function renderCron(){
   <div class="pi"><div class="pdot g"></div><div class="pi-txt"><strong>Revisão SRS — 10 min</strong><br>${revs.length?revs.length+' turno(s) para revisar hoje.':'Nenhuma revisão pendente. Avance na prática.'}</div></div>
   <div class="pi"><div class="pdot y"></div><div class="pi-txt"><strong>Connected Speech — 5 min</strong><br>Releia os blocos de fala nativa. Ouça e repita em voz alta.</div></div>
   </div>
-  <div style="margin-top:18px"><div class="slbl">TRILHA COMPLETA</div>
-  <div class="fase-b"><div class="fase-h"><span class="fase-nome">Fase 1 — Sobrevivência</span><span class="fase-per">Meses 1–2</span></div><div class="fase-ms"><span class="fase-m">Aeroporto</span><span class="fase-m">Hotel</span><span class="fase-m">Restaurante</span><span class="fase-m">Lanchonete</span><span class="fase-m">Transporte</span><span class="fase-m">Compras</span><span class="fase-m">Localização</span><span class="fase-m">Hospital</span><span class="fase-m">Emergências</span></div></div>
-  <div class="fase-b"><div class="fase-h"><span class="fase-nome">Fase 2 — Fluência Funcional</span><span class="fase-per">Meses 3–4</span></div><div class="fase-ms"><span class="fase-m">Reuniões</span><span class="fase-m">Apresentação pessoal</span><span class="fase-m">Networking</span></div></div>
-  <div class="fase-b"><div class="fase-h"><span class="fase-nome">Fase 3 — Autonomia</span><span class="fase-per">Meses 5–6</span></div><div class="fase-ms"><span class="fase-m">Negociação</span><span class="fase-m">Conteúdo técnico</span><span class="fase-m">Imprevisto conversacional</span></div></div>
-  </div>`;
+    </div>`;
+  // Trilha completa gerada a partir de DEF_FASES (nunca diverge do conteúdo)
+  const periodos={0:'Antes de começar',1:'Meses 1–2',2:'Meses 3–4',3:'Meses 5–6'};
+  let trilhaHtml='<div style="margin-top:18px"><div class="slbl">TRILHA COMPLETA</div>';
+  DEF_FASES.forEach(f=>{
+    trilhaHtml+='<div class="fase-b"><div class="fase-h"><span class="fase-nome">'+f.nome+'</span><span class="fase-per">'+(periodos[f.num]||'')+'</span></div><div class="fase-ms">'+f.mundos.map(m=>'<span class="fase-m">'+m+'</span>').join('')+'</div></div>';
+  });
+  trilhaHtml+='</div>';
+  html+=trilhaHtml;
   document.getElementById('aba-cronograma').innerHTML=html;
 }
 
@@ -2525,12 +2579,15 @@ function falar(txt,btn){_falar(txt,btn,0.85);}
 function falarVocab(txt,btn){_falar(txt,btn,0.75);}
 
 // ── UTILS ────────────────────────────────
-let ttt=null;
-function mostrarToast(m){
+let _toastQ=[],_toastOn=false;
+function _toastProx(){
   const t=document.getElementById('toast');
+  if(!_toastQ.length){_toastOn=false;t.classList.remove('vis');return;}
+  _toastOn=true;const m=_toastQ.shift();
   t.textContent=m;t.classList.add('vis');
-  clearTimeout(ttt);ttt=setTimeout(()=>t.classList.remove('vis'),2500);
+  setTimeout(_toastProx,2600);
 }
+function mostrarToast(m){_toastQ.push(m);if(!_toastOn)_toastProx();}
 
 // ── BIBLIOTECA ───────────────────────────
 let bibAba='vocab';      // 'vocab' | 'expr'
@@ -2721,6 +2778,38 @@ function bibRender(){
   }
 }
 
+// ── AUTOPLAY ───────────────────────────
+function toggleAutoplay(){
+  const atual=document.body.dataset.autoplay!==undefined?document.body.dataset.autoplay:'1';
+  const novo=atual==='1'?'0':'1';
+  document.body.dataset.autoplay=novo;localStorage.setItem('autoplay',novo);
+  mostrarToast(novo==='1'?'Som automático ligado':'Som automático desligado');
+  atualizarIcoAutoplay();
+}
+function atualizarIcoAutoplay(){
+  const btn=document.getElementById('btn-autoplay');if(!btn)return;
+  const ap=document.body.dataset.autoplay||'1';
+  btn.style.color=ap==='1'?'var(--acc)':'var(--tx3)';
+  btn.style.borderColor=ap==='1'?'var(--acc)':'var(--bd)';
+  btn.title=ap==='1'?'Som automático ao abrir cada palavra (ligado)':'Som automático ao abrir cada palavra (desligado)';
+}
+
+// ── DETECÇÃO DE SUPORTE A MICROFONE ─────
+const SUP_MIC=('webkitSpeechRecognition' in window)||('SpeechRecognition' in window);
+function exibirAvisoMic(tela){
+  const banner=document.querySelector('#mic-banner[data-esc="'+tela+'"]');if(!banner)return;
+  if(localStorage.getItem('mic_ignorado')){banner.style.display='none';return;}
+  if(SUP_MIC){banner.style.display='none';return;}
+  banner.style.display='block';
+  banner.innerHTML='<span class="mb-x" role="button" tabindex="0" aria-label="Fechar aviso">×</span>Seu navegador não suporta prática por voz. No desktop use Chrome ou Edge — ou apenas digite as respostas.';
+  const x=banner.querySelector('.mb-x');
+  const fechar=()=>{localStorage.setItem('mic_ignorado','1');document.querySelectorAll('#mic-banner').forEach(bk=>bk.style.display='none');};
+  if(x){x.onclick=fechar;x.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fechar();}};}
+}
+
+// ── MODAL: fechar com ESC ────────────────
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const m=document.getElementById('modal-sair');if(m&&m.style.display==='flex')confirmarSairNao();}});
+
 // ── TEMA ─────────────────────────────────
 function toggleTema(){
   const atual=localStorage.getItem('tema')||'dark';
@@ -2740,11 +2829,13 @@ function aplicarTema(modo){
 
 // Boot — sempre mostra tela de login, nunca pula
 aplicarTema(localStorage.getItem('tema')||'dark');
-// Pré-preenche email se há sessão anterior (conforto visual, não auto-login)
+(function(){const ap=localStorage.getItem('autoplay');if(ap)document.body.dataset.autoplay=ap;})();
+atualizarIcoAutoplay();
 if (gSessao()) {
   const inp = document.getElementById('inp-tel');
   if (inp) inp.value = USUARIO.tel;
 }
+init();
 </script>
 </body>
 </html>
