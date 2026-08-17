@@ -1,0 +1,3099 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Inglês Nativo — sua jornada rumo à fluência. Diálogos reais, connected speech, shadowing com microfone e revisão espaçada.">
+<meta name="theme-color" content="#0d0f14">
+<title>Inglês Nativo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root{--bg:#0d0f14;--s1:#161920;--s2:#1e2230;--bd:#2a2f3d;--bd2:#3a4055;--acc:#4f8ef7;--acc2:#7c5cfc;--grn:#22c55e;--ylw:#eab308;--red:#ef4444;--txt:#e8eaf0;--tx2:#8b91a8;--tx3:#565c73;--r:12px;--r2:8px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden;}
+.tela{display:none;min-height:100vh;flex-direction:column;}
+.tela.ativa{display:flex;}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--bd);background:var(--s1);position:sticky;top:0;z-index:10;}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;flex:1;}
+.streak{display:flex;align-items:center;gap:6px;background:var(--s2);padding:4px 10px;border-radius:20px;font-weight:600;color:var(--ylw);font-size:13px;}
+.bw{flex:1;padding:20px;max-width:720px;margin:0 auto;width:100%;}
+/* LOGIN */
+.login-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;}
+.login-box{width:100%;max-width:360px;}
+.login-logo{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
+.login-sub{font-size:14px;color:var(--tx2);margin-bottom:32px;}
+.login-lbl{font-size:12px;font-weight:500;color:var(--tx2);margin-bottom:6px;display:block;}
+.login-input{width:100%;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:13px 16px;color:var(--txt);font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .15s;margin-bottom:14px;}
+.login-input:focus{border-color:var(--acc);}
+.login-input::placeholder{color:var(--tx3);}
+.login-err{font-size:13px;color:var(--red);margin-bottom:12px;display:none;padding:10px 14px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:var(--r2);}
+.login-err.vis{display:block;}
+.login-toggle{font-size:13px;color:var(--tx2);text-align:center;margin-top:20px;}
+.login-toggle span{color:var(--acc);cursor:pointer;font-weight:500;}
+.login-toggle span:hover{text-decoration:underline;}
+.login-nome{font-size:13px;color:var(--tx2);margin-bottom:6px;}
+.logout-btn{background:none;border:1px solid var(--bd);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--tx2);cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}
+.logout-btn:hover{border-color:var(--red);color:var(--red);}
+/* TABS */
+.tabs{display:flex;gap:4px;background:var(--s2);padding:4px;border-radius:var(--r);margin-bottom:20px;}
+.tab{flex:1;padding:8px;text-align:center;font-size:13px;font-weight:500;color:var(--tx2);cursor:pointer;border-radius:var(--r2);transition:all .15s;}
+.tab.on{background:var(--s1);color:var(--txt);}
+/* DASHBOARD */
+.saud{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;margin-bottom:4px;}
+.sub{color:var(--tx2);font-size:14px;margin-bottom:20px;}
+.rev-card{background:linear-gradient(135deg,#1a1f35,#1a2040);border:1px solid var(--acc);border-radius:var(--r);padding:16px 20px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:transform .15s;}
+.rev-card:hover{transform:translateY(-2px);}
+.rev-card h3{font-size:14px;font-weight:600;margin-bottom:3px;}
+.rev-card p{font-size:12px;color:var(--tx2);}
+.rev-badge{background:var(--acc);color:#fff;font-size:20px;font-weight:700;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.slbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-bottom:12px;}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+.mc{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .15s;position:relative;}
+.mc:hover:not(.bloq){border-color:var(--acc);transform:translateY(-2px);}
+.mc.bloq{opacity:.4;cursor:not-allowed;}
+.mc-icon{width:28px;height:28px;margin-bottom:8px;display:flex;align-items:center;color:var(--acc);}
+.mc-nome{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;margin-bottom:3px;}
+.mc-desc{font-size:12px;color:var(--tx2);margin-bottom:10px;line-height:1.4;}
+.pb{height:3px;background:var(--bd);border-radius:2px;overflow:hidden;margin-bottom:5px;}
+.pb-f{height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:2px;transition:width .5s;}
+.mc-stats{font-size:11px;color:var(--tx3);}
+/* SITUAÇÕES */
+.voltar{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--tx2);cursor:pointer;margin-bottom:18px;width:fit-content;}
+.voltar:hover{color:var(--txt);}
+.mhdr{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+.mhdr .big{width:38px;height:38px;display:flex;align-items:center;color:var(--acc);flex-shrink:0;} .mhdr .big svg{width:38px;height:38px;}
+.mhdr h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;}
+.mhdr p{font-size:13px;color:var(--tx2);margin-top:3px;}
+.sit-img{width:100%;height:140px;object-fit:cover;border-radius:var(--r);margin-bottom:14px;border:1px solid var(--bd);}
+.si{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;}
+.si-top{display:flex;align-items:center;justify-content:space-between;cursor:pointer;}
+.si-titulo{font-size:14px;font-weight:500;margin-bottom:4px;}
+.si-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.nv{font-size:10px;font-weight:600;padding:2px 6px;border-radius:10px;text-transform:uppercase;}
+.nv1{background:rgba(34,197,94,.15);color:var(--grn);}
+.nv2{background:rgba(234,179,8,.15);color:var(--ylw);}
+.nv3{background:rgba(239,68,68,.15);color:var(--red);}
+.si-info{font-size:12px;color:var(--tx3);}
+.si-completo{font-size:11px;color:var(--tx3);margin-top:2px;}
+.si-btns{display:flex;gap:8px;margin-top:10px;border-top:1px solid var(--bd);padding-top:10px;}
+.btn-si{flex:1;padding:8px;border-radius:var(--r2);font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--bd);background:var(--s2);color:var(--tx2);transition:all .15s;font-family:'Inter',sans-serif;}
+.btn-si:hover{border-color:var(--acc);color:var(--acc);}
+.btn-si.pri{background:linear-gradient(135deg,var(--acc),var(--acc2));border:none;color:#fff;}
+.btn-si.pri:hover{opacity:.9;transform:none;}
+/* SESSÃO */
+.sb{flex:1;display:flex;flex-direction:column;max-width:680px;margin:0 auto;width:100%;padding:20px;}
+.pt{height:3px;background:var(--bd);border-radius:2px;margin-bottom:18px;overflow:hidden;}
+.pt-f{height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:2px;transition:width .4s;}
+.smeta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.scnt{font-size:13px;color:var(--tx2);}
+.ftag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);background:rgba(79,142,247,.1);padding:3px 8px;border-radius:6px;}
+/* IMAGEM ÂNCORA */
+.ancora-img{width:100%;height:110px;object-fit:cover;border-radius:var(--r);margin-bottom:12px;border:1px solid var(--bd);display:block;opacity:.85;}
+/* CENA */
+.cena{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:12px 16px;margin-bottom:12px;font-size:13px;color:var(--tx2);line-height:1.5;}
+/* FALA */
+.fbox{border-radius:var(--r);padding:16px 18px;margin-bottom:10px;}
+.fbox.at{background:var(--s2);border:1px solid var(--bd);border-left:3px solid var(--acc);}
+.fbox.vc{background:rgba(79,142,247,.06);border:1px solid rgba(79,142,247,.2);border-left:3px solid var(--acc2);}
+.flbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.flbl.at{color:var(--acc);}
+.flbl.vc{color:var(--acc2);}
+.ftxt{font-size:16px;font-weight:500;line-height:1.6;margin-bottom:8px;}
+.ftrad{font-size:13px;color:var(--tx2);line-height:1.5;padding-top:8px;border-top:1px solid var(--bd);}
+.ftrad-lbl{font-size:10px;color:var(--tx3);margin-bottom:3px;}
+/* CONNECTED */
+.conn{background:rgba(124,92,252,.08);border:1px solid rgba(124,92,252,.2);border-radius:var(--r2);padding:12px 14px;margin-top:10px;}
+.conn-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--acc2);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.conn-txt{font-size:14px;color:var(--txt);font-style:italic;margin-bottom:8px;}
+.blocos{display:flex;flex-direction:column;gap:5px;}
+.bloco{display:flex;align-items:baseline;gap:8px;font-size:12px;}
+.bk{color:var(--acc2);font-weight:600;font-family:monospace;white-space:nowrap;}
+.bv{color:var(--tx2);line-height:1.4;}
+/* AUDIO BTN */
+.btn-audio{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:rgba(79,142,247,.1);border:1px solid rgba(79,142,247,.35);border-radius:var(--r2);padding:9px 16px;color:var(--acc);cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;transition:all .15s;margin-top:12px;}
+.btn-audio:hover{background:rgba(79,142,247,.18);border-color:var(--acc);}
+.btn-audio.on{background:rgba(124,92,252,.18);border-color:var(--acc2);color:var(--acc2);}
+.btn-audio svg{flex-shrink:0;}
+.abtn{background:none;border:1px solid var(--bd2);border-radius:20px;padding:3px 10px;color:var(--tx2);cursor:pointer;font-size:12px;font-weight:500;transition:all .15s;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:5px;}
+.abtn:hover{border-color:var(--acc);color:var(--acc);}
+.abtn.on{border-color:var(--acc2);color:var(--acc2);}
+/* ACENTO */
+.atag{display:inline-flex;align-items:center;gap:5px;background:rgba(79,142,247,.08);border:1px solid rgba(79,142,247,.15);border-radius:6px;padding:3px 8px;font-size:12px;color:var(--acc);font-family:monospace;margin-top:6px;}
+/* FONÉTICA */
+.ftag-fonetica{display:inline-flex;align-items:center;gap:5px;background:rgba(234,179,8,.07);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--ylw);font-family:monospace;margin-top:8px;letter-spacing:.3px;}
+.ftag-fonetica-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--tx3);margin-right:4px;}
+.vi-fonetica{font-size:12px;color:var(--ylw);font-family:monospace;background:rgba(234,179,8,.07);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:4px 10px;margin-top:6px;display:inline-block;letter-spacing:.3px;}
+.vocab-fonetica{font-size:11px;color:var(--ylw);font-family:monospace;margin-top:3px;letter-spacing:.2px;}
+/* TIMER */
+.timer-w{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.timer-bar{flex:1;height:4px;background:var(--bd);border-radius:2px;overflow:hidden;}
+.timer-f{height:100%;border-radius:2px;transition:width 1s linear,background .5s;}
+.timer-n{font-size:13px;font-weight:600;min-width:22px;text-align:right;}
+/* RESPOSTA */
+.ra{margin-bottom:12px;}
+.ra-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.mic-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:1px solid var(--bd);border-radius:20px;padding:3px 10px;color:var(--tx2);cursor:pointer;font-size:12px;font-weight:500;transition:all .15s;font-family:'Inter',sans-serif;}
+.mic-btn:hover{border-color:var(--acc);color:var(--acc);}
+.mic-btn.gr{border-color:var(--red);color:var(--red);animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+textarea.ri{width:100%;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;color:var(--txt);font-family:'Inter',sans-serif;font-size:15px;line-height:1.5;resize:none;outline:none;min-height:80px;transition:border-color .15s;}
+textarea.ri:focus{border-color:var(--acc);}
+textarea.ri::placeholder{color:var(--tx3);}
+/* FEEDBACK PRONÚNCIA */
+.pron-r{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 14px;margin-top:8px;font-size:14px;line-height:2;}
+.pw{color:var(--grn);}
+.pe{color:var(--red);text-decoration:underline wavy;}
+/* OPÇÕES */
+.og{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+.ob{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 16px;color:var(--txt);font-family:'Inter',sans-serif;font-size:14px;cursor:pointer;text-align:left;transition:all .15s;line-height:1.5;}
+.ob:hover:not(:disabled){border-color:var(--acc);background:var(--s2);}
+.ob.ok{border-color:var(--grn);background:rgba(34,197,94,.08);color:var(--grn);}
+.ob.no{border-color:var(--red);background:rgba(239,68,68,.08);color:var(--red);}
+.ob-trad{font-size:11px;color:var(--tx3);margin-top:4px;}
+/* BOTÕES */
+.btn-p{width:100%;background:linear-gradient(135deg,var(--acc),var(--acc2));border:none;border-radius:var(--r);padding:14px;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .15s,transform .15s;}
+.btn-p:hover{opacity:.9;transform:translateY(-1px);}
+.btn-p:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+/* RESULTADO */
+.rb{flex:1;max-width:680px;margin:0 auto;width:100%;padding:20px;overflow-y:auto;}
+.rc{background:var(--s1);border:1px solid var(--grn);border-left:3px solid var(--grn);border-radius:var(--r);padding:16px 18px;margin-bottom:10px;}
+.rc-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--grn);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.rc-txt{font-size:17px;font-weight:500;line-height:1.5;margin-bottom:8px;}
+/* ACCORDION */
+.aw{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);margin-bottom:8px;overflow:hidden;}
+.ah{padding:12px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:500;user-select:none;}
+.ah:hover{background:var(--s2);}
+.aa{color:var(--tx3);font-size:11px;transition:transform .2s;}
+.aw.op .aa{transform:rotate(180deg);}
+.ab{display:none;padding:0 16px 14px;border-top:1px solid var(--bd);}
+.aw.op .ab{display:block;}
+.alt-i{font-size:14px;color:var(--tx2);padding:8px 0;border-bottom:1px solid var(--bd);display:flex;align-items:flex-start;justify-content:space-between;gap:8px;line-height:1.4;}
+.alt-i:last-child{border-bottom:none;}
+.alt-trad{font-size:11px;color:var(--tx3);margin-top:3px;}
+.alt-a{background:none;border:none;cursor:pointer;color:var(--tx3);padding:2px 4px;transition:color .15s;flex-shrink:0;margin-top:2px;}
+.alt-a:hover{color:var(--acc);}
+.vi{padding:10px 0;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.vi:last-child{border-bottom:none;}
+.vi-info .vp{font-size:14px;font-weight:600;color:var(--acc);margin-bottom:2px;}
+.vi-info .vs{font-size:13px;color:var(--tx2);margin-bottom:2px;}
+.vi-info .va{font-size:11px;color:var(--tx3);font-family:monospace;}
+.vi-btn{background:none;border:none;cursor:pointer;color:var(--tx3);padding:4px;transition:color .15s;flex-shrink:0;}
+.vi-btn:hover{color:var(--acc);}
+.ib p{font-size:13px;color:var(--tx2);line-height:1.6;padding:8px 0;border-bottom:1px solid var(--bd);}
+.ib p:last-child{border-bottom:none;}
+.il{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-right:4px;}
+.il.n{color:var(--grn);}
+.il.e{color:var(--red);}
+/* AUTOAVAL */
+.aval{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;margin-top:8px;}
+.aval h3{font-size:14px;font-weight:600;margin-bottom:3px;}
+.aval p{font-size:12px;color:var(--tx2);margin-bottom:14px;}
+.avbtns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.av{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 8px;cursor:pointer;text-align:center;transition:all .15s;font-family:'Inter',sans-serif;color:var(--txt);}
+.av:hover{transform:translateY(-2px);}
+.av .ico{font-size:20px;margin-bottom:4px;}
+.av .tit{font-size:12px;font-weight:600;display:block;}
+.av .sub{font-size:10px;color:var(--tx3);display:block;margin-top:2px;}
+.av.nao:hover{border-color:var(--red);background:rgba(239,68,68,.08);}
+.av.qse:hover{border-color:var(--ylw);background:rgba(234,179,8,.08);}
+.av.sim:hover{border-color:var(--grn);background:rgba(34,197,94,.08);}
+/* FIM */
+.fim-b{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;text-align:center;max-width:500px;margin:0 auto;width:100%;}
+.fim-i{font-size:52px;margin-bottom:16px;}
+.fim-t{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;margin-bottom:8px;}
+.fim-s{color:var(--tx2);font-size:14px;margin-bottom:24px;line-height:1.5;}
+.fim-data{font-size:12px;color:var(--tx3);margin-bottom:20px;}
+.sr{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;margin-bottom:24px;}
+.sb2{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px;}
+.sn{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;display:block;margin-bottom:3px;}
+.sl{font-size:11px;color:var(--tx2);}
+.sb2.v .sn{color:var(--grn);}
+.sb2.a .sn{color:var(--ylw);}
+.sb2.r .sn{color:var(--red);}
+.fim-btns{display:flex;gap:10px;width:100%;}
+.btn-sec{flex:1;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:13px;color:var(--tx2);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;}
+.btn-sec:hover{border-color:var(--acc);color:var(--acc);}
+/* CRONOGRAMA */
+.cron-sem{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:18px;}
+.dia{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:8px 4px;text-align:center;}
+.dia.hj{border-color:var(--acc);background:rgba(79,142,247,.1);}
+.dia.ft{border-color:var(--grn);background:rgba(34,197,94,.08);}
+.dia-n{font-size:9px;color:var(--tx3);font-weight:600;text-transform:uppercase;margin-bottom:3px;}
+.dia-d{font-size:14px;font-weight:600;}
+.dia-i{font-size:11px;margin-top:3px;height:14px;color:var(--grn);}
+.plano{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;margin-bottom:10px;}
+.plano-t{font-size:14px;font-weight:600;margin-bottom:10px;}
+.pi{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--bd);}
+.pi:last-child{border-bottom:none;}
+.pdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.pdot.a{background:var(--acc);}
+.pdot.g{background:var(--grn);}
+.pdot.y{background:var(--ylw);}
+.pi-txt{font-size:13px;color:var(--tx2);line-height:1.5;}
+.pi-txt strong{color:var(--txt);font-weight:500;}
+.fase-b{background:var(--s2);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;}
+.fase-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.fase-nome{font-size:13px;font-weight:600;}
+.fase-per{font-size:11px;color:var(--tx3);}
+.fase-ms{display:flex;flex-wrap:wrap;gap:6px;}
+.fase-m{font-size:11px;padding:3px 8px;background:var(--s1);border:1px solid var(--bd);border-radius:6px;color:var(--tx2);}
+/* VOCABULÁRIO / EXPRESSÕES */
+.vocab-filtro{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.vf-btn{background:var(--s2);border:1px solid var(--bd);border-radius:20px;padding:5px 12px;font-size:12px;color:var(--tx2);cursor:pointer;transition:all .15s;}
+.vf-btn.on{border-color:var(--acc);color:var(--acc);background:rgba(79,142,247,.1);}
+.vocab-lista .vi-full{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.vi-full .vp{font-size:14px;font-weight:600;color:var(--acc);margin-bottom:2px;}
+.vi-full .vs{font-size:13px;color:var(--tx2);}
+.vi-full .va{font-size:11px;color:var(--tx3);font-family:monospace;margin-top:2px;}
+.vi-full .vm{font-size:11px;color:var(--tx3);margin-top:3px;}
+.vi-full-btn{background:none;border:1px solid var(--bd);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--tx2);cursor:pointer;flex-shrink:0;transition:all .15s;}
+.vi-full-btn:hover{border-color:var(--acc);color:var(--acc);}
+.vazio{color:var(--tx2);font-size:14px;text-align:center;padding:32px 0;}
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:11px 18px;font-size:14px;font-weight:500;transition:transform .3s;z-index:100;white-space:nowrap;}
+.toast.vis{transform:translateX(-50%) translateY(0);}
+@media(max-width:480px){
+.bw,.sb,.rb{padding:14px;}
+.mgrid{grid-template-columns:1fr 1fr;}
+.cron-sem{gap:3px;}
+}
+body.light{--bg:#f0f4f8;--s1:#ffffff;--s2:#e8edf5;--bd:#d0d8e8;--bd2:#b8c4d8;--acc:#3a78e0;--acc2:#6a4ce0;--grn:#16a34a;--ylw:#ca8a04;--red:#dc2626;--txt:#111827;--tx2:#374151;--tx3:#6b7280;}
+body.light .login-input{background:#fff;color:#111;border-color:#d0d8e8;}
+body.light .pb{background:var(--bd);}
+body.light .toast{background:#fff;}
+/* VOCAB INTRODUTÓRIO */
+.vi-tela{flex:1;display:flex;flex-direction:column;max-width:680px;margin:0 auto;width:100%;padding:20px;}
+.vi-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(234,179,8,.12);border:1px solid rgba(234,179,8,.3);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ylw);margin-bottom:6px;}
+.vi-sit-nome{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px;}
+.vi-sit-desc{font-size:13px;color:var(--tx2);margin-bottom:18px;}
+.vi-progresso{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.vi-prog-bar{flex:1;height:4px;background:var(--bd);border-radius:2px;overflow:hidden;}
+.vi-prog-f{height:100%;background:linear-gradient(90deg,var(--ylw),var(--acc));border-radius:2px;transition:width .4s;}
+.vi-prog-txt{font-size:12px;color:var(--tx3);white-space:nowrap;}
+.vi-card{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:28px 24px;margin-bottom:16px;text-align:center;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+.vi-palavra{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--txt);line-height:1.2;}
+.vi-acento{font-size:13px;color:var(--acc);font-family:monospace;background:rgba(79,142,247,.08);border:1px solid rgba(79,142,247,.15);border-radius:6px;padding:4px 10px;}
+.vi-significado{font-size:17px;color:var(--tx2);margin-top:4px;}
+.vi-exemplo{font-size:13px;color:var(--tx3);font-style:italic;margin-top:4px;line-height:1.5;max-width:320px;}
+.vi-audio-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(79,142,247,.1);border:1px solid rgba(79,142,247,.35);border-radius:var(--r2);padding:10px 20px;color:var(--acc);cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;transition:all .15s;margin-top:4px;}
+.vi-connected{display:inline-flex;align-items:center;gap:6px;background:rgba(124,92,252,.08);border:1px solid rgba(124,92,252,.2);border-radius:6px;padding:4px 10px;font-size:13px;color:var(--acc2);font-style:italic;margin-top:2px;}
+.vi-audio-btn:hover{background:rgba(79,142,247,.18);}
+.vi-audio-btn.on{background:rgba(124,92,252,.18);border-color:var(--acc2);color:var(--acc2);}
+.vi-nav{display:flex;gap:10px;margin-bottom:10px;}
+.vi-btn-rep{flex:1;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:13px;color:var(--tx2);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;}
+.vi-btn-rep:hover{border-color:var(--acc);color:var(--acc);}
+.vi-lista{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.vi-item{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.vi-item-info{flex:1;}
+.vi-item-palavra{font-size:15px;font-weight:600;color:var(--txt);margin-bottom:2px;}
+.vi-item-sig{font-size:13px;color:var(--tx2);}
+.vi-item-acento{font-size:11px;color:var(--acc);font-family:monospace;margin-top:2px;}
+.vi-modo-toggle{display:flex;gap:6px;margin-bottom:16px;}
+.vi-modo-btn{flex:1;padding:8px;border-radius:var(--r2);font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--bd);background:var(--s2);color:var(--tx2);transition:all .15s;font-family:'Inter',sans-serif;}
+.vi-modo-btn.on{background:rgba(234,179,8,.1);border-color:var(--ylw);color:var(--ylw);}
+/* DIÁLOGO LIVRE */
+.dl-contexto{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--tx2);line-height:1.5;font-style:italic;}
+.dl-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(124,92,252,.12);border:1px solid rgba(124,92,252,.3);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--acc2);margin-bottom:14px;}
+.dl-fala{background:var(--s2);border:1px solid var(--bd);border-left:3px solid var(--acc2);border-radius:var(--r);padding:14px 16px;margin-bottom:12px;}
+.dl-fala-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--acc2);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.dl-fala-txt{font-size:16px;font-weight:500;line-height:1.6;margin-bottom:8px;}
+.dl-resposta-area{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;margin-bottom:12px;}
+.dl-modelo{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);border-radius:var(--r);padding:14px 16px;margin-bottom:10px;display:none;}
+.dl-modelo-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--grn);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.dl-modelo-txt{font-size:15px;font-weight:500;line-height:1.6;margin-bottom:8px;}
+.dl-feedback{background:rgba(79,142,247,.06);border:1px solid rgba(79,142,247,.15);border-radius:var(--r2);padding:10px 14px;margin-top:8px;font-size:13px;color:var(--tx2);line-height:1.5;}
+.dl-feedback-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);margin-bottom:4px;}
+.dl-mic-toggle{font-size:12px;color:var(--tx3);text-align:right;margin-bottom:6px;cursor:pointer;}
+.dl-mic-toggle:hover{color:var(--acc);}
+.dl-progresso{font-size:12px;color:var(--tx3);text-align:center;margin-bottom:10px;}
+.dl-comparacao{background:var(--s2);border:1px solid var(--bd);border-radius:var(--r2);padding:10px 14px;margin-top:8px;font-size:14px;line-height:2;display:none;}
+
+/* ── TELA DE FASES ─────────────────────── */
+.fase-card{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:22px 20px;margin-bottom:14px;cursor:pointer;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;}
+.fase-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r) var(--r) 0 0;opacity:0;transition:opacity .2s;}
+.fase-card.f1::before{background:linear-gradient(90deg,var(--acc),var(--acc2));}
+.fase-card.f2::before{background:linear-gradient(90deg,var(--grn),#16c784);}
+.fase-card.f3::before{background:linear-gradient(90deg,var(--ylw),#f97316);}
+.fase-card:hover{border-color:var(--bd2);transform:translateY(-2px);}
+.fase-card:hover::before{opacity:1;}
+.fase-card-hdr{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.fase-num{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;flex-shrink:0;color:#fff;}
+.fase-num.f1{background:linear-gradient(135deg,var(--acc),var(--acc2));}
+.fase-num.f2{background:linear-gradient(135deg,var(--grn),#16c784);}
+.fase-num.f3{background:linear-gradient(135deg,var(--ylw),#f97316);}
+.fase-titulo{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;line-height:1.2;margin-bottom:3px;}
+.fase-sub{font-size:12px;color:var(--tx2);}
+.fase-desc{font-size:13px;color:var(--tx2);line-height:1.65;margin-bottom:14px;}
+.fase-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.fase-tag{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;background:var(--s2);border:1px solid var(--bd);color:var(--tx3);}
+.fase-rodape{display:flex;align-items:center;justify-content:space-between;}
+.fase-prog-txt{font-size:12px;color:var(--tx3);}
+.fase-seta{color:var(--acc);}
+.fase-barra{height:3px;background:var(--bd2);border-radius:2px;margin-bottom:14px;}
+.fase-barra-f{height:3px;border-radius:2px;transition:width .5s;}
+.fase-barra-f.f1{background:linear-gradient(90deg,var(--acc),var(--acc2));}
+.fase-barra-f.f2{background:linear-gradient(90deg,var(--grn),#16c784);}
+.fase-barra-f.f3{background:linear-gradient(90deg,var(--ylw),#f97316);}
+/* ── ACESSIBILIDADE / UX ─────────────────── */
+.tela{opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease;}
+.tela.ativa{opacity:1;transform:none;}
+button:focus-visible,a:focus-visible,[role="button"]:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--acc);outline-offset:2px;}
+/* ── KPI / PROGRESSO ── */
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.kpi-card{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;}
+.kpi-card.full{grid-column:1/-1;}
+.kpi-val{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1;margin-bottom:4px;}
+.kpi-lbl{font-size:11px;color:var(--tx2);text-transform:uppercase;letter-spacing:.5px;}
+.kpi-sub{font-size:12px;color:var(--tx3);margin-top:4px;}
+.kpi-bar-wrap{background:var(--s2);border-radius:4px;height:6px;margin-top:8px;overflow:hidden;}
+.kpi-bar{height:6px;border-radius:4px;transition:width .4s;}
+.prob-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r2);margin-bottom:8px;gap:10px;}
+.prob-item:last-child{margin-bottom:0;}
+.prob-txt{flex:1;min-width:0;}
+.prob-word{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.prob-meta{font-size:11px;color:var(--tx2);margin-top:2px;}
+.prob-badge{font-size:11px;font-weight:700;padding:3px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;}
+.badge-ruim{background:rgba(239,68,68,.12);color:var(--red);}
+.badge-med{background:rgba(234,179,8,.12);color:var(--ylw);}
+.badge-ok{background:rgba(34,197,94,.12);color:var(--grn);}
+.evolucao-row{display:flex;align-items:flex-end;gap:3px;height:52px;margin-top:8px;}
+.evolucao-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.evolucao-bar{width:100%;border-radius:3px 3px 0 0;min-height:2px;transition:height .3s;}
+.evolucao-lbl{font-size:9px;color:var(--tx3);white-space:nowrap;}
+.seg-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+.seg-pill{font-size:11px;padding:4px 10px;border-radius:12px;border:1px solid var(--bd);color:var(--tx2);}
+.seg-pill.ativo{background:rgba(79,142,247,.1);border-color:var(--acc);color:var(--acc);}
+.kpi-sec-lbl{font-size:12px;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px;}
+.skip-link{position:absolute;left:-9999px;top:8px;background:var(--acc);color:#fff;padding:8px 12px;border-radius:0 0 8px 0;z-index:300;}
+.skip-link:focus{left:0;}
+#loader{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:250;}
+.spinner{width:38px;height:38px;border:3px solid var(--bd);border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loader-txt{font-size:14px;color:var(--tx2);}
+#mic-banner{display:none;background:rgba(234,179,8,.08);border:1px solid rgba(234,179,8,.25);border-radius:var(--r2);padding:10px 14px;margin:0 0 14px;font-size:13px;color:var(--ylw);line-height:1.5;text-align:center;}
+#mic-banner .mb-x{float:right;font-size:16px;line-height:1;padding:0 4px;cursor:pointer;}
+.sit-img,.ancora-img{background:var(--s2);}
+</style>
+  <meta property="og:title" content="Inglês Nativo">
+  <meta property="og:description" content="Diálogos reais, connected speech, shadowing e revisão espaçada rumo à fluência.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inglês Nativo">
+  <meta name="twitter:description" content="Diálogos reais, connected speech, shadowing e revisão espaçada rumo à fluência.">
+  <meta name="twitter:image" content="./icon.png">
+</head>
+<body data-autoplay="1">
+<a class="skip-link" href="#inp-tel">Pular para o topo do app</a>
+<!-- TELA DE CARREGAMENTO -->
+<div id="loader" aria-live="polite" aria-busy="true">
+  <div class="spinner" role="img" aria-label="Carregando"></div>
+  <div id="loader-txt">Carregando diálogos…</div>
+</div>
+
+<!-- LOGIN -->
+<div id="conteudo-app" hidden></div>
+<div id="tela-login" class="tela ativa">
+  <div class="login-wrap">
+    <div style="text-align:center;margin-bottom:32px;">
+      <div style="width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 8px 24px rgba(79,142,247,.3);">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="login-logo">Inglês Nativo</div>
+      <div class="login-sub">Sua jornada rumo à fluência</div>
+    </div>
+    <div class="login-box">
+      <div class="login-err" id="login-err"></div>
+      <label class="login-lbl">E-mail</label>
+      <div style="position:relative;margin-bottom:14px;">
+        <svg style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--tx3);pointer-events:none;" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <input class="login-input" id="inp-tel" type="email" placeholder="seu@email.com" autocomplete="username" style="padding-left:42px;margin-bottom:0;">
+      </div>
+      <label class="login-lbl">Senha</label>
+      <div style="position:relative;margin-bottom:22px;">
+        <svg style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--tx3);pointer-events:none;" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <input class="login-input" id="inp-senha" type="password" placeholder="••••••••" autocomplete="current-password" style="padding-left:42px;margin-bottom:0;">
+      </div>
+      <button class="btn-p" id="btn-login" onclick="fazerLogin()" style="width:100%;padding:14px 0;font-size:15px;">Entrar</button>
+      <div style="text-align:center;margin-top:16px;font-size:12px;color:var(--tx3);">Acesso restrito — uso pessoal</div>
+    </div>
+  </div>
+</div>
+
+<!-- TELA DE FASES -->
+<div id="tela-fases" class="tela">
+  <div class="hdr" style="position:relative;">
+    <div class="logo" style="width:100%;text-align:center;">Inglês Nativo</div>
+    <div style="position:absolute;right:20px;display:flex;align-items:center;gap:8px;">
+      <div class="streak"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 6-8 8-8 14a8 8 0 0 0 16 0c0-6-8-8-8-14z"/><path d="M12 12c0 3-2 4-2 6a2 2 0 0 0 4 0c0-2-2-3-2-6z" fill="currentColor"/></svg> <span id="streak-f">0 dias</span></div>
+      <button class="logout-btn" id="btn-autoplay" onclick="toggleAutoplay()" title="Som automático ao abrir cada palavra" aria-label="Alternar reprodução automática de áudio" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;padding:0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
+      <button class="logout-btn" onclick="toggleTema()" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;padding:0;"><svg id="ico-lua-f" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg id="ico-sol-f" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+      <button class="logout-btn" onclick="fazerLogout()">Sair</button>
+    </div>
+  </div>
+  <div class="bw">
+    <div class="saud" id="saud-f"></div>
+    <div class="sub" style="margin-bottom:20px">Escolha sua fase de aprendizado</div>
+    <div id="rev-wrap-f" style="display:none;margin-bottom:16px">
+      <div class="rev-card" onclick="iniciarRevisao()">
+        <div><h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Revisões pendentes</h3><p id="rev-txt-f"></p></div>
+        <div class="rev-badge" id="rev-cnt-f">0</div>
+      </div>
+    </div>
+    <div id="fase-cards"></div>
+    <!-- Acesso à Biblioteca e Progresso -->
+    <div style="margin-top:20px;border-top:1px solid var(--bd);padding-top:16px;">
+      <div class="slbl" style="margin-bottom:10px;">Revisão e Acompanhamento</div>
+      <!-- Progresso / KPIs -->
+      <div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;margin-bottom:10px;" onclick="abrirProgresso()">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="color:var(--acc);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:2px;">Meu Progresso</div>
+            <div style="font-size:12px;color:var(--tx2);">Domínio, pontos fracos e evolução</div>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <!-- Biblioteca -->
+      <div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;" onclick="abrirBiblioteca()">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="color:var(--acc2);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:2px;">Biblioteca</div>
+            <div style="font-size:12px;color:var(--tx2);">Todo vocabulário e expressões por fase — ouça e pratique</div>
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="tela-dashboard" class="tela">
+  <div class="hdr">
+    <div class="logo">Inglês Nativo</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="streak"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 6-8 8-8 14a8 8 0 0 0 16 0c0-6-8-8-8-14z"/><path d="M12 12c0 3-2 4-2 6a2 2 0 0 0 4 0c0-2-2-3-2-6z" fill="currentColor"/></svg> <span id="streak-txt">0 dias</span></div>
+      <button class="logout-btn" id="btn-tema" onclick="toggleTema()" title="Mudar tema" style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;padding:0;"><svg id="ico-tema-lua" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg id="ico-tema-sol" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+      <button class="logout-btn" onclick="fazerLogout()">Sair</button>
+    </div>
+  </div>
+  <div class="bw">
+    <div id="aba-pratica">
+      <div class="voltar" onclick="irPara('fases')" style="margin-bottom:16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Fases</div>
+      <div class="slbl" id="dash-lbl"></div>
+      <div class="mgrid" id="mgrid-fase"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SITUAÇÕES -->
+<div id="tela-situacoes" class="tela">
+  <div class="hdr"><div class="logo">Inglês Nativo</div></div>
+  <div class="bw">
+    <div class="voltar" onclick="irPara('dashboard')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Voltar</div>
+    <div class="mhdr">
+      <span class="big" id="sit-icon"></span>
+      <div><h2 id="sit-nome"></h2><p id="sit-desc"></p></div>
+    </div>
+    <div id="sit-lista"></div>
+  </div>
+</div>
+
+<!-- SESSÃO -->
+<div id="tela-sessao" class="tela">
+  <div class="hdr" style="position:relative;">
+    <button class="logout-btn" onclick="confirmarSair()" style="position:absolute;left:20px;display:inline-flex;align-items:center;gap:5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Menu</button>
+    <div class="logo" style="width:100%;text-align:center;">Inglês Nativo</div>
+  </div>
+  <div class="sb">
+    <div id="mic-banner" data-esc="sessao"></div>
+    <div class="pt"><div class="pt-f" id="spr"></div></div>
+    <div class="smeta">
+      <div class="scnt" id="scnt"></div>
+      <div class="ftag" id="sfase"></div>
+    </div>
+    <div id="scon"></div>
+  </div>
+</div>
+
+<!-- RESULTADO -->
+<div id="tela-resultado" class="tela">
+  <div class="hdr">
+    <div class="logo">Inglês Nativo</div>
+    <div class="scnt" id="rcnt"></div>
+  </div>
+  <div class="rb" id="rbody"></div>
+</div>
+
+<!-- FIM -->
+<div id="tela-fim" class="tela">
+  <div class="hdr"><div class="logo">Inglês Nativo</div></div>
+  <div class="fim-b">
+    <div class="fim-i"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg></div>
+    <div class="fim-t">Sessão concluída!</div>
+    <div class="fim-s" id="fim-s"></div>
+    <div class="fim-data" id="fim-data"></div>
+    <div class="sr">
+      <div class="sb2 v"><span class="sn" id="fim-sim">0</span><span class="sl">Sabia</span></div>
+      <div class="sb2 a"><span class="sn" id="fim-qse">0</span><span class="sl">Quase</span></div>
+      <div class="sb2 r"><span class="sn" id="fim-nao">0</span><span class="sl">Não sabia</span></div>
+    </div>
+    <div id="fim-dl-stats" style="display:none;width:100%;margin-bottom:24px;"></div>
+    <div class="fim-btns">
+      <button class="btn-sec" id="btn-refazer" onclick="refazerSessao()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg> Refazer</button>
+      <button class="btn-p" style="flex:2" onclick="irPara('fases')">Voltar ao início</button>
+    </div>
+  </div>
+</div>
+
+<!-- VOCAB INTRODUTÓRIO -->
+<div id="tela-vocab-intro" class="tela">
+  <div class="hdr">
+    <button onclick="confirmarSair()" style="background:none;border:none;cursor:pointer;color:var(--tx2);display:flex;align-items:center;gap:6px;font-size:13px;font-family:'Inter',sans-serif;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Menu
+    </button>
+    <div class="logo" style="flex:1;text-align:center;">Inglês Nativo <span style="font-size:10px;color:var(--grn);font-weight:700;">v5</span></div>
+    <div style="width:60px;"></div>
+  </div>
+  <div class="vi-tela">
+    <div id="mic-banner" data-esc="vocab"></div>
+    <div class="vi-badge" id="vi-etapa-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Vocabulário</div>
+    <div class="vi-sit-nome" id="vi-sit-nome"></div>
+    <div class="vi-sit-desc" id="vi-sit-desc"></div>
+    <div class="vi-modo-toggle">
+      <button class="vi-modo-btn on" id="vi-modo-um" onclick="viSetModo('um')">Uma por vez</button>
+      <button class="vi-modo-btn" id="vi-modo-lista" onclick="viSetModo('lista')">Ver todas</button>
+    </div>
+    <div class="vi-progresso" id="vi-prog-wrap">
+      <div class="vi-prog-bar"><div class="vi-prog-f" id="vi-prog-f"></div></div>
+      <div class="vi-prog-txt" id="vi-prog-txt"></div>
+    </div>
+    <div id="vi-corpo"></div>
+    <div id="vi-rec-resultado" style="display:none;margin-bottom:10px;border-radius:var(--r2);padding:10px 14px;font-size:14px;font-weight:600;text-align:center;"></div>
+    <div class="vi-nav" id="vi-nav">
+      <button class="vi-btn-rep" id="vi-btn-rep" onclick="viRepetir()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg> Ouvir
+      </button>
+      <button class="vi-btn-rep" id="vi-shad-btn" style="background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--grn);" onclick="viShadowingNav(this)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir
+      </button>
+      <button class="btn-p" id="vi-btn-prox" style="flex:2" onclick="viProximo()">Próxima</button>
+    </div>
+    <button class="btn-p" id="vi-btn-iniciar" style="display:none;" onclick="viIniciarDialogo()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Iniciar diálogo
+    </button>
+  </div>
+</div>
+
+<!-- DIÁLOGO LIVRE -->
+<div id="tela-dialogo-livre" class="tela">
+  <div class="hdr">
+    <div class="logo" style="width:100%;text-align:center;">Inglês Nativo</div>
+  </div>
+  <div class="sb">
+    <div class="dl-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Diálogo livre</div>
+    <div class="dl-progresso" id="dl-prog"></div>
+    <div class="dl-contexto" id="dl-ctx"></div>
+    <div id="dl-corpo"></div>
+  </div>
+</div>
+
+<!-- MODAL CONFIRMAR SAÍDA -->
+<div id="modal-sair" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:28px 24px;max-width:340px;width:100%;text-align:center;">
+    <div style="margin-bottom:14px;color:var(--ylw);">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    </div>
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;">Sair da lição?</div>
+    <div style="font-size:13px;color:var(--tx2);margin-bottom:24px;line-height:1.6;">O turno atual será descartado.<br>O que você já completou fica salvo.</div>
+    <div style="display:flex;gap:10px;">
+      <button onclick="confirmarSairNao()" style="flex:1;padding:12px;border-radius:var(--r);border:1px solid var(--bd);background:var(--s2);color:var(--tx2);font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">Continuar lição</button>
+      <button onclick="confirmarSairSim()" style="flex:1;padding:12px;border-radius:var(--r);border:none;background:var(--red);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">Sair</button>
+    </div>
+  </div>
+</div>
+
+<!-- BIBLIOTECA -->
+<!-- PROGRESSO / KPIs -->
+<div id="tela-progresso" class="tela">
+  <div class="hdr">
+    <button onclick="irPara('fases')" style="background:none;border:none;cursor:pointer;color:var(--tx2);display:flex;align-items:center;gap:6px;font-size:13px;font-family:'Inter',sans-serif;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Voltar
+    </button>
+    <div class="logo" style="flex:1;text-align:center;">Meu Progresso</div>
+    <div style="width:60px;"></div>
+  </div>
+  <div class="bw" style="padding-bottom:32px;" id="progresso-corpo"></div>
+</div>
+
+<div id="tela-biblioteca" class="tela">
+  <div class="hdr">
+    <button onclick="irPara('fases')" style="background:none;border:none;cursor:pointer;color:var(--tx2);display:flex;align-items:center;gap:6px;font-size:13px;font-family:'Inter',sans-serif;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Voltar
+    </button>
+    <div class="logo" style="flex:1;text-align:center;">Biblioteca</div>
+    <div style="width:60px;"></div>
+  </div>
+  <div class="bw" style="padding-bottom:32px;">
+    <!-- Abas Vocab / Expressões -->
+    <div class="tabs" style="margin-bottom:16px;">
+      <div class="tab on" id="bib-tab-vocab" onclick="bibSetAba('vocab')">Vocabulário</div>
+      <div class="tab" id="bib-tab-expr" onclick="bibSetAba('expr')">Expressões</div>
+    </div>
+    <!-- Filtro por fase -->
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;" id="bib-filtros"></div>
+    <!-- Conteúdo -->
+    <div id="bib-corpo"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── AUTH ─────────────────────────────────
+let modoLogin = 'entrar'; // 'entrar' | 'criar'
+let usuarioAtual = null;
+
+// Usuário fixo — não exibir nem alterar
+const USUARIO = { tel: 'jmccoco@gmail.com', senha: 'Jul1ano@', nome: 'Juliano' };
+
+function gSessao() { return localStorage.getItem('ing_sessao') || null; }
+function sSessao() { localStorage.setItem('ing_sessao', '1'); }
+function limparSessao() { localStorage.removeItem('ing_sessao'); }
+
+function mostrarErro(msg) {
+  const el = document.getElementById('login-err');
+  el.textContent = msg; el.classList.add('vis');
+}
+function esconderErro() {
+  document.getElementById('login-err').classList.remove('vis');
+}
+
+function fazerLogin() {
+  esconderErro();
+  const tel = document.getElementById('inp-tel').value.trim();
+  const senha = document.getElementById('inp-senha').value.trim();
+  if (tel === USUARIO.tel && senha === USUARIO.senha) {
+    sSessao();
+    usuarioAtual = { nome: USUARIO.nome };
+    entrarNaApp();
+  } else {
+    mostrarErro('Usuário ou senha incorretos.');
+  }
+}
+
+function entrarNaApp() {
+  document.getElementById('inp-tel').value = '';
+  document.getElementById('inp-senha').value = '';
+  if (!mundos.length) { init(); } else { irPara('fases'); }
+}
+
+function fazerLogout() {
+  if (!confirm('Sair da sua conta?')) return;
+  limparSessao();
+  usuarioAtual = null;
+  document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
+  document.getElementById('tela-login').classList.add('ativa');
+}
+
+function verificarSessao() {
+  if (!gSessao()) return false;
+  usuarioAtual = { nome: USUARIO.nome };
+  return true;
+}
+
+// Enter nos campos de login
+document.addEventListener('DOMContentLoaded', () => {
+  ['inp-tel', 'inp-senha', 'inp-nome'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('keydown', e => { if (e.key === 'Enter') fazerLogin(); });
+  });
+});
+
+// ── CONFIGURAÇÃO MUNDOS ───────────────────
+const MCFG=[
+  // INTRODUÇÃO
+  {id:0,arquivo:'data/mundo0.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,nome:'Fundamentos',desc:'Saudações, apresentações, conversas básicas',fase:0},
+  // FASE 1 — SOBREVIVÊNCIA
+  {id:1,arquivo:'data/mundo1.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>`,nome:'Aeroporto',desc:'Check-in, segurança, embarque, mala perdida',fase:1},
+  {id:2,arquivo:'data/mundo2.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.09-1.09a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,nome:'No Avião',desc:'Tripulação, refeições, problemas no voo',fase:1},
+  {id:3,arquivo:'data/mundo3.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>`,nome:'Imigração',desc:'Controle de fronteira, visto, declaração',fase:1},
+  {id:4,arquivo:'data/mundo4.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="9" width="22" height="11" rx="2"/><path d="M5.5 9V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v3"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>`,nome:'Transportes',desc:'Táxi, Uber, metrô, ônibus, aluguel de carro',fase:1},
+  {id:5,arquivo:'data/mundo5.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,nome:'Hotel — Check-in',desc:'Reserva, quarto, problemas na chegada',fase:1},
+  {id:6,arquivo:'data/mundo6.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,nome:'Hotel — Serviços',desc:'Room service, problemas, check-out',fase:1},
+  // FASE 2 — FLUÊNCIA FUNCIONAL
+  {id:7,arquivo:'data/mundo7.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>`,nome:'Restaurante',desc:'Pedido, menu, problemas, conta',fase:2},
+  {id:8,arquivo:'data/mundo8.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,nome:'Compras',desc:'Lojas, tamanhos, pagamento, troca',fase:2},
+  {id:9,arquivo:'data/mundo9.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>`,nome:'Direções',desc:'Pedir e dar direções, referências, GPS',fase:2},
+  {id:10,arquivo:'data/mundo10.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,nome:'Passeios e Turismo',desc:'Ingressos, visitas, pontos turísticos',fase:2},
+  {id:11,arquivo:'data/mundo11.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="18" height="20" rx="1"/><path d="M9 22V12h6v10"/><path d="M12 7v6m-3-3h6"/></svg>`,nome:'Hospital',desc:'Sintomas, triagem, farmácia, receita',fase:2},
+  {id:12,arquivo:'data/mundo12.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M4.6 4.6l1.4 1.4"/><path d="M18 4.6l-1.4 1.4"/><path d="M12 2v2"/></svg>`,nome:'Emergências',desc:'Roubo, perda de documentos, socorro',fase:2},
+  // FASE 3 — NEGÓCIOS
+  {id:13,arquivo:'data/mundo13.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,nome:'Networking',desc:'Eventos, apresentações profissionais',fase:3},
+  {id:14,arquivo:'data/mundo14.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,nome:'Reuniões',desc:'Apresentações, negociações, feedback',fase:3},
+  {id:15,arquivo:'data/mundo15.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,nome:'Pitch',desc:'Startups, investidores, vendas',fase:3},
+];
+const LIMITE=0; // todos desbloqueados
+
+// ── ESTADO ───────────────────────────────
+let mundos=[],mundoAt=null,sitAt=null;
+let dq=[],di=0,itemAt=null,modoAt='leitura';
+let stats={sim:0,qse:0,nao:0};
+let rec=null,tmr=null,tSec=0;
+let modoRefazer=false;
+const synth=window.speechSynthesis;
+let voz=null;
+let shadObrigatorioFeito=false;
+let dlAcertos=0;
+let dlTotal=0;
+
+// ── STORAGE ──────────────────────────────
+function gP(){return JSON.parse(localStorage.getItem('ing_p')||'{}');}
+
+function sP(id,av){
+  const p=gP(),now=Date.now(),h=p[id]||{n:0,prox:0,hist:[]};
+  h.hist.push({av,ts:now});
+  if(av==='sim'){h.n=Math.min(h.n+1,4);const d=[3,7,15,30,60][h.n-1]||60;h.prox=now+d*86400000;}
+  else if(av==='qse'){h.n=Math.max(h.n-1,0);h.prox=now+86400000;}
+  else{h.n=0;h.prox=now+600000;}
+  p[id]=h;
+  localStorage.setItem('ing_p',JSON.stringify(p));
+  }
+
+function gStreak(){
+  const s=JSON.parse(localStorage.getItem('ing_st')||'{"d":0,"u":0}');
+  const hj=new Date().toDateString(),ult=new Date(s.u).toDateString(),ont=new Date(Date.now()-86400000).toDateString();
+  return(ult===hj||ult===ont)?s.d:0;
+}
+
+function upStreak(){
+  const s=JSON.parse(localStorage.getItem('ing_st')||'{"d":0,"u":0}');
+  const hj=new Date().toDateString(),ult=new Date(s.u).toDateString(),ont=new Date(Date.now()-86400000).toDateString();
+  if(ult===hj)return;
+  s.d=ult===ont?s.d+1:1;s.u=Date.now();
+  localStorage.setItem('ing_st',JSON.stringify(s));
+}
+
+function gDia(ds){return(JSON.parse(localStorage.getItem('ing_dias')||'{}'))[ds]||false;}
+
+function mDia(){
+  const d=JSON.parse(localStorage.getItem('ing_dias')||'{}');
+  d[new Date().toDateString()]=true;
+  localStorage.setItem('ing_dias',JSON.stringify(d));
+}
+
+function gRevs(){
+  const p=gP(),now=Date.now();
+  return Object.entries(p).filter(([,v])=>v.prox<=now&&v.prox>0);
+}
+
+function gItemById(id){
+  for(const m of mundos)for(const s of m.situacoes)for(const t of s.dialogo)if(t.id===id)return t;
+  return null;
+}
+
+// registrar conclusão de situação
+function registrarConclusao(sitId){
+  const r=JSON.parse(localStorage.getItem('ing_concl')||'{}');
+  r[sitId]=r[sitId]||[];
+  r[sitId].push(new Date().toISOString());
+  localStorage.setItem('ing_concl',JSON.stringify(r));
+}
+
+function gConclusoes(sitId){
+  const r=JSON.parse(localStorage.getItem('ing_concl')||'{}');
+  return r[sitId]||[];
+}
+
+function pctMundo(m){
+  const p=gP();
+  const tot=m.situacoes.reduce((a,s)=>a+s.dialogo.filter(t=>t.sua_vez).length,0);
+  const dom=m.situacoes.reduce((a,s)=>a+s.dialogo.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);
+  return tot>0?dom/tot:0;
+}
+
+// ── NAVEGAÇÃO ────────────────────────────
+function irPara(t){
+  document.querySelectorAll('.tela').forEach(el=>el.classList.remove('ativa'));
+  document.getElementById('tela-'+t).classList.add('ativa');
+  if(t==='fases')renderFases();
+  if(t==='dashboard')renderDash();
+  if(t==='biblioteca'){bibRenderFiltros();bibRender();}
+  if(t==='progresso')renderProgresso();
+  if(t==='sessao'||t==='vocab-intro'||t==='dialogo-livre')exibirAvisoMic(t==='dialogo-livre'?'sessao':t);
+  _a11yMelhorar();
+  pararTimer();
+}
+
+// ── ACESSIBILIDADE PÓS-RENDER ──────────
+function _a11yMelhorar(){
+  document.querySelectorAll("button.abtn, button.vi-btn, button.alt-a, button.vi-full-btn").forEach(b=>{
+    if(b.getAttribute("aria-label")||b.getAttribute("title"))return;
+    if(b.textContent.trim())return;
+    b.setAttribute("aria-label","Ouvir");
+  });
+}
+
+function confirmarSair(){
+  const modal=document.getElementById('modal-sair');
+  if(modal)modal.style.display='flex';
+}
+function confirmarSairSim(){
+  const modal=document.getElementById('modal-sair');
+  if(modal)modal.style.display='none';
+  // turnos 0..di-1 já foram salvos turno a turno; descarta apenas o turno atual (di)
+  pararTimer();
+  irPara('fases');
+}
+function confirmarSairNao(){
+  const modal=document.getElementById('modal-sair');
+  if(modal)modal.style.display='none';
+}
+
+// ── CARREGAR ─────────────────────────────
+function esconderLoader(){
+  const l=document.getElementById('loader');if(l)l.style.display='none';
+  const app=document.getElementById('conteudo-app');if(app)app.hidden=false;
+}
+let mundosFalhados=[];
+async function init(){
+  const loaderTxt=document.getElementById('loader-txt');
+  for(const mc of MCFG){
+    if(loaderTxt)loaderTxt.textContent='Carregando: '+mc.nome;
+    if(mc.disponivel&&mc.arquivo&&mc.arquivo.startsWith('data/')){
+      try{
+        const r=await fetch(mc.arquivo);
+        if(!r.ok)throw new Error('HTTP '+r.status);
+        const d=await r.json();
+        if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
+        mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
+      }catch(e){
+        console.warn('Erro ao carregar',mc.arquivo,e);
+        mundosFalhados.push(mc.nome);
+        mundos.push({...mc,situacoes:[],disponivel:false});
+      }
+    }else{
+      mundos.push({...mc,situacoes:[],disponivel:false});
+    }
+  }
+  carregarVoz();
+  esconderLoader();
+  if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
+  irPara(verificarSessao()?'fases':'login');
+}
+
+// ── ABAS ─────────────────────────────────
+function mudarAba(a){
+  ['pratica','cronograma','vocabulario','expressoes'].forEach((ab,i)=>{
+    document.querySelectorAll('.tab')[i].classList.toggle('on',ab===a);
+    document.getElementById('aba-'+ab).style.display=ab===a?'block':'none';
+  });
+  if(a==='cronograma')renderCron();
+  if(a==='vocabulario')renderVocab();
+  if(a==='expressoes')renderExpr();
+}
+
+// ── DASHBOARD ────────────────────────────
+let faseAtual=1;
+const DEF_FASES=[
+  {num:0,cls:"f0",nome:"Introdução",sub:"Antes de embarcar",
+   desc:"Fundamentos da comunicação em inglês: saudações, apresentações, small talk, pedir ajuda, números e despedidas. O ponto de partida antes de qualquer viagem.",
+   mundos:["Fundamentos"]},
+  {num:1,cls:"f1",nome:"Fase 1 — Sobrevivência",sub:"Do zero ao funcional",
+   desc:"Tudo que você precisa para sobreviver fora do Brasil: aeroporto, avião, imigração, transporte e hotel. O objetivo é chegar ao destino sem travar.",
+   mundos:["Aeroporto","No Avião","Imigração","Transportes","Hotel — Check-in","Hotel — Serviços"]},
+  {num:2,cls:"f2",nome:"Fase 2 — Fluência Funcional",sub:"Do funcional ao fluente",
+   desc:"Situações do dia a dia no exterior: restaurante, compras, direções, passeios, hospital e emergências. O objetivo é se virar em qualquer situação.",
+   mundos:["Restaurante","Compras","Direções","Passeios e Turismo","Hospital","Emergências"]},
+  {num:3,cls:"f3",nome:"Fase 3 — Negócios",sub:"Do fluente ao profissional",
+   desc:"Inglês para o ambiente de trabalho: networking, reuniões e pitch. O objetivo é se comunicar com confiança em contextos profissionais internacionais.",
+   mundos:["Networking","Reuniões","Pitch"]},
+];
+
+function calcProg(num){
+  const p=gP();
+  const mcs=MCFG.filter(mc=>mc.fase===num);
+  const tv=mcs.reduce((a,mc)=>{const m=mundos.find(x=>x.id===mc.id)||{situacoes:[]};return a+m.situacoes.reduce((b,s)=>b+s.dialogo.filter(t=>t.sua_vez).length,0);},0);
+  const dom=mcs.reduce((a,mc)=>{const m=mundos.find(x=>x.id===mc.id)||{situacoes:[]};return a+m.situacoes.reduce((b,s)=>b+s.dialogo.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);},0);
+  return {tv,dom,pct:tv>0?Math.round((dom/tv)*100):0};
+}
+
+function renderFases(){
+  const h=new Date().getHours();
+  const saud=h<12?"Bom dia":h<18?"Boa tarde":"Boa noite";
+  const nome=usuarioAtual?.nome?`, ${usuarioAtual.nome.split(" ")[0]}!`:"!";
+  const sEl=document.getElementById("saud-f");if(sEl)sEl.textContent=saud+nome;
+  const stEl=document.getElementById("streak-f");if(stEl)stEl.textContent=gStreak()+" dias";
+  aplicarTema(localStorage.getItem("tema")||"dark");
+  const revs=gRevs();
+  const rw=document.getElementById("rev-wrap-f");
+  if(rw){rw.style.display=revs.length?"block":"none";
+    if(revs.length){document.getElementById("rev-cnt-f").textContent=revs.length;
+      document.getElementById("rev-txt-f").textContent=revs.length+" turno"+(revs.length>1?"s":"")+" para revisar";}
+  }
+  const cont=document.getElementById("fase-cards");if(!cont)return;
+  cont.innerHTML="";
+  DEF_FASES.forEach(f=>{
+    const {tv,dom,pct}=calcProg(f.num);
+    const el=document.createElement("div");
+    el.className="fase-card f"+f.num;
+    el.onclick=()=>{faseAtual=f.num;irPara("dashboard");};
+    const progTxt=tv>0?dom+"/"+tv+" dominados — "+pct+"%":"Em breve";
+    el.innerHTML=
+      `<div class="fase-card-hdr">`
+      +`<div class="fase-num f${f.num}">${f.num}</div>`
+      +`<div><div class="fase-titulo">${f.nome}</div><div class="fase-sub">${f.sub}</div></div>`
+      +`</div>`
+      +`<div class="fase-desc">${f.desc}</div>`
+      +`<div class="fase-tags">${f.mundos.map(n=>`<span class="fase-tag">${n}</span>`).join("")}</div>`
+      +`<div class="fase-barra"><div class="fase-barra-f f${f.num}" style="width:${pct}%"></div></div>`
+      +`<div class="fase-rodape">`
+      +`<span class="fase-prog-txt">${progTxt}</span>`
+      +`<svg class="fase-seta" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>`
+      +`</div>`;
+    cont.appendChild(el);
+  });
+}
+
+function renderDash(){
+  const nomes={1:"Fase 1 — Sobrevivência",2:"Fase 2 — Fluência Funcional",3:"Fase 3 — Autonomia"};
+  document.getElementById("streak-txt").textContent=gStreak()+" dias";
+  const lbl=document.getElementById("dash-lbl");if(lbl)lbl.textContent=nomes[faseAtual]||"";
+  const p=gP();
+  const grid=document.getElementById("mgrid-fase");if(!grid)return;
+  grid.innerHTML="";
+  MCFG.filter(mc=>mc.fase===faseAtual).forEach(mc=>{
+    const m=mundos.find(x=>x.id===mc.id)||{...mc,situacoes:[]};
+    const tv=m.situacoes.reduce((a,s)=>a+s.dialogo.filter(t=>t.sua_vez).length,0);
+    const dom=m.situacoes.reduce((a,s)=>a+s.dialogo.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);
+    const pct=tv>0?Math.round((dom/tv)*100):0;
+    const tem=m.situacoes&&m.situacoes.length>0;
+    const el=document.createElement("div");
+    el.className="mc"+(tem?"":"  bloq");
+    if(tem)el.onclick=()=>abrirMundo(m);
+    const badge=pct>=95?" <svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><polyline points=\"20 6 9 17 4 12\"/></svg>":"";
+    el.innerHTML=`<div class="mc-icon">${mc.icon}</div>`
+      +`<div class="mc-nome">${mc.nome}</div>`
+      +`<div class="mc-desc">${mc.desc||""}</div>`
+      +`<div class="pb"><div class="pb-f" style="width:${pct}%"></div></div>`
+      +`<div class="mc-stats">${tv>0?dom+"/"+tv+" dominados — "+pct+"%"+badge:"Em breve"}</div>`;
+    grid.appendChild(el);
+  });
+}
+
+// ── MUNDO → SITUAÇÕES ────────────────────
+function abrirMundo(m){
+  mundoAt=m;
+  document.getElementById('sit-icon').innerHTML=m.icon;
+  document.getElementById('sit-nome').textContent=m.nome;
+  document.getElementById('sit-desc').textContent=m.desc||'';
+  const lista=document.getElementById('sit-lista');
+  lista.innerHTML='';
+  // imagem do mundo
+  if(m.imagem){
+    const img=document.createElement('img');
+    img.src=m.imagem;img.className='sit-img';img.alt=m.nome;img.loading='lazy';img.decoding='async';
+    img.onerror=()=>img.style.display='none';
+    lista.appendChild(img);
+  }
+  const p=gP();
+  const nvnomes={1:'Iniciante',2:'Intermediário',3:'Avançado'};
+  m.situacoes.forEach(s=>{
+    const tot=s.dialogo.filter(t=>t.sua_vez).length;
+    const dom=s.dialogo.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length;
+    const pct=tot>0?Math.round((dom/tot)*100):0;
+    const concls=gConclusoes(s.id);
+    const ultima=concls.length?'Concluída '+new Date(concls[concls.length-1]).toLocaleDateString('pt-BR'):'';
+    const el=document.createElement('div');
+    el.className='si';
+    el.innerHTML=`<div class="si-top" onclick="this.parentElement.querySelector('.si-btns').style.display=this.parentElement.querySelector('.si-btns').style.display==='flex'?'none':'flex'">
+      <div>
+        <div class="si-titulo">${s.titulo}</div>
+        <div class="si-meta">
+          <span class="nv nv${s.nivel}">${nvnomes[s.nivel]||'N'+s.nivel}</span>
+          <span class="si-info">${dom}/${tot} dominados (${pct}%)</span>
+        </div>
+        ${ultima?`<div class="si-completo"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ${ultima}</div>`:''}
+      </div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+    <div class="si-btns" style="display:none">
+      <button class="btn-si pri" onclick="iniciarSessao(${JSON.stringify(s).replace(/"/g,'&quot;')})"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Praticar</button>
+      <button class="btn-si" onclick="refazer(${JSON.stringify(s).replace(/"/g,'&quot;')})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg> Refazer do zero</button>
+    </div>`;
+    lista.appendChild(el);
+  });
+  irPara('situacoes');
+}
+
+// ── VOCAB INTRODUTÓRIO ───────────────────
+let viVocab=[],viIdx=0,viModo='um',viSitPendente=null;
+let viEtapa='vocab'; // 'vocab' | 'expr'
+let viExpr=[],viExprIdx=0,viExprModo='um';
+
+function coletarVocabSituacao(s){
+  const primeiro=s.dialogo[0];
+  if(primeiro&&primeiro.vocab&&primeiro.vocab.length){
+    return [...primeiro.vocab];
+  }
+  return [];
+}
+
+function coletarExpressoesSituacao(s){
+  // Coleta todas as falas (nativas e do usuário) com traducao + connected como expressões
+  const exprs=[];
+  s.dialogo.forEach(t=>{
+    if(t.fala&&t.traducao){
+      exprs.push({
+        fala: t.fala,
+        traducao: t.traducao,
+        connected: t.sua_vez ? (t.connected_voce||null) : (t.connected||null),
+        sua_vez: t.sua_vez,
+        personagem: t.personagem||'Interlocutor',
+        nativo: t.nativo||null,
+        erro: t.erro||null
+      });
+    }
+  });
+  return exprs;
+}
+
+function iniciarVocabIntro(s){
+  if(typeof s==='string')s=JSON.parse(s);
+  viSitPendente=s;
+  viVocab=coletarVocabSituacao(s);
+  viExpr=coletarExpressoesSituacao(s);
+  viIdx=0;
+  viExprIdx=0;
+  viModo='um';
+  viExprModo='um';
+  viEtapa='vocab';
+  // Preenche cabeçalho
+  document.getElementById('vi-sit-nome').textContent=s.titulo||'';
+  document.getElementById('vi-sit-desc').textContent=s.descricao||'Aprenda o vocabulário antes de começar o diálogo.';
+  viAtualizarBadge();
+  document.getElementById('vi-modo-um').classList.add('on');
+  document.getElementById('vi-modo-lista').classList.remove('on');
+  irPara('vocab-intro');
+  viRender();
+}
+
+function viAtualizarBadge(){
+  const badge=document.getElementById('vi-etapa-badge');
+  if(!badge)return;
+  if(viEtapa==='vocab'){
+    badge.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Vocabulário';
+    badge.style.background='rgba(79,142,247,.1)';
+    badge.style.color='var(--acc)';
+    badge.style.borderColor='rgba(79,142,247,.25)';
+  }else{
+    badge.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Expressões';
+    badge.style.background='rgba(124,92,252,.1)';
+    badge.style.color='var(--acc2)';
+    badge.style.borderColor='rgba(124,92,252,.25)';
+  }
+}
+
+function viEntrarExpr(){
+  viEtapa='expr';
+  viExprIdx=0;
+  viExprModo='um';
+  viAtualizarBadge();
+  document.getElementById('vi-modo-um').classList.add('on');
+  document.getElementById('vi-modo-lista').classList.remove('on');
+  // Reseta resultado e shadowing
+  const res=document.getElementById('vi-rec-resultado');
+  if(res){res.style.display='none';res.innerHTML='';}
+  viRender();
+}
+
+function viSetModo(m){
+  if(viEtapa==='vocab')viModo=m;
+  else viExprModo=m;
+  document.getElementById('vi-modo-um').classList.toggle('on',m==='um');
+  document.getElementById('vi-modo-lista').classList.toggle('on',m==='lista');
+  viRender();
+}
+
+function viRender(){
+  const modo=viEtapa==='vocab'?viModo:viExprModo;
+  if(modo==='um'){
+    viRenderUm();
+  } else {
+    viRenderLista();
+  }
+}
+
+function viRenderUm(){
+  if(viEtapa==='expr'){viRenderExprUm();return;}
+  if(!viVocab.length){viIniciarDialogo();return;}
+  const v=viVocab[viIdx];
+  const total=viVocab.length;
+  const pct=Math.round((viIdx/total)*100);
+  // Progresso
+  document.getElementById('vi-prog-wrap').style.display='flex';
+  document.getElementById('vi-prog-f').style.width=pct+'%';
+  document.getElementById('vi-prog-txt').textContent=(viIdx+1)+' de '+total;
+  // Card
+  document.getElementById('vi-corpo').innerHTML=`
+    <div class="vi-card">
+      <div class="vi-palavra">${v.palavra}</div>
+      ${v.acento?`<div class="vi-acento">${v.acento}</div>`:''}
+      ${v.fonetica?`<div class="vi-fonetica"><span class="ftag-fonetica-lbl">Pronúncia</span>${v.fonetica}</div>`:''}
+      <div class="vi-significado">${v.significado}</div>
+      ${v.connected?`<div class="vi-connected"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Como nativo fala: <strong>${v.connected}</strong></div>`:''}
+      ${v.exemplo?`<div class="vi-exemplo">"${v.exemplo}"</div>`:''}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
+        <button class="vi-audio-btn" id="vi-audio-btn" onclick="viOuvir(this)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Ouvir
+        </button>
+        ${v.connected?`<button class="vi-audio-btn" style="background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="falarVocab(${aE(v.connected)},this)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Ouvir nativo
+        </button>`:''}
+      </div>
+    </div>`;
+  // Limpar resultado anterior e resetar botão Repetir
+  const res=document.getElementById('vi-rec-resultado');
+  if(res){res.style.display='none';res.innerHTML='';}
+  const shadBtn=document.getElementById('vi-shad-btn');
+  if(shadBtn){
+    viShadEstado='idle';
+    shadBtn.style.background='rgba(34,197,94,.08)';
+    shadBtn.style.borderColor='rgba(34,197,94,.3)';
+    shadBtn.style.color='var(--grn)';
+    shadBtn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';
+  }
+  // Navegação
+  document.getElementById('vi-nav').style.display='flex';
+  document.getElementById('vi-btn-iniciar').style.display='none';
+  const isUltima=viIdx>=total-1;
+  const btnProx=document.getElementById('vi-btn-prox');
+  if(isUltima){
+    // Se tem expressões, vai para lista de vocab e depois expressões
+    btnProx.textContent='Ver todas';
+    btnProx.onclick=viMostrarTodas;
+  } else {
+    btnProx.textContent='Próxima';
+    btnProx.onclick=viProximo;
+  }
+  // Toca áudio automaticamente (respeita preferência do usuário)
+  if(document.body.dataset.autoplay!=='0'){
+    setTimeout(()=>{
+      const btn=document.getElementById('vi-audio-btn');
+      if(btn)viOuvir(btn);
+    },400);
+  }
+}
+
+function viRenderLista(){
+  if(viEtapa==='expr'){viRenderExprLista();return;}
+  document.getElementById('vi-prog-wrap').style.display='none';
+  let html=`<div class="vi-lista">`;
+  viVocab.forEach((v,i)=>{
+    html+=`<div class="vi-item">
+      <div class="vi-item-info">
+        <div class="vi-item-palavra">${v.palavra}</div>
+        <div class="vi-item-sig">${v.significado}</div>
+        ${v.acento?`<div class="vi-item-acento">${v.acento}</div>`:''}
+        ${v.fonetica?`<div class="vocab-fonetica">${v.fonetica}</div>`:''}
+        ${v.connected?`<div style="font-size:12px;color:var(--acc2);font-style:italic;margin-top:2px;">"${v.connected}"</div>`:''}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
+        <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(v.palavra)},this)" title="Ouvir">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        ${v.connected?`<button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="falarVocab(${aE(v.connected)},this)" title="Ouvir nativo">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>`:'' }
+        <button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--grn);" onclick="viShadowingLista(${aE(v.connected||v.palavra)},${aE(v.palavra)},this)" title="Repetir">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </button>
+      </div>
+    </div>`;
+  });
+  html+=`</div>`;
+  document.getElementById('vi-corpo').innerHTML=html;
+  document.getElementById('vi-nav').style.display='none';
+  // Botão: ir para expressões se existirem, senão iniciar diálogo direto
+  const btnIni=document.getElementById('vi-btn-iniciar');
+  if(viExpr.length>0){
+    btnIni.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ver Expressões';
+    btnIni.onclick=viEntrarExpr;
+  } else {
+    btnIni.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Iniciar diálogo';
+    btnIni.onclick=viIniciarDialogo;
+  }
+  btnIni.style.display='block';
+}
+
+// ── EXPRESSÕES INTRODUTÓRIAS ─────────────
+function viRenderExprUm(){
+  const exprs=viExpr;
+  if(!exprs.length){viIniciarDialogo();return;}
+  const e=exprs[viExprIdx];
+  const total=exprs.length;
+  const pct=Math.round((viExprIdx/total)*100);
+  document.getElementById('vi-prog-wrap').style.display='flex';
+  document.getElementById('vi-prog-f').style.width=pct+'%';
+  document.getElementById('vi-prog-txt').textContent=(viExprIdx+1)+' de '+total;
+  const isUser=e.sua_vez;
+  const corBorda=isUser?'rgba(124,92,252,.3)':'rgba(79,142,247,.3)';
+  const corLabel=isUser?'var(--acc2)':'var(--acc)';
+  const labelTag=isUser
+    ?`<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc2);background:rgba(124,92,252,.1);padding:2px 8px;border-radius:6px;">Você</span>`
+    :`<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc);background:rgba(79,142,247,.1);padding:2px 8px;border-radius:6px;">${e.personagem}</span>`;
+  document.getElementById('vi-corpo').innerHTML=`
+    <div class="vi-card" style="border-color:${corBorda};text-align:left;">
+      <div style="margin-bottom:10px;">${labelTag}</div>
+      <div style="font-size:18px;font-weight:600;line-height:1.5;margin-bottom:8px;color:var(--txt);">${e.fala}</div>
+      <div style="font-size:13px;color:var(--tx2);line-height:1.5;padding-top:8px;border-top:1px solid var(--bd);">${e.traducao}</div>
+      ${e.connected?`<div class="vi-connected" style="margin-top:10px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Como nativo fala: <strong style="color:${corLabel};">${e.connected}</strong></div>`:''}
+      ${e.nativo?`<div style="font-size:12px;color:var(--grn);margin-top:8px;line-height:1.4;"><span style="font-weight:700;">Nativo:</span> ${e.nativo}</div>`:''}
+      ${e.erro?`<div style="font-size:12px;color:var(--red);margin-top:4px;line-height:1.4;"><span style="font-weight:700;">Erro comum:</span> ${e.erro}</div>`:''}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;">
+        <button class="vi-audio-btn" id="vi-audio-btn" onclick="viOuvirExpr(this)" style="border-color:${corBorda};color:${corLabel};">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir
+        </button>
+        ${e.connected?`<button class="vi-audio-btn" onclick="falarVocab(${aE(e.connected)},this)" style="background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Nativo
+        </button>`:''}
+      </div>
+    </div>`;
+  // Limpa resultado anterior
+  const res=document.getElementById('vi-rec-resultado');
+  if(res){res.style.display='none';res.innerHTML='';}
+  const shadBtn=document.getElementById('vi-shad-btn');
+  if(shadBtn){
+    viShadEstado='idle';
+    shadBtn.style.background='rgba(34,197,94,.08)';
+    shadBtn.style.borderColor='rgba(34,197,94,.3)';
+    shadBtn.style.color='var(--grn)';
+    shadBtn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';
+  }
+  document.getElementById('vi-nav').style.display='flex';
+  document.getElementById('vi-btn-iniciar').style.display='none';
+  const isUltima=viExprIdx>=total-1;
+  const btnProx=document.getElementById('vi-btn-prox');
+  btnProx.textContent=isUltima?'Ver todas':'Próxima';
+  btnProx.onclick=isUltima?viExprMostrarTodas:viExprProxima;
+  // Toca áudio automaticamente (respeita preferência do usuário)
+  if(document.body.dataset.autoplay!=='0')setTimeout(()=>{const btn=document.getElementById('vi-audio-btn');if(btn)viOuvirExpr(btn);},400);
+}
+
+function viRenderExprLista(){
+  document.getElementById('vi-prog-wrap').style.display='none';
+  let html=`<div class="vi-lista">`;
+  viExpr.forEach((e,i)=>{
+    const isUser=e.sua_vez;
+    const corLabel=isUser?'var(--acc2)':'var(--acc)';
+    const labelTag=isUser
+      ?`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc2);background:rgba(124,92,252,.1);padding:2px 6px;border-radius:4px;">Você</span>`
+      :`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc);background:rgba(79,142,247,.1);padding:2px 6px;border-radius:4px;">${e.personagem}</span>`;
+    html+=`<div class="vi-item" style="flex-direction:column;align-items:flex-start;gap:6px;padding:12px 0;">
+      <div style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+        <div style="flex:1;">
+          <div style="margin-bottom:4px;">${labelTag}</div>
+          <div class="vi-item-palavra" style="font-size:14px;">${e.fala}</div>
+          <div class="vi-item-sig">${e.traducao}</div>
+          ${e.connected?`<div style="font-size:12px;color:${corLabel};font-style:italic;margin-top:4px;">"${e.connected}"</div>`:''}
+          ${e.nativo?`<div style="font-size:11px;color:var(--grn);margin-top:4px;"><span style="font-weight:700;">Nativo:</span> ${e.nativo}</div>`:''}
+          ${e.erro?`<div style="font-size:11px;color:var(--red);margin-top:2px;"><span style="font-weight:700;">Erro:</span> ${e.erro}</div>`:''}
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
+          <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(e.fala)},this)" title="Ouvir">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+          ${e.connected?`<button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="falarVocab(${aE(e.connected)},this)" title="Nativo">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>`:'' }
+          <button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--grn);" onclick="viShadowingLista(${aE(e.connected||e.fala)},${aE(e.fala)},this)" title="Repetir">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>`;
+  });
+  html+=`</div>`;
+  document.getElementById('vi-corpo').innerHTML=html;
+  document.getElementById('vi-nav').style.display='none';
+  const btnIni=document.getElementById('vi-btn-iniciar');
+  btnIni.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Iniciar diálogo';
+  btnIni.onclick=viIniciarDialogo;
+  btnIni.style.display='block';
+}
+
+function viOuvirExpr(btn){
+  const e=viExpr[viExprIdx];
+  if(e)falarVocab(e.fala,btn);
+}
+
+function viExprProxima(){
+  if(viExprIdx<viExpr.length-1){viExprIdx++;viRenderExprUm();}
+}
+
+function viExprMostrarTodas(){
+  viExprModo='lista';
+  document.getElementById('vi-modo-lista').classList.add('on');
+  document.getElementById('vi-modo-um').classList.remove('on');
+  viRenderExprLista();
+}
+
+function viOuvir(btn){
+  const v=viVocab[viIdx];
+  if(v)falarVocab(v.palavra,btn);
+}
+
+function viRepetir(){
+  const btn=document.getElementById('vi-audio-btn');
+  if(btn)viOuvir(btn);
+  else{const v=viVocab[viIdx];if(v)falarVocab(v.palavra,null);}
+}
+
+function viShadowingNav(btn){
+  if(viEtapa==='expr'){
+    const e=viExpr[viExprIdx];
+    if(!e)return;
+    viShadowing(e.connected||e.fala,btn);
+  } else {
+    const v=viVocab[viIdx];
+    if(!v)return;
+    viShadowing(v.connected||v.palavra,btn);
+  }
+}
+
+let viShadRec=null;
+let viShadEstado='idle'; // idle | ouvindo | gravando
+
+function viShadowing(frase,btn){
+  // Estado 1: idle → toca áudio e prepara para gravar
+  if(viShadEstado==='idle'){
+    if(!('webkitSpeechRecognition'in window)&&!('SpeechRecognition'in window)){
+      mostrarToast('Use o Chrome para o microfone.');return;
+    }
+    viShadEstado='ouvindo';
+    if(btn){
+      btn.style.background='rgba(79,142,247,.15)';
+      btn.style.borderColor='var(--acc)';
+      btn.style.color='var(--acc)';
+      btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Toque para gravar';
+    }
+    const u=new SpeechSynthesisUtterance(String(frase));
+    u.lang='en-US';u.rate=0.75;u.pitch=1;
+    if(voz)u.voice=voz;
+    u.onend=()=>{viShadEstado='pronto';};
+    u.onerror=()=>{viShadEstado='idle';if(btn){btn.style.background='';btn.style.borderColor='';btn.style.color='';btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';}};
+    try{synth.resume();synth.speak(u);}catch(e){viShadEstado='idle';}
+    return;
+  }
+  // Estado 2: pronto ou ouvindo → abre microfone (gesto direto do usuário)
+  if(viShadEstado==='pronto'||viShadEstado==='ouvindo'){
+    if(synth.speaking){try{synth.cancel();}catch(e){}}
+    viShadEstado='gravando';
+    if(btn){
+      btn.style.background='rgba(34,197,94,.2)';
+      btn.style.borderColor='var(--grn)';
+      btn.style.color='var(--grn)';
+      btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+    }
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    viShadRec=new SR();viShadRec.lang='en-US';viShadRec.continuous=false;viShadRec.interimResults=false;viShadRec.maxAlternatives=3;
+    const v=viVocab[viIdx];
+    const palavraAlvo=v?v.palavra:frase;
+    function resetBtn(){
+      viShadEstado='idle';
+      if(btn){btn.style.background='rgba(34,197,94,.08)';btn.style.borderColor='rgba(34,197,94,.3)';btn.style.color='var(--grn)';btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';}
+    }
+    viShadRec.onresult=e=>{
+      // Verifica todas as alternativas; usa a que mais se aproxima do alvo
+      const res=e.results[0];
+      const alvo=palavraAlvo.toLowerCase().replace(/[^a-z\s]/g,'').trim();
+      let melhor=res[0].transcript.trim().toLowerCase();
+      for(let k=0;k<res.length;k++){
+        const alt=res[k].transcript.trim().toLowerCase();
+        if(simTokens(alt,alvo)>simTokens(melhor,alvo))melhor=alt;
+      }
+      const txt=melhor;
+      const acertou=txt.includes(alvo)||alvo.includes(txt)||(txt.split(' ')[0]===alvo.split(' ')[0])||(simTokens(txt,alvo)>=0.7);
+      viShadRec=null;resetBtn();
+      // Resultado no div externo (fora do card)
+      const elRes=document.getElementById('vi-rec-resultado');
+      if(elRes){
+        elRes.style.display='block';
+        if(acertou){
+          elRes.style.background='rgba(34,197,94,.1)';elRes.style.border='1px solid rgba(34,197,94,.3)';elRes.style.color='var(--grn)';
+          elRes.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Reconhecido: "${txt}"`;
+        }else{
+          elRes.style.background='rgba(239,68,68,.08)';elRes.style.border='1px solid rgba(239,68,68,.2)';elRes.style.color='var(--red)';
+          elRes.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Você disse: "${txt}" — tente de novo`;
+        }
+        setTimeout(()=>{if(elRes)elRes.style.display='none';},8000);
+      }
+    };
+    viShadRec.onerror=()=>{viShadRec=null;resetBtn();mostrarToast('Não captei. Tente de novo.');};
+    // Fix1: âmbar imediato → verde quando mic ativo
+    if(btn){
+      btn.style.background='rgba(234,179,8,.15)';btn.style.borderColor='var(--ylw)';btn.style.color='var(--ylw)';
+      btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg> Preparando…';
+    }
+    setTimeout(()=>{
+      if(viShadEstado!=='gravando')return;
+      if(btn){
+        btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Fale agora';
+      }
+      try{viShadRec.start();}catch(e){resetBtn();mostrarToast('Erro ao abrir microfone.');}
+    },400);
+    return;
+  }
+  // Estado gravando → para gravação
+  if(viShadEstado==='gravando'&&viShadRec){
+    viShadRec.stop();viShadRec=null;
+    viShadEstado='idle';
+    if(btn){btn.style.background='rgba(34,197,94,.08)';btn.style.borderColor='rgba(34,197,94,.3)';btn.style.color='var(--grn)';btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';}
+  }
+}
+
+function viShadowingLista(frase,palavra,btn){
+  // Mesmo padrão de dois toques — sem abrir mic no onend
+  if(!('webkitSpeechRecognition'in window)&&!('SpeechRecognition'in window)){
+    mostrarToast('Use o Chrome para o microfone.');return;
+  }
+  // Verifica estado via atributo no botão
+  const estado=btn.getAttribute('data-shad')||'idle';
+  if(estado==='idle'){
+    btn.setAttribute('data-shad','ouvindo');
+    btn.style.background='rgba(79,142,247,.15)';btn.style.borderColor='var(--acc)';btn.style.color='var(--acc)';
+    const u=new SpeechSynthesisUtterance(String(frase));
+    u.lang='en-US';u.rate=0.75;u.pitch=1;
+    if(voz)u.voice=voz;
+    u.onend=()=>{btn.setAttribute('data-shad','pronto');};
+    u.onerror=()=>{btn.setAttribute('data-shad','idle');btn.style.background='';btn.style.borderColor='';btn.style.color='';};
+    try{synth.resume();synth.speak(u);}catch(e){btn.setAttribute('data-shad','idle');}
+    return;
+  }
+  if(estado==='pronto'||estado==='ouvindo'){
+    if(synth.speaking){try{synth.cancel();}catch(e){}}
+    btn.setAttribute('data-shad','gravando');
+    btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    const rec=new SR();rec.lang='en-US';rec.continuous=false;rec.interimResults=false;rec.maxAlternatives=3;
+    const alvo=palavra.toLowerCase().replace(/[^a-z\s]/g,'').trim();
+    function resetLista(){btn.setAttribute('data-shad','idle');btn.style.background='';btn.style.borderColor='';btn.style.color='';}
+    rec.onresult=e=>{
+      const res=e.results[0];
+      let melhor=res[0].transcript.trim().toLowerCase();
+      for(let k=0;k<res.length;k++){
+        const alt=res[k].transcript.trim().toLowerCase();
+        if(simTokens(alt,alvo)>simTokens(melhor,alvo))melhor=alt;
+      }
+      const txt=melhor;
+      const acertou=txt.includes(alvo)||alvo.includes(txt)||(txt.split(' ')[0]===alvo.split(' ')[0])||(simTokens(txt,alvo)>=0.7);
+      resetLista();
+      mostrarToast(acertou?`Reconhecido: "${txt}"`:`"${txt}" — tente de novo`);
+    };
+    rec.onerror=()=>{resetLista();mostrarToast('Não captei. Tente de novo.');};
+    // Fix1: âmbar imediato → verde quando mic ativo
+    btn.style.background='rgba(234,179,8,.15)';btn.style.borderColor='var(--ylw)';btn.style.color='var(--ylw)';
+    btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg> Preparando…';
+    setTimeout(()=>{
+      if(btn.getAttribute('data-shad')!=='gravando')return;
+      btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+      btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Fale agora';
+      try{rec.start();}catch(e){resetLista();mostrarToast('Erro ao abrir microfone.');}
+    },400);
+    return;
+  }
+  if(estado==='gravando'){
+    btn.setAttribute('data-shad','idle');btn.style.background='';btn.style.borderColor='';btn.style.color='';
+  }
+}
+
+function viProximo(){
+  if(viIdx<viVocab.length-1){
+    viIdx++;
+    viRenderUm();
+  }
+}
+
+function viMostrarTodas(){
+  viSetModo('lista');
+}
+
+function viIniciarDialogo(){
+  if(!viSitPendente)return;
+  const s=viSitPendente;
+  sitAt=s;dq=[...s.dialogo];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
+  dlAcertos=0;dlTotal=0;
+  irPara('sessao');renderTurno();
+}
+
+// ── SESSÃO ───────────────────────────────
+function iniciarSessao(s){
+  if(typeof s==='string')s=JSON.parse(s);
+  // Se tem vocabulário e não é revisão, mostra tela de vocab primeiro
+  const vocab=coletarVocabSituacao(s);
+  if(vocab.length>0){
+    iniciarVocabIntro(s);
+  } else {
+    sitAt=s;dq=[...s.dialogo];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
+    dlAcertos=0;dlTotal=0;
+    irPara('sessao');renderTurno();
+  }
+}
+
+function refazer(s){
+  if(typeof s==='string')s=JSON.parse(s);
+  sitAt=s;dq=[...s.dialogo];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=true;
+  dlAcertos=0;dlTotal=0;
+  irPara('sessao');renderTurno();
+}
+
+function refazerSessao(){
+  if(sitAt)refazer(sitAt);
+}
+
+function iniciarRevisao(){
+  const revs=gRevs();
+  const items=revs.map(([id])=>gItemById(id)).filter(Boolean);
+  if(!items.length){mostrarToast('Nenhuma revisão pendente!');return;}
+  sitAt=null;dq=items;di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
+  dlAcertos=0;dlTotal=0;
+  irPara('sessao');renderTurno();
+}
+
+function renderTurno(){
+  if(di>=dq.length){finalizarSessao();return;}
+  const item=dq[di];itemAt=item;
+  shadEstado='idle';shadFraseAt='';
+  shadObrigatorioFeito=false;
+  document.getElementById('spr').style.width=(di/dq.length*100)+'%';
+  document.getElementById('scnt').textContent=(di+1)+' de '+dq.length;
+  const p=gP();
+  const hist=modoRefazer?[]:(p[item.id]?.hist||[]);
+  if(!item.sua_vez)modoAt='leitura';
+  else if(hist.length===0)modoAt='exposicao';
+  else if(hist.length<3)modoAt='reconhecimento';
+  else modoAt='producao';
+  const fases={leitura:'Ouça e leia',exposicao:'Nível 1 — Tente responder',reconhecimento:'Nível 2 — Escolha',producao:'Nível 3 — Produza'};
+  document.getElementById('sfase').textContent=fases[modoAt];
+  let html='';
+
+  // Imagem âncora emocional
+  if(sitAt&&sitAt.imagem){
+    html+=`<img class="ancora-img" src="${sitAt.imagem}" alt="situação" loading="lazy" decoding="async" onerror="this.style.display='none'">`;
+  }
+  // Cena
+  if(item.cena)html+=`<div class="cena">${item.cena}</div>`;
+
+  const isV=item.sua_vez;
+  const bc=isV?'vc':'at';
+  const lc=isV?'vc':'at';
+  const pnome=isV?'Você':item.personagem||'Interlocutor';
+
+  if(modoAt==='leitura'){
+    html+=`<div class="fbox ${bc}">
+      <div class="flbl ${lc}"><span>${pnome}</span></div>
+      <div class="ftxt">${item.fala}</div>
+      ${item.fonetica?`<div class="ftag-fonetica"><span class="ftag-fonetica-lbl">Pronúncia</span>${item.fonetica}</div>`:''}
+      <div class="ftrad-lbl">Tradução</div>
+      <div class="ftrad">${item.traducao||''}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+        <button class="btn-audio" onclick="falar(${aE(item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+        <button class="btn-audio" style="background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="iniciarShadowing(${aE(item.connected||item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
+      </div>
+      <div id="shad-pron-r" class="pron-r" style="display:none;margin-top:10px;"></div>`;
+    if(item.connected){
+      html+=`<div class="conn" style="margin-top:10px">
+        <div class="conn-lbl"><span>Como nativo fala</span>
+          <button class="abtn" onclick="falar(${aE(item.connected)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+        </div>
+        <div class="conn-txt">"${item.connected}"</div>`;
+      if(item.blocos&&item.blocos.length){
+        html+=`<div class="blocos">`;
+        item.blocos.forEach(b=>{html+=`<div class="bloco"><span class="bk">${b.bloco}</span><span class="bv">${b.significa}</span></div>`;});
+        html+=`</div>`;
+      }
+      html+=`</div>`;
+    }
+    html+=`</div><button class="btn-p" onclick="avancarLeitura()">Continuar</button>`;
+  }
+  else if(modoAt==='exposicao'){
+    // Alteração 2: Tente antes de ver — mostra prompt + textarea + mic, sem revelar a resposta
+    html+=`<div style="background:rgba(234,179,8,.06);border:1px solid rgba(234,179,8,.2);border-radius:var(--r2);padding:10px 14px;margin-bottom:12px;font-size:13px;color:var(--ylw);font-weight:600;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Tente responder antes de ver a resposta
+    </div>`;
+    if(item.fonetica){
+      html+=`<div class="ftag-fonetica" style="margin-bottom:10px;"><span class="ftag-fonetica-lbl">Pronúncia</span>${item.fonetica}</div>`;
+    }
+    if(item.connected_voce){
+      html+=`<div class="conn" style="margin-bottom:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
+        <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
+          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="falar(${aE(item.connected_voce)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+        </div>
+        <div class="conn-txt" style="color:var(--acc2);">"${item.connected_voce}"</div>
+      </div>`;
+    }
+    html+=`<div class="ra">
+      <div class="ra-lbl"><span>Sua resposta em inglês</span>
+        <div style="display:flex;gap:6px;">
+          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="iniciarShadowing(${aE(item.connected_voce||item.fala)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
+          <button class="mic-btn" id="mbtn" onclick="toggleMic()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone</button>
+        </div>
+      </div>
+      <textarea class="ri" id="ri" placeholder="Digite ou fale sua resposta em inglês..."></textarea>
+      <div id="pron-r" style="display:none" class="pron-r"></div>
+    </div>
+    <button class="btn-p" onclick="irParaRes('exposicao')">Ver resposta</button>`;
+  }
+  else if(modoAt==='reconhecimento'){
+    const ops=gerarOps(item);
+    html+=`<div class="og" id="og">`;
+    ops.forEach(op=>{
+      html+=`<button class="ob" onclick="escolher(this,${op.c},${JSON.stringify(op.trad).replace(/"/g,'&quot;')})">
+        ${op.t}
+        <div class="ob-trad">${op.trad||''}</div>
+      </button>`;
+    });
+    html+=`</div><button class="btn-p" id="btn-rc" style="display:none" onclick="irParaRes('reconhecimento')">Ver detalhes</button>`;
+  }
+  else{
+    // Alteração 1: Timer removido — usuário responde no seu ritmo
+    if(item.fonetica){
+      html+=`<div class="ftag-fonetica" style="margin-bottom:10px;"><span class="ftag-fonetica-lbl">Pronúncia</span>${item.fonetica}</div>`;
+    }
+    if(item.connected_voce){
+      html+=`<div class="conn" style="margin-bottom:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
+        <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
+          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="falar(${aE(item.connected_voce)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+        </div>
+        <div class="conn-txt" style="color:var(--acc2);">"${item.connected_voce}"</div>
+      </div>`;
+    }
+    html+=`<div class="ra">
+      <div class="ra-lbl"><span>Sua resposta em inglês</span>
+        <div style="display:flex;gap:6px;">
+          <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="iniciarShadowing(${aE(item.connected_voce||item.fala)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
+          <button class="mic-btn" id="mbtn" onclick="toggleMic()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone</button>
+        </div>
+      </div>
+      <textarea class="ri" id="ri" placeholder="Digite ou fale sua resposta em inglês..."></textarea>
+      <div id="pron-r" style="display:none" class="pron-r"></div>
+    </div>
+    <button class="btn-p" onclick="irParaRes('producao')">Ver resposta correta</button>`;
+  }
+  document.getElementById('scon').innerHTML=html;
+}
+
+function avancarLeitura(){di++;renderTurno();}
+
+function gerarOps(item){
+  const todas=[];
+  for(const m of mundos)for(const s of m.situacoes)for(const t of s.dialogo)
+    if(t.sua_vez&&t.id!==item.id)todas.push({t:t.fala,trad:t.traducao||''});
+  const sh=a=>a.sort(()=>Math.random()-.5);
+  const dist=sh(todas).slice(0,2);
+  return sh([{t:item.fala,trad:item.traducao||'',c:true},...dist.map(d=>({...d,c:false}))]);
+}
+
+function escolher(btn,c,trad){
+  document.querySelectorAll('.ob').forEach(b=>b.disabled=true);
+  if(c){btn.classList.add('ok');mostrarToast('Correto!');}
+  else{
+    btn.classList.add('no');
+    document.querySelectorAll('.ob').forEach(b=>{if(b.textContent.trim().startsWith(itemAt.fala))b.classList.add('ok');});
+    mostrarToast('Não era essa');
+  }
+  document.getElementById('btn-rc').style.display='block';
+}
+
+// ── TIMER ─────────────────────────────────
+function iniciarTimer(){
+  tSec=15;atualizarTimer();
+  tmr=setInterval(()=>{tSec--;atualizarTimer();if(tSec<=0){pararTimer();irParaRes('producao');}},1000);
+}
+function atualizarTimer(){
+  const f=document.getElementById('tfill'),n=document.getElementById('tnum');
+  if(!f||!n)return;
+  const cor=tSec>10?'var(--grn)':tSec>5?'var(--ylw)':'var(--red)';
+  f.style.width=(tSec/15*100)+'%';f.style.background=cor;n.textContent=tSec;n.style.color=cor;
+}
+function pararTimer(){if(tmr){clearInterval(tmr);tmr=null;}}
+
+// ── SHADOWING ────────────────────────────
+let shadRec=null;
+let shadEstado='idle';
+let shadFraseAt='';
+
+function iniciarShadowing(frase,btn){
+  if(!('webkitSpeechRecognition'in window)&&!('SpeechRecognition'in window)){
+    mostrarToast('Use o Chrome para o microfone.');return;
+  }
+  shadFraseAt=frase;
+
+  // Estado idle → toca áudio e muda botão para "Toque para gravar"
+  if(shadEstado==='idle'){
+    shadEstado='ouvindo';
+    if(btn){
+      btn.style.background='rgba(79,142,247,.15)';
+      btn.style.borderColor='var(--acc)';
+      btn.style.color='var(--acc)';
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Toque para gravar';
+    }
+    pararTimer();
+    const u=new SpeechSynthesisUtterance(String(frase));
+    u.lang='en-US';u.rate=0.85;u.pitch=1;
+    if(voz)u.voice=voz;
+    u.onend=()=>{shadEstado='pronto';};
+    u.onerror=()=>{shadEstado='idle';shadResetBtn(btn);};
+    try{synth.resume();synth.speak(u);}catch(e){shadEstado='idle';shadResetBtn(btn);}
+    return;
+  }
+
+  // Estado pronto/ouvindo → gesto direto do usuário → abre mic
+  if(shadEstado==='pronto'||shadEstado==='ouvindo'){
+    if(synth.speaking){try{synth.cancel();}catch(e){}}
+    shadEstado='gravando';
+    // Fix1: estado âmbar "Preparando…" — distinto visualmente, só vira verde quando mic ativo
+    if(btn){
+      btn.style.background='rgba(234,179,8,.15)';
+      btn.style.borderColor='var(--ylw)';
+      btn.style.color='var(--ylw)';
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg> Preparando…';
+    }
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    shadRec=new SR();shadRec.lang='en-US';shadRec.continuous=true;shadRec.interimResults=true;shadRec.maxAlternatives=3;
+    let shadTranscFinal='';let shadTranscConf=0;let shadSilencioTimer=null;
+    const shadFinalizar=()=>{
+      if(!shadRec)return;
+      clearTimeout(shadSilencioTimer);
+      const sr=shadRec;shadRec=null;shadEstado='idle';shadResetBtn(btn);
+      try{sr.stop();}catch(e){}
+      const txt=shadTranscFinal.trim()||'';
+      if(!txt){mostrarToast('Não captei. Tente de novo.');return;}
+      const ri=document.getElementById('ri');if(ri)ri.value=txt;
+      compararPronuncia(txt,shadFraseAt,shadTranscConf);
+      shadObrigatorioFeito=true;
+      habilitarAval();
+      const btnC=document.getElementById('btn-continuar-leitura');
+      if(btnC){btnC.style.opacity='1';btnC.style.pointerEvents='auto';}
+      mostrarToast('Veja a comparação abaixo.');
+    };
+    shadRec.onresult=e=>{
+      clearTimeout(shadSilencioTimer);
+      // Acumula todos os segmentos finalizados
+      let acum='';let confAcum=0;let nFinal=0;
+      for(let i=0;i<e.results.length;i++){
+        if(e.results[i].isFinal){
+          // Escolhe melhor alternativa por similaridade
+          let melhor=e.results[i][0].transcript,melhorConf=e.results[i][0].confidence;
+          for(let k=1;k<e.results[i].length;k++){
+            if(simTokens(e.results[i][k].transcript,shadFraseAt)>simTokens(melhor,shadFraseAt)){
+              melhor=e.results[i][k].transcript;melhorConf=e.results[i][k].confidence;
+            }
+          }
+          acum+=(acum?' ':'')+melhor;
+          confAcum+=melhorConf;nFinal++;
+        }
+      }
+      if(acum){shadTranscFinal=acum;shadTranscConf=nFinal>0?confAcum/nFinal:0;}
+      // Auto-stop: 1500ms de silêncio após qualquer fala captada
+      shadSilencioTimer=setTimeout(shadFinalizar,1500);
+    };
+    shadRec.onerror=e=>{
+      clearTimeout(shadSilencioTimer);
+      shadRec=null;shadEstado='idle';shadResetBtn(btn);
+      const btnC=document.getElementById('btn-continuar-leitura');
+      if(btnC){btnC.style.opacity='1';btnC.style.pointerEvents='auto';}
+      mostrarToast('Não captei. Tente de novo.');
+    };
+    setTimeout(()=>{
+      if(shadEstado!=='gravando')return;
+      if(btn){
+        btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Fale agora';
+      }
+      try{shadRec.start();}catch(e){shadEstado='idle';shadResetBtn(btn);mostrarToast('Erro ao abrir microfone.');}
+    },400);
+    return;
+  }
+
+  // Estado gravando → para manualmente
+  if(shadEstado==='gravando'&&shadRec){
+    shadFinalizar();
+  }
+}
+
+function shadResetBtn(btn){
+  if(!btn)return;
+  btn.style.background='rgba(124,92,252,.1)';
+  btn.style.borderColor='rgba(124,92,252,.35)';
+  btn.style.color='var(--acc2)';
+  btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir';
+}
+
+// Alteração 3: habilita botões de autoavaliação após shadowing
+function habilitarAval(){
+  document.querySelectorAll('.av').forEach(b=>{
+    b.style.opacity='1';
+    b.style.pointerEvents='auto';
+  });
+  const aviso=document.getElementById('aval-aviso');
+  if(aviso)aviso.style.display='none';
+}
+
+// ── MICROFONE ────────────────────────────
+function toggleMic(){
+  if(!('webkitSpeechRecognition'in window)&&!('SpeechRecognition'in window)){mostrarToast('Use o Chrome para microfone.');return;}
+  const btn=document.getElementById('mbtn');
+  if(rec&&rec.at){rec.stop();rec.at=false;btn.classList.remove('gr');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone';return;}
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  rec=new SR();rec.lang='en-US';rec.continuous=false;rec.interimResults=false;rec.at=true;rec.maxAlternatives=3;
+  pararTimer();
+  btn.classList.add('gr');btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar';
+  rec.onresult=e=>{
+    const res=e.results[0];
+    const modelo=itemAt.connected_voce||itemAt.fala;
+    let melhor=res[0].transcript,melhorConf=res[0].confidence;
+    for(let k=0;k<res.length;k++){
+      if(simTokens(res[k].transcript,modelo)>simTokens(melhor,modelo)){
+        melhor=res[k].transcript;melhorConf=res[k].confidence;
+      }
+    }
+    const txt=melhor;
+    const ri=document.getElementById('ri');if(ri)ri.value=txt;
+    btn.classList.remove('gr');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone';rec.at=false;
+    compararPronuncia(txt,modelo,melhorConf);
+  };
+  rec.onerror=()=>{btn.classList.remove('gr');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Microfone';rec.at=false;mostrarToast('Erro no microfone. Tente de novo.');};
+  rec.start();
+}
+
+// ── PRONÚNCIA — utilitários ───────────────
+// Mapa de contrações e reduções fonéticas aceitas como equivalentes
+const CONTRACOES={
+  "want to":"wanna","going to":"gonna","got to":"gotta","have to":"hafta",
+  "has to":"hasta","out of":"outta","kind of":"kinda","sort of":"sorta",
+  "i am":"i'm","you are":"you're","he is":"he's","she is":"she's",
+  "it is":"it's","we are":"we're","they are":"they're","that is":"that's",
+  "there is":"there's","what is":"what's","who is":"who's","how is":"how's",
+  "i will":"i'll","you will":"you'll","he will":"he'll","she will":"she'll",
+  "we will":"we'll","they will":"they'll","i would":"i'd","you would":"you'd",
+  "he would":"he'd","she would":"she'd","we would":"we'd","they would":"they'd",
+  "i have":"i've","you have":"you've","we have":"we've","they have":"they've",
+  "do not":"don't","does not":"doesn't","did not":"didn't","will not":"won't",
+  "would not":"wouldn't","could not":"couldn't","should not":"shouldn't",
+  "cannot":"can't","is not":"isn't","are not":"aren't","was not":"wasn't",
+  "were not":"weren't","let me":"lemme","give me":"gimme","come on":"c'mon",
+  "and":"'n","to":"ta","for":"fer","of":"o'"
+};
+
+function normTexto(s){
+  return s.toLowerCase().replace(/['']/g,"'").replace(/[^a-z'\s]/g,'').trim();
+}
+
+// Expande contrações de ambos os lados para comparação justa
+function expandirContracoes(s){
+  let r=normTexto(s);
+  // expande forma curta → longa
+  const rev={};
+  Object.entries(CONTRACOES).forEach(([longa,curta])=>{rev[curta]=longa;});
+  Object.entries(rev).forEach(([curta,longa])=>{
+    r=r.replace(new RegExp('\\b'+curta.replace(/'/g,"'?")+'\\b','g'),longa);
+  });
+  return r;
+}
+
+// Normaliza para comparação: expande contrações e remove apóstrofos residuais
+function normParaComp(s){
+  return expandirContracoes(s).replace(/'/g,'').replace(/\s+/g,' ').trim();
+}
+
+// Levenshtein em nível de tokens (palavras)
+function levenshteinTokens(a,b){
+  const ta=a.split(/\s+/),tb=b.split(/\s+/);
+  const m=ta.length,n=tb.length;
+  const dp=Array.from({length:m+1},(_,i)=>Array.from({length:n+1},(_,j)=>i===0?j:j===0?i:0));
+  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){
+    if(ta[i-1]===tb[j-1])dp[i][j]=dp[i-1][j-1];
+    else dp[i][j]=1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
+  }
+  return dp[m][n];
+}
+
+// Similaridade 0–1 baseada em Levenshtein de tokens (após normalização)
+function simTokens(dito,modelo){
+  const d=normParaComp(dito),m=normParaComp(modelo);
+  const td=d.split(/\s+/),tm=m.split(/\s+/);
+  const dist=levenshteinTokens(d,m);
+  const maxLen=Math.max(td.length,tm.length);
+  return maxLen===0?1:Math.max(0,1-dist/maxLen);
+}
+
+function simFonetica(a,b){
+  // Similaridade letra a letra (Levenshtein de caracteres) — captura pronúncia aproximada
+  const la=a.toLowerCase(),lb=b.toLowerCase();
+  if(la===lb)return 1;
+  const m=la.length,n=lb.length;
+  if(m===0||n===0)return 0;
+  const dp=Array.from({length:m+1},(_,i)=>Array.from({length:n+1},(_,j)=>i===0?j:j===0?i:0));
+  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){
+    if(la[i-1]===lb[j-1])dp[i][j]=dp[i-1][j-1];
+    else dp[i][j]=1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
+  }
+  return Math.max(0,1-dp[m][n]/Math.max(m,n));
+}
+
+function compararPronuncia(dito,modelo,confidence){
+  // Similaridade token-level (palavras)
+  const simTok=simTokens(dito,modelo);
+  // Bonus de confiança do reconhecedor
+  const confBonus=confidence&&confidence>0.7?0.08:confidence&&confidence>0.5?0.04:0;
+  // Score final com teto 1
+  const simFinal=Math.min(1,simTok+confBonus);
+  const pctFinal=Math.round(simFinal*100);
+  // Thresholds ajustados para iniciante: 55% já é bom, 35% é aceitável
+  const cor=pctFinal>=55?'var(--grn)':pctFinal>=35?'var(--ylw)':'var(--red)';
+  const msg=pctFinal>=55?'Boa pronúncia!':pctFinal>=35?'Continue — está no caminho certo':'Tente mais uma vez devagar';
+  // Comparação visual token-a-token com tolerância fonética
+  const tm=normParaComp(modelo).split(/\s+/);
+  const td=normParaComp(dito).split(/\s+/);
+  const palavrasOrig=modelo.split(/\s+/);
+  let html=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+    <div style="font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;">Comparação palavra a palavra</div>
+    <div style="font-size:12px;font-weight:700;color:${cor};">${pctFinal}% — ${msg}</div>
+  </div>`;
+  palavrasOrig.forEach((pal,i)=>{
+    const puro=tm[i]||'';
+    // Exato: match perfeito após normalização
+    const exato=td[i]===puro;
+    // Fonético: similaridade >= 0.65 com qualquer token próximo (±2 posições)
+    const fonetico=!exato&&td.some((w,j)=>Math.abs(j-i)<=2&&simFonetica(w,puro)>=0.65);
+    // Presente: token idêntico em posição diferente
+    const presente=!exato&&!fonetico&&td.some((w,j)=>Math.abs(j-i)<=2&&w===puro);
+    if(exato)html+=`<span class="pw">${pal} </span>`;
+    else if(fonetico)html+=`<span class="pw" style="opacity:.75">${pal} </span>`;
+    else if(presente)html+=`<span class="pw" style="opacity:.6">${pal} </span>`;
+    else if(td[i])html+=`<span class="pe" title="Você disse: ${td[i]}">${pal} </span>`;
+    else html+=`<span style="color:var(--tx3)">${pal} </span>`;
+  });
+  html+=`<div style="font-size:11px;color:var(--tx3);margin-top:6px;">Você disse: "${dito}"</div>`;
+  let pr=document.getElementById('pron-r');
+  if(!pr){
+    pr=document.getElementById('shad-pron-r');
+    if(!pr){
+      pr=document.createElement('div');
+      pr.id='shad-pron-r';
+      pr.className='pron-r';
+      pr.style.marginTop='10px';
+      const fbox=document.querySelector('.fbox.vc, .fbox.at');
+      if(fbox){fbox.appendChild(pr);}
+      else{const scon=document.getElementById('scon');if(scon)scon.appendChild(pr);}
+    }
+  }
+  if(pr){pr.innerHTML=html;pr.style.display='block';}
+}
+
+// ── RESULTADO ────────────────────────────
+function calcularSimilaridade(dito,modelo){
+  // Usa Levenshtein token-level com expansão de contrações
+  return simTokens(dito,modelo);
+}
+
+function irParaRes(origem){
+  pararTimer();
+  const item=itemAt;
+  // Verificar se tem resposta digitada/falada para avaliação automática
+  const ri=document.getElementById('ri');
+  const respostaUsuario=ri?ri.value.trim():'';
+  const modeloComparacao=item.connected_voce||item.fala;
+  let avaliacaoSugerida=null;
+  if(respostaUsuario&&(origem==='producao'||origem==='exposicao')){
+    const sim=calcularSimilaridade(respostaUsuario,modeloComparacao);
+    if(sim>=0.8)avaliacaoSugerida='sim';
+    else if(sim>=0.5)avaliacaoSugerida='qse';
+    else avaliacaoSugerida='nao';
+  }
+
+  document.getElementById('rcnt').textContent=(di+1)+' de '+dq.length;
+  let html=`<div class="rc">
+    <div class="rc-lbl"><span>Resposta modelo</span>
+      <button class="abtn" onclick="falar(${aE(item.fala)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+    </div>
+    <div class="rc-txt">${item.fala}</div>
+    <div class="ftrad-lbl" style="font-size:10px;color:var(--tx3);margin-bottom:4px;">Tradução</div>
+    <div style="font-size:13px;color:var(--tx2);line-height:1.5;">${item.traducao||''}</div>`;
+  if(item.acento)html+=`<div class="atag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${item.acento}</div>`;
+
+  // Como nativo fala — versão sua
+  if(item.connected_voce){
+    html+=`<div class="conn" style="margin-top:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
+      <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
+        <button class="abtn" style="color:var(--acc2);border-color:rgba(124,92,252,.3);" onclick="falar(${aE(item.connected_voce)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+      </div>
+      <div class="conn-txt" style="color:var(--acc2);">"${item.connected_voce}"</div>
+    </div>`;
+  }
+  html+=`</div>`;
+
+  // Alteração 3: Botão de shadowing obrigatório na tela de resultado
+  if(item.sua_vez){
+    html+=`<div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 18px;margin-bottom:10px;">
+      <div style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--acc2);">Repita em voz alta antes de avaliar</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn-audio" style="margin-top:0;" onclick="falar(${aE(item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+        <button class="btn-audio" style="margin-top:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="iniciarShadowingRes(${aE(item.connected_voce||item.fala)},this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Repetir</button>
+      </div>
+      <div id="res-shad-pron" class="pron-r" style="display:none;margin-top:10px;"></div>
+    </div>`;
+  }
+
+  // Avaliação sugerida com destaque
+  if(avaliacaoSugerida){
+    const labels={sim:'Parece que sabia!',qse:'Quase lá!',nao:'Continue praticando'};
+    const cores={sim:'var(--grn)',qse:'var(--ylw)',nao:'var(--red)'};
+    html+=`<div style="background:rgba(0,0,0,.15);border:1px solid ${cores[avaliacaoSugerida]};border-radius:var(--r2);padding:10px 14px;margin-bottom:10px;font-size:13px;color:${cores[avaliacaoSugerida]};font-weight:600;">
+      ${labels[avaliacaoSugerida]} — confirme sua autoavaliação abaixo.
+    </div>`;
+  }
+
+  // Connected speech
+  if(item.connected){
+    html+=`<div class="aw"><div class="ah" onclick="tAcc(this.parentElement)"><span>Como nativo fala — blocos</span><span class="aa"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="ab"><div class="conn" style="margin-top:10px">
+      <div class="conn-lbl"><span>Versão nativa</span>
+        <button class="abtn" onclick="event.stopPropagation();falar(${aE(item.connected)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+      </div>
+      <div class="conn-txt">"${item.connected}"</div>`;
+    if(item.blocos&&item.blocos.length){
+      html+=`<div class="blocos">`;
+      item.blocos.forEach(b=>{html+=`<div class="bloco"><span class="bk">${b.bloco}</span><span class="bv">${b.significa}</span></div>`;});
+      html+=`</div>`;
+    }
+    html+=`</div></div></div>`;
+  }
+
+  // Alternativas COM tradução e áudio
+  if(item.alternativas&&item.alternativas.length){
+    // buscar traduções das alternativas no próprio turno (campo alts_traducoes) ou deixar vazio
+    html+=`<div class="aw"><div class="ah" onclick="tAcc(this.parentElement)"><span>Alternativas (${item.alternativas.length})</span><span class="aa"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="ab"><div style="padding-top:10px">`;
+    item.alternativas.forEach((a,i)=>{
+      const trad=item.alts_traducoes&&item.alts_traducoes[i]?item.alts_traducoes[i]:'';
+      html+=`<div class="alt-i">
+        <div>
+          <div>${a}</div>
+          ${trad?`<div class="alt-trad">${trad}</div>`:''}
+        </div>
+        <button class="alt-a" onclick="event.stopPropagation();falar(${aE(a)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+      </div>`;
+    });
+    html+=`</div></div></div>`;
+  }
+
+  // Vocabulário COM áudio individual
+  if(item.vocab&&item.vocab.length){
+    html+=`<div class="aw"><div class="ah" onclick="tAcc(this.parentElement)"><span>Vocabulário-chave</span><span class="aa"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="ab"><div style="padding-top:4px">`;
+    item.vocab.forEach(v=>{
+      html+=`<div class="vi">
+        <div class="vi-info">
+          <div class="vp">${v.palavra}</div>
+          <div class="vs">${v.significado}</div>
+          <div class="va"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${v.acento||''}</div>
+        </div>
+        <button class="vi-btn" onclick="falarVocab(${aE(v.palavra)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+      </div>`;
+    });
+    html+=`</div></div></div>`;
+  }
+
+  // Nativo / Erro
+  if(item.nativo||item.erro){
+    html+=`<div class="aw"><div class="ah" onclick="tAcc(this.parentElement)"><span>Nativo vs. Erro comum</span><span class="aa"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="ab"><div class="ib" style="padding-top:4px">`;
+    if(item.nativo)html+=`<p><span class="il n">Nativo:</span>${item.nativo}</p>`;
+    if(item.erro)html+=`<p><span class="il e">Erro:</span>${item.erro}</p>`;
+    html+=`</div></div></div>`;
+  }
+
+  // Auto-avaliação — Alteração 3: botões começam desabilitados até shadowing
+  if(item.sua_vez){
+    const bloqueado = shadObrigatorioFeito ? '' : 'style="opacity:.4;pointer-events:none;"';
+    const aviso = shadObrigatorioFeito ? '' : '<div id="aval-aviso" style="font-size:12px;color:var(--ylw);margin-bottom:10px;text-align:center;">Toque em "Repetir" acima e fale a frase para liberar a avaliação.</div>';
+    html+=`<div class="aval"><h3>Como foi?</h3><p>Define quando este turno volta para revisão.</p>
+    ${aviso}
+    <div class="avbtns">
+      <button class="av nao" onclick="avaliar('nao')" ${bloqueado}><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><span class="tit">Não sabia</span><span class="sub">Volta em breve</span></button>
+      <button class="av qse" onclick="avaliar('qse')" ${bloqueado}><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><span class="tit">Quase</span><span class="sub">Volta amanhã</span></button>
+      <button class="av sim" onclick="avaliar('sim')" ${bloqueado}><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 13s1.5 3 4 3 4-3 4-3"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><span class="tit">Sabia!</span><span class="sub">Volta em 3 dias</span></button>
+    </div></div>`;
+  }else{
+    html+=`<button class="btn-p" onclick="avancarLeitura()" style="margin-top:8px">Continuar</button>`;
+  }
+
+  document.getElementById('rbody').innerHTML=html;
+  document.getElementById('rbody').scrollTop=0;
+  irPara('resultado');
+}
+
+// Alteração 3: Shadowing na tela de resultado
+function iniciarShadowingRes(frase,btn){
+  if(!('webkitSpeechRecognition'in window)&&!('SpeechRecognition'in window)){
+    // Sem suporte a mic — libera avaliação mesmo assim
+    shadObrigatorioFeito=true;
+    habilitarAval();
+    mostrarToast('Use o Chrome para o microfone. Avaliação liberada.');
+    return;
+  }
+  if(shadEstado==='idle'){
+    shadEstado='ouvindo';
+    shadFraseAt=frase;
+    if(btn){
+      btn.style.background='rgba(79,142,247,.15)';
+      btn.style.borderColor='var(--acc)';
+      btn.style.color='var(--acc)';
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Toque para gravar';
+    }
+    const u=new SpeechSynthesisUtterance(String(frase));
+    u.lang='en-US';u.rate=0.85;u.pitch=1;
+    if(voz)u.voice=voz;
+    u.onend=()=>{shadEstado='pronto';};
+    u.onerror=()=>{shadEstado='idle';shadResetBtn(btn);};
+    try{synth.resume();synth.speak(u);}catch(e){shadEstado='idle';shadResetBtn(btn);}
+    return;
+  }
+  if(shadEstado==='pronto'||shadEstado==='ouvindo'){
+    if(synth.speaking){try{synth.cancel();}catch(e){}}
+    shadEstado='gravando';
+    if(btn){
+      btn.style.background='rgba(234,179,8,.15)';
+      btn.style.borderColor='var(--ylw)';
+      btn.style.color='var(--ylw)';
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg> Preparando…';
+    }
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    shadRec=new SR();shadRec.lang='en-US';shadRec.continuous=true;shadRec.interimResults=true;shadRec.maxAlternatives=3;
+    let shadTranscFinal2='';let shadTranscConf2=0;let shadSilencioTimer2=null;
+    const shadFinalizar2=()=>{
+      if(!shadRec)return;
+      clearTimeout(shadSilencioTimer2);
+      const sr=shadRec;shadRec=null;shadEstado='idle';shadResetBtn(btn);
+      try{sr.stop();}catch(e){}
+      const txt=shadTranscFinal2.trim()||'';
+      if(!txt){mostrarToast('Não captei. Tente de novo.');return;}
+      const pr=document.getElementById('res-shad-pron');
+      if(pr){
+        const simTok=simTokens(txt,shadFraseAt);
+        const confB=shadTranscConf2>0.7?0.08:shadTranscConf2>0.5?0.04:0;
+        const pct=Math.round(Math.min(1,simTok+confB)*100);
+        const cor=pct>=55?'var(--grn)':pct>=35?'var(--ylw)':'var(--red)';
+        const msg=pct>=55?'Boa pronúncia!':pct>=35?'Continue — está no caminho certo':'Tente mais uma vez devagar';
+        pr.style.display='block';
+        pr.innerHTML=`<div style="font-size:12px;font-weight:700;color:${cor};margin-bottom:6px;">${pct}% — ${msg}</div><div style="font-size:13px;color:var(--tx2);">Você disse: "${txt}"</div>`;
+      }
+      shadObrigatorioFeito=true;
+      habilitarAval();
+      mostrarToast('Shadowing concluído. Avaliação liberada.');
+    };
+    shadRec.onresult=e=>{
+      clearTimeout(shadSilencioTimer2);
+      let acum='';let confAcum=0;let nFinal=0;
+      for(let i=0;i<e.results.length;i++){
+        if(e.results[i].isFinal){
+          let melhor=e.results[i][0].transcript,melhorConf=e.results[i][0].confidence;
+          for(let k=1;k<e.results[i].length;k++){
+            if(simTokens(e.results[i][k].transcript,shadFraseAt)>simTokens(melhor,shadFraseAt)){
+              melhor=e.results[i][k].transcript;melhorConf=e.results[i][k].confidence;
+            }
+          }
+          acum+=(acum?' ':'')+melhor;confAcum+=melhorConf;nFinal++;
+        }
+      }
+      if(acum){shadTranscFinal2=acum;shadTranscConf2=nFinal>0?confAcum/nFinal:0;}
+      shadSilencioTimer2=setTimeout(shadFinalizar2,1500);
+    };
+    shadRec.onerror=()=>{
+      clearTimeout(shadSilencioTimer2);
+      shadRec=null;shadEstado='idle';shadResetBtn(btn);
+      mostrarToast('Não captei. Tente de novo.');
+    };
+    setTimeout(()=>{
+      if(shadEstado!=='gravando')return;
+      if(btn){
+        btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='var(--grn)';btn.style.color='var(--grn)';
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Fale agora';
+      }
+      try{shadRec.start();}catch(e){shadEstado='idle';shadResetBtn(btn);mostrarToast('Erro ao abrir microfone.');}
+    },400);
+    return;
+  }
+  if(shadEstado==='gravando'&&shadRec){
+    shadFinalizar2();
+  }
+}
+
+function avaliar(tipo){
+  if(!modoRefazer){sP(itemAt.id,tipo);}
+  stats[tipo]=(stats[tipo]||0)+1;
+  di++;
+  setTimeout(()=>{irPara('sessao');renderTurno();},300);
+}
+
+function tAcc(el){el.classList.toggle('op');}
+
+// ── DIÁLOGO LIVRE ────────────────────────
+let dlTurnos=[],dlIdx=0,dlUsarMic=true,dlRecAt=null;
+
+function iniciarDialogoLivre(){
+  if(!sitAt||!sitAt.dialogo_livre||!sitAt.dialogo_livre.turnos||!sitAt.dialogo_livre.turnos.length){
+    finalizarSessao();return;
+  }
+  dlTurnos=sitAt.dialogo_livre.turnos;
+  dlIdx=0;
+  dlUsarMic=true;
+  dlAcertos=0;
+  dlTotal=0;
+  document.getElementById('dl-ctx').textContent=sitAt.dialogo_livre.contexto||'';
+  irPara('dialogo-livre');
+  renderDlTurno();
+}
+
+function renderDlTurno(){
+  const total=dlTurnos.length;
+  document.getElementById('dl-prog').textContent='Turno '+(dlIdx+1)+' de '+total;
+  const t=dlTurnos[dlIdx];
+
+  // Vocab de apoio do turno (se existir)
+  let vocabHtml='';
+  if(t.vocab_apoio&&t.vocab_apoio.length){
+    vocabHtml=`<div style="background:rgba(234,179,8,.06);border:1px solid rgba(234,179,8,.2);border-radius:var(--r);padding:12px 14px;margin-bottom:12px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--ylw);margin-bottom:8px;">Vocabulário de apoio</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">`;
+    t.vocab_apoio.forEach(v=>{
+      vocabHtml+=`<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+        <div>
+          <span style="font-size:14px;font-weight:600;color:var(--txt);">${v.palavra}</span>
+          ${v.acento?`<span style="font-size:11px;color:var(--acc);font-family:monospace;margin-left:8px;">${v.acento}</span>`:''}
+          <div style="font-size:13px;color:var(--tx2);">${v.significado}</div>
+        </div>
+        <button class="abtn" onclick="falarVocab(${aE(v.palavra)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+      </div>`;
+    });
+    vocabHtml+=`</div></div>`;
+  }
+
+  let html=vocabHtml+`<div class="dl-fala">
+    <div class="dl-fala-lbl">
+      <span>${t.personagem||'Interlocutor'}</span>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <button class="abtn" onclick="falar(${aE(t.fala)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+        ${t.connected?`<button class="abtn" onclick="falar(${aE(t.connected)},this)" style="color:var(--acc2);border-color:rgba(124,92,252,.3)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Nativo</button>`:''}
+      </div>
+    </div>
+    <div class="dl-fala-txt">${t.fala}</div>
+    ${t.traducao?`<div class="ftrad" style="margin-top:8px;padding-top:8px;"><div class="ftrad-lbl">Tradução</div>${t.traducao}</div>`:''}
+    ${t.connected?`<div style="font-size:12px;color:var(--acc2);font-style:italic;margin-top:8px;">"${t.connected}"</div>`:''}
+  </div>
+  <div class="dl-resposta-area">
+    <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
+      <span>Sua resposta em inglês</span>
+      <span class="dl-mic-toggle" onclick="dlToggleModo()">${dlUsarMic?'Digitar em vez disso':'Usar microfone'}</span>
+    </div>
+    <div id="dl-mic-area" style="${dlUsarMic?'':'display:none'}">
+      <button class="btn-audio" id="dl-mbtn" onclick="dlToggleMic()" style="width:100%;justify-content:center;margin-top:0;margin-bottom:10px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        Toque para falar
+      </button>
+    </div>
+    <div id="dl-txt-area" style="${dlUsarMic?'display:none':''}">
+      <textarea class="ri" id="dl-ri" placeholder="Digite sua resposta em inglês..." style="margin-bottom:10px;"></textarea>
+    </div>
+    <div id="dl-comp" class="dl-comparacao"></div>
+  </div>
+  <div class="dl-modelo" id="dl-modelo">
+    <div class="dl-modelo-lbl">
+      <span>Resposta modelo</span>
+      <button class="abtn" id="dl-mod-btn" onclick="falar(${aE(t.resposta_modelo)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+    </div>
+    <div class="dl-modelo-txt">${t.resposta_modelo}</div>
+    <div class="dl-feedback"><div class="dl-feedback-lbl">Dica nativa</div>${t.feedback_modelo}</div>
+  </div>
+  <button class="btn-p" id="dl-btn-ver" onclick="dlMostrarModelo()" style="margin-bottom:10px;">Ver resposta modelo</button>
+  <button class="btn-p" id="dl-btn-prox" style="display:none;" onclick="dlProximo()">${dlIdx+1<total?'Próximo turno':'Concluir sessão'}</button>`;
+  document.getElementById('dl-corpo').innerHTML=html;
+}
+
+function dlToggleModo(){
+  dlUsarMic=!dlUsarMic;
+  renderDlTurno();
+}
+
+function dlToggleMic(){
+  if(!('webkitSpeechRecognition'in window)&&!('SpeechRecognition'in window)){
+    mostrarToast('Use o Chrome para microfone.');
+    dlUsarMic=false;renderDlTurno();return;
+  }
+  const btn=document.getElementById('dl-mbtn');
+  if(dlRecAt){
+    dlRecAt.stop();dlRecAt=null;
+    if(btn){btn.classList.remove('on');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Toque para falar';}
+    return;
+  }
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  dlRecAt=new SR();dlRecAt.lang='en-US';dlRecAt.continuous=false;dlRecAt.interimResults=false;dlRecAt.maxAlternatives=3;
+  if(btn){btn.classList.add('on');btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Parar gravação';}
+  dlRecAt.onresult=e=>{
+    const res=e.results[0];
+    const t=dlTurnos[dlIdx];
+    const modeloDl=(t&&t.resposta_modelo)||'';
+    let melhor=res[0].transcript;
+    for(let k=0;k<res.length;k++){
+      if(simTokens(res[k].transcript,modeloDl)>simTokens(melhor,modeloDl))melhor=res[k].transcript;
+    }
+    const txt=melhor;
+    dlRecAt=null;
+    if(btn){btn.classList.remove('on');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Toque para falar';}
+    dlProcessarResposta(txt);
+  };
+  dlRecAt.onerror=()=>{
+    dlRecAt=null;
+    if(btn){btn.classList.remove('on');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Toque para falar';}
+    mostrarToast('Erro no microfone. Tente de novo.');
+  };
+  dlRecAt.start();
+}
+
+function dlProcessarResposta(txt){
+  const t=dlTurnos[dlIdx];
+  const norm=s=>s.toLowerCase().replace(/[^a-z\s]/g,'').trim();
+  const dito=norm(txt);
+  const esperadas=t.respostas_esperadas||[];
+  const acertou=esperadas.some(r=>norm(r)===dito||dito.includes(norm(r).split(' ')[0]));
+  // Alteração 4: contabiliza acerto/total do Diálogo Livre
+  dlTotal++;
+  if(acertou)dlAcertos++;
+  // Mostrar comparação palavra a palavra
+  const modelo=t.resposta_modelo;
+  const palavras=modelo.split(/\s+/);
+  const pd=dito.split(/\s+/);
+  let cmpHtml=`<div style="font-size:10px;color:var(--tx3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Você disse: "${txt}"</div>`;
+  palavras.forEach((pal,i)=>{
+    const puro=norm(pal);const dPuro=pd[i]||'';
+    if(dPuro===puro)cmpHtml+=`<span class="pw">${pal} </span>`;
+    else if(dPuro)cmpHtml+=`<span class="pe" title="${dPuro}">${pal} </span>`;
+    else cmpHtml+=`<span style="color:var(--tx3)">${pal} </span>`;
+  });
+  const comp=document.getElementById('dl-comp');
+  if(comp){comp.innerHTML=cmpHtml;comp.style.display='block';}
+  // Mostrar modelo diretamente sem recursão
+  const m=document.getElementById('dl-modelo');
+  const bVer=document.getElementById('dl-btn-ver');
+  const bProx=document.getElementById('dl-btn-prox');
+  if(m)m.style.display='block';
+  if(bVer)bVer.style.display='none';
+  if(bProx)bProx.style.display='block';
+  setTimeout(()=>{if(m)m.scrollIntoView({behavior:'smooth',block:'nearest'});},100);
+}
+
+function dlMostrarModelo(){
+  // Modo digitação: processa o texto do textarea se houver
+  if(!dlUsarMic){
+    const ri=document.getElementById('dl-ri');
+    if(ri&&ri.value.trim()){
+      dlProcessarResposta(ri.value.trim());
+      return; // dlProcessarResposta já mostra o modelo
+    }
+  }
+  // Sem texto ou modo mic: só mostra o modelo diretamente
+  const m=document.getElementById('dl-modelo');
+  const bVer=document.getElementById('dl-btn-ver');
+  const bProx=document.getElementById('dl-btn-prox');
+  if(m)m.style.display='block';
+  if(bVer)bVer.style.display='none';
+  if(bProx)bProx.style.display='block';
+  setTimeout(()=>{if(m)m.scrollIntoView({behavior:'smooth',block:'nearest'});},100);
+}
+
+function dlProximo(){
+  // Alteração 4: Registra desempenho do Diálogo Livre no SRS ao concluir
+  if(dlIdx>=dlTurnos.length-1&&sitAt&&sitAt.id){
+    const pctDl=dlTotal>0?dlAcertos/dlTotal:0;
+    const avDl=pctDl>=0.8?'sim':pctDl>=0.5?'qse':'nao';
+    sP(sitAt.id+'_dl',avDl);
+    const msgs={
+      sim:'Diálogo livre concluído com sucesso — revisão em 3 dias.',
+      qse:'Quase lá no diálogo livre — revisão amanhã.',
+      nao:'Diálogo livre difícil — voltará em breve para reforço.'
+    };
+    mostrarToast(msgs[avDl]);
+  }
+  dlIdx++;
+  if(dlIdx>=dlTurnos.length){finalizarSessao();return;}
+  renderDlTurno();
+  document.querySelector('.sb').scrollTop=0;
+}
+
+// ── FIM ──────────────────────────────────
+function finalizarSessao(){
+  // Se tem diálogo livre e ainda não foi feito, redireciona
+  if(sitAt&&sitAt.dialogo_livre&&sitAt.dialogo_livre.turnos&&sitAt.dialogo_livre.turnos.length&&dlIdx===0&&!modoRefazer){
+    iniciarDialogoLivre();return;
+  }
+  dlIdx=0; // reset para próxima sessão
+  if(!modoRefazer){upStreak();mDia();}
+  if(sitAt&&!modoRefazer)registrarConclusao(sitAt.id);
+  document.getElementById('fim-sim').textContent=stats.sim||0;
+  document.getElementById('fim-qse').textContent=stats.qse||0;
+  document.getElementById('fim-nao').textContent=stats.nao||0;
+  // Alteração 4: mostrar resultado do Diálogo Livre na tela de fim
+  const dlStats=document.getElementById('fim-dl-stats');
+  if(dlStats){
+    if(dlTotal>0){
+      const pctDl=Math.round((dlAcertos/dlTotal)*100);
+      const cor=pctDl>=80?'var(--grn)':pctDl>=50?'var(--ylw)':'var(--red)';
+      dlStats.style.display='block';
+      dlStats.innerHTML=`<div class="sb2" style="border-color:${cor};"><span class="sn" style="color:${cor};">${pctDl}%</span><span class="sl">Diálogo livre (${dlAcertos}/${dlTotal})</span></div>`;
+    }else{
+      dlStats.style.display='none';
+    }
+  }
+  const tot=Object.values(stats).reduce((a,b)=>a+b,0);
+  const pct=tot>0?Math.round(((stats.sim||0)/tot)*100):0;
+  document.getElementById('fim-s').textContent=pct>=80?`Excelente! ${pct}% de acerto.`:pct>=50?'Bom progresso! Continue com os que não sabia.':'Sessão concluída. Os turnos difíceis voltam em breve.';
+  const agora=new Date();
+  document.getElementById('fim-data').textContent='Concluída em '+agora.toLocaleDateString('pt-BR')+' às '+agora.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('btn-refazer').style.display=sitAt?'block':'none';
+  irPara('fim');
+}
+
+// ── CRONOGRAMA ───────────────────────────
+function renderCron(){
+  const hj=new Date();const dias=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+  let html=`<div class="saud" style="font-size:20px;margin-bottom:14px;">Cronograma</div>
+  <div class="cron-sem">`;
+  for(let i=-3;i<=3;i++){
+    const d=new Date(hj);d.setDate(hj.getDate()+i);
+    const ds=d.toDateString(),isHj=i===0,ft=gDia(ds);
+    html+=`<div class="dia${isHj?' hj':''}${ft?' ft':''}"><div class="dia-n">${dias[d.getDay()]}</div><div class="dia-d">${d.getDate()}</div><div class="dia-i">${ft?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>':isHj?'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>':''}</div></div>`;
+  }
+  html+=`</div>`;
+  const revs=gRevs();
+  html+=`<div class="plano"><div class="plano-t">Plano de hoje</div>
+  <div class="pi"><div class="pdot a"></div><div class="pi-txt"><strong>Prática nova — 20 min</strong><br>Avance nos diálogos. Ouça, leia a tradução, repita em voz alta.</div></div>
+  <div class="pi"><div class="pdot g"></div><div class="pi-txt"><strong>Revisão SRS — 10 min</strong><br>${revs.length?revs.length+' turno(s) para revisar hoje.':'Nenhuma revisão pendente. Avance na prática.'}</div></div>
+  <div class="pi"><div class="pdot y"></div><div class="pi-txt"><strong>Connected Speech — 5 min</strong><br>Releia os blocos de fala nativa. Ouça e repita em voz alta.</div></div>
+  </div>
+    </div>`;
+  // Trilha completa gerada a partir de DEF_FASES (nunca diverge do conteúdo)
+  const periodos={0:'Antes de começar',1:'Meses 1–2',2:'Meses 3–4',3:'Meses 5–6'};
+  let trilhaHtml='<div style="margin-top:18px"><div class="slbl">TRILHA COMPLETA</div>';
+  DEF_FASES.forEach(f=>{
+    trilhaHtml+='<div class="fase-b"><div class="fase-h"><span class="fase-nome">'+f.nome+'</span><span class="fase-per">'+(periodos[f.num]||'')+'</span></div><div class="fase-ms">'+f.mundos.map(m=>'<span class="fase-m">'+m+'</span>').join('')+'</div></div>';
+  });
+  trilhaHtml+='</div>';
+  html+=trilhaHtml;
+  document.getElementById('aba-cronograma').innerHTML=html;
+}
+
+// ── VOCABULÁRIO PRATICADO ─────────────────
+function renderVocab(){
+  const p=gP();
+  const todos=[];
+  const vistos=new Set();
+  for(const m of mundos)for(const s of m.situacoes){
+    const sitPraticada=s.dialogo.some(t=>t.sua_vez&&p[t.id]&&p[t.id].hist.length>0);
+    if(!sitPraticada)continue;
+    for(const t of s.dialogo){
+      if(t.vocab){
+        t.vocab.forEach(v=>{
+          const key=v.palavra+'|'+m.nome;
+          if(!vistos.has(key)){vistos.add(key);todos.push({...v,mundo:m.nome,sit:s.titulo});}
+        });
+      }
+    }
+  }
+  let html=`<div class="saud" style="font-size:20px;margin-bottom:14px;">Vocabulário Praticado</div>`;
+  if(!todos.length){
+    html+=`<div class="vazio">Nenhum vocabulário praticado ainda.<br>Complete algumas situações primeiro.</div>`;
+  }else{
+    html+=`<div style="font-size:13px;color:var(--tx2);margin-bottom:14px;">${todos.length} palavra${todos.length>1?'s':''} praticada${todos.length>1?'s':''}</div>`;
+    html+=`<div class="vocab-lista">`;
+    todos.forEach(v=>{
+      html+=`<div class="vi-full">
+        <div>
+          <div class="vp">${v.palavra}</div>
+          <div class="vs">${v.significado}</div>
+          <div class="va"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${v.acento||''}</div>
+          <div class="vm">${v.mundo} — ${v.sit}</div>
+        </div>
+        <button class="vi-full-btn" onclick="falarVocab(${aE(v.palavra)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
+      </div>`;
+    });
+    html+=`</div>`;
+  }
+  document.getElementById('aba-vocabulario').innerHTML=html;
+}
+
+// ── EXPRESSÕES PRATICADAS ─────────────────
+function renderExpr(){
+  const p=gP();
+  const todas=[];
+  for(const m of mundos)for(const s of m.situacoes){
+    const sitPraticada=s.dialogo.some(t=>t.sua_vez&&p[t.id]&&p[t.id].hist.length>0);
+    if(!sitPraticada)continue;
+    for(const t of s.dialogo){
+      todas.push({fala:t.fala,traducao:t.traducao||'',mundo:m.nome,sit:s.titulo,connected:t.connected||null,sua_vez:t.sua_vez});
+    }
+  }
+  let html=`<div class="saud" style="font-size:20px;margin-bottom:14px;">Expressões Praticadas</div>`;
+  if(!todas.length){
+    html+=`<div class="vazio">Nenhuma expressão praticada ainda.<br>Complete algumas situações primeiro.</div>`;
+  }else{
+    html+=`<div style="font-size:13px;color:var(--tx2);margin-bottom:14px;">${todas.length} expressão${todas.length>1?'es':''} praticada${todas.length>1?'s':''}</div>`;
+    html+=`<div class="vocab-lista">`;
+    todas.forEach(e=>{
+      const tag=e.sua_vez
+        ?`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc2);background:rgba(124,92,252,.1);padding:2px 6px;border-radius:4px;">Você</span>`
+        :`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc);background:rgba(79,142,247,.1);padding:2px 6px;border-radius:4px;">Nativo</span>`;
+      html+=`<div class="vi-full" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">${tag}<div class="vm" style="margin:0;">${e.mundo} — ${e.sit}</div></div>
+            <div class="vp" style="font-size:14px;">${e.fala}</div>
+            <div class="vs">${e.traducao}</div>
+          </div>
+          <button class="vi-full-btn" onclick="falar(${aE(e.fala)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+        </div>
+        ${e.connected?`<div style="font-size:12px;color:var(--acc2);font-style:italic;">"${e.connected}"</div>`:''}
+      </div>`;
+    });
+    html+=`</div>`;
+  }
+  document.getElementById('aba-expressoes').innerHTML=html;
+}
+
+// ── ÁUDIO ────────────────────────────────
+// Escape para uso seguro dentro de atributos HTML (onclick)
+function aE(s){
+  return JSON.stringify(String(s==null?'':s)).replace(/"/g,'&quot;');
+}
+
+function carregarVoz(){
+  const vs=synth.getVoices();
+  if(!vs||!vs.length)return false;
+  voz=vs.find(v=>v.lang==='en-US'&&/Samantha|Google|Natural/i.test(v.name))
+    ||vs.find(v=>v.lang==='en-US')
+    ||vs.find(v=>v.lang&&v.lang.startsWith('en'))
+    ||null;
+  return true;
+}
+carregarVoz();
+if(synth.onvoiceschanged!==undefined)synth.onvoiceschanged=carregarVoz;
+
+// Chrome interrompe falas longas por volta de 15s — pause/resume mantem viva
+let kaTimer=null;
+function pararKA(){if(kaTimer){clearInterval(kaTimer);kaTimer=null;}}
+function iniciarKA(){
+  pararKA();
+  kaTimer=setInterval(()=>{
+    if(!synth.speaking){pararKA();return;}
+    try{synth.pause();synth.resume();}catch(e){}
+  },9000);
+}
+
+function limparBotoesAudio(){
+  document.querySelectorAll('.on[data-audio]').forEach(b=>b.classList.remove('on'));
+}
+
+// Motor unico de fala — sincrono para preservar o gesto do usuario
+function _falar(txt,btn,rate){
+  if(!txt||!synth)return;
+  limparBotoesAudio();
+  pararKA();
+  // Cancela apenas se realmente ha algo na fila (cancel a seco trava o Chrome)
+  if(synth.speaking||synth.pending){
+    try{synth.cancel();}catch(e){}
+  }
+  if(!voz)carregarVoz();
+  const u=new SpeechSynthesisUtterance(String(txt));
+  u.lang='en-US';u.rate=rate;u.pitch=1;
+  if(voz)u.voice=voz;
+  if(btn){btn.setAttribute('data-audio','1');btn.classList.add('on');}
+  u.onend=()=>{pararKA();if(btn)btn.classList.remove('on');};
+  u.onerror=()=>{pararKA();if(btn)btn.classList.remove('on');};
+  try{
+    synth.resume();        // destrava estado pausado do Chrome
+    synth.speak(u);
+    iniciarKA();
+  }catch(e){
+    pararKA();
+    if(btn)btn.classList.remove('on');
+  }
+}
+
+function falar(txt,btn){_falar(txt,btn,0.85);}
+function falarVocab(txt,btn){_falar(txt,btn,0.75);}
+
+// ── UTILS ────────────────────────────────
+let _toastQ=[],_toastOn=false;
+function _toastProx(){
+  const t=document.getElementById('toast');
+  if(!_toastQ.length){_toastOn=false;t.classList.remove('vis');return;}
+  _toastOn=true;const m=_toastQ.shift();
+  t.textContent=m;t.classList.add('vis');
+  setTimeout(_toastProx,2600);
+}
+function mostrarToast(m){_toastQ.push(m);if(!_toastOn)_toastProx();}
+
+// ── BIBLIOTECA ───────────────────────────
+let bibAba='vocab';      // 'vocab' | 'expr'
+let bibFase=null;        // null = todas
+
+function abrirProgresso(){
+  irPara('progresso');
+  renderProgresso();
+}
+
+function renderProgresso(){
+  const p=gP();
+  const now=Date.now();
+
+  // ── A: DOMÍNIO GERAL ──────────────────────────────────────────
+  let totalTurnos=0,domTurnos=0,emProgresso=0,naoIniciado=0;
+  let totalAcertos=0,totalErros=0,totalQse=0;
+  const porMundo=[];
+
+  for(const m of mundos){
+    if(!m.situacoes||!m.situacoes.length)continue;
+    let mTot=0,mDom=0,mAc=0,mEr=0;
+    for(const s of m.situacoes){
+      for(const t of s.dialogo){
+        if(!t.sua_vez)continue;
+        mTot++;totalTurnos++;
+        const h=p[t.id];
+        if(!h){naoIniciado++;continue;}
+        const n=h.n||0;
+        if(n>=3){domTurnos++;mDom++;}
+        else if(n>0)emProgresso++;
+        else naoIniciado++;
+        h.hist.forEach(x=>{
+          if(x.av==='sim'){totalAcertos++;mAc++;}
+          else if(x.av==='nao'){totalErros++;mEr++;}
+          else totalQse++;
+        });
+      }
+    }
+    if(mTot>0)porMundo.push({nome:m.nome,tot:mTot,dom:mDom,pct:Math.round((mDom/mTot)*100),ac:mAc,er:mEr});
+  }
+
+  const totalResp=totalAcertos+totalErros+totalQse||1;
+  const txAcerto=Math.round((totalAcertos/totalResp)*100);
+  const domPct=totalTurnos>0?Math.round((domTurnos/totalTurnos)*100):0;
+  const revisoes=gRevs().length;
+
+  // ── B: VOCAB / EXPRESSÕES COM PROBLEMA ────────────────────────
+  const problemas=[];
+  for(const m of mundos){
+    if(!m.situacoes)continue;
+    for(const s of m.situacoes){
+      for(const t of s.dialogo){
+        if(!t.sua_vez)continue;
+        const h=p[t.id];
+        if(!h||!h.hist.length)continue;
+        const erros=h.hist.filter(x=>x.av==='nao').length;
+        const total=h.hist.length;
+        const txErr=Math.round((erros/total)*100);
+        if(txErr>0){
+          problemas.push({
+            fala:t.fala,
+            mundo:m.nome,
+            sit:s.titulo,
+            erros,total,txErr,
+            n:h.n||0
+          });
+        }
+      }
+    }
+  }
+  problemas.sort((a,b)=>b.txErr-a.txErr);
+  const topProblemas=problemas.slice(0,10);
+
+  // ── C: EVOLUÇÃO TEMPORAL ──────────────────────────────────────
+  // Últimos 14 dias — conta turnos completados por dia
+  const diasMap={};
+  for(const [id,h] of Object.entries(p)){
+    if(!h.hist)continue;
+    h.hist.forEach(x=>{
+      const d=new Date(x.ts).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
+      diasMap[d]=(diasMap[d]||0)+1;
+    });
+  }
+  const ultDias=[];
+  for(let i=13;i>=0;i--){
+    const dt=new Date(now-i*86400000);
+    const lbl=dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
+    const diaSemana=dt.toLocaleDateString('pt-BR',{weekday:'short'}).replace('.','');
+    ultDias.push({lbl,diaSemana,count:diasMap[lbl]||0});
+  }
+  const maxCount=Math.max(...ultDias.map(d=>d.count),1);
+  const diasAtivos=ultDias.filter(d=>d.count>0).length;
+  const streak=gStreak();
+
+  // ── RENDER ────────────────────────────────────────────────────
+  let html='';
+
+  // Seção A — Domínio geral
+  html+=`<div class="kpi-sec-lbl">Visão Geral</div>`;
+  html+=`<div class="kpi-grid">`;
+
+  // Card domínio total
+  html+=`<div class="kpi-card">
+    <div class="kpi-val" style="color:var(--acc)">${domPct}%</div>
+    <div class="kpi-lbl">Dominado</div>
+    <div class="kpi-sub">${domTurnos} de ${totalTurnos} turnos</div>
+    <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:${domPct}%;background:var(--acc)"></div></div>
+  </div>`;
+
+  // Card taxa de acerto
+  html+=`<div class="kpi-card">
+    <div class="kpi-val" style="color:${txAcerto>=70?'var(--grn)':txAcerto>=50?'var(--ylw)':'var(--red)'}">${txAcerto}%</div>
+    <div class="kpi-lbl">Taxa de acerto</div>
+    <div class="kpi-sub">${totalAcertos} sim · ${totalQse} quase · ${totalErros} não</div>
+    <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:${txAcerto}%;background:${txAcerto>=70?'var(--grn)':txAcerto>=50?'var(--ylw)':'var(--red)'}"></div></div>
+  </div>`;
+
+  // Card streak
+  html+=`<div class="kpi-card">
+    <div class="kpi-val" style="color:var(--ylw)">${streak}</div>
+    <div class="kpi-lbl">Dias seguidos</div>
+    <div class="kpi-sub">${diasAtivos} dias ativos em 2 semanas</div>
+  </div>`;
+
+  // Card revisões
+  html+=`<div class="kpi-card" style="cursor:${revisoes>0?'pointer':'default'}" ${revisoes>0?'onclick="iniciarRevisao()"':''}>
+    <div class="kpi-val" style="color:${revisoes>0?'var(--red)':'var(--grn)'}">${revisoes}</div>
+    <div class="kpi-lbl">Revisões pendentes</div>
+    <div class="kpi-sub">${revisoes>0?'Toque para revisar agora':'Em dia! Nada para revisar'}</div>
+  </div>`;
+
+  // Status por mundo
+  html+=`<div class="kpi-card full">
+    <div class="kpi-lbl" style="margin-bottom:10px;">Progresso por mundo</div>`;
+  porMundo.forEach(m=>{
+    const cor=m.pct>=70?'var(--grn)':m.pct>=30?'var(--ylw)':'var(--acc)';
+    html+=`<div style="margin-bottom:10px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%;">${m.nome}</div>
+        <div style="font-size:12px;color:var(--tx2);">${m.dom}/${m.tot} · ${m.pct}%</div>
+      </div>
+      <div class="kpi-bar-wrap"><div class="kpi-bar" style="width:${m.pct}%;background:${cor}"></div></div>
+    </div>`;
+  });
+  if(!porMundo.length)html+=`<div style="font-size:13px;color:var(--tx3);">Nenhum mundo iniciado ainda.</div>`;
+  html+=`</div>`;
+
+  html+=`</div>`; // fecha kpi-grid
+
+  // Seção B — Pontos fracos
+  html+=`<div class="kpi-sec-lbl">Pontos que precisam melhorar</div>`;
+  if(!topProblemas.length){
+    html+=`<div style="font-size:13px;color:var(--tx3);padding:16px 0;">Nenhum erro registrado ainda. Continue praticando!</div>`;
+  }else{
+    topProblemas.forEach(item=>{
+      const cor=item.txErr>=60?'badge-ruim':item.txErr>=30?'badge-med':'badge-ok';
+      const label=item.txErr>=60?'Dificuldade':item.txErr>=30?'Atenção':'Melhorando';
+      html+=`<div class="prob-item">
+        <div class="prob-txt">
+          <div class="prob-word">${item.fala}</div>
+          <div class="prob-meta">${item.mundo} · ${item.erros} erro${item.erros!==1?'s':''} em ${item.total} tentativa${item.total!==1?'s':''}</div>
+        </div>
+        <div class="prob-badge ${cor}">${label} ${item.txErr}%</div>
+      </div>`;
+    });
+  }
+
+  // Seção C — Evolução temporal
+  html+=`<div class="kpi-sec-lbl">Evolução — últimas 2 semanas</div>`;
+  html+=`<div class="kpi-card full">`;
+  html+=`<div class="evolucao-row">`;
+  ultDias.forEach(d=>{
+    const h=d.count>0?Math.max(Math.round((d.count/maxCount)*48),4):2;
+    const cor=d.count>0?'var(--acc)':'var(--s2)';
+    const hoje=d.lbl===new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
+    html+=`<div class="evolucao-bar-wrap">
+      <div class="evolucao-bar" style="height:${h}px;background:${cor};${hoje?'opacity:1;':'opacity:.7;'}"></div>
+      <div class="evolucao-lbl" style="${hoje?'color:var(--acc);font-weight:700;':''}">
+        ${d.diaSemana.charAt(0).toUpperCase()}
+      </div>
+    </div>`;
+  });
+  html+=`</div>`;
+  // Resumo numérico
+  const mediaAtivos=diasAtivos>0?Math.round(ultDias.filter(d=>d.count>0).reduce((a,d)=>a+d.count,0)/diasAtivos):0;
+  html+=`<div style="display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;">
+    <div><span style="font-size:18px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--acc)">${diasAtivos}</span><span style="font-size:11px;color:var(--tx2);margin-left:4px;">dias ativos</span></div>
+    <div><span style="font-size:18px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--acc2)">${mediaAtivos}</span><span style="font-size:11px;color:var(--tx2);margin-left:4px;">turnos/dia ativo</span></div>
+    <div><span style="font-size:18px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--ylw)">${streak}</span><span style="font-size:11px;color:var(--tx2);margin-left:4px;">streak atual</span></div>
+  </div>`;
+  html+=`</div>`;
+
+  document.getElementById('progresso-corpo').innerHTML=html;
+}
+
+function abrirBiblioteca(){
+  bibAba='vocab';bibFase=null;
+  irPara('biblioteca');
+  bibRenderFiltros();
+  bibRender();
+}
+
+function bibSetAba(a){
+  bibAba=a;
+  document.getElementById('bib-tab-vocab').classList.toggle('on',a==='vocab');
+  document.getElementById('bib-tab-expr').classList.toggle('on',a==='expr');
+  bibRender();
+}
+
+function bibRenderFiltros(){
+  const fases=[
+    {id:null,label:'Todas'},
+    {id:0,label:'Introdução'},
+    {id:1,label:'Fase 1'},
+    {id:2,label:'Fase 2'},
+    {id:3,label:'Fase 3'},
+  ];
+  const el=document.getElementById('bib-filtros');
+  if(!el)return;
+  el.innerHTML=fases.map(f=>`
+    <button onclick="bibSetFase(${f.id===null?'null':f.id})"
+      style="padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .15s;
+      background:${bibFase===f.id?'var(--acc)':'var(--s2)'};
+      border:1px solid ${bibFase===f.id?'var(--acc)':'var(--bd)'};
+      color:${bibFase===f.id?'#fff':'var(--tx2)'};">
+      ${f.label}
+    </button>`).join('');
+}
+
+function bibSetFase(f){
+  bibFase=f;
+  bibRenderFiltros();
+  bibRender();
+}
+
+// Alteração 5: incluir turnoId no vocabulário e expressões da Biblioteca
+function bibColetarVocab(s){
+  const items=[];
+  const vistas=new Set();
+  s.dialogo.forEach(t=>{
+    if(t.vocab&&t.vocab.length){
+      t.vocab.forEach(v=>{
+        if(!vistas.has(v.palavra)){
+          vistas.add(v.palavra);
+          items.push({...v, turnoId: t.id});
+        }
+      });
+    }
+  });
+  return items;
+}
+
+function bibColetarExpr(s){
+  return s.dialogo
+    .filter(t=>t.fala&&t.traducao)
+    .map(t=>({
+      fala:t.fala,
+      traducao:t.traducao,
+      connected:t.sua_vez?(t.connected_voce||null):(t.connected||null),
+      sua_vez:t.sua_vez,
+      personagem:t.personagem||'Interlocutor',
+      nativo:t.nativo||null,
+      erro:t.erro||null,
+      turnoId:t.id
+    }));
+}
+
+function bibRender(){
+  const corpo=document.getElementById('bib-corpo');
+  if(!corpo)return;
+  corpo.innerHTML='';
+
+  // Filtra mundos pela fase selecionada
+  const mcs=bibFase===null?MCFG:MCFG.filter(mc=>mc.fase===bibFase);
+
+  mcs.forEach(mc=>{
+    const m=mundos.find(x=>x.id===mc.id);
+    if(!m||!m.situacoes||!m.situacoes.length)return;
+
+    m.situacoes.forEach(s=>{
+      const items=bibAba==='vocab'?bibColetarVocab(s):bibColetarExpr(s);
+      if(!items.length)return;
+
+      // Cabeçalho do grupo (mundo + situação)
+      const grp=document.createElement('div');
+      grp.style.cssText='margin-bottom:18px;';
+      const nvCor=['','var(--grn)','var(--ylw)','var(--red)'][s.nivel]||'var(--tx3)';
+      grp.innerHTML=`
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+          <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--tx3);">${m.nome}</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <span style="font-size:13px;font-weight:600;color:var(--txt);">${s.titulo}</span>
+          <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;background:${nvCor}22;color:${nvCor};">N${s.nivel}</span>
+        </div>
+        <div class="vi-lista" id="bib-lista-${mc.id}-${s.id.replace(/[^a-z0-9]/gi,'_')}"></div>`;
+      corpo.appendChild(grp);
+
+      const lista=grp.querySelector('.vi-lista');
+      const p=gP();
+      if(bibAba==='vocab'){
+        items.forEach(v=>{
+          // Alteração 5: indicador SRS no vocabulário
+          const nivelSrs=v.turnoId?(p[v.turnoId]?.n||0):0;
+          const corPonto=nivelSrs===0?'var(--tx3)':nivelSrs<=2?'var(--ylw)':'var(--grn)';
+          const tituloPonto=nivelSrs===0?'Não praticado':nivelSrs<=2?'Em progresso':'Dominado';
+          const indicadorSrs=`<span title="${tituloPonto}" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${corPonto};margin-right:6px;flex-shrink:0;margin-top:5px;"></span>`;
+          lista.innerHTML+=`<div class="vi-item">
+            <div class="vi-item-info" style="display:flex;align-items:flex-start;">
+              ${indicadorSrs}
+              <div style="flex:1;">
+                <div class="vi-item-palavra">${v.palavra}</div>
+                <div class="vi-item-sig">${v.significado}</div>
+                ${v.acento?`<div class="vi-item-acento">${v.acento}</div>`:''}
+                ${v.connected?`<div style="font-size:12px;color:var(--acc2);font-style:italic;margin-top:2px;">"${v.connected}"</div>`:''}
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
+              <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(v.palavra)},this)" title="Ouvir">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              ${v.connected?`<button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="falarVocab(${aE(v.connected)},this)" title="Nativo">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>`:'' }
+              <button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--grn);" onclick="viShadowingLista(${aE(v.connected||v.palavra)},${aE(v.palavra)},this)" title="Repetir">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </button>
+            </div>
+          </div>`;
+        });
+      } else {
+        // Expressões
+        items.forEach(e=>{
+          const isUser=e.sua_vez;
+          const corLabel=isUser?'var(--acc2)':'var(--acc)';
+          const labelTag=isUser
+            ?`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc2);background:rgba(124,92,252,.1);padding:2px 6px;border-radius:4px;">Você</span>`
+            :`<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--acc);background:rgba(79,142,247,.1);padding:2px 6px;border-radius:4px;">${e.personagem}</span>`;
+          // Alteração 5: indicador SRS nas expressões
+          const nivelSrs=e.turnoId?(p[e.turnoId]?.n||0):0;
+          const corPonto=nivelSrs===0?'var(--tx3)':nivelSrs<=2?'var(--ylw)':'var(--grn)';
+          const tituloPonto=nivelSrs===0?'Não praticado':nivelSrs<=2?'Em progresso':'Dominado';
+          const indicadorSrs=`<span title="${tituloPonto}" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${corPonto};margin-right:6px;flex-shrink:0;margin-top:5px;"></span>`;
+          lista.innerHTML+=`<div class="vi-item" style="flex-direction:column;align-items:flex-start;gap:6px;padding:12px 0;">
+            <div style="width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+              <div style="flex:1;display:flex;align-items:flex-start;">
+                ${indicadorSrs}
+                <div style="flex:1;">
+                  <div style="margin-bottom:4px;">${labelTag}</div>
+                  <div class="vi-item-palavra" style="font-size:14px;">${e.fala}</div>
+                  <div class="vi-item-sig">${e.traducao}</div>
+                  ${e.connected?`<div style="font-size:12px;color:${corLabel};font-style:italic;margin-top:4px;">"${e.connected}"</div>`:''}
+                  ${e.nativo?`<div style="font-size:11px;color:var(--grn);margin-top:4px;"><span style="font-weight:700;">Nativo:</span> ${e.nativo}</div>`:''}
+                  ${e.erro?`<div style="font-size:11px;color:var(--red);margin-top:2px;"><span style="font-weight:700;">Erro:</span> ${e.erro}</div>`:''}
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
+                <button class="vi-audio-btn" style="padding:8px 12px;margin:0;" onclick="falarVocab(${aE(e.fala)},this)" title="Ouvir">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+                ${e.connected?`<button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.35);color:var(--acc2);" onclick="falarVocab(${aE(e.connected)},this)" title="Nativo">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>`:'' }
+                <button class="vi-audio-btn" style="padding:8px 12px;margin:0;background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.3);color:var(--grn);" onclick="viShadowingLista(${aE(e.connected||e.fala)},${aE(e.fala)},this)" title="Repetir">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>`;
+        });
+      }
+    });
+  });
+
+  if(!corpo.children.length){
+    corpo.innerHTML=`<div style="text-align:center;color:var(--tx3);padding:40px 20px;font-size:14px;">
+      Nenhum item encontrado.<br>Complete algumas situações primeiro.
+    </div>`;
+  }
+}
+
+// ── AUTOPLAY ───────────────────────────
+function toggleAutoplay(){
+  const atual=document.body.dataset.autoplay!==undefined?document.body.dataset.autoplay:'1';
+  const novo=atual==='1'?'0':'1';
+  document.body.dataset.autoplay=novo;localStorage.setItem('autoplay',novo);
+  mostrarToast(novo==='1'?'Som automático ligado':'Som automático desligado');
+  atualizarIcoAutoplay();
+}
+function atualizarIcoAutoplay(){
+  const btn=document.getElementById('btn-autoplay');if(!btn)return;
+  const ap=document.body.dataset.autoplay||'1';
+  btn.style.color=ap==='1'?'var(--acc)':'var(--tx3)';
+  btn.style.borderColor=ap==='1'?'var(--acc)':'var(--bd)';
+  btn.title=ap==='1'?'Som automático ao abrir cada palavra (ligado)':'Som automático ao abrir cada palavra (desligado)';
+}
+
+// ── DETECÇÃO DE SUPORTE A MICROFONE ─────
+const SUP_MIC=('webkitSpeechRecognition' in window)||('SpeechRecognition' in window);
+function exibirAvisoMic(tela){
+  const banner=document.querySelector('#mic-banner[data-esc="'+tela+'"]');if(!banner)return;
+  if(localStorage.getItem('mic_ignorado')){banner.style.display='none';return;}
+  if(SUP_MIC){banner.style.display='none';return;}
+  banner.style.display='block';
+  banner.innerHTML='<span class="mb-x" role="button" tabindex="0" aria-label="Fechar aviso">×</span>Seu navegador não suporta prática por voz. No desktop use Chrome ou Edge — ou apenas digite as respostas.';
+  const x=banner.querySelector('.mb-x');
+  const fechar=()=>{localStorage.setItem('mic_ignorado','1');document.querySelectorAll('#mic-banner').forEach(bk=>bk.style.display='none');};
+  if(x){x.onclick=fechar;x.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fechar();}};}
+}
+
+// ── MODAL: fechar com ESC ────────────────
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const m=document.getElementById('modal-sair');if(m&&m.style.display==='flex')confirmarSairNao();}});
+
+// ── TEMA ─────────────────────────────────
+function toggleTema(){
+  const atual=localStorage.getItem('tema')||'dark';
+  const novo=atual==='dark'?'light':'dark';
+  localStorage.setItem('tema',novo);
+  aplicarTema(novo);
+}
+function aplicarTema(modo){
+  const isLight=modo==='light';
+  document.body.classList.toggle('light',isLight);
+  [['ico-tema-lua','ico-tema-sol'],['ico-lua-f','ico-sol-f']].forEach(([lId,sId])=>{
+    const l=document.getElementById(lId),s=document.getElementById(sId);
+    if(l)l.style.display=isLight?'none':'block';
+    if(s)s.style.display=isLight?'block':'none';
+  });
+}
+
+// Boot — sempre mostra tela de login, nunca pula
+aplicarTema(localStorage.getItem('tema')||'dark');
+(function(){const ap=localStorage.getItem('autoplay');if(ap)document.body.dataset.autoplay=ap;})();
+atualizarIcoAutoplay();
+if (gSessao()) {
+  const inp = document.getElementById('inp-tel');
+  if (inp) inp.value = USUARIO.tel;
+}
+init();
+</script>
+</body>
+</html>
