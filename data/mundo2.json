@@ -1,0 +1,1103 @@
+{
+  "id": 2,
+  "nome": "No Avião",
+  "descricao": "Pedidos de bebida e comida, conversas com passageiros e tripulação, e como lidar com problemas durante o voo.",
+  "imagem": "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800",
+  "situacoes": [
+    {
+      "id": "avio-01",
+      "titulo": "Pedindo bebida — Asking for a drink",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800",
+      "dialogo": [
+        {
+          "id": "avio-01-01",
+          "turno": 1,
+          "cena": "A comissária passa pelo corredor oferecendo bebidas.",
+          "personagem": "Flight Attendant",
+          "fala": "Can I get you something to drink?",
+          "fonetica": "KEN AI GÉT ya SÁM-thing te DRINK?",
+          "traducao": "Posso te oferecer algo para beber?",
+          "connected": "Can I get ya something ta drink?",
+          "blocos": [
+            { "bloco": "Can I get you", "significa": "posso te oferecer — forma muito natural de oferecer algo em inglês" },
+            { "bloco": "something to drink", "significa": "algo para beber — 'something' é usado em ofertas, 'anything' em perguntas neutras" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "flight attendant", "significado": "comissário/a de bordo", "acento": "FLIGHT attendant", "fonetica": "FLÁIT e-TÉN-dent" },
+            { "palavra": "beverage", "significado": "bebida (formal)", "acento": "BEVerage", "fonetica": "BÉV-rej" },
+            { "palavra": "sparkling water", "significado": "água com gás", "acento": "SPARKling water", "fonetica": "SPÁRK-ling UÁ-der" },
+            { "palavra": "still water", "significado": "água sem gás", "acento": "STILL water", "fonetica": "STIL UÁ-der" },
+            { "palavra": "ice", "significado": "gelo", "acento": "ICE", "fonetica": "ÁIS" },
+            { "palavra": "tray table", "significado": "mesinha dobrável do assento", "acento": "TRAY table", "fonetica": "TRÉI TÉI-bel" }
+          ],
+          "nativo": "'Can I get you' é a forma mais comum de oferecer algo nos EUA — mais natural que 'Would you like'.",
+          "erro": "Não diga 'I want water' sem nada antes — soa rude. Diga 'Can I have some water, please?' ou 'Water, please.'"
+        },
+        {
+          "id": "avio-01-02",
+          "turno": 2,
+          "cena": "Você pede sua bebida.",
+          "personagem": "Você",
+          "fala": "Orange juice, please. And some water too.",
+          "fonetica": "ÓR-endj DJÚIS, PLÍIZ. En sam UÁ-der TÚ.",
+          "traducao": "Suco de laranja, por favor. E um pouco de água também.",
+          "sua_vez": true,
+          "acento": "ORrange juice, PLEASE. And some WAter too.",
+          "alternativas": [
+            "Just water, please. Still, if you have it.",
+            "A Coke, please. No ice.",
+            "Coffee, please. With cream and sugar."
+          ],
+          "alts_traducoes": [
+            "Só água, por favor. Sem gás, se tiver.",
+            "Uma Coca, por favor. Sem gelo.",
+            "Café, por favor. Com creme e açúcar."
+          ],
+          "vocab": [
+            { "palavra": "orange juice", "significado": "suco de laranja", "acento": "ORrange juice", "fonetica": "ÓR-endj djúis" },
+            { "palavra": "no ice", "significado": "sem gelo", "acento": "NO ice", "fonetica": "NÔ ÁIS" },
+            { "palavra": "still / sparkling", "significado": "sem gás / com gás", "acento": "STILL / SPARKling", "fonetica": "STIL / SPÁRK-ling" }
+          ],
+          "nativo": "Em aviões americanos 'soda' = refrigerante. Se quiser Coca diga 'Coke', se quiser Pepsi diga 'Pepsi' — ninguém pede 'refrigerante'.",
+          "erro": "Não diga 'juice of orange' — a ordem em inglês é sempre o tipo antes: 'orange juice', 'apple juice', 'grape juice'.",
+          "connected_voce": "Orange juice, please. An' some water too."
+        },
+        {
+          "id": "avio-01-03",
+          "turno": 3,
+          "cena": "A comissária pergunta sobre gelo.",
+          "personagem": "Flight Attendant",
+          "fala": "Would you like ice with that?",
+          "fonetica": "WUD ya LÁIK ÁIS wid DHÁT?",
+          "traducao": "Você quer gelo?",
+          "connected": "Would ya like ice with that?",
+          "blocos": [
+            { "bloco": "Would you like", "significa": "você gostaria — forma mais formal e educada que 'Do you want'" },
+            { "bloco": "with that", "significa": "com isso — refere-se ao que você acabou de pedir" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "Would you like", "significado": "você gostaria de", "acento": "would you LIKE", "fonetica": "WUD ya LÁIK" },
+            { "palavra": "with that", "significado": "com isso / junto", "acento": "with THAT", "fonetica": "wid DHÁT" }
+          ],
+          "nativo": "'Would you like ice with that?' é a pergunta padrão nos EUA para qualquer bebida. Nos EUA eles colocam muito gelo — se não quiser, avise na hora.",
+          "erro": "Se não quiser gelo, diga 'No ice, please' — não apenas 'No'. Seja educado e completo."
+        },
+        {
+          "id": "avio-01-04",
+          "turno": 4,
+          "cena": "Você responde sobre o gelo.",
+          "personagem": "Você",
+          "fala": "Yes, please. Just a little.",
+          "fonetica": "IÉS, PLÍIZ. DJÁST e LÍ-rel.",
+          "traducao": "Sim, por favor. Só um pouquinho.",
+          "sua_vez": true,
+          "acento": "Yes, PLEASE. Just a LIttle.",
+          "alternativas": [
+            "No ice for me, thanks.",
+            "Sure, go ahead.",
+            "Yes please, lots of ice!"
+          ],
+          "alts_traducoes": [
+            "Sem gelo para mim, obrigado.",
+            "Sim, pode colocar.",
+            "Sim por favor, bastante gelo!"
+          ],
+          "vocab": [
+            { "palavra": "just a little", "significado": "só um pouquinho", "acento": "just a LIttle", "fonetica": "djást e LÍ-rel" },
+            { "palavra": "go ahead", "significado": "pode ir em frente / pode fazer", "acento": "go aHEAD", "fonetica": "gô eHÉD" }
+          ],
+          "nativo": "'Just a little' funciona para quantidade em qualquer contexto — comida, bebida, tempo, espaço.",
+          "erro": "Não diga 'a little of ice' — o correto é 'a little ice'. Sem 'of' com quantidades de substantivos incontáveis.",
+          "connected_voce": "Yeah, please. Just a little."
+        },
+        {
+          "id": "avio-01-05",
+          "turno": 5,
+          "cena": "A comissária entrega as bebidas e pergunta se precisa de mais alguma coisa.",
+          "personagem": "Flight Attendant",
+          "fala": "There you go! Let me know if you need anything else.",
+          "fonetica": "DHER ya GÔU! LÉ-mi NÔ if ya NÍD ÊNithing ELS.",
+          "traducao": "Aqui está! Me avise se precisar de mais alguma coisa.",
+          "connected": "There ya go! Lemme know if ya need anything else.",
+          "blocos": [
+            { "bloco": "There you go", "significa": "aqui está — ao entregar algo, equivalente a 'Here you go'" },
+            { "bloco": "Let me know", "significa": "me avise / me diga — convite para pedir mais coisas" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "Let me know", "significado": "me avise / me diga", "acento": "let me KNOW", "fonetica": "LÉ-mi NÔ" },
+            { "palavra": "anything else", "significado": "mais alguma coisa", "acento": "ANYthing ELSE", "fonetica": "ÊNi-thing ELS" }
+          ],
+          "nativo": "'Let me know' é uma das expressões mais usadas em inglês — serve para qualquer situação onde a pessoa quer que você a acione.",
+          "erro": "Não confunda 'There you go' (ao entregar algo) com 'There it is' (ao encontrar algo). São situações diferentes."
+        },
+        {
+          "id": "avio-01-06",
+          "turno": 6,
+          "cena": "Você agradece.",
+          "personagem": "Você",
+          "fala": "Thank you so much. This is perfect.",
+          "fonetica": "THÉNK iu sô MÁTCH. DIS iz PÉR-fect.",
+          "traducao": "Muito obrigado. Está perfeito.",
+          "sua_vez": true,
+          "acento": "Thank you SO much. This is PERfect.",
+          "alternativas": [
+            "Thanks! Really appreciate it.",
+            "Perfect, thank you!",
+            "Great, thanks a lot!"
+          ],
+          "alts_traducoes": [
+            "Obrigado! Agradeço mesmo.",
+            "Perfeito, obrigado!",
+            "Ótimo, muito obrigado!"
+          ],
+          "vocab": [
+            { "palavra": "thank you so much", "significado": "muito obrigado", "acento": "thank you SO much", "fonetica": "THÉNK iu SÔ mátch" },
+            { "palavra": "really appreciate it", "significado": "agradeço muito de verdade", "acento": "REALly apPREciate it", "fonetica": "RÍ-li e-PRÍ-shiet it" }
+          ],
+          "nativo": "'This is perfect' é uma reação calorosa e natural — muito usada por americanos para expressar satisfação.",
+          "erro": "Não diga 'Thank you very much so' — a ordem correta é 'Thank you very much' ou 'Thank you so much'.",
+          "connected_voce": "Thank you so much. This is perfect."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The attendant is passing by again later in the flight.",
+        "turnos": [
+          {
+            "id": "dl-avio01-01",
+            "personagem": "Flight Attendant",
+            "fala": "Can I get you a refill on that?",
+            "fonetica": "KEN AI GÉT ya e RÍ-fil on DHÁT?",
+            "traducao": "Posso te dar mais um pouco disso?",
+            "connected": "Can I get ya a refill on that?",
+            "respostas_esperadas": [
+              "Yes please, that'd be great!",
+              "No thank you, I'm good.",
+              "Sure! Can I also get some water?"
+            ],
+            "resposta_modelo": "Yes please! And could I also get some water this time?",
+            "feedback_modelo": "'Could I also get' é a forma mais natural e educada de adicionar um segundo pedido. 'This time' é um detalhe que soa muito nativo — indica que você está mudando o pedido em relação à última vez.",
+            "vocab_apoio": [
+              { "palavra": "refill", "significado": "rechear / recarregar (a bebida)", "acento": "REfill", "fonetica": "RÍ-fil" },
+              { "palavra": "I'm good", "significado": "estou bem / não preciso", "acento": "I'm GOOD", "fonetica": "AIM GUD" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "avio-02",
+      "titulo": "Refeição a bordo — Meal service",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+      "dialogo": [
+        {
+          "id": "avio-02-01",
+          "turno": 1,
+          "cena": "A comissária passa com o carrinho de refeições e explica as opções.",
+          "personagem": "Flight Attendant",
+          "fala": "For your meal, we have chicken with rice or pasta with vegetables. Which would you prefer?",
+          "fonetica": "for yer MÍL, wi HÉV TCHIK-en wid RÁIS or PÁS-te wid VÉD-jte-belz. UITCH wud ya preFÉR?",
+          "traducao": "Para a refeição, temos frango com arroz ou massa com legumes. Qual você prefere?",
+          "connected": "For yer meal, we have chicken with rice or pasta with vegetables. Which would ya prefer?",
+          "blocos": [
+            { "bloco": "Which would you prefer", "significa": "qual você prefere — forma educada de pedir escolha entre opções" },
+            { "bloco": "For your meal", "significa": "para a sua refeição — anúncio padrão do serviço de bordo" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "meal", "significado": "refeição", "acento": "MEAL", "fonetica": "MÍL" },
+            { "palavra": "chicken", "significado": "frango", "acento": "CHICKen", "fonetica": "TCHÍK-en" },
+            { "palavra": "pasta", "significado": "massa / macarrão", "acento": "PAsta", "fonetica": "PÁS-te" },
+            { "palavra": "prefer", "significado": "preferir", "acento": "preFER", "fonetica": "priFÉR" },
+            { "palavra": "option / choice", "significado": "opção / escolha", "acento": "OPtion / CHOICE", "fonetica": "ÁP-shon / TCHÓIS" }
+          ],
+          "nativo": "Em voos americanos a refeição geralmente são duas opções fixas. Decida rápido — se acabar uma opção, não há troca.",
+          "erro": "Não diga 'I want the chicken' usando 'want' diretamente — soa rude. Use 'I'll have the chicken' ou 'The chicken, please'."
+        },
+        {
+          "id": "avio-02-02",
+          "turno": 2,
+          "cena": "Você faz sua escolha.",
+          "personagem": "Você",
+          "fala": "I'll have the chicken, please.",
+          "fonetica": "AIL HÉV de TCHÍK-en, PLÍIZ.",
+          "traducao": "Vou querer o frango, por favor.",
+          "sua_vez": true,
+          "acento": "I'll have the CHICken, please.",
+          "alternativas": [
+            "The pasta for me, please.",
+            "Chicken, please. That sounds good.",
+            "I'd like the chicken option, please."
+          ],
+          "alts_traducoes": [
+            "A massa para mim, por favor.",
+            "Frango, por favor. Parece bom.",
+            "Gostaria da opção de frango, por favor."
+          ],
+          "vocab": [
+            { "palavra": "I'll have", "significado": "vou querer / vou pedir", "acento": "I'll HAVE", "fonetica": "ÁIL hév" },
+            { "palavra": "that sounds good", "significado": "parece bom / isso soa bem", "acento": "that SOUNDS good", "fonetica": "dhát SÁUNDZ gud" }
+          ],
+          "nativo": "'I'll have' é a forma padrão para pedir comida em qualquer restaurante ou avião — muito mais natural que 'I want'.",
+          "erro": "Não diga 'I want to eat the chicken' — muito longo e formal. Simplesmente 'I'll have the chicken, please'.",
+          "connected_voce": "I'll have the chicken, please."
+        },
+        {
+          "id": "avio-02-03",
+          "turno": 3,
+          "cena": "A comissária pergunta sobre preferências adicionais.",
+          "personagem": "Flight Attendant",
+          "fala": "Would you like bread with your meal? And we have white or red wine.",
+          "fonetica": "WUD ya LÁIK BRED wid yer MÍL? En wi HÉV UÁIT or RED UÁIN.",
+          "traducao": "Você gostaria de pão com sua refeição? E temos vinho branco ou tinto.",
+          "connected": "Would ya like bread with yer meal? An' we have white or red wine.",
+          "blocos": [
+            { "bloco": "Would you like bread", "significa": "você gostaria de pão — oferta educada e formal" },
+            { "bloco": "white or red wine", "significa": "vinho branco ou tinto — sempre oferecem as duas opções" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "bread", "significado": "pão", "acento": "BREAD", "fonetica": "BRED" },
+            { "palavra": "white wine", "significado": "vinho branco", "acento": "WHITE wine", "fonetica": "UÁIT UÁIN" },
+            { "palavra": "red wine", "significado": "vinho tinto", "acento": "RED wine", "fonetica": "RED UÁIN" }
+          ],
+          "nativo": "Em voos internacionais o vinho geralmente é incluído. Não tenha vergonha de pedir — é parte do serviço.",
+          "erro": "Não diga 'wine white' — a ordem em inglês é sempre adjetivo antes do substantivo: 'white wine', 'red wine'."
+        },
+        {
+          "id": "avio-02-04",
+          "turno": 4,
+          "cena": "Você aceita o pão e pede vinho.",
+          "personagem": "Você",
+          "fala": "Yes to the bread, please. And red wine would be great.",
+          "fonetica": "IÉS te de BRED, PLÍIZ. En RED UÁIN wud bi GREIT.",
+          "traducao": "Sim para o pão, por favor. E vinho tinto seria ótimo.",
+          "sua_vez": true,
+          "acento": "Yes to the BREAD, please. And RED wine would be GREAT.",
+          "alternativas": [
+            "Just the bread, no wine for me thanks.",
+            "Sure! White wine, please.",
+            "Yes please, bread and red wine. Thank you."
+          ],
+          "alts_traducoes": [
+            "Só o pão, sem vinho para mim, obrigado.",
+            "Claro! Vinho branco, por favor.",
+            "Sim por favor, pão e vinho tinto. Obrigado."
+          ],
+          "vocab": [
+            { "palavra": "would be great", "significado": "seria ótimo", "acento": "would be GREAT", "fonetica": "wud bi GREIT" },
+            { "palavra": "no wine for me", "significado": "sem vinho para mim", "acento": "no wine for ME", "fonetica": "nô UÁIN for MI" }
+          ],
+          "nativo": "'Would be great' é uma forma calorosa e natural de aceitar algo — mostra entusiasmo sem exagero.",
+          "erro": "Não diga 'I don't want wine' quando recusar — prefira 'No wine for me, thanks' ou 'I'm okay, thanks' — muito mais natural.",
+          "connected_voce": "Yeah, bread please. An' red wine would be great."
+        },
+        {
+          "id": "avio-02-05",
+          "turno": 5,
+          "cena": "A comissária entrega a refeição.",
+          "personagem": "Flight Attendant",
+          "fala": "Here you go! Enjoy your meal.",
+          "fonetica": "HÍR ya GÔU! enDJÓI yer MÍL.",
+          "traducao": "Aqui está! Aproveite sua refeição.",
+          "connected": "Here ya go! Enjoy yer meal.",
+          "blocos": [
+            { "bloco": "Here you go", "significa": "aqui está — ao entregar algo; a versão com entrega direta" },
+            { "bloco": "Enjoy your meal", "significa": "aproveite sua refeição — equivalente ao 'bom apetite' americano" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "Enjoy your meal", "significado": "bom apetite / aproveite", "acento": "enJOY your meal", "fonetica": "enDJÓI yer MÍL" }
+          ],
+          "nativo": "Americanos não costumam dizer 'bon appétit' — o equivalente é 'Enjoy your meal' ou simplesmente 'Enjoy!'",
+          "erro": "Não diga 'bon appétit' esperando que americanos entendam — use 'Thanks, you too!' ou 'Thank you!' como resposta."
+        },
+        {
+          "id": "avio-02-06",
+          "turno": 6,
+          "cena": "Você agradece e faz um comentário sobre a comida.",
+          "personagem": "Você",
+          "fala": "Thank you! Everything looks delicious.",
+          "fonetica": "THÉNK iu! ÊVri-thing LUKS deLÍ-shes.",
+          "traducao": "Obrigado! Está tudo com uma cara deliciosa.",
+          "sua_vez": true,
+          "acento": "Thank you! EVErything looks deLIcious.",
+          "alternativas": [
+            "Thanks! It smells great.",
+            "Thank you so much! This looks amazing.",
+            "Perfect, thank you. I'm starving!"
+          ],
+          "alts_traducoes": [
+            "Obrigado! Cheira muito bem.",
+            "Muito obrigado! Está parecendo incrível.",
+            "Perfeito, obrigado. Estou morrendo de fome!"
+          ],
+          "vocab": [
+            { "palavra": "looks delicious", "significado": "parece delicioso / tem cara de gostoso", "acento": "LOOKS deLIcious", "fonetica": "LUKS deLÍ-shes" },
+            { "palavra": "I'm starving", "significado": "estou morrendo de fome", "acento": "I'm STARving", "fonetica": "AIM STÁR-ving" }
+          ],
+          "nativo": "'I'm starving' é hipérbole comum — não significa literalmente que você está morrendo, só que está muito com fome.",
+          "erro": "Não diga 'looks deliciously' — 'delicious' aqui é adjetivo, não advérbio. 'It looks delicious', nunca 'deliciously'.",
+          "connected_voce": "Thank you! Everything looks delicious."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The attendant comes to collect your tray after the meal.",
+        "turnos": [
+          {
+            "id": "dl-avio02-01",
+            "personagem": "Flight Attendant",
+            "fala": "Are you done with your tray?",
+            "fonetica": "ÁR ya DÁN wid yer TRÉI?",
+            "traducao": "Você terminou com a bandeja?",
+            "connected": "Arya done with yer tray?",
+            "respostas_esperadas": [
+              "Yes, all done! Thank you.",
+              "Yes, please take it.",
+              "Yes, it was delicious!"
+            ],
+            "resposta_modelo": "Yes, all done! It was really good, thank you.",
+            "feedback_modelo": "'All done' é a confirmação mais natural de que terminou. Adicionar 'It was really good' é um elogio simples e genuíno — os comissários adoram receber esse tipo de feedback e isso torna a interação mais humana.",
+            "vocab_apoio": [
+              { "palavra": "tray", "significado": "bandeja", "acento": "TRAY", "fonetica": "TRÉI" },
+              { "palavra": "all done", "significado": "terminei / pronto", "acento": "all DONE", "fonetica": "ól DÁN" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "avio-03",
+      "titulo": "Pedindo ajuda ao comissário — Calling the attendant",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800",
+      "dialogo": [
+        {
+          "id": "avio-03-01",
+          "turno": 1,
+          "cena": "Você está com frio no avião e quer pedir um cobertor. Você aciona a luz de chamada e o comissário vem.",
+          "personagem": "Flight Attendant",
+          "fala": "Yes? Is everything okay?",
+          "fonetica": "IÉS? IZ ÊVri-thing oKÊI?",
+          "traducao": "Sim? Está tudo bem?",
+          "connected": "Yes? Iz everything okay?",
+          "blocos": [
+            { "bloco": "Is everything okay", "significa": "está tudo bem — forma padrão de perguntar se há algum problema" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "call button", "significado": "botão de chamada do comissário", "acento": "CALL button", "fonetica": "KÓL BÁ-ren" },
+            { "palavra": "blanket", "significado": "cobertor", "acento": "BLANket", "fonetica": "BLÉNK-et" },
+            { "palavra": "pillow", "significado": "travesseiro", "acento": "PILlow", "fonetica": "PÍ-lou" },
+            { "palavra": "headphones", "significado": "fones de ouvido", "acento": "HEADphones", "fonetica": "HÉD-fonz" },
+            { "palavra": "overhead bin", "significado": "compartimento acima do assento", "acento": "OVERhead bin", "fonetica": "ÓVer-hed BIN" }
+          ],
+          "nativo": "Apertar o botão de chamada é totalmente normal — não seja tímido. Os comissários estão lá para isso.",
+          "erro": "Não se levante e vá até a galley (cozinha) do avião para pedir coisas — aperte o botão de chamada."
+        },
+        {
+          "id": "avio-03-02",
+          "turno": 2,
+          "cena": "Você explica o que precisa.",
+          "personagem": "Você",
+          "fala": "Sorry to bother you. Could I get a blanket? It's a bit cold.",
+          "fonetica": "SÓri te BÁ-dher IU. KUD AI GÉT e BLÉNK-et? ITS e bit KÔLD.",
+          "traducao": "Desculpe incomodar. Poderia me pegar um cobertor? Está um pouco frio.",
+          "sua_vez": true,
+          "acento": "SOrry to BOther you. Could I get a BLANket? It's a bit COLD.",
+          "alternativas": [
+            "Excuse me, could I have a pillow please?",
+            "Hi, could I get some headphones?",
+            "Could you bring me an extra blanket?"
+          ],
+          "alts_traducoes": [
+            "Com licença, poderia me dar um travesseiro por favor?",
+            "Oi, poderia me pegar uns fones de ouvido?",
+            "Poderia me trazer um cobertor extra?"
+          ],
+          "vocab": [
+            { "palavra": "Sorry to bother you", "significado": "desculpe incomodar", "acento": "sorry to BOther you", "fonetica": "SÓri te BÁ-dher iu" },
+            { "palavra": "Could I get", "significado": "poderia me pegar / posso pegar", "acento": "could I GET", "fonetica": "KUD ai GÉT" },
+            { "palavra": "a bit cold", "significado": "um pouco frio", "acento": "a bit COLD", "fonetica": "e bit KÔLD" }
+          ],
+          "nativo": "'Sorry to bother you' é o começo educado perfeito quando você interrompe alguém ocupado. Use sempre antes de pedidos.",
+          "erro": "Não diga 'It is cold here' soando como reclamação — prefira 'It's a bit cold' que soa mais suave e gentil.",
+          "connected_voce": "Sorry ta bother you. Could I get a blanket? It's a bit cold."
+        },
+        {
+          "id": "avio-03-03",
+          "turno": 3,
+          "cena": "O comissário confirma e pergunta se precisa de mais algo.",
+          "personagem": "Flight Attendant",
+          "fala": "Of course! I'll bring one right away. Do you need a pillow too?",
+          "fonetica": "ov KÓRS! AIL BRING uán RÁIT eUÉI. DYA NÍD e PÍ-lou TÚ?",
+          "traducao": "Claro! Vou trazer um agora mesmo. Precisa de um travesseiro também?",
+          "connected": "Of course! I'll bring one right away. D'ya need a pillow too?",
+          "blocos": [
+            { "bloco": "right away", "significa": "agora mesmo / imediatamente — indica urgência e presteza" },
+            { "bloco": "Do you need", "significa": "D'ya need — contração rápida de 'do you'" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "right away", "significado": "agora mesmo / imediatamente", "acento": "right aWAY", "fonetica": "RÁIT eUÉI" },
+            { "palavra": "I'll bring", "significado": "vou trazer", "acento": "I'll BRING", "fonetica": "ÁIL BRING" }
+          ],
+          "nativo": "'Right away' indica que a pessoa vai fazer algo imediatamente — é uma resposta muito positiva e prestativa.",
+          "erro": "Não confunda 'right away' (imediatamente) com 'right here' (bem aqui) ou 'right now' (agora). Todos diferentes."
+        },
+        {
+          "id": "avio-03-04",
+          "turno": 4,
+          "cena": "Você aceita o travesseiro também.",
+          "personagem": "Você",
+          "fala": "Yes, that would be great. Thank you so much.",
+          "fonetica": "IÉS, DHÁT wud bi GREIT. THÉNK iu SÔ MÁTCH.",
+          "traducao": "Sim, seria ótimo. Muito obrigado.",
+          "sua_vez": true,
+          "acento": "Yes, that would be GREAT. Thank you SO much.",
+          "alternativas": [
+            "No, just the blanket is fine. Thank you!",
+            "Yes please! You're so kind.",
+            "A pillow too? Perfect, thank you!"
+          ],
+          "alts_traducoes": [
+            "Não, só o cobertor está bom. Obrigado!",
+            "Sim por favor! Você é muito gentil.",
+            "Travesseiro também? Perfeito, obrigado!"
+          ],
+          "vocab": [
+            { "palavra": "that would be great", "significado": "isso seria ótimo", "acento": "that would be GREAT", "fonetica": "dhát wud bi GREIT" },
+            { "palavra": "you're so kind", "significado": "você é muito gentil", "acento": "you're SO kind", "fonetica": "yer SÔ KÁIND" }
+          ],
+          "nativo": "'You're so kind' é um elogio caloroso e muito apreciado — use quando alguém foi além do esperado para te ajudar.",
+          "erro": "Não diga 'You are very kind' — soa formal e um pouco robótico. 'You're so kind' ou 'That's so kind of you' soa mais natural.",
+          "connected_voce": "Yeah, that'd be great. Thank you so much."
+        },
+        {
+          "id": "avio-03-05",
+          "turno": 5,
+          "cena": "O comissário traz os itens.",
+          "personagem": "Flight Attendant",
+          "fala": "Here's your blanket and pillow. Sleep well!",
+          "fonetica": "HÍRZ yer BLÉNK-et en PÍ-lou. SLÍIP UÉL!",
+          "traducao": "Aqui está seu cobertor e travesseiro. Durma bem!",
+          "connected": "Here's yer blanket an' pillow. Sleep well!",
+          "blocos": [
+            { "bloco": "Sleep well", "significa": "durma bem — despedida calorosa antes do descanso" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "Sleep well", "significado": "durma bem", "acento": "SLEEP well", "fonetica": "SLÍIP uél" }
+          ],
+          "nativo": "'Sleep well' é a forma mais natural de desejar boa noite em inglês. 'Good night' funciona também mas 'Sleep well' é mais caloroso.",
+          "erro": "Não diga 'Have a good sleep' — soa estranho. 'Sleep well' ou 'Good night' são as formas corretas."
+        },
+        {
+          "id": "avio-03-06",
+          "turno": 6,
+          "cena": "Você agradece e se despede.",
+          "personagem": "Você",
+          "fala": "Thank you! You too — have a good rest of the flight.",
+          "fonetica": "THÉNK iu! IU TÚ — HÉV e GUD REST ov de FLÁIT.",
+          "traducao": "Obrigado! Você também — tenha um bom resto de voo.",
+          "sua_vez": true,
+          "acento": "Thank you! You TOO — have a good REST of the flight.",
+          "alternativas": [
+            "Thanks so much! Good night.",
+            "Thank you! This is perfect.",
+            "You're amazing, thank you!"
+          ],
+          "alts_traducoes": [
+            "Muito obrigado! Boa noite.",
+            "Obrigado! Está perfeito.",
+            "Você é incrível, obrigado!"
+          ],
+          "vocab": [
+            { "palavra": "rest of the flight", "significado": "resto do voo", "acento": "REST of the flight", "fonetica": "RÉST ov de FLÁIT" },
+            { "palavra": "You're amazing", "significado": "você é incrível", "acento": "you're aMAzing", "fonetica": "yer eMAY-zing" }
+          ],
+          "nativo": "'Have a good rest of the flight' é um desejo genuíno e muito bem recebido — mostra que você pensa no outro.",
+          "erro": "Aqui 'You too' é adequado porque o comissário também vai continuar no voo — diferente dos agentes de aeroporto que ficam em terra.",
+          "connected_voce": "Thank you! You too — have a good rest of the flight."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "Later in the flight, the same attendant passes by and checks on you.",
+        "turnos": [
+          {
+            "id": "dl-avio03-01",
+            "personagem": "Flight Attendant",
+            "fala": "Did you manage to get some sleep?",
+            "fonetica": "DID ya MÁ-nedj te GÉT sam SLÍIP?",
+            "traducao": "Você conseguiu dormir um pouco?",
+            "connected": "Did ya manage to get some sleep?",
+            "respostas_esperadas": [
+              "A little, yes! The blanket helped a lot.",
+              "Not really, but I watched a movie.",
+              "Yes! I slept for about two hours."
+            ],
+            "resposta_modelo": "A little! The blanket really helped. How much longer is the flight?",
+            "feedback_modelo": "'A little' funciona aqui como resposta curta e natural. 'The blanket really helped' retoma o objeto da conversa anterior — mostra naturalidade e continuidade. Encerrar com 'How much longer is the flight?' demonstra iniciativa para manter a conversa.",
+            "vocab_apoio": [
+              { "palavra": "manage to", "significado": "conseguir / dar conta de", "acento": "MANage to", "fonetica": "MÁ-nedj te" },
+              { "palavra": "How much longer", "significado": "quanto tempo mais / falta quanto", "acento": "how much LONGer", "fonetica": "HAU mátch LÓN-guer" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "avio-04",
+      "titulo": "Conversa com passageiro — Small talk",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1523289997-47d4a83a7483?w=800",
+      "dialogo": [
+        {
+          "id": "avio-04-01",
+          "turno": 1,
+          "cena": "O passageiro ao seu lado puxa conversa durante o voo.",
+          "personagem": "Passenger",
+          "fala": "So, is New York your final destination or are you connecting?",
+          "fonetica": "SÔ, iz NÚ IÓRK yer FÁI-nel des-ti-NÉI-shon or ÁR ya ke-NÉK-ting?",
+          "traducao": "Então, Nova York é seu destino final ou você vai pegar uma conexão?",
+          "connected": "So, is New York yer final destination or arya connecting?",
+          "blocos": [
+            { "bloco": "final destination", "significa": "destino final — onde você vai terminar a viagem" },
+            { "bloco": "are you connecting", "significa": "você vai pegar conexão — trocar de avião" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "final destination", "significado": "destino final", "acento": "FInal desTInation", "fonetica": "FÁI-nel des-ti-NÉI-shon" },
+            { "palavra": "connecting flight", "significado": "voo de conexão", "acento": "conNECting flight", "fonetica": "ke-NÉK-ting FLÁIT" },
+            { "palavra": "layover", "significado": "escala / espera entre voos", "acento": "LAYover", "fonetica": "LÉI-ô-ver" },
+            { "palavra": "direct flight", "significado": "voo direto", "acento": "diRECT flight", "fonetica": "di-RÉKT FLÁIT" }
+          ],
+          "nativo": "'Small talk' (conversa fiada) no avião é muito comum entre americanos — seja receptivo e responda com interesse.",
+          "erro": "Não diga 'I am going to connect' — o correto é 'I'm connecting' ou 'I have a connecting flight'."
+        },
+        {
+          "id": "avio-04-02",
+          "turno": 2,
+          "cena": "Você responde sobre seu destino.",
+          "personagem": "Você",
+          "fala": "New York is my final stop. I'm visiting for two weeks.",
+          "fonetica": "NÚ IÓRK iz mai FÁI-nel STÓP. AIM VÍ-zi-ting for TÚ UÍKS.",
+          "traducao": "Nova York é meu destino final. Vou visitar por duas semanas.",
+          "sua_vez": true,
+          "acento": "New York is my FINAL stop. I'm VIsiting for TWO weeks.",
+          "alternativas": [
+            "It's my final destination. First time there, actually!",
+            "New York and then Boston — I have a connecting flight.",
+            "Final stop for me. I'm going for business."
+          ],
+          "alts_traducoes": [
+            "É meu destino final. Primeira vez lá, na verdade!",
+            "Nova York e depois Boston — tenho um voo de conexão.",
+            "Destino final para mim. Vou a negócios."
+          ],
+          "vocab": [
+            { "palavra": "I'm visiting", "significado": "estou visitando / vou visitar", "acento": "I'm VIsiting", "fonetica": "AIM VÍ-zi-ting" },
+            { "palavra": "for two weeks", "significado": "por duas semanas", "acento": "for TWO weeks", "fonetica": "for TÚ UÍKS" },
+            { "palavra": "for business", "significado": "a negócios", "acento": "for BUsiness", "fonetica": "for BÍZ-nes" }
+          ],
+          "nativo": "Adicionar 'first time' ou 'I'm so excited' abre a conversa naturalmente — americanos adoram conhecer viajantes entusiasmados.",
+          "erro": "Não diga 'I go to visit' — use 'I'm visiting' ou 'I'm going to visit'. O primeiro é mais natural em conversa casual.",
+          "connected_voce": "New York's my final stop. I'm visiting for two weeks."
+        },
+        {
+          "id": "avio-04-03",
+          "turno": 3,
+          "cena": "O passageiro pergunta sobre o que você vai fazer.",
+          "personagem": "Passenger",
+          "fala": "Oh nice! What are your plans? Sightseeing?",
+          "fonetica": "Ô NÁIS! UÁT ÁR yer PLANZ? SÁIT-síi-ing?",
+          "traducao": "Que legal! Quais são seus planos? Turismo?",
+          "connected": "Oh nice! Whaddya plans? Sightseeing?",
+          "blocos": [
+            { "bloco": "What are your plans", "significa": "quais são seus planos — pergunta casual e amigável" },
+            { "bloco": "Sightseeing", "significa": "turismo / visitar pontos turísticos — palavra muito usada em inglês" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "sightseeing", "significado": "turismo / visitar pontos turísticos", "acento": "SIGHTseeing", "fonetica": "SÁIT-síi-ing" },
+            { "palavra": "plans", "significado": "planos", "acento": "PLANS", "fonetica": "PLÁNZ" }
+          ],
+          "nativo": "'Sightseeing' é uma palavra só — não diga 'to see the sights' ou 'to see the views' como substituto. 'Sightseeing' é o termo correto.",
+          "erro": "Não diga 'I will do tourism' — o correto é 'I'm going sightseeing' ou 'I'm going to do some sightseeing'."
+        },
+        {
+          "id": "avio-04-04",
+          "turno": 4,
+          "cena": "Você conta seus planos.",
+          "personagem": "Você",
+          "fala": "Definitely some sightseeing — Times Square, the Statue of Liberty. And I really want to try the food.",
+          "fonetica": "DEF-i-net-li sam SÁIT-síi-ing — TÁIMZ SKUÉR, de STÁE-tchu ov LÍ-ber-ri. En AI RÍli UÓNT te TRÁI de FÚD.",
+          "traducao": "Definitivamente um pouco de turismo — Times Square, a Estátua da Liberdade. E eu realmente quero experimentar a comida.",
+          "sua_vez": true,
+          "acento": "DEFinitely some SIGHTseeing — Times Square, the Statue of Liberty. And I REAlly want to TRY the food.",
+          "alternativas": [
+            "Mostly sightseeing and museums. I love art.",
+            "I have some meetings, but also time for Central Park and Broadway.",
+            "Sightseeing and eating — I heard the pizza is incredible there."
+          ],
+          "alts_traducoes": [
+            "Principalmente turismo e museus. Eu amo arte.",
+            "Tenho algumas reuniões, mas também tempo para o Central Park e a Broadway.",
+            "Turismo e comer — ouvi que a pizza é incrível lá."
+          ],
+          "vocab": [
+            { "palavra": "definitely", "significado": "definitivamente / com certeza", "acento": "DEFinitely", "fonetica": "DEF-i-net-li" },
+            { "palavra": "I really want to", "significado": "eu realmente quero", "acento": "I REAlly want to", "fonetica": "ai RÍ-li UÓNT te" }
+          ],
+          "nativo": "Compartilhar entusiasmo com 'I really want to try' soa muito natural — americanos apreciam passageiros animados.",
+          "erro": "Não diga 'I want to eat the American food' com 'the' — o correto é 'I want to try American food' (sem artigo).",
+          "connected_voce": "Definitely some sightseeing — Times Square, the Statue of Liberty. An' I really wanna try the food."
+        },
+        {
+          "id": "avio-04-05",
+          "turno": 5,
+          "cena": "O passageiro dá uma recomendação.",
+          "personagem": "Passenger",
+          "fala": "Oh, you have to try the pizza in Brooklyn. It's incredible.",
+          "fonetica": "Ô, ya HÉF te TRÁI de pit-ZA in BRUK-lin. ITS in-KRÉD-i-bel.",
+          "traducao": "Nossa, você tem que experimentar a pizza no Brooklyn. É incrível.",
+          "connected": "Oh, ya hafta try the pizza in Brooklyn. It's incredible.",
+          "blocos": [
+            { "bloco": "you have to try", "significa": "você tem que experimentar — recomendação forte, quase obrigação" },
+            { "bloco": "It's incredible", "significa": "é incrível — elogio superlativo muito usado por americanos" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "you have to", "significado": "você tem que / você precisa", "acento": "you HAVE to", "fonetica": "ya HÉF te" },
+            { "palavra": "incredible", "significado": "incrível", "acento": "inCREdible", "fonetica": "in-KRÉD-i-bel" }
+          ],
+          "nativo": "'You have to try' é a recomendação mais enfática em inglês — mais forte que 'you should' ou 'you might like'.",
+          "erro": "Não confunda 'Brooklyn' (bairro de NYC) com 'Brooklyn' o nome — pronuncie sempre 'BRUK-lin', nunca 'Bro-KLINE'."
+        },
+        {
+          "id": "avio-04-06",
+          "turno": 6,
+          "cena": "Você agradece pela dica.",
+          "personagem": "Você",
+          "fala": "Really? I'll definitely add that to my list. Thanks for the tip!",
+          "fonetica": "RÍ-li? AIL DEF-i-net-li ÁD DHÁT te mai LIST. THÉNKS for de TIP!",
+          "traducao": "Sério? Definitivamente vou adicionar isso à minha lista. Obrigado pela dica!",
+          "sua_vez": true,
+          "acento": "REAlly? I'll DEFinitely add that to my LIST. Thanks for the TIP!",
+          "alternativas": [
+            "Oh wow, good to know! I'll check it out.",
+            "Really? I heard Brooklyn has amazing food. Thanks!",
+            "That's great advice! I'll put it on my list for sure."
+          ],
+          "alts_traducoes": [
+            "Nossa, bom saber! Vou conferir.",
+            "Sério? Ouvi que o Brooklyn tem comida incrível. Obrigado!",
+            "Ótimo conselho! Vou colocar na minha lista com certeza."
+          ],
+          "vocab": [
+            { "palavra": "Thanks for the tip", "significado": "obrigado pela dica", "acento": "thanks for the TIP", "fonetica": "THÉNKS for de TIP" },
+            { "palavra": "I'll check it out", "significado": "vou conferir / vou dar uma olhada", "acento": "I'll CHECK it out", "fonetica": "ÁIL TCHÉK it áut" },
+            { "palavra": "add to my list", "significado": "adicionar à minha lista", "acento": "ADD to my LIST", "fonetica": "ÁD te mai LIST" }
+          ],
+          "nativo": "'Thanks for the tip' é a forma mais natural de agradecer uma dica ou recomendação — use sempre em vez de 'thank you for the information'.",
+          "erro": "Não diga 'Thank you for the advice about pizza' — muito formal e longo. 'Thanks for the tip!' é curto e perfeito.",
+          "connected_voce": "Really? I'll definitely add that to my list. Thanks for the tip!"
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The conversation continues as the flight nears New York.",
+        "turnos": [
+          {
+            "id": "dl-avio04-01",
+            "personagem": "Passenger",
+            "fala": "It was nice talking to you. Have a great trip!",
+            "fonetica": "It wóz NÁIS TÓK-ing te IU. HÉV e GREIT TRIP!",
+            "traducao": "Foi um prazer conversar com você. Tenha uma ótima viagem!",
+            "connected": "It was nice talking to ya. Have a great trip!",
+            "respostas_esperadas": [
+              "You too! Thanks for the great tips.",
+              "Same here! Enjoy your time in New York too.",
+              "It was! Thank you so much. Safe travels!"
+            ],
+            "resposta_modelo": "Same here! Thanks again for the Brooklyn tip. Enjoy your time in New York!",
+            "feedback_modelo": "'Same here' é a forma mais natural de dizer 'igualmente' ou 'para mim também' — muito mais nativo que 'me too' nesse contexto. Referir-se à dica do Brooklyn mostra que você prestou atenção e encerra a conversa de forma calorosa.",
+            "vocab_apoio": [
+              { "palavra": "Same here", "significado": "igualmente / para mim também", "acento": "SAME here", "fonetica": "SEIM HÍR" },
+              { "palavra": "Safe travels", "significado": "boa viagem / viaje bem", "acento": "SAFE travels", "fonetica": "SEIF TRÁ-velz" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "avio-05",
+      "titulo": "Problema no voo — Turbulência e mal-estar",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1559002672-2f3f06e0f7eb?w=800",
+      "dialogo": [
+        {
+          "id": "avio-05-01",
+          "turno": 1,
+          "cena": "O avião está passando por turbulência forte. Você não está se sentindo bem e chama o comissário.",
+          "personagem": "Flight Attendant",
+          "fala": "Yes? Are you alright?",
+          "fonetica": "IÉS? ÁR ya ólRÁIT?",
+          "traducao": "Sim? Você está bem?",
+          "connected": "Yes? Arya alright?",
+          "blocos": [
+            { "bloco": "Are you alright", "significa": "você está bem — pergunta de preocupação genuína" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "turbulence", "significado": "turbulência", "acento": "TURbulence", "fonetica": "TÉR-byu-lens" },
+            { "palavra": "motion sickness", "significado": "enjoo de movimento", "acento": "MOtion SICKness", "fonetica": "MÔ-shon SÍK-nes" },
+            { "palavra": "airsick", "significado": "enjoado no avião", "acento": "AIRsick", "fonetica": "ÉR-sik" },
+            { "palavra": "nauseous", "significado": "com náusea", "acento": "NAUseous", "fonetica": "NÓ-shes" },
+            { "palavra": "barf bag", "significado": "saco de vômito", "acento": "BARF bag", "fonetica": "BÁRF bég" }
+          ],
+          "nativo": "Em emergências de saúde no avião, seja direto e claro — não tente ser educado demais. A tripulação precisa entender rápido.",
+          "erro": "Não diga 'I feel bad' — muito vago. Seja específico: 'I feel nauseous', 'I'm airsick', 'I'm going to be sick'."
+        },
+        {
+          "id": "avio-05-02",
+          "turno": 2,
+          "cena": "Você explica como está se sentindo.",
+          "personagem": "Você",
+          "fala": "I'm not feeling well. The turbulence is making me nauseous.",
+          "fonetica": "AIM NÁT FÍL-ing UÉL. De TÉR-byu-lens iz MÉI-king mi NÓ-shes.",
+          "traducao": "Não estou me sentindo bem. A turbulência está me deixando com náusea.",
+          "sua_vez": true,
+          "acento": "I'm not feeling WELL. The TURbulence is making me NAUseous.",
+          "alternativas": [
+            "I feel a bit airsick. Can I get a bag?",
+            "I'm not doing great. I might be sick.",
+            "I'm nauseous and a bit dizzy."
+          ],
+          "alts_traducoes": [
+            "Estou um pouco enjoado. Posso pegar um saco?",
+            "Não estou muito bem. Posso passar mal.",
+            "Estou com náusea e um pouco tonto."
+          ],
+          "vocab": [
+            { "palavra": "I'm not feeling well", "significado": "não estou me sentindo bem", "acento": "I'm not feeling WELL", "fonetica": "AIM nát FÍL-ing UÉL" },
+            { "palavra": "nauseous", "significado": "com náusea / enjoado", "acento": "NAUseous", "fonetica": "NÓ-shes" },
+            { "palavra": "dizzy", "significado": "tonto / com tontura", "acento": "DIZzy", "fonetica": "DÍ-zi" }
+          ],
+          "nativo": "'I'm not feeling well' é a forma mais natural de dizer que você não está bem — funciona para qualquer tipo de mal-estar.",
+          "erro": "Não diga 'I'm feeling bad' — 'feeling bad' em inglês pode significar arrependimento moral. Use 'I'm not feeling well' para mal-estar físico.",
+          "connected_voce": "I'm not feeling well. The turbulence is making me nauseous."
+        },
+        {
+          "id": "avio-05-03",
+          "turno": 3,
+          "cena": "A comissária oferece ajuda.",
+          "personagem": "Flight Attendant",
+          "fala": "I'm sorry to hear that. Here's a sick bag just in case. Can I bring you some water?",
+          "fonetica": "AIM SÓri te HÍR DHÁT. HÍRZ e SÍK bég djást in KEIS. KEN AI BRING yu sam UÁ-der?",
+          "traducao": "Sinto muito. Aqui está um saco por precaução. Posso trazer um pouco de água?",
+          "connected": "I'm sorry ta hear that. Here's a sick bag just in case. Can I bring ya some water?",
+          "blocos": [
+            { "bloco": "just in case", "significa": "por precaução / só para o caso de — expressão muito usada" },
+            { "bloco": "sick bag", "significa": "saco de vômito — o termo oficial e neutro em voos" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "just in case", "significado": "por precaução / caso precise", "acento": "just in CASE", "fonetica": "djást in KEIS" },
+            { "palavra": "sick bag", "significado": "saco de vômito / saco enjoo", "acento": "SICK bag", "fonetica": "SÍK bég" }
+          ],
+          "nativo": "'Just in case' é uma das expressões mais versáteis do inglês — use sempre que quiser dizer 'por via das dúvidas'.",
+          "erro": "Não traduz 'saco de vômito' literalmente. O termo correto é 'sick bag' ou 'barf bag' — evite criar expressões."
+        },
+        {
+          "id": "avio-05-04",
+          "turno": 4,
+          "cena": "Você agradece e pede o que precisa.",
+          "personagem": "Você",
+          "fala": "Yes please, some water would help. And maybe a cold cloth if you have one?",
+          "fonetica": "IÉS PLÍIZ, sam UÁ-der wud HELP. En MÉI-bi e KÔLD KLÓTH if ya HÉV uán?",
+          "traducao": "Sim por favor, água ajudaria. E talvez um pano frio se tiver?",
+          "sua_vez": true,
+          "acento": "Yes please, some WAter would HELP. And MAYbe a cold CLOTH if you have one?",
+          "alternativas": [
+            "Yes please. Water and maybe some crackers?",
+            "Water would be great, thank you.",
+            "Please. Can I also recline my seat a bit more?"
+          ],
+          "alts_traducoes": [
+            "Sim por favor. Água e talvez alguns biscoitos?",
+            "Água seria ótimo, obrigado.",
+            "Por favor. Posso também reclinar meu assento um pouco mais?"
+          ],
+          "vocab": [
+            { "palavra": "would help", "significado": "ajudaria / faria bem", "acento": "would HELP", "fonetica": "wud HELP" },
+            { "palavra": "cold cloth", "significado": "pano frio / compressa fria", "acento": "cold CLOTH", "fonetica": "KÔLD KLÓTH" },
+            { "palavra": "if you have one", "significado": "se tiver / se tiverem", "acento": "if you HAVE one", "fonetica": "if ya HÉV uán" }
+          ],
+          "nativo": "'If you have one' é a forma educada de pedir algo sem exigir — deixa a opção aberta para a outra pessoa.",
+          "erro": "Não diga 'If it is possible' — muito formal e estranho em contexto casual. 'If you have one' ou 'if that's okay' são melhores.",
+          "connected_voce": "Yeah please, some water'd help. An' maybe a cold cloth if ya have one?"
+        },
+        {
+          "id": "avio-05-05",
+          "turno": 5,
+          "cena": "A comissária traz e dá uma dica.",
+          "personagem": "Flight Attendant",
+          "fala": "Here you go. Try to look at the horizon if you can — it helps with motion sickness.",
+          "fonetica": "HÍR ya GÔU. TRÁI te LUK et de heRÁI-zen if ya KÉN — it HELPS wid MÔ-shon SÍK-nes.",
+          "traducao": "Aqui está. Tente olhar para o horizonte se conseguir — ajuda com enjoo de movimento.",
+          "connected": "Here ya go. Try ta look at the horizon if ya can — it helps with motion sickness.",
+          "blocos": [
+            { "bloco": "Try to look at the horizon", "significa": "tente olhar para o horizonte — dica real para enjoo" },
+            { "bloco": "it helps with", "significa": "ajuda com — forma direta de dizer que algo resolve algo" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "horizon", "significado": "horizonte", "acento": "hoRIzon", "fonetica": "heRÁI-zen" },
+            { "palavra": "motion sickness", "significado": "enjoo de movimento", "acento": "MOtion SICKness", "fonetica": "MÔ-shon SÍK-nes" }
+          ],
+          "nativo": "Olhar para o horizonte realmente ajuda com enjoo — o cérebro reconcilia o que os olhos veem com o que o ouvido interno sente.",
+          "erro": "Não diga 'I have movement sickness' — a expressão correta é 'motion sickness', não 'movement sickness'."
+        },
+        {
+          "id": "avio-05-06",
+          "turno": 6,
+          "cena": "Você agradece pela ajuda.",
+          "personagem": "Você",
+          "fala": "Thank you so much. I really appreciate your help.",
+          "fonetica": "THÉNK iu SÔ MÁTCH. AI RÍ-li ePRÍ-shiet yer HELP.",
+          "traducao": "Muito obrigado. Agradeço muito sua ajuda.",
+          "sua_vez": true,
+          "acento": "Thank you SO much. I really apPREciate your HELP.",
+          "alternativas": [
+            "Thank you! I'm feeling a little better already.",
+            "Really appreciate it. This helps a lot.",
+            "You're so kind. Thank you very much."
+          ],
+          "alts_traducoes": [
+            "Obrigado! Já estou me sentindo um pouco melhor.",
+            "Muito obrigado. Isso ajuda muito.",
+            "Você é muito gentil. Muito obrigado."
+          ],
+          "vocab": [
+            { "palavra": "I really appreciate", "significado": "agradeço muito / valorizo muito", "acento": "I REAlly apPREciate", "fonetica": "ai RÍ-li ePRÍ-shiet" },
+            { "palavra": "I'm feeling better", "significado": "estou me sentindo melhor", "acento": "I'm feeling BETter", "fonetica": "AIM FÍL-ing BÉ-der" }
+          ],
+          "nativo": "'I really appreciate your help' é mais caloroso e específico que 'thank you' sozinho — use quando alguém foi além do esperado.",
+          "erro": "Não diga 'I appreciate very much your help' — a ordem correta é 'I really appreciate your help' ou 'I appreciate your help very much'.",
+          "connected_voce": "Thank you so much. I really appreciate your help."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "After some time, you're feeling better. The attendant checks on you.",
+        "turnos": [
+          {
+            "id": "dl-avio05-01",
+            "personagem": "Flight Attendant",
+            "fala": "How are you feeling now? Any better?",
+            "fonetica": "HAU ÁR ya FÍL-ing NAU? ÊNi BÉ-der?",
+            "traducao": "Como você está se sentindo agora? Melhorou?",
+            "connected": "How arya feeling now? Any better?",
+            "respostas_esperadas": [
+              "Yes, much better! Thank you for checking.",
+              "A little better, thank you.",
+              "Yes! The water really helped."
+            ],
+            "resposta_modelo": "Yes, much better! The water and the cloth really helped. Thank you for checking on me.",
+            "feedback_modelo": "'Much better' é mais enfático que 'a little better' — indica recuperação clara. 'Thank you for checking on me' é uma expressão muito genuína e apreciada — mostra que você percebeu o cuidado da pessoa.",
+            "vocab_apoio": [
+              { "palavra": "much better", "significado": "muito melhor", "acento": "MUCH better", "fonetica": "MÁTCH BÉ-der" },
+              { "palavra": "checking on me", "significado": "verificar como estou / me checar", "acento": "CHECKing on me", "fonetica": "TCHÉK-ing on MI" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "avio-06",
+      "titulo": "Preparando para pousar — Landing preparation",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800",
+      "dialogo": [
+        {
+          "id": "avio-06-01",
+          "turno": 1,
+          "cena": "Falta uma hora para pousar. A comissária passa para recolher itens e dar instruções.",
+          "personagem": "Flight Attendant",
+          "fala": "We'll be landing in about an hour. Please make sure your tray tables are up and seats are in the upright position.",
+          "fonetica": "Wil bi LÁN-ding in e-BÁUT en ÁUer. PLÍIZ meik SHUR yer TRÉI TÉI-belz ÁR ÁP en SÍITS ÁR in di ÁP-rait pe-ZÍ-shon.",
+          "traducao": "Vamos pousar em cerca de uma hora. Por favor, certifique-se de que as mesinhas estão levantadas e os assentos na posição ereta.",
+          "connected": "We'll be landing in about an hour. Please make sure yer tray tables are up an' seats are in the upright position.",
+          "blocos": [
+            { "bloco": "make sure", "significa": "certifique-se / garanta — instrução para verificar algo" },
+            { "bloco": "upright position", "significa": "posição ereta — o assento deve estar vertical, não reclinado" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "landing", "significado": "pouso / pousar", "acento": "LANding", "fonetica": "LÁN-ding" },
+            { "palavra": "tray table", "significado": "mesinha dobrável", "acento": "TRAY table", "fonetica": "TRÉI TÉI-bel" },
+            { "palavra": "upright position", "significado": "posição ereta / vertical", "acento": "UPright poSItion", "fonetica": "ÁP-rait pe-ZÍ-shon" },
+            { "palavra": "make sure", "significado": "certifique-se / garanta", "acento": "make SURE", "fonetica": "meik SHÚR" },
+            { "palavra": "seatbelt", "significado": "cinto de segurança", "acento": "SEATbelt", "fonetica": "SÍT-belt" }
+          ],
+          "nativo": "Preste atenção a esses anúncios — às vezes a tripulação pede para guardar eletrônicos ou apagar luzes para o pouso.",
+          "erro": "Não continue usando o tablet ou laptop quando pedirem para guardar eletrônicos — a instrução é obrigatória."
+        },
+        {
+          "id": "avio-06-02",
+          "turno": 2,
+          "cena": "Você pergunta ao comissário sobre a documentação de entrada.",
+          "personagem": "Você",
+          "fala": "Excuse me, do I need to fill out any forms before landing?",
+          "fonetica": "eks-KIÚZ mi, DU ai NÍD te FIL áut ÊNi FORMZ bifor LÁN-ding?",
+          "traducao": "Com licença, preciso preencher algum formulário antes de pousar?",
+          "sua_vez": true,
+          "acento": "exCUSE me, do I need to FILL out any FORMS before LANding?",
+          "alternativas": [
+            "Do we need to complete any customs form on the plane?",
+            "Is there a declaration form I should fill out?",
+            "Should I fill out my immigration form now?"
+          ],
+          "alts_traducoes": [
+            "Precisamos preencher algum formulário alfandegário no avião?",
+            "Tem algum formulário de declaração que devo preencher?",
+            "Devo preencher meu formulário de imigração agora?"
+          ],
+          "vocab": [
+            { "palavra": "fill out a form", "significado": "preencher um formulário", "acento": "fill OUT a form", "fonetica": "FIL áut e FORM" },
+            { "palavra": "customs form", "significado": "formulário alfandegário", "acento": "CUStoms form", "fonetica": "KÁS-temz FORM" },
+            { "palavra": "declaration", "significado": "declaração", "acento": "declAration", "fonetica": "dek-le-RÉI-shon" }
+          ],
+          "nativo": "Em voos para os EUA, o formulário de imigração e alfândegas geralmente é distribuído durante o voo — você tem tempo para preencher antes de pousar.",
+          "erro": "Não diga 'fill in the form' — americanos usam 'fill out'. Britânicos usam 'fill in'. Nos EUA sempre 'fill out'.",
+          "connected_voce": "Excuse me, do I need to fill out any forms before landing?"
+        },
+        {
+          "id": "avio-06-03",
+          "turno": 3,
+          "cena": "O comissário explica o processo.",
+          "personagem": "Flight Attendant",
+          "fala": "Yes, you'll need to fill out a customs declaration form. I'll bring you one right now.",
+          "fonetica": "IÉS, yul NÍD te FIL áut e KÁS-temz dek-le-RÉI-shon FORM. AIL BRING yu uán RÁIT NAU.",
+          "traducao": "Sim, você precisará preencher um formulário de declaração alfandegária. Já te trago um.",
+          "connected": "Yes, you'll need ta fill out a customs declaration form. I'll bring ya one right now.",
+          "blocos": [
+            { "bloco": "you'll need to", "significa": "você vai precisar — obrigação no futuro próximo" },
+            { "bloco": "right now", "significa": "agora mesmo — indica ação imediata" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "customs declaration", "significado": "declaração alfandegária", "acento": "CUStoms declaRAtion", "fonetica": "KÁS-temz dek-le-RÉI-shon" },
+            { "palavra": "you'll need to", "significado": "você vai precisar de", "acento": "you'll NEED to", "fonetica": "yul NÍD te" }
+          ],
+          "nativo": "Tenha sua caneta com você no avião — formulários alfandegários precisam ser preenchidos à mão.",
+          "erro": "Não preencha o formulário com informações falsas — as consequências alfandegárias nos EUA são severas."
+        },
+        {
+          "id": "avio-06-04",
+          "turno": 4,
+          "cena": "O comissário traz o formulário e você pede ajuda.",
+          "personagem": "Você",
+          "fala": "Thank you. I have a quick question — where do I put my hotel address?",
+          "fonetica": "THÉNK iu. AI HÉV e KUÍK KUÊS-tchen — UÉRR du AI PUT mai hoTEL e-DRÉS?",
+          "traducao": "Obrigado. Tenho uma dúvida rápida — onde coloco o endereço do hotel?",
+          "sua_vez": true,
+          "acento": "Thank you. I have a QUICK question — WHERE do I put my hotel ADdress?",
+          "alternativas": [
+            "Sorry, I don't understand this section. Can you help?",
+            "Quick question — should I write my home address or the hotel?",
+            "Excuse me, what does 'intended address' mean here?"
+          ],
+          "alts_traducoes": [
+            "Desculpe, não entendo essa seção. Pode ajudar?",
+            "Dúvida rápida — devo escrever meu endereço de casa ou o hotel?",
+            "Com licença, o que significa 'intended address' aqui?"
+          ],
+          "vocab": [
+            { "palavra": "quick question", "significado": "dúvida rápida / pergunta rápida", "acento": "QUICK question", "fonetica": "KUÍK KUÊS-tchen" },
+            { "palavra": "intended address", "significado": "endereço planejado / onde vai ficar", "acento": "inTENDed ADdress", "fonetica": "in-TÉN-ded Á-drés" }
+          ],
+          "nativo": "'I have a quick question' é a forma educada de pedir atenção de alguém sem interromper de forma abrupta.",
+          "erro": "Não diga 'I have a doubt' para perguntar algo — em inglês 'doubt' é desconfiança. Use 'I have a question' ou 'quick question'.",
+          "connected_voce": "Thank you. I have a quick question — where do I put my hotel address?"
+        },
+        {
+          "id": "avio-06-05",
+          "turno": 5,
+          "cena": "O comissário explica.",
+          "personagem": "Flight Attendant",
+          "fala": "Put the hotel address in that section. If you don't know it, the hotel name is enough.",
+          "fonetica": "PUT de hoTEL e-DRÉS in DHÁT SÉK-shon. If ya DÔN NÔ it, de hoTEL NEIM iz i-NÁF.",
+          "traducao": "Coloque o endereço do hotel nessa seção. Se você não sabe, o nome do hotel é suficiente.",
+          "connected": "Put the hotel address in that section. If ya don't know it, the hotel name is enough.",
+          "blocos": [
+            { "bloco": "is enough", "significa": "é suficiente / já basta — ótima expressão para simplicidade" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "is enough", "significado": "é suficiente / basta", "acento": "is eNOUGH", "fonetica": "iz i-NÁF" },
+            { "palavra": "section", "significado": "seção / parte do formulário", "acento": "SECtion", "fonetica": "SÉK-shon" }
+          ],
+          "nativo": "'Is enough' é muito útil — equivale ao 'já basta' ou 'é suficiente' do português. Simples e direta.",
+          "erro": "Não escreva o endereço completo se não souber — o nome do hotel é aceito pelos agentes de imigração."
+        },
+        {
+          "id": "avio-06-06",
+          "turno": 6,
+          "cena": "Você agradece e se prepara para o pouso.",
+          "personagem": "Você",
+          "fala": "Got it, thank you! Almost there — so exciting.",
+          "fonetica": "GÁD-it, THÉNK iu! ÓL-most DHER — SÔ eksÁI-ting.",
+          "traducao": "Entendido, obrigado! Quase chegando — que animador.",
+          "sua_vez": true,
+          "acento": "GOT it, thank you! ALmost THERE — so exCIting.",
+          "alternativas": [
+            "Perfect, thanks! I can't wait to land.",
+            "Got it. Thanks a lot! I'm so excited.",
+            "Thank you! Just a few more minutes."
+          ],
+          "alts_traducoes": [
+            "Perfeito, obrigado! Mal posso esperar para pousar.",
+            "Entendido. Muito obrigado! Estou muito animado.",
+            "Obrigado! Só mais alguns minutos."
+          ],
+          "vocab": [
+            { "palavra": "almost there", "significado": "quase chegando / quase lá", "acento": "ALmost THERE", "fonetica": "ÓL-most DHER" },
+            { "palavra": "I can't wait", "significado": "mal posso esperar / estou ansioso", "acento": "I CAN'T wait", "fonetica": "ai KÉNT UEIT" },
+            { "palavra": "so exciting", "significado": "tão empolgante / que animador", "acento": "so exCIting", "fonetica": "SÔ eks-ÁI-ting" }
+          ],
+          "nativo": "'I can't wait' não significa 'não posso esperar' literalmente — é uma expressão de entusiasmo: 'mal posso esperar' ou 'estou ansioso'.",
+          "erro": "Não diga 'I am exciting' — 'exciting' é adjetivo do objeto, não da pessoa. Diga 'I'm excited' para o que você sente.",
+          "connected_voce": "Got it, thank you! Almost there — so exciting."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The plane has landed and is taxiing to the gate. The passenger next to you speaks.",
+        "turnos": [
+          {
+            "id": "dl-avio06-01",
+            "personagem": "Passenger",
+            "fala": "We made it! Welcome to New York!",
+            "fonetica": "Wi MEID it! UÉL-kem te NÚ IÓRK!",
+            "traducao": "Chegamos! Bem-vindo a Nova York!",
+            "connected": "We made it! Welcome ta New York!",
+            "respostas_esperadas": [
+              "Thank you! I can't believe I'm finally here!",
+              "Yes! I'm so excited. First time here.",
+              "Finally! I'm so happy to be here."
+            ],
+            "resposta_modelo": "Thank you! I can't believe I'm finally here. I'm so excited — this is my first time in the US!",
+            "feedback_modelo": "'I can't believe I'm finally here' transmite emoção genuína de forma muito natural. Encerrar com 'first time in the US' é um detalhe pessoal que convida a pessoa a responder com entusiasmo — excelente forma de terminar um pequeno talk com conexão humana.",
+            "vocab_apoio": [
+              { "palavra": "We made it!", "significado": "chegamos! / conseguimos!", "acento": "we MADE it!", "fonetica": "wi MEID it!" },
+              { "palavra": "finally", "significado": "finalmente", "acento": "FInally", "fonetica": "FÁI-ne-li" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
