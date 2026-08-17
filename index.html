@@ -567,6 +567,7 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 </div>
 
 <!-- MODAL CONFIRMAR SAÍDA -->
+<!-- Modal: sair da lição -->
 <div id="modal-sair" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;align-items:center;justify-content:center;padding:24px;">
   <div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:28px 24px;max-width:340px;width:100%;text-align:center;">
     <div style="margin-bottom:14px;color:var(--ylw);">
@@ -577,6 +578,21 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     <div style="display:flex;gap:10px;">
       <button onclick="confirmarSairNao()" style="flex:1;padding:12px;border-radius:var(--r);border:1px solid var(--bd);background:var(--s2);color:var(--tx2);font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">Continuar lição</button>
       <button onclick="confirmarSairSim()" style="flex:1;padding:12px;border-radius:var(--r);border:none;background:var(--red);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">Sair</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: sair da conta (logout) -->
+<div id="modal-logout" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:28px 24px;max-width:340px;width:100%;text-align:center;">
+    <div style="margin-bottom:14px;color:var(--tx2);">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    </div>
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;">Sair da conta?</div>
+    <div style="font-size:13px;color:var(--tx2);margin-bottom:24px;line-height:1.6;">Seu progresso fica salvo.<br>Você pode entrar novamente quando quiser.</div>
+    <div style="display:flex;gap:10px;">
+      <button onclick="fecharModalLogout()" style="flex:1;padding:12px;border-radius:var(--r);border:1px solid var(--bd);background:var(--s2);color:var(--tx2);font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">Cancelar</button>
+      <button onclick="confirmarLogout()" style="flex:1;padding:12px;border-radius:var(--r);border:none;background:var(--red);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">Sair</button>
     </div>
   </div>
 </div>
@@ -645,7 +661,15 @@ function entrarNaApp() {
 }
 
 function fazerLogout() {
-  if (!confirm('Sair da sua conta?')) return;
+  const modal = document.getElementById('modal-logout');
+  if (modal) modal.style.display = 'flex';
+}
+function fecharModalLogout() {
+  const modal = document.getElementById('modal-logout');
+  if (modal) modal.style.display = 'none';
+}
+function confirmarLogout() {
+  fecharModalLogout();
   limparSessao();
   usuarioAtual = null;
   document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
@@ -813,28 +837,34 @@ function esconderLoader(){
 let mundosFalhados=[];
 async function init(){
   const loaderTxt=document.getElementById('loader-txt');
-  for(const mc of MCFG){
-    if(loaderTxt)loaderTxt.textContent='Carregando: '+mc.nome;
-    if(mc.disponivel&&mc.arquivo&&mc.arquivo.startsWith('data/')){
-      try{
-        const r=await fetch(mc.arquivo);
-        if(!r.ok)throw new Error('HTTP '+r.status);
-        const d=await r.json();
-        if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
-        mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
-      }catch(e){
-        console.warn('Erro ao carregar',mc.arquivo,e);
-        mundosFalhados.push(mc.nome);
+  try{
+    for(const mc of MCFG){
+      if(loaderTxt)loaderTxt.textContent='Carregando: '+mc.nome;
+      if(mc.disponivel&&mc.arquivo&&mc.arquivo.startsWith('data/')){
+        try{
+          const r=await fetch(mc.arquivo);
+          if(!r.ok)throw new Error('HTTP '+r.status);
+          const d=await r.json();
+          if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
+          mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
+        }catch(e){
+          console.warn('Erro ao carregar',mc.arquivo,e);
+          mundosFalhados.push(mc.nome);
+          mundos.push({...mc,situacoes:[],disponivel:false});
+        }
+      }else{
         mundos.push({...mc,situacoes:[],disponivel:false});
       }
-    }else{
-      mundos.push({...mc,situacoes:[],disponivel:false});
     }
+    carregarVoz();
+  }catch(e){
+    console.error('Erro crítico no init:',e);
+  }finally{
+    // Loader SEMPRE some — nunca bloqueia o acesso ao login
+    esconderLoader();
+    if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
+    irPara(verificarSessao()?'fases':'login');
   }
-  carregarVoz();
-  esconderLoader();
-  if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
-  irPara(verificarSessao()?'fases':'login');
 }
 
 // ── ABAS ─────────────────────────────────
@@ -1981,7 +2011,6 @@ function irParaRes(origem){
     <div class="ftrad-lbl" style="font-size:10px;color:var(--tx3);margin-bottom:4px;">Tradução</div>
     <div style="font-size:13px;color:var(--tx2);line-height:1.5;">${item.traducao||''}</div>`;
   if(item.acento)html+=`<div class="atag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${item.acento}</div>`;
-  if(item.fonetica)html+=`<div class="ftag-fonetica" style="margin-top:8px;"><span class="ftag-fonetica-lbl">Pronúncia</span>${item.fonetica}</div>`;
 
   // Como nativo fala — versão sua
   if(item.connected_voce){
@@ -2059,7 +2088,6 @@ function irParaRes(origem){
           <div class="vp">${v.palavra}</div>
           <div class="vs">${v.significado}</div>
           <div class="va"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${v.acento||''}</div>
-          ${v.fonetica?`<div class="vocab-fonetica">${v.fonetica}</div>`:''}
         </div>
         <button class="vi-btn" onclick="falarVocab(${aE(v.palavra)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
       </div>`;
