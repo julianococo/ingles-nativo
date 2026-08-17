@@ -119,6 +119,11 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-he
 .abtn.on{border-color:var(--acc2);color:var(--acc2);}
 /* ACENTO */
 .atag{display:inline-flex;align-items:center;gap:5px;background:rgba(79,142,247,.08);border:1px solid rgba(79,142,247,.15);border-radius:6px;padding:3px 8px;font-size:12px;color:var(--acc);font-family:monospace;margin-top:6px;}
+/* FONÉTICA */
+.ftag-fonetica{display:inline-flex;align-items:center;gap:5px;background:rgba(234,179,8,.07);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--ylw);font-family:monospace;margin-top:8px;letter-spacing:.3px;}
+.ftag-fonetica-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--tx3);margin-right:4px;}
+.vi-fonetica{font-size:12px;color:var(--ylw);font-family:monospace;background:rgba(234,179,8,.07);border:1px solid rgba(234,179,8,.2);border-radius:6px;padding:4px 10px;margin-top:6px;display:inline-block;letter-spacing:.3px;}
+.vocab-fonetica{font-size:11px;color:var(--ylw);font-family:monospace;margin-top:3px;letter-spacing:.2px;}
 /* TIMER */
 .timer-w{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .timer-bar{flex:1;height:4px;background:var(--bd);border-radius:2px;overflow:hidden;}
@@ -1089,6 +1094,7 @@ function viRenderUm(){
     <div class="vi-card">
       <div class="vi-palavra">${v.palavra}</div>
       ${v.acento?`<div class="vi-acento">${v.acento}</div>`:''}
+      ${v.fonetica?`<div class="vi-fonetica"><span class="ftag-fonetica-lbl">Pronúncia</span>${v.fonetica}</div>`:''}
       <div class="vi-significado">${v.significado}</div>
       ${v.connected?`<div class="vi-connected"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Como nativo fala: <strong>${v.connected}</strong></div>`:''}
       ${v.exemplo?`<div class="vi-exemplo">"${v.exemplo}"</div>`:''}
@@ -1146,6 +1152,7 @@ function viRenderLista(){
         <div class="vi-item-palavra">${v.palavra}</div>
         <div class="vi-item-sig">${v.significado}</div>
         ${v.acento?`<div class="vi-item-acento">${v.acento}</div>`:''}
+        ${v.fonetica?`<div class="vocab-fonetica">${v.fonetica}</div>`:''}
         ${v.connected?`<div style="font-size:12px;color:var(--acc2);font-style:italic;margin-top:2px;">"${v.connected}"</div>`:''}
       </div>
       <div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0;">
@@ -1544,6 +1551,7 @@ function renderTurno(){
     html+=`<div class="fbox ${bc}">
       <div class="flbl ${lc}"><span>${pnome}</span></div>
       <div class="ftxt">${item.fala}</div>
+      ${item.fonetica?`<div class="ftag-fonetica"><span class="ftag-fonetica-lbl">Pronúncia</span>${item.fonetica}</div>`:''}
       <div class="ftrad-lbl">Tradução</div>
       <div class="ftrad">${item.traducao||''}</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
@@ -1572,6 +1580,9 @@ function renderTurno(){
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
       Tente responder antes de ver a resposta
     </div>`;
+    if(item.fonetica){
+      html+=`<div class="ftag-fonetica" style="margin-bottom:10px;"><span class="ftag-fonetica-lbl">Pronúncia</span>${item.fonetica}</div>`;
+    }
     if(item.connected_voce){
       html+=`<div class="conn" style="margin-bottom:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
         <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
@@ -1605,6 +1616,9 @@ function renderTurno(){
   }
   else{
     // Alteração 1: Timer removido — usuário responde no seu ritmo
+    if(item.fonetica){
+      html+=`<div class="ftag-fonetica" style="margin-bottom:10px;"><span class="ftag-fonetica-lbl">Pronúncia</span>${item.fonetica}</div>`;
+    }
     if(item.connected_voce){
       html+=`<div class="conn" style="margin-bottom:10px;border-color:rgba(124,92,252,.2);background:rgba(124,92,252,.04);">
         <div class="conn-lbl"><span style="color:var(--acc2);">Como nativo fala</span>
@@ -1967,6 +1981,7 @@ function irParaRes(origem){
     <div class="ftrad-lbl" style="font-size:10px;color:var(--tx3);margin-bottom:4px;">Tradução</div>
     <div style="font-size:13px;color:var(--tx2);line-height:1.5;">${item.traducao||''}</div>`;
   if(item.acento)html+=`<div class="atag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${item.acento}</div>`;
+  if(item.fonetica)html+=`<div class="ftag-fonetica" style="margin-top:8px;"><span class="ftag-fonetica-lbl">Pronúncia</span>${item.fonetica}</div>`;
 
   // Como nativo fala — versão sua
   if(item.connected_voce){
@@ -2044,6 +2059,7 @@ function irParaRes(origem){
           <div class="vp">${v.palavra}</div>
           <div class="vs">${v.significado}</div>
           <div class="va"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg> ${v.acento||''}</div>
+          ${v.fonetica?`<div class="vocab-fonetica">${v.fonetica}</div>`:''}
         </div>
         <button class="vi-btn" onclick="falarVocab(${aE(v.palavra)},this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ouvir</button>
       </div>`;
