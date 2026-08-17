@@ -1,0 +1,924 @@
+{
+  "id": 3,
+  "nome": "Imigração",
+  "descricao": "Controle de fronteira, perguntas do oficial, visto e declaração de bens.",
+  "imagem": "https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=800",
+  "situacoes": [
+    {
+      "id": "imig-01",
+      "titulo": "Na fila da imigração",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1517400508447-f8dd518b86db?w=800",
+      "dialogo": [
+        {
+          "id": "imig-01-01",
+          "turno": 1,
+          "cena": "Você chega ao guichê de imigração. O oficial pede seus documentos.",
+          "personagem": "Officer",
+          "fala": "Passport and customs form, please.",
+          "fonetica": "PÁS-port en KÁS-temz FORM, PLÍIZ.",
+          "traducao": "Passaporte e formulário de alfândega, por favor.",
+          "connected": "Passport an' customs form, please.",
+          "blocos": [
+            { "bloco": "customs form", "significa": "formulário de alfândega — documento de declaração" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "customs form", "significado": "formulário de alfândega", "acento": "CUStoms form", "fonetica": "KÁS-temz FORM" },
+            { "palavra": "purpose of visit", "significado": "motivo da visita", "acento": "PURpose of VIsit", "fonetica": "PÉR-pes ov VÍ-zit" },
+            { "palavra": "length of stay", "significado": "duração da estadia", "acento": "LENGTH of stay", "fonetica": "LÉNGTH ov STEI" },
+            { "palavra": "return ticket", "significado": "passagem de volta", "acento": "reTURN ticket", "fonetica": "riTÉRN TÍ-ket" },
+            { "palavra": "declare", "significado": "declarar", "acento": "deCLARE", "fonetica": "diKLÉR" }
+          ],
+          "nativo": "Oficiais de imigração são diretos e formais — respostas curtas e objetivas são o esperado, sem enrolação.",
+          "erro": "Não tente puxar conversa ou fazer piadas com o oficial — mantenha tom sério e respeitoso."
+        },
+        {
+          "id": "imig-01-02",
+          "turno": 2,
+          "cena": "Você entrega os documentos.",
+          "personagem": "Você",
+          "fala": "Here you go.",
+          "fonetica": "HÍR ya GÔU.",
+          "traducao": "Aqui está.",
+          "sua_vez": true,
+          "connected_voce": "Here ya go.",
+          "acento": "HERE you go.",
+          "alternativas": [
+            "Here they are.",
+            "Sure, here you go.",
+            "Here's everything."
+          ],
+          "alts_traducoes": [
+            "Aqui estão.",
+            "Claro, aqui está.",
+            "Aqui está tudo."
+          ],
+          "vocab": [
+            { "palavra": "Here they are", "significado": "Aqui estão (plural)", "acento": "here they ARE", "fonetica": "HÍR dhei ÁR" }
+          ],
+          "nativo": "Resposta curta é o esperado — não precisa elaborar frases longas ao entregar documentos.",
+          "erro": "Não fique nervoso e comece a explicar demais — entregue os documentos e responda apenas o que for perguntado."
+        },
+        {
+          "id": "imig-01-03",
+          "turno": 3,
+          "cena": "O oficial pergunta o motivo da viagem.",
+          "personagem": "Officer",
+          "fala": "What's the purpose of your visit?",
+          "fonetica": "UÓTS de PÉR-pes ov yer VÍ-zit?",
+          "traducao": "Qual é o motivo da sua visita?",
+          "connected": "Whass the purpose of yer visit?",
+          "blocos": [
+            { "bloco": "What's the purpose", "significa": "Whass the purpose — 'what is' some em fala rápida" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "business", "significado": "negócios / trabalho", "acento": "BUSiness", "fonetica": "BÍZ-nes" },
+            { "palavra": "tourism / vacation", "significado": "turismo / férias", "acento": "TOURism / vaCAtion", "fonetica": "TÚR-izm / ve-KÉI-shon" }
+          ],
+          "nativo": "Resposta em uma palavra é aceitável e esperado: 'Business' ou 'Tourism' já resolve.",
+          "erro": "Não elabore demais — uma resposta simples e direta é o que o oficial precisa."
+        },
+        {
+          "id": "imig-01-04",
+          "turno": 4,
+          "cena": "Você responde.",
+          "personagem": "Você",
+          "fala": "Business. I have some meetings this week.",
+          "fonetica": "BÍZ-nes. AI HÉV sam MÍ-tingz DIS UÍIK.",
+          "traducao": "Negócios. Tenho algumas reuniões essa semana.",
+          "sua_vez": true,
+          "connected_voce": "Business. I have some meetings this week.",
+          "acento": "BUSiness. I have some MEETings this WEEK.",
+          "alternativas": [
+            "Business trip. A few client meetings.",
+            "I'm here for work — some meetings.",
+            "Business. Just a short work trip."
+          ],
+          "alts_traducoes": [
+            "Viagem de negócios. Algumas reuniões com clientes.",
+            "Estou aqui a trabalho — algumas reuniões.",
+            "Negócios. Só uma viagem curta de trabalho."
+          ],
+          "vocab": [
+            { "palavra": "business trip", "significado": "viagem de negócios", "acento": "BUSiness trip", "fonetica": "BÍZ-nes trip" },
+            { "palavra": "client meetings", "significado": "reuniões com clientes", "acento": "CLIent MEEtings", "fonetica": "KLÁIent MÍ-tingz" }
+          ],
+          "nativo": "Adicionar um breve contexto ('I have some meetings') é normal e ajuda a agilizar o processo.",
+          "erro": "Não diga apenas 'Work' sem contexto — uma frase curta com detalhe mínimo é mais eficaz."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The officer continues with routine questions.",
+        "turnos": [
+          {
+            "id": "dl-imig01-01",
+            "personagem": "Officer",
+            "fala": "How long will you be staying, and where?",
+            "fonetica": "HAU LÓNG wil ya bi STÉIing, en UÉRR?",
+            "traducao": "Quanto tempo você vai ficar, e onde?",
+            "connected": "How long will ya be staying, an' where?",
+            "respostas_esperadas": [
+              "Five days, at the Marriott.",
+              "About a week, downtown.",
+              "Five days. I'm staying at a hotel downtown."
+            ],
+            "resposta_modelo": "Five days. I'm staying at the Marriott downtown.",
+            "feedback_modelo": "Respostas em imigração devem ser factuais e diretas — sem elaborar demais. Mencionar o nome do hotel específico agiliza o processo e demonstra que sua viagem está bem planejada.",
+            "vocab_apoio": [
+              { "palavra": "How long", "significado": "Quanto tempo", "acento": "how LONG", "fonetica": "HAU LÓNG" },
+              { "palavra": "Where will you be staying?", "significado": "Onde você vai ficar hospedado?", "acento": "where will you be STAYing?", "fonetica": "UÉRR wil ya bi STÉIing?" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "imig-02",
+      "titulo": "Declaração de bens",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800",
+      "dialogo": [
+        {
+          "id": "imig-02-01",
+          "turno": 1,
+          "cena": "O oficial pergunta sobre itens a declarar.",
+          "personagem": "Officer",
+          "fala": "Are you bringing any food, plants, or animal products?",
+          "fonetica": "ÁRya BRING-ing ÊNi FÚD, PLÁNTS, or ÁNi-mel PRÁ-dukts?",
+          "traducao": "Você está trazendo alimentos, plantas ou produtos de origem animal?",
+          "connected": "Arya bringing any food, plants, or animal products?",
+          "blocos": [
+            { "bloco": "Are you bringing", "significa": "Arya bringing — 'are you' some em fala rápida" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "declare", "significado": "declarar", "acento": "deCLARE", "fonetica": "diKLÉR" },
+            { "palavra": "food / plants", "significado": "alimentos / plantas", "acento": "FOOD / PLANTS", "fonetica": "FÚD / PLÁNTS" },
+            { "palavra": "cash", "significado": "dinheiro em espécie", "acento": "CASH", "fonetica": "KÁSH" },
+            { "palavra": "duty-free", "significado": "livre de impostos (loja de aeroporto)", "acento": "DUty-free", "fonetica": "DIÚ-ri frí" },
+            { "palavra": "exceed the limit", "significado": "exceder o limite", "acento": "exCEED the LImit", "fonetica": "ekSÍID de LÍ-mit" }
+          ],
+          "nativo": "Perguntas de declaração são sempre sim/não — responda exatamente isso, sem rodeios.",
+          "erro": "Nunca minta em perguntas de declaração — é crime federal em muitos países e pode resultar em detenção."
+        },
+        {
+          "id": "imig-02-02",
+          "turno": 2,
+          "cena": "Você responde.",
+          "personagem": "Você",
+          "fala": "No, nothing like that.",
+          "fonetica": "NÔ, NÁ-thing laik DHÁT.",
+          "traducao": "Não, nada disso.",
+          "sua_vez": true,
+          "connected_voce": "No, nothing like that.",
+          "acento": "No, NOthing like THAT.",
+          "alternativas": [
+            "No, I'm not.",
+            "Nope, none of that.",
+            "No, nothing to declare."
+          ],
+          "alts_traducoes": [
+            "Não, não estou.",
+            "Não, nada disso.",
+            "Não, nada a declarar."
+          ],
+          "vocab": [
+            { "palavra": "nothing like that", "significado": "nada disso", "acento": "NOthing like THAT", "fonetica": "NÁ-thing laik DHÁT" },
+            { "palavra": "nothing to declare", "significado": "nada a declarar", "acento": "NOthing to deCLARE", "fonetica": "NÁ-thing te diKLÉR" }
+          ],
+          "nativo": "'Nothing to declare' é a frase oficial usada em formulários e falada em imigração — memorize essa exata expressão.",
+          "erro": "Não diga 'I don't have nothing' — dupla negativa é gramaticalmente incorreta em inglês."
+        },
+        {
+          "id": "imig-02-03",
+          "turno": 3,
+          "cena": "O oficial pergunta sobre valor em dinheiro.",
+          "personagem": "Officer",
+          "fala": "Are you carrying more than $10,000 in cash?",
+          "fonetica": "ÁRya KÁ-ri-ing MÓR dhen TEN THÁUzend DÁ-lerz in KÁSH?",
+          "traducao": "Você está carregando mais de $10.000 em dinheiro?",
+          "connected": "Arya carrying more than ten thousand dollars in cash?",
+          "blocos": [
+            { "bloco": "more than", "significa": "mais de — usado para valores e quantidades" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "more than", "significado": "mais de", "acento": "more THAN", "fonetica": "MÓR dhen" },
+            { "palavra": "carrying", "significado": "carregando / portando", "acento": "CARrying", "fonetica": "KÁ-ri-ing" }
+          ],
+          "nativo": "A pergunta de $10,000 é padrão internacional — o limite é o mesmo na maioria dos países.",
+          "erro": "Não hesite antes de responder — hesitação em imigração pode gerar suspeita, mesmo sem motivo real."
+        },
+        {
+          "id": "imig-02-04",
+          "turno": 4,
+          "cena": "Você responde e o oficial libera você.",
+          "personagem": "Você",
+          "fala": "No, definitely not.",
+          "fonetica": "NÔ, DEF-i-net-li NÁT.",
+          "traducao": "Não, definitivamente não.",
+          "sua_vez": true,
+          "connected_voce": "No, definitely not.",
+          "acento": "No, DEFinitely NOT.",
+          "alternativas": [
+            "No, not even close.",
+            "No, nowhere near that.",
+            "No, much less than that."
+          ],
+          "alts_traducoes": [
+            "Não, nem perto disso.",
+            "Não, muito longe disso.",
+            "Não, bem menos que isso."
+          ],
+          "vocab": [
+            { "palavra": "definitely not", "significado": "definitivamente não", "acento": "DEFinitely NOT", "fonetica": "DEF-i-net-li NÁT" },
+            { "palavra": "not even close", "significado": "nem perto", "acento": "not EVen close", "fonetica": "nát ÍVen KLÔUZ" }
+          ],
+          "nativo": "'Definitely not' com ênfase mostra confiança na resposta — importante em contexto de fiscalização.",
+          "erro": "Não responda apenas 'no' seco demais — adicionar um advérbio como 'definitely' soa mais natural e confiante."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The officer stamps your passport and hands it back.",
+        "turnos": [
+          {
+            "id": "dl-imig02-01",
+            "personagem": "Officer",
+            "fala": "Alright, everything checks out. Welcome to the United States. Enjoy your trip.",
+            "fonetica": "ÓL-rait, ÊVri-thing TCHÉKS áut. UÉL-kem te de iu-NAI-ted STÉITS. enDJÓI yer TRIP.",
+            "traducao": "Certo, está tudo certo. Bem-vindo aos Estados Unidos. Aproveite sua viagem.",
+            "connected": "Alright, everything checks out. Welcome to the United States. Enjoy yer trip.",
+            "respostas_esperadas": [
+              "Thank you!",
+              "Thank you so much!",
+              "Thanks, have a good day."
+            ],
+            "resposta_modelo": "Thank you so much! Have a great day.",
+            "feedback_modelo": "'Everything checks out' significa que está tudo certificado e correto — expressão útil em contextos de verificação. A resposta simples e educada encerra a interação formal de forma apropriada."
+          }
+        ]
+      }
+    },
+    {
+      "id": "imig-03",
+      "titulo": "Perguntas inesperadas",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1569579280295-90ec7cad2c46?w=800",
+      "dialogo": [
+        {
+          "id": "imig-03-01",
+          "turno": 1,
+          "cena": "O oficial faz uma pergunta adicional sobre viagens anteriores.",
+          "personagem": "Officer",
+          "fala": "Have you been to the US before?",
+          "fonetica": "HÉV ya BÍN te de IÚ-ES biFÓR?",
+          "traducao": "Você já esteve nos EUA antes?",
+          "connected": "Have you been to the US b'fore?",
+          "blocos": [
+            { "bloco": "Have you been", "significa": "present perfect — pergunta sobre experiência passada" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "Have you been to...?", "significado": "Você já esteve em...?", "acento": "have you BEEN to", "fonetica": "HÉV ya BÍN te" },
+            { "palavra": "first time", "significado": "primeira vez", "acento": "FIRST time", "fonetica": "FÉRST TÁIM" }
+          ],
+          "nativo": "'Have you been to' usa present perfect — pergunta sobre experiência acumulada, não um evento específico.",
+          "erro": "Não responda 'I have been' isolado — complete com 'before' ou dê contexto: 'Yes, once' ou 'No, first time'."
+        },
+        {
+          "id": "imig-03-02",
+          "turno": 2,
+          "cena": "Você responde.",
+          "personagem": "Você",
+          "fala": "No, this is my first time.",
+          "fonetica": "NÔ, DIS iz mai FÉRST TÁIM.",
+          "traducao": "Não, essa é minha primeira vez.",
+          "sua_vez": true,
+          "connected_voce": "No, this is my first time.",
+          "acento": "No, this is my FIRST time.",
+          "alternativas": [
+            "No, first time here.",
+            "Actually no, this is my first visit.",
+            "Nope, never been before."
+          ],
+          "alts_traducoes": [
+            "Não, primeira vez aqui.",
+            "Na verdade não, essa é minha primeira visita.",
+            "Não, nunca estive antes."
+          ],
+          "vocab": [
+            { "palavra": "first visit", "significado": "primeira visita", "acento": "FIRST visit", "fonetica": "FÉRST VÍ-zit" },
+            { "palavra": "never been before", "significado": "nunca estive antes", "acento": "NEVer been b'FORE", "fonetica": "NÉ-ver BÍN biFÓR" }
+          ],
+          "nativo": "'This is my first time' é a resposta natural e completa — não precisa adicionar muito mais.",
+          "erro": "Não diga 'It's the first time for me' — mais natural é 'This is my first time'."
+        },
+        {
+          "id": "imig-03-03",
+          "turno": 3,
+          "cena": "O oficial pergunta sobre onde você trabalha.",
+          "personagem": "Officer",
+          "fala": "What company do you work for?",
+          "fonetica": "UÁT KÁM-pe-ni dya UÉRK for?",
+          "traducao": "Para qual empresa você trabalha?",
+          "connected": "What company d'ya work for?",
+          "blocos": [
+            { "bloco": "work for", "significa": "trabalhar para — usado com nome de empresa" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "work for", "significado": "trabalhar para (empresa)", "acento": "WORK for", "fonetica": "UÉRK for" },
+            { "palavra": "self-employed", "significado": "autônomo", "acento": "self-emPLOYED", "fonetica": "self-emPLÓID" }
+          ],
+          "nativo": "Se você é autônomo, a resposta correta é 'I'm self-employed' — não 'I work for myself', que soa estranho.",
+          "erro": "Não diga 'I work in myself' — a expressão correta para autônomo é 'self-employed'."
+        },
+        {
+          "id": "imig-03-04",
+          "turno": 4,
+          "cena": "Você explica que é autônomo.",
+          "personagem": "Você",
+          "fala": "I'm self-employed. I run a consulting business.",
+          "fonetica": "AIM self-emPLÓID. AI RÁN e KON-sel-ting BÍZ-nes.",
+          "traducao": "Sou autônomo. Tenho um negócio de consultoria.",
+          "sua_vez": true,
+          "connected_voce": "I'm self-employed. I run a consulting business.",
+          "acento": "I'm self-emPLOYED. I RUN a CONsulting BUsiness.",
+          "alternativas": [
+            "I'm self-employed — I own a consulting firm.",
+            "I work for myself, in consulting.",
+            "I'm an independent consultant."
+          ],
+          "alts_traducoes": [
+            "Sou autônomo — tenho uma empresa de consultoria.",
+            "Trabalho por conta própria, em consultoria.",
+            "Sou consultor independente."
+          ],
+          "vocab": [
+            { "palavra": "independent consultant", "significado": "consultor independente", "acento": "indePENdent conSULtant", "fonetica": "in-de-PÉN-dent kon-SÁL-tent" },
+            { "palavra": "I own a...", "significado": "Eu tenho / sou dono de...", "acento": "I OWN a", "fonetica": "ai ÔUN e" }
+          ],
+          "nativo": "'Self-employed' seguido de uma explicação curta ('I run a...') é a estrutura ideal para essa resposta.",
+          "erro": "Não diga 'I have my own work' — o correto é 'I'm self-employed' ou 'I run my own business'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The officer seems satisfied and prepares to stamp your passport.",
+        "turnos": [
+          {
+            "id": "dl-imig03-01",
+            "personagem": "Officer",
+            "fala": "Alright, sounds good. Enjoy your business trip.",
+            "fonetica": "ÓL-rait, SÁUNDZ gud. enDJÓI yer BÍZ-nes TRIP.",
+            "traducao": "Certo, parece bom. Aproveite sua viagem de negócios.",
+            "connected": "Alright, sounds good. Enjoy yer business trip.",
+            "respostas_esperadas": [
+              "Thank you, I will.",
+              "Thanks, appreciate it.",
+              "Thank you so much."
+            ],
+            "resposta_modelo": "Thank you, I will. Have a good one!",
+            "feedback_modelo": "'I will' completa a frase do oficial de forma natural — confirma que você pretende aproveitar. 'Have a good one' é uma despedida casual e amigável, apropriada mesmo em contexto formal como imigração."
+          }
+        ]
+      }
+    },
+    {
+      "id": "imig-04",
+      "titulo": "Visto e documentos extras",
+      "nivel": 2,
+      "imagem": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800",
+      "dialogo": [
+        {
+          "id": "imig-04-01",
+          "turno": 1,
+          "cena": "O oficial pede documentos adicionais além do passaporte.",
+          "personagem": "Officer",
+          "fala": "Do you have your visa and your return ticket?",
+          "fonetica": "DYA HÉV yer VÍ-ze en yer riTÉRN TÍ-ket?",
+          "traducao": "Você tem seu visto e sua passagem de volta?",
+          "connected": "D'ya have yer visa an' yer return ticket?",
+          "blocos": [
+            { "bloco": "return ticket", "significa": "passagem de volta — confirma que você vai sair do país" },
+            { "bloco": "Do you have", "significa": "D'ya have — contração muito comum em inglês falado" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "visa", "significado": "visto", "acento": "VIsa", "fonetica": "VÍ-ze" },
+            { "palavra": "return ticket", "significado": "passagem de volta", "acento": "reTURN ticket", "fonetica": "riTÉRN TÍ-ket" },
+            { "palavra": "travel insurance", "significado": "seguro viagem", "acento": "TRavel inSURance", "fonetica": "TRÁ-vel inSHÚR-ens" },
+            { "palavra": "invitation letter", "significado": "carta-convite", "acento": "inviTAtion LETter", "fonetica": "in-vi-TÉI-shon LÉ-ter" },
+            { "palavra": "hotel reservation", "significado": "reserva de hotel", "acento": "HOtel reserVAtion", "fonetica": "hoTEL re-zer-VÉI-shon" }
+          ],
+          "nativo": "Ter todos os documentos organizados e em mãos acelera muito o processo — não faça o oficial esperar enquanto você procura.",
+          "erro": "Não diga 'I have the visa' como se fosse uma coisa — apresente junto com o passaporte: 'Here's my visa and passport'."
+        },
+        {
+          "id": "imig-04-02",
+          "turno": 2,
+          "cena": "Você confirma e apresenta os documentos.",
+          "personagem": "Você",
+          "fala": "Yes, here's my visa. And I have my return ticket on my phone.",
+          "fonetica": "IÉS, HÍRZ mai VÍ-ze. En ai HÉV mai riTÉRN TÍ-ket on mai FÔUN.",
+          "traducao": "Sim, aqui está meu visto. E tenho minha passagem de volta no celular.",
+          "sua_vez": true,
+          "connected_voce": "Yeah, here's my visa. An' I have my return ticket on my phone.",
+          "acento": "Yes, HERE's my VIsa. And I have my reTURN ticket on my PHONE.",
+          "alternativas": [
+            "Here's my visa. My return is on May 15th.",
+            "Yes, visa right here. And I have an e-ticket on my phone.",
+            "Yes, everything is here — visa, passport, return ticket."
+          ],
+          "alts_traducoes": [
+            "Aqui está meu visto. Minha volta é dia 15 de maio.",
+            "Sim, visto aqui. E tenho um e-ticket no celular.",
+            "Sim, está tudo aqui — visto, passaporte, passagem de volta."
+          ],
+          "vocab": [
+            { "palavra": "on my phone", "significado": "no meu celular", "acento": "on my PHONE", "fonetica": "on mai FÔUN" },
+            { "palavra": "e-ticket", "significado": "passagem eletrônica", "acento": "E-ticket", "fonetica": "Í-ti-ket" }
+          ],
+          "nativo": "Passagem eletrônica no celular é amplamente aceita — mas tenha a tela aberta com a confirmação visível.",
+          "erro": "Não diga 'I have ticket' sem artigo — o correto é 'I have a ticket' ou 'I have my ticket'."
+        },
+        {
+          "id": "imig-04-03",
+          "turno": 3,
+          "cena": "O oficial pede para ver o e-ticket.",
+          "personagem": "Officer",
+          "fala": "Can I see the confirmation on the screen?",
+          "fonetica": "KEN ai SÍI de kon-fer-MÉI-shon on de SKRÍN?",
+          "traducao": "Posso ver a confirmação na tela?",
+          "connected": "Can I see the confirmation on the screen?",
+          "blocos": [
+            { "bloco": "on the screen", "significa": "na tela — do celular ou do computador" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "confirmation", "significado": "confirmação", "acento": "conFIRMation", "fonetica": "kon-fer-MÉI-shon" },
+            { "palavra": "screen", "significado": "tela", "acento": "SCREEN", "fonetica": "SKRÍN" }
+          ],
+          "nativo": "Tenha a tela de confirmação aberta antes de chegar ao guichê — poupar tempo é sempre positivo com oficiais de imigração.",
+          "erro": "Não entregue seu celular desbloqueado ao oficial — apenas mostre a tela com a confirmação visível."
+        },
+        {
+          "id": "imig-04-04",
+          "turno": 4,
+          "cena": "Você mostra o celular.",
+          "personagem": "Você",
+          "fala": "Of course. Here it is — May 15th, flight back to São Paulo.",
+          "fonetica": "ov KÓRS. HÍR it IZ — MEI fif-TÍNTH, FLÁIT bák te SÃO PAUlo.",
+          "traducao": "Claro. Aqui está — 15 de maio, voo de volta para São Paulo.",
+          "sua_vez": true,
+          "connected_voce": "Of course. Here it is — May fifteenth, flight back to São Paulo.",
+          "acento": "Of COURSE. HERE it is — May FIFteenth, flight BACK to São Paulo.",
+          "alternativas": [
+            "Sure, here — returning May 15th.",
+            "Here you go. I fly back on the 15th.",
+            "Right here — May 15th, back to Brazil."
+          ],
+          "alts_traducoes": [
+            "Claro, aqui — retornando dia 15 de maio.",
+            "Aqui. Volto no dia 15.",
+            "Bem aqui — 15 de maio, de volta para o Brasil."
+          ],
+          "vocab": [
+            { "palavra": "flight back", "significado": "voo de volta", "acento": "flight BACK", "fonetica": "FLÁIT BÁK" },
+            { "palavra": "returning", "significado": "retornando / voltando", "acento": "reTURNing", "fonetica": "riTÉR-ning" }
+          ],
+          "nativo": "Indicar a data e o destino de retorno de forma direta demonstra que você tem tudo planejado — transmite segurança ao oficial.",
+          "erro": "Não diga 'go back' ao invés de 'fly back' quando se referir ao voo — 'fly back' é mais preciso para viagem aérea."
+        },
+        {
+          "id": "imig-04-05",
+          "turno": 5,
+          "cena": "O oficial olha os documentos e pergunta sobre acomodação.",
+          "personagem": "Officer",
+          "fala": "Where are you staying during your visit?",
+          "fonetica": "UÉRR ÁR ya STÉIing DIÚ-ring yer VÍ-zit?",
+          "traducao": "Onde você vai ficar durante sua visita?",
+          "connected": "Where arya staying during yer visit?",
+          "blocos": [
+            { "bloco": "during your visit", "significa": "durante sua visita — período de estadia no país" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "during", "significado": "durante", "acento": "DURing", "fonetica": "DIÚ-ring" },
+            { "palavra": "Airbnb", "significado": "aluguel por temporada", "acento": "AIR-bee-en-bee", "fonetica": "ÉR-bi-en-bi" }
+          ],
+          "nativo": "O endereço completo do hotel ou Airbnb deve estar anotado — oficiais verificam o CEP e o nome do estabelecimento.",
+          "erro": "Não diga 'I don't know yet' — isso levanta suspeitas. Saiba exatamente onde vai ficar antes de viajar."
+        },
+        {
+          "id": "imig-04-06",
+          "turno": 6,
+          "cena": "Você informa onde ficará.",
+          "personagem": "Você",
+          "fala": "The Marriott on 45th Street, Midtown Manhattan.",
+          "fonetica": "De MÁ-ri-ot on FÓR-ri-fifth STRÍIT, MÍD-táun man-HÁ-ten.",
+          "traducao": "O Marriott na 45th Street, Midtown Manhattan.",
+          "sua_vez": true,
+          "connected_voce": "The Marriott on forty-fifth Street, Midtown Manhattan.",
+          "acento": "The MARRiott on FORty-fifth Street, MIDtown ManHATtan.",
+          "alternativas": [
+            "I'm at the Hilton downtown — I have the reservation here.",
+            "A hotel in Midtown — the Marriott on 45th.",
+            "The Marriott Midtown. I have the confirmation if you need it."
+          ],
+          "alts_traducoes": [
+            "Estou no Hilton no centro — tenho a reserva aqui.",
+            "Um hotel no Midtown — o Marriott na 45th.",
+            "O Marriott Midtown. Tenho a confirmação se precisar."
+          ],
+          "vocab": [
+            { "palavra": "reservation", "significado": "reserva", "acento": "reserVAtion", "fonetica": "re-zer-VÉI-shon" },
+            { "palavra": "if you need it", "significado": "se precisar / se quiser ver", "acento": "if you NEED it", "fonetica": "if ya NÍD it" }
+          ],
+          "nativo": "Oferecer a confirmação da reserva proativamente ('if you need it') demonstra organização e cooperação.",
+          "erro": "Memorize o nome e endereço do hotel antes de viajar — não dependa de internet na fila de imigração."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The officer reviews your documents and asks one final question.",
+        "turnos": [
+          {
+            "id": "dl-imig04-01",
+            "personagem": "Officer",
+            "fala": "Do you have enough funds to cover your stay?",
+            "fonetica": "DYA HÉV i-NÁF FÁNDZ te KÁVer yer STEI?",
+            "traducao": "Você tem fundos suficientes para cobrir sua estadia?",
+            "connected": "D'ya have enough funds ta cover yer stay?",
+            "respostas_esperadas": [
+              "Yes, I have a credit card and some cash.",
+              "Yes, I do. I have my company card.",
+              "Yes, the company is covering all expenses."
+            ],
+            "resposta_modelo": "Yes. I have a company credit card and some cash — the company is covering the trip.",
+            "feedback_modelo": "Mencionar que a empresa está cobrindo as despesas é uma resposta forte — confirma que você é um viajante legítimo a negócios. 'Covering the trip' é uma expressão natural e concisa para isso.",
+            "vocab_apoio": [
+              { "palavra": "funds", "significado": "fundos / recursos financeiros", "acento": "FUNDS", "fonetica": "FÁNDZ" },
+              { "palavra": "covering expenses", "significado": "cobrindo as despesas", "acento": "COVering exPENses", "fonetica": "KÁV-er-ing eksP-ÉN-sez" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "imig-05",
+      "titulo": "Biometria e foto — Biometrics",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=800",
+      "dialogo": [
+        {
+          "id": "imig-05-01",
+          "turno": 1,
+          "cena": "O oficial pede para você colocar os dedos no scanner biométrico.",
+          "personagem": "Officer",
+          "fala": "Please place your four fingers on the scanner. Don't press too hard.",
+          "fonetica": "PLÍIZ PLEIS yer FOR FÍN-gerz on de SKÁN-er. DÔNT PRÉS TÚ HÁRD.",
+          "traducao": "Por favor, coloque seus quatro dedos no scanner. Não pressione muito forte.",
+          "connected": "Please place yer four fingers on the scanner. Don't press too hard.",
+          "blocos": [
+            { "bloco": "place your fingers", "significa": "coloque seus dedos — instrução direta sem artigo" },
+            { "bloco": "don't press too hard", "significa": "não pressione muito — 'too hard' = forte demais" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "fingerprint", "significado": "impressão digital", "acento": "FINgerprint", "fonetica": "FÍN-ger-print" },
+            { "palavra": "scanner", "significado": "scanner / leitor biométrico", "acento": "SCANner", "fonetica": "SKÁN-er" },
+            { "palavra": "press", "significado": "pressionar / apertar", "acento": "PRESS", "fonetica": "PRÉS" },
+            { "palavra": "hold still", "significado": "fique quieto / não se mova", "acento": "HOLD still", "fonetica": "HÔLD STIL" },
+            { "palavra": "retina scan", "significado": "escaneamento de retina", "acento": "RETina scan", "fonetica": "RÉ-ti-ne SKÁN" }
+          ],
+          "nativo": "Siga as instruções devagar e com calma — biometria pode falhar se você pressionar errado ou se mover rápido.",
+          "erro": "Não retire os dedos antes de ouvir o bipe ou a instrução — o scan precisa completar para ser válido."
+        },
+        {
+          "id": "imig-05-02",
+          "turno": 2,
+          "cena": "Você confirma que entendeu.",
+          "personagem": "Você",
+          "fala": "Got it. Like this?",
+          "fonetica": "GÁD-it. LÁIK DIS?",
+          "traducao": "Entendido. Assim?",
+          "sua_vez": true,
+          "connected_voce": "Got it. Like this?",
+          "acento": "GOT it. Like THIS?",
+          "alternativas": [
+            "Okay, all four fingers?",
+            "Sure. Should I press down?",
+            "Right. Is this the correct position?"
+          ],
+          "alts_traducoes": [
+            "Ok, todos os quatro dedos?",
+            "Claro. Devo pressionar para baixo?",
+            "Certo. Essa é a posição correta?"
+          ],
+          "vocab": [
+            { "palavra": "Like this?", "significado": "Assim? / Dessa forma?", "acento": "like THIS?", "fonetica": "LÁIK DIS?" },
+            { "palavra": "Should I...?", "significado": "Devo...? / Preciso...?", "acento": "SHOULD I", "fonetica": "SHUD ai" }
+          ],
+          "nativo": "'Like this?' com o gesto certo é a forma mais eficiente de confirmar se você está fazendo corretamente — rápido e direto.",
+          "erro": "Não diga 'Is it correct?' sem mostrar o que está fazendo — 'Like this?' com o gesto é muito mais claro."
+        },
+        {
+          "id": "imig-05-03",
+          "turno": 3,
+          "cena": "O oficial instrui para a foto.",
+          "personagem": "Officer",
+          "fala": "Good. Now look straight at the camera. Don't smile.",
+          "fonetica": "GUD. NAU LUK STREIT et de KÁ-me-re. DÔNT SMÁIL.",
+          "traducao": "Bom. Agora olhe direto para a câmera. Não sorria.",
+          "connected": "Good. Now look straight at the camera. Don't smile.",
+          "blocos": [
+            { "bloco": "look straight at", "significa": "olhe direto para — sem inclinar a cabeça" },
+            { "bloco": "Don't smile", "significa": "não sorria — documentos oficiais pedem expressão neutra" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "straight", "significado": "direto / reto", "acento": "STRAIGHT", "fonetica": "STREIT" },
+            { "palavra": "camera", "significado": "câmera", "acento": "CAMera", "fonetica": "KÁ-me-re" }
+          ],
+          "nativo": "Foto de imigração é sempre expressão neutra — diferente de selfies. Olhe diretamente para a lente sem inclinar.",
+          "erro": "Não sorria reflexivamente — 'Don't smile' é uma instrução, não uma pergunta."
+        },
+        {
+          "id": "imig-05-04",
+          "turno": 4,
+          "cena": "O scan falha e o oficial pede para tentar de novo.",
+          "personagem": "Officer",
+          "fala": "It didn't read properly. Try again — relax your hand this time.",
+          "fonetica": "It DÍdent RÍD PRÁ-per-li. TRÁI eGÉN — riLÁKS yer HÉND DIS TÁIM.",
+          "traducao": "Não leu corretamente. Tente de novo — relaxe a mão desta vez.",
+          "connected": "It didn't read properly. Try again — relax yer hand this time.",
+          "blocos": [
+            { "bloco": "didn't read properly", "significa": "não leu corretamente — o scanner não captou bem" },
+            { "bloco": "this time", "significa": "desta vez — indica que foi diferente da tentativa anterior" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "properly", "significado": "corretamente / direito", "acento": "PROPerly", "fonetica": "PRÁ-per-li" },
+            { "palavra": "relax your hand", "significado": "relaxe a mão", "acento": "reLAX your hand", "fonetica": "riLÁKS yer HÉND" }
+          ],
+          "nativo": "Falhas de biometria são normais — não se estresse. Respire fundo, relaxe a mão e tente de novo com calma.",
+          "erro": "Não retire a mão bruscamente se falhar — espere a instrução do oficial antes de reposicionar."
+        },
+        {
+          "id": "imig-05-05",
+          "turno": 5,
+          "cena": "Você tenta de novo e funciona.",
+          "personagem": "Você",
+          "fala": "Sorry about that. Is it okay now?",
+          "fonetica": "SÓri e-BÁUT DHÁT. IZ it oKÉI NAU?",
+          "traducao": "Desculpe. Está bom agora?",
+          "sua_vez": true,
+          "connected_voce": "Sorry about that. Is it okay now?",
+          "acento": "SOrry aBOUT that. Is it oKAY now?",
+          "alternativas": [
+            "Apologies. Did that work?",
+            "Sorry. I tried to relax. Is it good?",
+            "My apologies — I think it worked this time."
+          ],
+          "alts_traducoes": [
+            "Desculpe. Funcionou?",
+            "Desculpe. Tentei relaxar. Ficou bom?",
+            "Minhas desculpas — acho que funcionou dessa vez."
+          ],
+          "vocab": [
+            { "palavra": "Sorry about that", "significado": "desculpe por isso", "acento": "SOrry aBOUT that", "fonetica": "SÓri e-BÁUT dhát" },
+            { "palavra": "Did that work?", "significado": "Funcionou? / Deu certo?", "acento": "did that WORK?", "fonetica": "did dhát UÉRK?" }
+          ],
+          "nativo": "'Sorry about that' é uma desculpa calorosa e natural para situações onde algo deu errado sem ser sua culpa.",
+          "erro": "Não diga 'I am sorry for that' — soa muito formal. 'Sorry about that' é mais natural e neutro."
+        },
+        {
+          "id": "imig-05-06",
+          "turno": 6,
+          "cena": "O oficial confirma que deu certo.",
+          "personagem": "Officer",
+          "fala": "That's good. All set. Welcome to the US.",
+          "fonetica": "DHATS GUD. ÓL SÉT. UÉL-kem te de IÚ-ES.",
+          "traducao": "Ótimo. Está tudo pronto. Bem-vindo aos EUA.",
+          "connected": "That's good. All set. Welcome to the US.",
+          "blocos": [
+            { "bloco": "All set", "significa": "tudo pronto / pode ir — encerramento formal do processo" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "All set", "significado": "tudo pronto / está liberado", "acento": "all SET", "fonetica": "ÓL SÉT" }
+          ],
+          "nativo": "'All set' é o sinal de que o processo terminou — quando ouvir isso em qualquer contexto, significa que está tudo ok.",
+          "erro": "Ao ouvir 'Welcome to the US', diga 'Thank you' — não fique em silêncio ou continue parado no guichê."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The process is done. You pick up your passport and prepare to leave.",
+        "turnos": [
+          {
+            "id": "dl-imig05-01",
+            "personagem": "Officer",
+            "fala": "Here's your passport. Enjoy your stay.",
+            "fonetica": "HÍRZ yer PÁS-port. enDJÓI yer STEI.",
+            "traducao": "Aqui está seu passaporte. Aproveite sua estadia.",
+            "connected": "Here's yer passport. Enjoy yer stay.",
+            "respostas_esperadas": [
+              "Thank you! Have a good day.",
+              "Thanks so much!",
+              "Thank you, I will!"
+            ],
+            "resposta_modelo": "Thank you so much! Have a great day.",
+            "feedback_modelo": "'Have a great day' encerra qualquer interação formal de forma calorosa e educada. Em imigração — um dos ambientes mais tensos do aeroporto — sair com um sorriso e um agradecimento genuíno é sempre a atitude certa.",
+            "vocab_apoio": [
+              { "palavra": "Enjoy your stay", "significado": "Aproveite sua estadia", "acento": "enJOY your stay", "fonetica": "enDJÓI yer STEI" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "imig-06",
+      "titulo": "Inspeção secundária — Secondary screening",
+      "nivel": 3,
+      "imagem": "https://images.unsplash.com/photo-1520637102912-2df6bb2aec6d?w=800",
+      "dialogo": [
+        {
+          "id": "imig-06-01",
+          "turno": 1,
+          "cena": "O oficial pede para você ir para uma sala de inspeção secundária.",
+          "personagem": "Officer",
+          "fala": "Sir, I need you to step aside and come with me for additional screening.",
+          "fonetica": "SÉR, ai NÍD ya te STÉP eSÁID en KÁM wid MI for e-DÍ-shon-el SKRÍN-ing.",
+          "traducao": "Senhor, preciso que o senhor se afaste e venha comigo para triagem adicional.",
+          "connected": "Sir, I need ya to step aside an' come with me for additional screening.",
+          "blocos": [
+            { "bloco": "step aside", "significa": "se afaste / saia da fila — instrução formal de autoridade" },
+            { "bloco": "additional screening", "significa": "triagem adicional — verificação secundária de imigração" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "step aside", "significado": "afastar-se / sair da fila", "acento": "step aSIDE", "fonetica": "STÉP eSÁID" },
+            { "palavra": "additional screening", "significado": "triagem adicional", "acento": "addItional SCREENing", "fonetica": "e-DÍ-shon-el SKRÍN-ing" },
+            { "palavra": "remain calm", "significado": "permanecer calmo", "acento": "reMaIN CALM", "fonetica": "riMÉIN KÁLM" },
+            { "palavra": "cooperate", "significado": "cooperar", "acento": "coOPerate", "fonetica": "koÁ-pe-reit" },
+            { "palavra": "rights", "significado": "direitos", "acento": "RIGHTS", "fonetica": "RÁITS" }
+          ],
+          "nativo": "Inspeção secundária é rotineira e não significa que você é suspeito — acontece aleatoriamente com muitos viajantes.",
+          "erro": "Não pergunte 'Why me?' de forma agressiva — coopere calmamente e tudo será resolvido mais rápido."
+        },
+        {
+          "id": "imig-06-02",
+          "turno": 2,
+          "cena": "Você responde com calma.",
+          "personagem": "Você",
+          "fala": "Of course. Can you tell me what this is about?",
+          "fonetica": "ov KÓRS. KEN ya TÉL mi UÁT DIS iz e-BÁUT?",
+          "traducao": "Claro. Pode me dizer do que se trata?",
+          "sua_vez": true,
+          "connected_voce": "Of course. Can ya tell me what this is about?",
+          "acento": "Of COURSE. Can you tell me what THIS is aBOUT?",
+          "alternativas": [
+            "Sure. Is everything okay?",
+            "No problem. What do I need to do?",
+            "Of course. What's the reason for this?"
+          ],
+          "alts_traducoes": [
+            "Claro. Está tudo bem?",
+            "Sem problema. O que preciso fazer?",
+            "Claro. Qual é o motivo disso?"
+          ],
+          "vocab": [
+            { "palavra": "what is this about?", "significado": "do que se trata? / por quê?", "acento": "what is this aBOUT?", "fonetica": "UÁT iz DIS e-BÁUT?" },
+            { "palavra": "no problem", "significado": "sem problema / tudo bem", "acento": "no PROBlem", "fonetica": "nô PRÁ-blem" }
+          ],
+          "nativo": "Perguntar 'what is this about?' de forma calma e educada é seu direito — mostra cooperação sem submissão.",
+          "erro": "Não recuse a inspeção ou argumente no guichê — coopere e esclareça qualquer dúvida dentro da sala."
+        },
+        {
+          "id": "imig-06-03",
+          "turno": 3,
+          "cena": "Na sala, o oficial explica e faz perguntas mais detalhadas.",
+          "personagem": "Officer",
+          "fala": "We have a few more questions about your trip. Who will you be meeting with?",
+          "fonetica": "Wi HÉV e fiu MÓR KUÊS-tchens e-BÁUT yer TRIP. HÚ wil ya bi MÍ-ting wid?",
+          "traducao": "Temos mais algumas perguntas sobre sua viagem. Com quem você vai se reunir?",
+          "connected": "We have a few more questions about yer trip. Who will ya be meeting with?",
+          "blocos": [
+            { "bloco": "a few more questions", "significa": "mais algumas perguntas — indica continuação da verificação" },
+            { "bloco": "Who will you be meeting with", "significa": "com quem você vai se reunir — pergunta sobre contatos no país" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "meeting with", "significado": "se reunindo com / encontrando", "acento": "MEEting WITH", "fonetica": "MÍ-ting wid" },
+            { "palavra": "contact", "significado": "contato", "acento": "CONtact", "fonetica": "KÁN-takt" }
+          ],
+          "nativo": "Tenha o nome, cargo e empresa das pessoas que vai visitar memorizados — informações vagas geram mais perguntas.",
+          "erro": "Não diga 'I don't remember' — se você realmente não sabe, diga 'I have the details on my phone, may I check?'"
+        },
+        {
+          "id": "imig-06-04",
+          "turno": 4,
+          "cena": "Você fornece os detalhes das reuniões.",
+          "personagem": "Você",
+          "fala": "I'll be meeting with John Smith, VP of Operations at TechCorp. We have meetings scheduled for Monday and Tuesday.",
+          "fonetica": "AIL bi MÍ-ting wid DJÓN SMÍTH, VÍ-PI ov ÁP-er-éI-shonz et TÉK-korp. Wi HÉV MÍ-tingz SKÉD-yuld for MÁN-dei en TIÚZ-dei.",
+          "traducao": "Vou me reunir com John Smith, VP de Operações da TechCorp. Temos reuniões agendadas para segunda e terça.",
+          "sua_vez": true,
+          "connected_voce": "I'll be meeting with John Smith, VP of Operations at TechCorp. We have meetings scheduled for Monday and Tuesday.",
+          "acento": "I'll be MEEting with John Smith, VP of Operations at TechCorp. We have MEETings SCHEDuled for MONday and TUESday.",
+          "alternativas": [
+            "My contact is Sarah Johnson at GlobalTech. We have a conference Monday.",
+            "I'm meeting with the sales team at DataCo — two days of meetings.",
+            "Three meetings at different companies — all scheduled, I have the agenda here."
+          ],
+          "alts_traducoes": [
+            "Meu contato é Sarah Johnson na GlobalTech. Temos uma conferência segunda.",
+            "Vou me reunir com o time de vendas na DataCo — dois dias de reuniões.",
+            "Três reuniões em empresas diferentes — todas agendadas, tenho a agenda aqui."
+          ],
+          "vocab": [
+            { "palavra": "scheduled", "significado": "agendado / programado", "acento": "SCHEDuled", "fonetica": "SKÉD-yuld" },
+            { "palavra": "VP of Operations", "significado": "Vice-Presidente de Operações", "acento": "VP of OPerations", "fonetica": "VÍ-PI ov ÁP-er-éI-shonz" }
+          ],
+          "nativo": "Detalhes específicos — nome completo, cargo, empresa e datas — são exatamente o que o oficial precisa. Seja preciso.",
+          "erro": "Não diga 'some business people' sem especificar — quanto mais vago você for, mais perguntas vão surgir."
+        },
+        {
+          "id": "imig-06-05",
+          "turno": 5,
+          "cena": "O oficial verifica os dados e pergunta sobre pagamentos.",
+          "personagem": "Officer",
+          "fala": "Is the company paying for your trip, or are you paying out of pocket?",
+          "fonetica": "IZ de KÁM-pe-ni PÉI-ing for yer TRIP, or ÁR ya PÉI-ing áut ov PÁK-et?",
+          "traducao": "A empresa está pagando sua viagem, ou você está pagando do próprio bolso?",
+          "connected": "Is the company paying for yer trip, or arya paying out of pocket?",
+          "blocos": [
+            { "bloco": "out of pocket", "significa": "do próprio bolso — pagar com dinheiro pessoal, sem reembolso" },
+            { "bloco": "Is the company paying", "significa": "a empresa está pagando — pergunta sobre quem financia a viagem" }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            { "palavra": "out of pocket", "significado": "do próprio bolso / sem reembolso", "acento": "out of POCKet", "fonetica": "áut ov PÁK-et" },
+            { "palavra": "reimbursed", "significado": "reembolsado", "acento": "reimBURSED", "fonetica": "rí-im-BÉRST" }
+          ],
+          "nativo": "'Out of pocket' é uma expressão muito comum para qualquer coisa que você paga com o próprio dinheiro sem reembolso.",
+          "erro": "Não diga 'the company pays' no presente simples — use 'the company is paying' ou 'the company is covering it'."
+        },
+        {
+          "id": "imig-06-06",
+          "turno": 6,
+          "cena": "Você responde e o oficial encerra a inspeção.",
+          "personagem": "Você",
+          "fala": "The company is covering everything — flights, hotel, and expenses.",
+          "fonetica": "De KÁM-pe-ni iz KÁV-er-ing ÊVri-thing — FLÁITS, hoTEL, en ekSPÉN-sez.",
+          "traducao": "A empresa está cobrindo tudo — voos, hotel e despesas.",
+          "sua_vez": true,
+          "connected_voce": "The company's covering everything — flights, hotel, and expenses.",
+          "acento": "The company is COVering EVErything — FLIGHTS, hoTEL, and exPENses.",
+          "alternativas": [
+            "The company pays for everything. I have the authorization letter here.",
+            "It's a company trip — all covered. I can show the travel order if needed.",
+            "Company paid — flights and hotel are booked by them."
+          ],
+          "alts_traducoes": [
+            "A empresa paga tudo. Tenho a carta de autorização aqui.",
+            "É uma viagem corporativa — tudo coberto. Posso mostrar a ordem de viagem se precisar.",
+            "Empresa pagou — voos e hotel foram reservados por eles."
+          ],
+          "vocab": [
+            { "palavra": "covering everything", "significado": "cobrindo tudo / pagando tudo", "acento": "COVering EVErything", "fonetica": "KÁV-er-ing ÊVri-thing" },
+            { "palavra": "authorization letter", "significado": "carta de autorização", "acento": "authoriZAtion LETter", "fonetica": "ó-the-ri-ZÉI-shon LÉ-ter" }
+          ],
+          "nativo": "Oferecer documentos adicionais ('I have the authorization letter here') demonstra cooperação total e acelera a liberação.",
+          "erro": "Não diga 'the company covers' sem contexto — especifique o que está coberto: flights, hotel, expenses.",
+          "connected_voce": "The company's covering everything — flights, hotel, and expenses."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The officer has finished the secondary screening and is clearing you to enter.",
+        "turnos": [
+          {
+            "id": "dl-imig06-01",
+            "personagem": "Officer",
+            "fala": "Alright, you're all clear. Sorry for the inconvenience.",
+            "fonetica": "ÓL-rait, yer ÓL KLÍR. SÓri for de in-KÓN-vi-niens.",
+            "traducao": "Certo, está liberado. Desculpe o inconveniente.",
+            "connected": "Alright, yer all clear. Sorry for the inconvenience.",
+            "respostas_esperadas": [
+              "No problem at all. Thank you!",
+              "Not at all, I understand. Thank you.",
+              "No worries. Have a good day."
+            ],
+            "resposta_modelo": "No problem at all. Just doing your job — have a great day!",
+            "feedback_modelo": "'Just doing your job' é uma das frases mais elegantes para situações assim — reconhece o papel do oficial sem ressentimento. Encerrar com 'have a great day' demonstra maturidade e profissionalismo, mesmo após uma experiência tensa.",
+            "vocab_apoio": [
+              { "palavra": "no problem at all", "significado": "sem problema algum", "acento": "no PROBlem at ALL", "fonetica": "nô PRÁ-blem et ÓL" },
+              { "palavra": "just doing your job", "significado": "apenas fazendo seu trabalho", "acento": "just DOing your JOB", "fonetica": "djást DÚ-ing yer DJÁB" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
