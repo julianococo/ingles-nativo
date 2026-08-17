@@ -1,0 +1,1615 @@
+{
+  "id": 0,
+  "nome": "Fundamentos",
+  "descricao": "Saudações, apresentações, small talk, pedir ajuda e despedidas. O ponto de partida antes de qualquer viagem.",
+  "imagem": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800",
+  "situacoes": [
+    {
+      "id": "fund-01",
+      "titulo": "Greetings — Cumprimentos",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
+      "dialogo": [
+        {
+          "id": "fund-01-01",
+          "turno": 1,
+          "cena": "Você chega num evento e uma pessoa se aproxima sorrindo.",
+          "personagem": "Jake",
+          "fala": "Hey! I'm Jake. Nice to meet you!",
+          "fonetica": "HÊI! AIM Djeik. NÁIS te MÍ-tchu!",
+          "traducao": "Ei! Eu sou o Jake. Prazer em te conhecer!",
+          "connected": "Hey! I'm Jake. Nice ta meetcha!",
+          "blocos": [
+            {
+              "bloco": "Nice to meet you",
+              "significa": "Nice ta meetcha — 'to meet you' some inteiro em fala rápida"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "Hi / Hey",
+              "significado": "Oi / Ei (informal)",
+              "acento": "HI / HEY",
+              "fonetica": "HÁI / HÊI"
+            },
+            {
+              "palavra": "Nice to meet you",
+              "significado": "Prazer em te conhecer",
+              "acento": "NICE to meet you",
+              "fonetica": "NÁIS te MÍ-tchu",
+              "connected": "Nice ta meetcha"
+            },
+            {
+              "palavra": "Good to meet you",
+              "significado": "Bom te conhecer (alternativa)",
+              "acento": "GOOD to meet you",
+              "fonetica": "GUD te MÍ-tchu"
+            },
+            {
+              "palavra": "I'm...",
+              "significado": "Eu sou... / Me chamo...",
+              "acento": "I'm",
+              "fonetica": "AIM"
+            },
+            {
+              "palavra": "What's your name?",
+              "significado": "Qual é o seu nome?",
+              "acento": "WHAT'S your name?",
+              "fonetica": "UÓTS yer NÊIM?",
+              "connected": "Whass yer name?"
+            }
+          ],
+          "nativo": "Nativos raramente dizem 'Pleased to meet you' — muito formal. 'Nice to meet you' ou 'Good to meet you' é o padrão casual.",
+          "erro": "Não diga 'I am Juliano' — a contração 'I'm Juliano' é sempre mais natural em conversa."
+        },
+        {
+          "id": "fund-01-02",
+          "turno": 2,
+          "cena": "Você se apresenta.",
+          "personagem": "Você",
+          "fala": "Hey Jake! I'm Juliano. Nice to meet you too!",
+          "fonetica": "HÊI Djeik! AIM Dju-LIA-no. NÁIS te MÍ-tchu TÚ!",
+          "traducao": "Ei Jake! Eu sou o Juliano. Prazer em te conhecer também!",
+          "sua_vez": true,
+          "acento": "Hey JAKE! I'm juLIano. NICE to meet you TOO!",
+          "alternativas": [
+            "Hi! I'm Juliano. Good to meet you!",
+            "Hey, Juliano here. Great to meet you!",
+            "Hi Jake! I'm Juliano — really nice to meet you."
+          ],
+          "alts_traducoes": [
+            "Oi! Eu sou o Juliano. Bom te conhecer!",
+            "Ei, aqui é o Juliano. Ótimo te conhecer!",
+            "Oi Jake! Sou o Juliano — muito prazer mesmo."
+          ],
+          "vocab": [
+            {
+              "palavra": "...too!",
+              "significado": "...também! (no final)",
+              "acento": "TOO",
+              "fonetica": "TÚ"
+            },
+            {
+              "palavra": "Great to meet you",
+              "significado": "Ótimo te conhecer",
+              "acento": "GREAT to meet you",
+              "fonetica": "GRÊIT te MÍ-tchu"
+            }
+          ],
+          "nativo": "'Great to meet you' e 'Good to meet you' soam tão naturais quanto 'Nice to meet you' — varie para não parecer robótico.",
+          "erro": "Não repita exatamente o que a pessoa disse. Se ela disse 'Nice to meet you', responda com 'Nice to meet you too' ou 'Great to meet you'.",
+          "connected_voce": "Hey JAKE! I'm juLIano. Nice ta meetcha too!"
+        },
+        {
+          "id": "fund-01-03",
+          "turno": 3,
+          "cena": "Jake pergunta de onde você é.",
+          "personagem": "Jake",
+          "fala": "Where are you from?",
+          "fonetica": "UÉRR ya from?",
+          "traducao": "De onde você é?",
+          "connected": "Wherr ya from?",
+          "blocos": [
+            {
+              "bloco": "Where are you",
+              "significa": "Wherr ya — 'where are you' some completamente em fala rápida"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "Where are you from?",
+              "significado": "De onde você é?",
+              "acento": "WHERE are you FROM?",
+              "fonetica": "UÉRR ya FROM?"
+            },
+            {
+              "palavra": "I'm from...",
+              "significado": "Eu sou de...",
+              "acento": "I'm FROM...",
+              "fonetica": "AIM from..."
+            }
+          ],
+          "nativo": "Em fala casual, 'Where are you from?' vira 'Wherr ya from?' — o 'are you' some quase completamente.",
+          "erro": "Não diga 'I am of Brazil' — o correto é sempre 'I'm from Brazil'."
+        },
+        {
+          "id": "fund-01-04",
+          "turno": 4,
+          "cena": "Você responde de onde é.",
+          "personagem": "Você",
+          "fala": "I'm from Brazil. From a city called Curitiba, in the south.",
+          "fonetica": "AIM from bre-ZÍL. From e CÍ-ri KÓ-led Qu-ri-CHÍ-be, in de SÁUTH.",
+          "traducao": "Sou do Brasil. De uma cidade chamada Curitiba, no sul.",
+          "sua_vez": true,
+          "acento": "I'm from braSIL. From a CIty called curiTIba, in the SOUTH.",
+          "alternativas": [
+            "I'm Brazilian, from Curitiba.",
+            "Brazil — from Curitiba, in the south.",
+            "I'm from Curitiba, southern Brazil."
+          ],
+          "alts_traducoes": [
+            "Sou brasileiro, de Curitiba.",
+            "Brasil — de Curitiba, no sul.",
+            "Sou de Curitiba, sul do Brasil."
+          ],
+          "vocab": [
+            {
+              "palavra": "a city called...",
+              "significado": "uma cidade chamada...",
+              "acento": "a CIty CALLED",
+              "fonetica": "e CÍ-ri KÓ-led"
+            },
+            {
+              "palavra": "in the south",
+              "significado": "no sul",
+              "acento": "in the SOUTH",
+              "fonetica": "in de SÁUTH"
+            }
+          ],
+          "nativo": "Adicione contexto geográfico — 'in the south' ou 'near São Paulo' mantém a conversa fluindo e evita o silêncio constrangedor.",
+          "erro": "Não diga 'I am of Brazil'. Sempre: 'I'm from Brazil'.",
+          "connected_voce": "AIM from bre-ZÍL. From e CÍ-ri KÓ-led Qu-ri-CHÍ-be, in de SÁUTH."
+        },
+        {
+          "id": "fund-01-05",
+          "turno": 5,
+          "cena": "Jake pergunta o que você faz.",
+          "personagem": "Jake",
+          "fala": "Cool! And what do you do?",
+          "fonetica": "KÚL! An' UÁ-dya DÚ?",
+          "traducao": "Legal! E o que você faz?",
+          "connected": "Cool! An' whaddya do?",
+          "blocos": [
+            {
+              "bloco": "what do you do",
+              "significa": "whaddya do — 'what do you' some todo em fala rápida"
+            },
+            {
+              "bloco": "And",
+              "significa": "An' — 'and' perde o D em fala rápida"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "What do you do?",
+              "significado": "O que você faz? (profissão)",
+              "acento": "WHAT do you DO?",
+              "fonetica": "UÁ-dya DÚ?"
+            }
+          ],
+          "nativo": "'What do you do?' sem complemento significa profissão — é a pergunta padrão para saber o que alguém faz da vida.",
+          "erro": "Não responda só 'I work' — diga qual é a área: 'I work in consulting' ou 'I'm a consultant'."
+        },
+        {
+          "id": "fund-01-06",
+          "turno": 6,
+          "cena": "Você fala da sua profissão.",
+          "personagem": "Você",
+          "fala": "I'm a consultant. I work with business processes.",
+          "fonetica": "AIM e KÓN-sul-tent. AI UÓRK with BÍZ-nes PRÓ-se-ses.",
+          "traducao": "Sou consultor. Trabalho com processos de negócio.",
+          "sua_vez": true,
+          "acento": "I'm a CONsultant. I WORK with BUsiness PROcesses.",
+          "alternativas": [
+            "I run my own consulting business.",
+            "I work as a business consultant.",
+            "I'm self-employed — business consulting."
+          ],
+          "alts_traducoes": [
+            "Tenho meu próprio negócio de consultoria.",
+            "Trabalho como consultor empresarial.",
+            "Sou autônomo — consultoria empresarial."
+          ],
+          "vocab": [
+            {
+              "palavra": "I'm a consultant",
+              "significado": "sou consultor",
+              "acento": "I'm a CONsultant",
+              "fonetica": "AIM e KÓN-sul-tent"
+            },
+            {
+              "palavra": "I run my own business",
+              "significado": "tenho meu próprio negócio",
+              "acento": "I RUN my own BUsiness",
+              "fonetica": "AI RÁN mai oun BÍZ-nes"
+            }
+          ],
+          "nativo": "'I run my own consulting business' soa mais sofisticado e empreendedor — ótimo para networking.",
+          "erro": "Não diga 'I work with consultancy' — o correto é 'I work in consulting' ou 'I'm a consultant'.",
+          "connected_voce": "AIM e KÓN-sul-tent. AI UÓRK with BÍZ-nes PRÓ-se-ses."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "Jake wants to keep the conversation going.",
+        "turnos": [
+          {
+            "id": "dl-fund01-01",
+            "personagem": "Jake",
+            "fala": "Interesting! How long have you been doing that?",
+            "fonetica": "ÍN-tre-sting! HÁU LÓNG hev ya BÍN DÚ-ing dret?",
+            "traducao": "Interessante! Há quanto tempo você faz isso?",
+            "connected": "Interesting! How long've ya been doing that?",
+            "respostas_esperadas": [
+              "About five years.",
+              "For about five years now.",
+              "Five years, give or take."
+            ],
+            "resposta_modelo": "About five years now. I really enjoy it.",
+            "feedback_modelo": "'About' é mais natural que 'approximately' em conversa. 'Now' no final indica que ainda está fazendo — 'five years now' é muito mais natural que 'five years ago' (que significa 'há cinco anos, no passado').",
+            "vocab_apoio": [
+              {
+                "palavra": "How long",
+                "significado": "Há quanto tempo",
+                "acento": "how LONG",
+                "fonetica": "HÁU LÓNG"
+              },
+              {
+                "palavra": "have you been doing",
+                "significado": "você tem feito",
+                "acento": "have you been DOing",
+                "fonetica": "hev ya bin DÚ-ing"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "fund-02",
+      "titulo": "Small talk — Conversa casual",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800",
+      "dialogo": [
+        {
+          "id": "fund-02-01",
+          "turno": 1,
+          "cena": "Você está no elevador do hotel com um hóspede. Ele começa uma conversa.",
+          "personagem": "Mark",
+          "fala": "Crazy weather today, isn't it?",
+          "fonetica": "KRÊI-zi UÉ-der te-DÊI, Í-znt it?",
+          "traducao": "Tempo louco hoje, não é?",
+          "connected": "Crazy weather today, innit?",
+          "blocos": [
+            {
+              "bloco": "isn't it?",
+              "significa": "innit — contração informal britânica/americana de 'isn't it'"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "Crazy weather",
+              "significado": "Tempo louco / imprevisível",
+              "acento": "CRAzy WEAther",
+              "fonetica": "KRÊI-zi UÉ-der"
+            },
+            {
+              "palavra": "isn't it?",
+              "significado": "não é? (tag question)",
+              "acento": "ISN'T it?",
+              "fonetica": "Í-znt it?",
+              "connected": "innit?"
+            },
+            {
+              "palavra": "Tell me about it!",
+              "significado": "Nem me fala! (concordância intensa)",
+              "acento": "TELL me about IT!",
+              "fonetica": "TÉL mi e-BÁUT it!"
+            },
+            {
+              "palavra": "it's pouring",
+              "significado": "está chovendo muito",
+              "acento": "it's POURing",
+              "fonetica": "its PÔR-ing"
+            },
+            {
+              "palavra": "boiling / freezing",
+              "significado": "caldeirão / congelando (exagero)",
+              "acento": "BOIling / FREEzing",
+              "fonetica": "BÔI-ling / FRÍT-zing"
+            }
+          ],
+          "nativo": "Falar do tempo é a abertura de conversa mais universal. 'Crazy weather' é muito mais natural que 'The weather is strange'.",
+          "erro": "Não responda apenas 'Yes' — adicione algo para manter a conversa: 'Yes, it's crazy!' ou 'Tell me about it!'"
+        },
+        {
+          "id": "fund-02-02",
+          "turno": 2,
+          "cena": "Você concorda.",
+          "personagem": "Você",
+          "fala": "Tell me about it! It was sunny this morning and now it's pouring.",
+          "fonetica": "TÉL mi e-BÁUT it! It wez SÁ-ni dis MÓR-ning an náu its PÔR-ing.",
+          "traducao": "Nem me fala! Estava ensolarado de manhã e agora está chovendo muito.",
+          "sua_vez": true,
+          "acento": "TELL me about it! It was SUNny this MORning and now it's POURing.",
+          "alternativas": [
+            "Right? One minute sunny, the next it's raining!",
+            "I know! Wasn't expecting this at all.",
+            "Absolutely! I have no idea what to wear here."
+          ],
+          "alts_traducoes": [
+            "É? Um momento ensolarado, no outro chovendo!",
+            "Eu sei! Não esperava isso de jeito nenhum.",
+            "Com certeza! Não sei nem o que vestir aqui."
+          ],
+          "vocab": [
+            {
+              "palavra": "Right?",
+              "significado": "É mesmo? / Verdade? (concordância)",
+              "acento": "RIGHT?",
+              "fonetica": "RÁIT?"
+            },
+            {
+              "palavra": "I know!",
+              "significado": "Eu sei! (concordância calorosa)",
+              "acento": "I KNOW!",
+              "fonetica": "AI NÓU!"
+            }
+          ],
+          "nativo": "'Tell me about it!' é uma das expressões mais usadas para concordar com intensidade — equivale a 'nem me fala'.",
+          "erro": "Não diga 'It is raining a lot' — 'It's pouring' é muito mais expressivo e natural.",
+          "connected_voce": "Tell me about it! It was sunny this morning an' now it's POURing."
+        },
+        {
+          "id": "fund-02-03",
+          "turno": 3,
+          "cena": "Mark pergunta se você mora na cidade.",
+          "personagem": "Mark",
+          "fala": "Are you from around here?",
+          "fonetica": "ÁR-ya from e-RÁUND HÍER?",
+          "traducao": "Você é daqui?",
+          "connected": "Arya from around here?",
+          "blocos": [
+            {
+              "bloco": "Are you",
+              "significa": "Arya — 'are you' vira 'arya' em fala rápida"
+            },
+            {
+              "bloco": "from around here",
+              "significa": "daqui / desta região — expressão muito usada"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "from around here",
+              "significado": "daqui / desta região",
+              "acento": "from aROUND HERE",
+              "fonetica": "from e-RÁUND HÍER"
+            },
+            {
+              "palavra": "just visiting",
+              "significado": "só estou visitando",
+              "acento": "just VIsiting",
+              "fonetica": "djast VÍ-zi-ring"
+            }
+          ],
+          "nativo": "'Are you from around here?' é muito mais natural que 'Do you live here?' em conversa casual.",
+          "erro": "Não responda apenas 'No' — adicione contexto: 'No, I'm just visiting' ou 'No, I'm from Brazil'."
+        },
+        {
+          "id": "fund-02-04",
+          "turno": 4,
+          "cena": "Você responde.",
+          "personagem": "Você",
+          "fala": "No, I'm just visiting. I'm from Brazil.",
+          "fonetica": "NÓU, AIM djast VÍ-zi-ring. AIM from bre-ZÍL.",
+          "traducao": "Não, estou só visitando. Sou do Brasil.",
+          "sua_vez": true,
+          "acento": "No, I'm just VIsiting. I'm from braSIL.",
+          "alternativas": [
+            "Not really — I'm visiting from Brazil.",
+            "No, I'm here on a trip. I'm Brazilian.",
+            "No, I'm just passing through. From Brazil."
+          ],
+          "alts_traducoes": [
+            "Não exatamente — estou visitando vindo do Brasil.",
+            "Não, estou aqui numa viagem. Sou brasileiro.",
+            "Não, estou de passagem. Do Brasil."
+          ],
+          "vocab": [
+            {
+              "palavra": "just passing through",
+              "significado": "só de passagem",
+              "acento": "just PASsing THROUGH",
+              "fonetica": "djast PÁ-sing THRÚ"
+            },
+            {
+              "palavra": "on a trip",
+              "significado": "numa viagem",
+              "acento": "on a TRIP",
+              "fonetica": "on e TRÍP"
+            }
+          ],
+          "nativo": "'I'm just visiting' ou 'I'm just passing through' são as formas mais naturais de dizer que está de passagem.",
+          "erro": "Não diga 'I am visiting here' — sem o 'here': 'I'm just visiting' ou 'I'm visiting the city'.",
+          "connected_voce": "NÓU, AIM djast VÍ-zi-ring. AIM from bre-ZÍL."
+        },
+        {
+          "id": "fund-02-05",
+          "turno": 5,
+          "cena": "Mark pergunta há quanto tempo você está na cidade.",
+          "personagem": "Mark",
+          "fala": "Oh nice! How long are you staying?",
+          "fonetica": "Ô NÁIS! HÁU LÓNG er ya STÊ-ing?",
+          "traducao": "Que legal! Quanto tempo você vai ficar?",
+          "connected": "Oh nice! How long er ya staying?",
+          "blocos": [
+            {
+              "bloco": "are you staying",
+              "significa": "er ya staying — 'are you' vira 'er ya' em fala rápida"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "How long are you staying?",
+              "significado": "Quanto tempo você vai ficar?",
+              "acento": "how LONG are you STAYing?",
+              "fonetica": "HÁU LÓNG er ya STÊ-ing?",
+              "connected": "How long er ya staying?"
+            }
+          ],
+          "nativo": "'How long are you staying?' usa o present continuous com sentido de futuro próximo planejado — viagem já marcada.",
+          "erro": "Não diga 'How long will you stay?' — menos natural. O present continuous 'are you staying' é o padrão."
+        },
+        {
+          "id": "fund-02-06",
+          "turno": 6,
+          "cena": "Você responde.",
+          "personagem": "Você",
+          "fala": "Just three days. Until Friday.",
+          "fonetica": "Djast THRÍ DÊIS. An-TÍL FRÁID-ei.",
+          "traducao": "Só três dias. Até sexta-feira.",
+          "sua_vez": true,
+          "acento": "Just THREE days. Until FRIday.",
+          "alternativas": [
+            "Three days, until Friday.",
+            "Just a few days — I leave on Friday.",
+            "Until Friday. Three days total."
+          ],
+          "alts_traducoes": [
+            "Três dias, até sexta.",
+            "Só alguns dias — parto na sexta.",
+            "Até sexta. Três dias no total."
+          ],
+          "vocab": [
+            {
+              "palavra": "until Friday",
+              "significado": "até sexta-feira",
+              "acento": "unTIL FRIday",
+              "fonetica": "an-TÍL FRÁID-ei"
+            },
+            {
+              "palavra": "I leave on...",
+              "significado": "parto na... / saio na...",
+              "acento": "I LEAVE on",
+              "fonetica": "AI LÍIV on"
+            }
+          ],
+          "nativo": "Respostas curtas e diretas são naturais em small talk — não precisa elaborar se não quiser.",
+          "erro": "Não diga 'I will stay until Friday' — muito formal. 'Until Friday' ou 'Just three days' é suficiente.",
+          "connected_voce": "Djast THRÍ DÊIS. An-TÍL FRÁID-ei."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "The elevator arrives at your floor. Mark has one more question.",
+        "turnos": [
+          {
+            "id": "dl-fund02-01",
+            "personagem": "Mark",
+            "fala": "Any plans for tonight?",
+            "fonetica": "É-ni PLENS for te-NÁIT?",
+            "traducao": "Algum plano para hoje à noite?",
+            "connected": "Any plans for tonight?",
+            "respostas_esperadas": [
+              "Not really, just resting.",
+              "Nothing special — maybe walk around.",
+              "I'm thinking about checking out downtown.",
+              "No plans yet. Any recommendations?"
+            ],
+            "resposta_modelo": "Not yet — maybe walk around downtown. Any recommendations?",
+            "feedback_modelo": "'Not yet' é mais aberto que 'No' — sugere que você está disponível para sugestões. 'Any recommendations?' no final é uma pergunta curta e poderosa que mantém a conversa e demonstra interesse genuíno no que a pessoa tem a dizer.",
+            "vocab_apoio": [
+              {
+                "palavra": "Any plans?",
+                "significado": "Algum plano?",
+                "acento": "ANY plans?",
+                "fonetica": "É-ni PLENS?"
+              },
+              {
+                "palavra": "tonight",
+                "significado": "hoje à noite",
+                "acento": "toNIGHT",
+                "fonetica": "te-NÁIT"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "fund-03",
+      "titulo": "Asking for help — Pedindo ajuda",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800",
+      "dialogo": [
+        {
+          "id": "fund-03-01",
+          "turno": 1,
+          "cena": "Você está num shopping em Miami e precisa encontrar o banheiro.",
+          "personagem": "Você",
+          "fala": "Excuse me, could you help me? I'm looking for the restrooms.",
+          "fonetica": "eks-KIÚZ mi, KUD ya HÉLP mi? AIM LÚK-ing for de RÉS-rumz.",
+          "traducao": "Com licença, você poderia me ajudar? Estou procurando os banheiros.",
+          "sua_vez": true,
+          "acento": "exCUSE me, COULD you help me? I'm LOOking for the RESTrooms.",
+          "alternativas": [
+            "Sorry to bother you — where are the restrooms?",
+            "Excuse me, do you know where the restrooms are?",
+            "Hi, could you point me to the restrooms?"
+          ],
+          "alts_traducoes": [
+            "Desculpe incomodar — onde ficam os banheiros?",
+            "Com licença, você sabe onde ficam os banheiros?",
+            "Oi, pode me indicar os banheiros?"
+          ],
+          "vocab": [
+            {
+              "palavra": "Excuse me",
+              "significado": "Com licença (para abordar alguém)",
+              "acento": "exCUSE me",
+              "fonetica": "eks-KIÚZ mi",
+              "connected": "Scuse me"
+            },
+            {
+              "palavra": "restroom",
+              "significado": "Banheiro (EUA — uso público)",
+              "acento": "RESTroom",
+              "fonetica": "RÉS-rum"
+            },
+            {
+              "palavra": "Could you help me?",
+              "significado": "Você poderia me ajudar?",
+              "acento": "COULD you HELP me?",
+              "fonetica": "KUD ya HÉLP mi?",
+              "connected": "Could ya help me?"
+            },
+            {
+              "palavra": "I'm looking for...",
+              "significado": "Estou procurando...",
+              "acento": "I'm LOOKing for",
+              "fonetica": "AIM LÚK-ing for"
+            },
+            {
+              "palavra": "Do you know where...?",
+              "significado": "Você sabe onde fica...?",
+              "acento": "do you KNOW where",
+              "fonetica": "D'ya NÓU UÉRR?",
+              "connected": "D'ya know where...?"
+            }
+          ],
+          "nativo": "No EUA diga 'restroom' em público. 'Bathroom' é mais doméstico. 'Toilet' pode soar informal.",
+          "erro": "Não vá direto na pergunta sem 'Excuse me' — parece abrupto para nativos americanos.",
+          "connected_voce": "Scuse me, could ya help me? I'm looking for the restrooms."
+        },
+        {
+          "id": "fund-03-02",
+          "turno": 2,
+          "cena": "A funcionária responde.",
+          "personagem": "Lisa",
+          "fala": "Sure! They're right around the corner, past the food court.",
+          "fonetica": "SHÚER! DÊIR rait e-RÁUND de KÓR-ner, PEST de FÚD kort.",
+          "traducao": "Claro! Eles ficam logo ali na esquina, depois da praça de alimentação.",
+          "connected": "Sure! They're right around the corner, past the food court.",
+          "blocos": [
+            {
+              "bloco": "right around the corner",
+              "significa": "logo ali na esquina — 'right' intensifica ('bem pertinho')"
+            },
+            {
+              "bloco": "past the food court",
+              "significa": "depois da praça de alimentação — 'past' = além de / depois de"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "right around the corner",
+              "significado": "logo ali na esquina",
+              "acento": "right around the CORner",
+              "fonetica": "rait e-RÁUND de KÓR-ner"
+            },
+            {
+              "palavra": "past",
+              "significado": "depois de / além de (direção)",
+              "acento": "PAST",
+              "fonetica": "PEST"
+            },
+            {
+              "palavra": "food court",
+              "significado": "praça de alimentação",
+              "acento": "FOOD court",
+              "fonetica": "FÚD kort"
+            }
+          ],
+          "nativo": "'Right' antes de direções intensifica — 'right there', 'right around the corner', 'right next to it'.",
+          "erro": "Não confunda 'past' (além de, direção) com 'passed' (passou, passado). Pronuncia igual, significado diferente."
+        },
+        {
+          "id": "fund-03-03",
+          "turno": 3,
+          "cena": "Você agradece.",
+          "personagem": "Você",
+          "fala": "Perfect, thank you so much!",
+          "fonetica": "PÉR-fekt, THÊNK yu so MÁTCH!",
+          "traducao": "Perfeito, muito obrigado!",
+          "sua_vez": true,
+          "acento": "PERfect, THANK you so MUCH!",
+          "alternativas": [
+            "Great, thanks a lot!",
+            "Awesome, I really appreciate it!",
+            "Thanks so much, that's very helpful!"
+          ],
+          "alts_traducoes": [
+            "Ótimo, muito obrigado!",
+            "Incrível, agradeço mesmo!",
+            "Muito obrigado, foi muito útil!"
+          ],
+          "vocab": [
+            {
+              "palavra": "Thank you so much",
+              "significado": "Muito obrigado",
+              "acento": "THANK you so MUCH",
+              "fonetica": "THÊNK yu so MÁTCH"
+            },
+            {
+              "palavra": "I really appreciate it",
+              "significado": "Agradeço de verdade",
+              "acento": "I REally apPREciate it",
+              "fonetica": "AI RÍ-li e-PRÍ-shi-eit it"
+            }
+          ],
+          "nativo": "'Awesome' e 'Perfect' antes do obrigado mostram entusiasmo genuíno — nativos fazem isso o tempo todo.",
+          "erro": "Não diga 'Thank you very much' em situações casuais — soa formal. 'Thanks a lot' ou 'Thanks so much' é mais natural.",
+          "connected_voce": "Perfect, thank ya so much!"
+        },
+        {
+          "id": "fund-03-04",
+          "turno": 4,
+          "cena": "Lisa oferece mais ajuda.",
+          "personagem": "Lisa",
+          "fala": "No problem! Is there anything else I can help you with?",
+          "fonetica": "NÓU PRÓ-blem! Iz DÊER É-ni-thing ELS ai ken HÉLP ya with?",
+          "traducao": "De nada! Tem mais alguma coisa em que posso te ajudar?",
+          "connected": "No problem! Is there anything else I can help ya with?",
+          "blocos": [
+            {
+              "bloco": "No problem",
+              "significa": "de nada — mais caloroso e informal que 'you're welcome'"
+            },
+            {
+              "bloco": "help ya with",
+              "significa": "help you with — 'you' vira 'ya' em fala casual"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "No problem",
+              "significado": "De nada / Sem problema",
+              "acento": "no PROBlem",
+              "fonetica": "NÓU PRÓ-blem"
+            },
+            {
+              "palavra": "Is there anything else?",
+              "significado": "Tem mais alguma coisa?",
+              "acento": "is there ANYthing ELSE?",
+              "fonetica": "Iz DÊER É-ni-thing ELS?"
+            }
+          ],
+          "nativo": "'No problem' é mais caloroso que 'you're welcome' — use quando alguém foi genuinamente grato.",
+          "erro": "Não responda 'No, I'm fine' — soa como você está bem de saúde. Diga 'No, that's all, thanks!'"
+        },
+        {
+          "id": "fund-03-05",
+          "turno": 5,
+          "cena": "Você encerra.",
+          "personagem": "Você",
+          "fala": "No, that's all. Thanks again, you've been really helpful!",
+          "fonetica": "NÓU, DRETS ól. THÊNKS e-GÉN, yuv bin RÍ-li HÉLP-ful!",
+          "traducao": "Não, é só isso. Obrigado de novo, você foi muito prestativa!",
+          "sua_vez": true,
+          "acento": "No, that's ALL. THANKS again, you've been REally HELPful!",
+          "alternativas": [
+            "That's it, thanks! Have a great day.",
+            "All good, thank you! You're very kind.",
+            "Nope, that's everything. Thank you!"
+          ],
+          "alts_traducoes": [
+            "É isso, obrigado! Tenha um ótimo dia.",
+            "Tudo certo, obrigado! Você é muito gentil.",
+            "Não, é tudo. Muito obrigado!"
+          ],
+          "vocab": [
+            {
+              "palavra": "that's all",
+              "significado": "é só isso / é tudo",
+              "acento": "that's ALL",
+              "fonetica": "DRETS ÓL"
+            },
+            {
+              "palavra": "you've been really helpful",
+              "significado": "você foi muito prestativo/a",
+              "acento": "you've been REally HELPful",
+              "fonetica": "yuv bin RÍ-li HÉLP-ful"
+            }
+          ],
+          "nativo": "'You've been really helpful' é um elogio muito valorizado — nativos ficam genuinamente satisfeitos quando você reconhece.",
+          "erro": "Não diga 'You are very helpful' — use o present perfect: 'You've been really helpful'.",
+          "connected_voce": "NÓU, DRETS ÓL. THÊNKS e-GÉN, yuv bin RÍ-li HÉLP-ful!"
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You need help again — this time to find the exit to the parking lot.",
+        "turnos": [
+          {
+            "id": "dl-fund03-01",
+            "personagem": "Security guard",
+            "fala": "Can I help you with something?",
+            "fonetica": "Ken AI HÉLP ya with SÁM-thing?",
+            "traducao": "Posso te ajudar com alguma coisa?",
+            "connected": "Can I help ya with something?",
+            "respostas_esperadas": [
+              "Yes, I'm looking for the parking lot exit.",
+              "Hi, where's the exit to the parking lot?",
+              "Yes please — I can't find the parking exit."
+            ],
+            "resposta_modelo": "Yes, actually — I'm trying to find the exit to the parking lot. I came in through a different entrance.",
+            "feedback_modelo": "'Actually' no início suaviza a resposta e soa natural. 'I'm trying to find' transmite levemente que você está tendo dificuldade — mais natural que 'I'm looking for' neste contexto. Adicionar contexto ('I came in through a different entrance') ajuda a pessoa a entender melhor sua situação."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fund-04",
+      "titulo": "Ordering — Fazendo pedidos",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800",
+      "dialogo": [
+        {
+          "id": "fund-04-01",
+          "turno": 1,
+          "cena": "Você entra num Starbucks em Nova York. O atendente cumprimenta.",
+          "personagem": "Barista",
+          "fala": "Hi there! What can I get for you?",
+          "fonetica": "HÁI DÊER! UÁ-dya guét for ya?",
+          "traducao": "Oi! O que posso te oferecer?",
+          "connected": "Hi there! Whaddya get for ya?",
+          "blocos": [
+            {
+              "bloco": "What can I get for you",
+              "significa": "Whaddya get for ya — some quase inteiro em fala rápida"
+            },
+            {
+              "bloco": "Hi there",
+              "significa": "cumprimento caloroso — mais amigável que só 'Hi'"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "Can I get...?",
+              "significado": "Pode me dar...? (jeito casual de pedir)",
+              "acento": "CAN I get",
+              "fonetica": "Ken AI guét"
+            },
+            {
+              "palavra": "I'll have...",
+              "significado": "Vou querer... (alternativa natural)",
+              "acento": "I'll HAVE",
+              "fonetica": "AIO hev"
+            },
+            {
+              "palavra": "medium / large / small",
+              "significado": "médio / grande / pequeno",
+              "acento": "MEDium / LARGE / SMALL",
+              "fonetica": "MÍ-dium / LÁRG / SMÓL"
+            },
+            {
+              "palavra": "for here or to go?",
+              "significado": "para comer aqui ou para levar?",
+              "acento": "for HERE or to GO?",
+              "fonetica": "for HÍER er te GÓU?",
+              "connected": "for here er ta go?"
+            }
+          ],
+          "nativo": "'What can I get for you?' é a forma padrão em cafeterias americanas — equivale a 'posso ajudar?'",
+          "erro": "Não espere 'What do you want?' — em inglês americano pedem sempre com 'What can I get for you?' ou 'What'll it be?'"
+        },
+        {
+          "id": "fund-04-02",
+          "turno": 2,
+          "cena": "Você faz o pedido.",
+          "personagem": "Você",
+          "fala": "Can I get a medium latte, please?",
+          "fonetica": "Ken AI GUÉT e MÍ-dium LÁ-rei, PLÍIZ?",
+          "traducao": "Pode me dar um latte médio, por favor?",
+          "sua_vez": true,
+          "acento": "Can I GET a MEDium LATte, PLEASE?",
+          "alternativas": [
+            "I'll have a medium latte, please.",
+            "A medium latte, please.",
+            "Could I get a medium latte?"
+          ],
+          "alts_traducoes": [
+            "Vou querer um latte médio, por favor.",
+            "Um latte médio, por favor.",
+            "Poderia me dar um latte médio?"
+          ],
+          "vocab": [
+            {
+              "palavra": "Can I get",
+              "significado": "Pode me dar / Quero pedir",
+              "acento": "CAN I get",
+              "fonetica": "Ken AI GUÉT"
+            },
+            {
+              "palavra": "I'll have",
+              "significado": "Vou querer / Vou pedir",
+              "acento": "I'll HAVE",
+              "fonetica": "AIO HEV"
+            }
+          ],
+          "nativo": "'Can I get' e 'I'll have' são as formas mais naturais de pedir. 'I would like' existe mas soa mais formal.",
+          "erro": "Não diga 'I want a latte' sem 'please' — soa rude. Use sempre 'Can I get' ou 'I'll have'.",
+          "connected_voce": "Ken AI GUÉT e MÍ-dium LÁ-rei, PLÍIZ?"
+        },
+        {
+          "id": "fund-04-03",
+          "turno": 3,
+          "cena": "O barista pergunta o nome.",
+          "personagem": "Barista",
+          "fala": "Sure! Name for the order?",
+          "fonetica": "SHÚER! NÊIM for di ÓR-der?",
+          "traducao": "Claro! Qual o nome para o pedido?",
+          "connected": "Sure! Name for the order?",
+          "blocos": [
+            {
+              "bloco": "Name for the order?",
+              "significa": "forma reduzida de 'What's the name for the order?' — muito comum em cafeterias"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "Name for the order?",
+              "significado": "Qual o nome para o pedido?",
+              "acento": "NAME for the ORDER?",
+              "fonetica": "NÊIM for di ÓR-der?"
+            }
+          ],
+          "nativo": "Em cafeterias americanas é padrão dar o nome — não se surpreenda.",
+          "erro": "Não complique — só diga seu nome. Se difícil, ofereça uma versão adaptada."
+        },
+        {
+          "id": "fund-04-04",
+          "turno": 4,
+          "cena": "Você dá o nome.",
+          "personagem": "Você",
+          "fala": "Juliano — or Julian, whichever is easier.",
+          "fonetica": "Dju-LIA-no — or DJÚL-ien, UÍTCH-e-ver iz Í-zi-er.",
+          "traducao": "Juliano — ou Julian, o que for mais fácil.",
+          "sua_vez": true,
+          "acento": "JuLIano — or JUlian, WHICHever is EAsier.",
+          "alternativas": [
+            "Juliano. J-U-L-I-A-N-O.",
+            "Just Julian is fine.",
+            "Juliano — kind of like Julian but with an O."
+          ],
+          "alts_traducoes": [
+            "Juliano. J-U-L-I-A-N-O.",
+            "Julian está bom.",
+            "Juliano — algo como Julian mas com O."
+          ],
+          "vocab": [
+            {
+              "palavra": "whichever is easier",
+              "significado": "o que for mais fácil",
+              "acento": "WHICHever is EAsier",
+              "fonetica": "UÍTCH-e-ver iz Í-zi-er"
+            },
+            {
+              "palavra": "...is fine",
+              "significado": "...está bom / ...tudo bem",
+              "acento": "is FINE",
+              "fonetica": "iz FÁIN"
+            }
+          ],
+          "nativo": "Oferecer uma alternativa para seu nome é muito gentil — nativos apreciam esse gesto.",
+          "erro": "Não soletrar automaticamente a menos que peçam — pode parecer que você acha que eles não conseguem.",
+          "connected_voce": "Juliano — or Julian, whichever's easier."
+        },
+        {
+          "id": "fund-04-05",
+          "turno": 5,
+          "cena": "O barista informa o valor.",
+          "personagem": "Barista",
+          "fala": "That'll be six fifty. Card or cash?",
+          "fonetica": "DRÉ-rel bi síks FÍF-ri. KARD er KESH?",
+          "traducao": "São seis e cinquenta. Cartão ou dinheiro?",
+          "connected": "That'll be six fifty. Card or cash?",
+          "blocos": [
+            {
+              "bloco": "That'll be",
+              "significa": "That will be — forma padrão de informar preço"
+            },
+            {
+              "bloco": "six fifty",
+              "significa": "$6,50 — nativos omitem 'dollars' e 'cents'"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "That'll be...",
+              "significado": "Vai ser... / São... (preço)",
+              "acento": "THAT'll be",
+              "fonetica": "DRÉ-rel bi"
+            },
+            {
+              "palavra": "Card or cash?",
+              "significado": "Cartão ou dinheiro?",
+              "acento": "CARD or CASH?",
+              "fonetica": "KARD er KESH?",
+              "connected": "Card er cash?"
+            }
+          ],
+          "nativo": "Preços: 'six fifty' = $6.50. Nunca 'six dollars and fifty cents' em conversa.",
+          "erro": "Não diga 'six point fifty' — em inglês americano é 'six fifty' ou 'six dollars fifty'."
+        },
+        {
+          "id": "fund-04-06",
+          "turno": 6,
+          "cena": "Você paga.",
+          "personagem": "Você",
+          "fala": "Card please. Here you go.",
+          "fonetica": "KARD PLÍIZ. HÍER ya GÓU.",
+          "traducao": "Cartão por favor. Aqui está.",
+          "sua_vez": true,
+          "acento": "CARD please. HERE you go.",
+          "alternativas": [
+            "Card, thanks.",
+            "I'll pay by card. Here you go.",
+            "Card works. Thank you!"
+          ],
+          "alts_traducoes": [
+            "Cartão, obrigado.",
+            "Vou pagar com cartão. Aqui está.",
+            "Cartão está bom. Obrigado!"
+          ],
+          "vocab": [
+            {
+              "palavra": "Here you go",
+              "significado": "Aqui está (ao entregar algo)",
+              "acento": "HERE you go",
+              "fonetica": "HÍER ya GÓU"
+            },
+            {
+              "palavra": "I'll pay by card",
+              "significado": "Vou pagar com cartão",
+              "acento": "I'll PAY by CARD",
+              "fonetica": "AIO PÊI bai KARD"
+            }
+          ],
+          "nativo": "'Here you go' é a frase padrão ao entregar algo — use sempre que passar documentos, dinheiro ou objetos.",
+          "erro": "Não diga 'There you are' ao entregar algo — 'Here you go' é o padrão americano.",
+          "connected_voce": "Card please. Here ya go."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "Your coffee is ready. The barista hands it to you.",
+        "turnos": [
+          {
+            "id": "dl-fund04-01",
+            "personagem": "Barista",
+            "fala": "Here's your latte, Juliano! Enjoy! First time in New York?",
+            "fonetica": "HÍERZ yer LÁ-rei, Dju-LIA-no! En-DJÓI! FÉRST taim in Nu IÓRK?",
+            "traducao": "Aqui está seu latte, Juliano! Aproveite! Primeira vez em Nova York?",
+            "connected": "Here's yer latte, Juliano! Enjoy! First time in New York?",
+            "respostas_esperadas": [
+              "Yes, first time!",
+              "Actually yes, first time here.",
+              "Yes! I'm loving it so far."
+            ],
+            "resposta_modelo": "Yes, first time! I'm absolutely loving it so far.",
+            "feedback_modelo": "'I'm absolutely loving it' usa o present continuous para expressar uma emoção em andamento — muito mais vivo que 'I like it'. 'So far' significa 'até agora' e indica que você ainda está descobrindo a cidade — abre espaço para a conversa continuar.",
+            "vocab_apoio": [
+              {
+                "palavra": "First time?",
+                "significado": "Primeira vez?",
+                "acento": "FIRST time?",
+                "fonetica": "FÉRST taim?"
+              },
+              {
+                "palavra": "so far",
+                "significado": "até agora",
+                "acento": "so FAR",
+                "fonetica": "so FÁR"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "fund-05",
+      "titulo": "Numbers and prices — Números e preços",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800",
+      "dialogo": [
+        {
+          "id": "fund-05-01",
+          "turno": 1,
+          "cena": "Você está numa loja de eletrônicos em Orlando e quer saber o preço de um fone.",
+          "personagem": "Você",
+          "fala": "Excuse me, how much is this?",
+          "fonetica": "eks-KIÚZ mi, HÁU MÁTCH iz DIS?",
+          "traducao": "Com licença, quanto custa isso?",
+          "sua_vez": true,
+          "acento": "exCUSE me, how MUCH is THIS?",
+          "alternativas": [
+            "Hi, what's the price on this?",
+            "Sorry, how much does this cost?",
+            "Excuse me, could you tell me the price?"
+          ],
+          "alts_traducoes": [
+            "Oi, qual é o preço disso?",
+            "Desculpe, quanto custa isso?",
+            "Com licença, pode me dizer o preço?"
+          ],
+          "vocab": [
+            {
+              "palavra": "How much is this?",
+              "significado": "Quanto custa isso?",
+              "acento": "how MUCH is THIS?",
+              "fonetica": "HÁU MÁTCH iz DIS?",
+              "connected": "How much izz this?"
+            },
+            {
+              "palavra": "What's the price?",
+              "significado": "Qual é o preço?",
+              "acento": "WHAT'S the price?",
+              "fonetica": "UÓTS de PRÁIS?"
+            },
+            {
+              "palavra": "on sale",
+              "significado": "em promoção / com desconto",
+              "acento": "on SALE",
+              "fonetica": "on SÊIL"
+            },
+            {
+              "palavra": "percent off",
+              "significado": "por cento de desconto",
+              "acento": "PERcent OFF",
+              "fonetica": "PÉR-sent ÓF"
+            },
+            {
+              "palavra": "That'll be...",
+              "significado": "Vai ser... / Fica em...",
+              "acento": "THAT'll be",
+              "fonetica": "DRÉ-rel bi"
+            }
+          ],
+          "nativo": "'How much is this?' é a forma mais direta e natural. 'What's the price on this?' também é muito comum em lojas.",
+          "erro": "Não diga 'How much costs this?' — a ordem em inglês é 'How much does this cost?' ou 'How much is this?'",
+          "connected_voce": "Scuse me, how much izz this?"
+        },
+        {
+          "id": "fund-05-02",
+          "turno": 2,
+          "cena": "O vendedor informa o preço.",
+          "personagem": "Ryan",
+          "fala": "That one's two forty-nine. But it's on sale today — twenty percent off.",
+          "fonetica": "DRÉ-rel bi TÚ FÓR-ri-nain. Bá-dis on SÊIL te-DÊI — TUÊN-ri PÉR-sent ÓF.",
+          "traducao": "Aquele é duzentos e quarenta e nove dólares. Mas está em promoção hoje — vinte por cento de desconto.",
+          "connected": "That one's two forty-nine. Buddiz on sale today — twenty percent off.",
+          "blocos": [
+            {
+              "bloco": "two forty-nine",
+              "significa": "$249 — nativos dizem os números em grupos, sem 'dollars'"
+            },
+            {
+              "bloco": "But it's",
+              "significa": "Buddiz — 'but it is' em fala muito rápida"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "on sale",
+              "significado": "em promoção",
+              "acento": "on SALE",
+              "fonetica": "on SÊIL"
+            },
+            {
+              "palavra": "for sale",
+              "significado": "à venda (completamente diferente!)",
+              "acento": "for SALE",
+              "fonetica": "for SÊIL"
+            }
+          ],
+          "nativo": "Preços: $249 = 'two forty-nine'. Nunca 'two hundred forty-nine dollars' em conversa.",
+          "erro": "Não confunda 'on sale' (promoção) com 'for sale' (à venda). São opostos em sentido prático."
+        },
+        {
+          "id": "fund-05-03",
+          "turno": 3,
+          "cena": "Você confirma o preço com desconto.",
+          "personagem": "Você",
+          "fala": "So with twenty percent off, it comes out to around two hundred?",
+          "fonetica": "SÓU with TUÊN-ri PÉR-sent ÓF, it KÁMZ áut tu e-RÁUND TÚ HÁN-dred?",
+          "traducao": "Então com vinte por cento de desconto, fica em torno de duzentos?",
+          "sua_vez": true,
+          "acento": "So with TWENTY percent OFF, it COMES out to aROUND two HUNdred?",
+          "alternativas": [
+            "So that brings it down to about two hundred?",
+            "With the discount, it's roughly two hundred, right?",
+            "That makes it around two hundred dollars?"
+          ],
+          "alts_traducoes": [
+            "Então isso baixa para cerca de duzentos?",
+            "Com o desconto, fica em torno de duzentos, certo?",
+            "Isso faz ficar em torno de duzentos dólares?"
+          ],
+          "vocab": [
+            {
+              "palavra": "it comes out to",
+              "significado": "fica em / o total fica",
+              "acento": "it COMES out to",
+              "fonetica": "it KÁMZ áut tu"
+            },
+            {
+              "palavra": "around / roughly / about",
+              "significado": "em torno de / aproximadamente",
+              "acento": "aROUND / ROUGHly / aBOUT",
+              "fonetica": "e-RÁUND / RÁF-li / e-BÁUT"
+            }
+          ],
+          "nativo": "'Around', 'roughly' e 'about' são intercambiáveis para 'aproximadamente' — varie para soar natural.",
+          "erro": "Não diga 'approximately' em conversa casual — é formal demais. Use 'around', 'about' ou 'roughly'.",
+          "connected_voce": "So with twenty percent off, it comes out ta around two hundred?"
+        },
+        {
+          "id": "fund-05-04",
+          "turno": 4,
+          "cena": "Ryan confirma e você decide comprar.",
+          "personagem": "Ryan",
+          "fala": "Exactly! One ninety-nine after the discount.",
+          "fonetica": "eg-ZÉK-li! UÁN NÁIN-ri-nain ÁF-ter de DÍS-kaunt.",
+          "traducao": "Exatamente! Cento e noventa e nove após o desconto.",
+          "connected": "Exactly! One ninety-nine after the discount.",
+          "blocos": [
+            {
+              "bloco": "one ninety-nine",
+              "significa": "$199 — forma nativa de dizer o preço"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "after the discount",
+              "significado": "após o desconto",
+              "acento": "AFter the DIScount",
+              "fonetica": "ÁF-ter de DÍS-kaunt"
+            }
+          ],
+          "nativo": "'After the discount' é a forma padrão de especificar que o preço já inclui o desconto.",
+          "erro": "Não diga 'with the discount applied' — muito formal. 'After the discount' é o mais natural."
+        },
+        {
+          "id": "fund-05-05",
+          "turno": 5,
+          "cena": "Você decide comprar e pergunta sobre o horário.",
+          "personagem": "Você",
+          "fala": "I'll take it! What time do you close today?",
+          "fonetica": "AIO TÊIK it! UÁT taim d'ya KLÓUZ te-DÊI?",
+          "traducao": "Vou levar! Que horas vocês fecham hoje?",
+          "sua_vez": true,
+          "acento": "I'll TAKE it! What TIME do you CLOSE today?",
+          "alternativas": [
+            "Perfect, I'll get it. When do you close?",
+            "Sold! What are your hours today?",
+            "I'll take it. Are you open late?"
+          ],
+          "alts_traducoes": [
+            "Perfeito, vou pegar. Quando fecham?",
+            "Fechado! Qual o horário hoje?",
+            "Vou levar. Vocês fecham tarde?"
+          ],
+          "vocab": [
+            {
+              "palavra": "I'll take it!",
+              "significado": "Vou levar! / Fechado!",
+              "acento": "I'll TAKE it!",
+              "fonetica": "AIO TÊIK it!"
+            },
+            {
+              "palavra": "What are your hours?",
+              "significado": "Qual é o horário de vocês?",
+              "acento": "WHAT are your HOURS?",
+              "fonetica": "UÁT er yer ÁU-erz?"
+            }
+          ],
+          "nativo": "'I'll take it!' é a forma mais satisfatória de dizer que vai comprar — soa decidido e entusiasta.",
+          "erro": "Não diga 'I will to buy this' — sem o 'to': 'I'll take it' ou 'I'll buy it'.",
+          "connected_voce": "I'll take it! What time d'ya close today?"
+        },
+        {
+          "id": "fund-05-06",
+          "turno": 6,
+          "cena": "Ryan informa o horário.",
+          "personagem": "Ryan",
+          "fala": "We close at nine. But the sale ends at eight, just so you know.",
+          "fonetica": "Wi KLÓUZ et NÁIN. Bát de SÊIL ENDZ et ÊIT, djast so ya NÓU.",
+          "traducao": "Fechamos às nove. Mas a promoção termina às oito, só para você saber.",
+          "connected": "We close at nine. But the sale ends at eight, juss so ya know.",
+          "blocos": [
+            {
+              "bloco": "just so you know",
+              "significa": "só para você saber — expressão para dar informação extra útil"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "just so you know",
+              "significado": "só para você saber",
+              "acento": "just so you KNOW",
+              "fonetica": "djast so ya NÓU"
+            },
+            {
+              "palavra": "at nine / at eight",
+              "significado": "às nove / às oito (sem artigo!)",
+              "acento": "at NINE / at EIGHT",
+              "fonetica": "et NÁIN / et ÊIT"
+            }
+          ],
+          "nativo": "'Just so you know' é uma expressão muito gentil para dar informação adicional sem pressionar.",
+          "erro": "Não diga 'at the nine' — em inglês não se usa artigo com horas: 'at nine', nunca 'at the nine'."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You decide to buy. Ryan is processing your payment.",
+        "turnos": [
+          {
+            "id": "dl-fund05-01",
+            "personagem": "Ryan",
+            "fala": "Great choice! Would you like a bag for that?",
+            "fonetica": "GRÊIT TCHÓIS! Wud ja LÁIK e BEG for dret?",
+            "traducao": "Ótima escolha! Quer uma sacola para isso?",
+            "connected": "Great choice! Would ja like a bag for that?",
+            "respostas_esperadas": [
+              "Yes please!",
+              "No thanks, I'm good.",
+              "Yes, that would be great.",
+              "No, I have my own bag."
+            ],
+            "resposta_modelo": "No thanks, I'm good — I have my backpack.",
+            "feedback_modelo": "'I'm good' é uma das expressões mais versáteis do inglês americano — significa que está tudo bem, não precisa de nada mais. 'No thanks' seguido de 'I'm good' é a recusa mais natural e amigável possível. Adicionar 'I have my backpack' explica sem precisar que perguntem.",
+            "vocab_apoio": [
+              {
+                "palavra": "Would you like...?",
+                "significado": "Você gostaria de...?",
+                "acento": "WOULD you like",
+                "fonetica": "WUD ya LÁIK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "fund-06",
+      "titulo": "Saying goodbye — Despedidas",
+      "nivel": 1,
+      "imagem": "https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=800",
+      "dialogo": [
+        {
+          "id": "fund-06-01",
+          "turno": 1,
+          "cena": "Você está encerrando uma reunião rápida com um colega americano.",
+          "personagem": "David",
+          "fala": "Alright, I think we're all set. Great talking to you!",
+          "fonetica": "ÓL-rait, AI think wir ÓL set. GRÊIT TÓK-ing tu ya!",
+          "traducao": "Certo, acho que está tudo certo. Foi ótimo falar com você!",
+          "connected": "Alright, I think we're all set. Great talking to ya!",
+          "blocos": [
+            {
+              "bloco": "Alright",
+              "significa": "marcador de encerramento — equivale a 'então' ou 'certo' quando encerrando"
+            },
+            {
+              "bloco": "we're all set",
+              "significa": "está tudo certo / tudo pronto"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "Alright",
+              "significado": "Certo / Então (encerramento)",
+              "acento": "ALright",
+              "fonetica": "ÓL-rait"
+            },
+            {
+              "palavra": "We're all set",
+              "significado": "Está tudo certo / Pronto",
+              "acento": "we're ALL set",
+              "fonetica": "wir ÓL set"
+            },
+            {
+              "palavra": "Great talking to you",
+              "significado": "Foi ótimo falar com você",
+              "acento": "GREAT TALKing to you",
+              "fonetica": "GRÊIT TÓK-ing tu ya",
+              "connected": "Great talking to ya"
+            },
+            {
+              "palavra": "Talk soon",
+              "significado": "Até logo / Falamos em breve",
+              "acento": "TALK soon",
+              "fonetica": "TÓK sun"
+            },
+            {
+              "palavra": "Take care",
+              "significado": "Cuide-se (despedida calorosa)",
+              "acento": "TAKE care",
+              "fonetica": "TÊIK KÊER"
+            }
+          ],
+          "nativo": "'Alright' no início de frase sinaliza que a conversa está chegando ao fim — é um marcador muito usado por nativos.",
+          "erro": "Não diga 'It was great to meet with you' se já se conheciam — use 'Great talking to you' ou 'Good to see you'."
+        },
+        {
+          "id": "fund-06-02",
+          "turno": 2,
+          "cena": "Você responde e encerra.",
+          "personagem": "Você",
+          "fala": "Likewise! Really enjoyed it. Talk soon!",
+          "fonetica": "LÁIK-uáiz! RÍ-li en-DJÓID it. TÓK sun!",
+          "traducao": "Igualmente! Curti muito. Até logo!",
+          "sua_vez": true,
+          "acento": "LIKEwise! REAlly enJOYed it. TALK soon!",
+          "alternativas": [
+            "Same here! Let's stay in touch.",
+            "Absolutely, great chat. Speak soon!",
+            "You too! Really valuable. Until next time!"
+          ],
+          "alts_traducoes": [
+            "Igualmente! Vamos manter contato.",
+            "Com certeza, ótima conversa. Até logo!",
+            "Você também! Muito valioso. Até a próxima!"
+          ],
+          "vocab": [
+            {
+              "palavra": "Likewise",
+              "significado": "Igualmente / Da mesma forma",
+              "acento": "LIKEwise",
+              "fonetica": "LÁIK-uáiz"
+            },
+            {
+              "palavra": "Let's stay in touch",
+              "significado": "Vamos manter contato",
+              "acento": "let's STAY in TOUCH",
+              "fonetica": "lets STÊI in TÁTCH"
+            }
+          ],
+          "nativo": "'Likewise' é mais sofisticado que 'you too' — use em contextos profissionais para soar mais natural.",
+          "erro": "Não diga 'Me too' como resposta para 'Great talking to you' — o correto é 'Likewise' ou 'Same here'.",
+          "connected_voce": "Likewise! Really enjoyed it. Talk soon!"
+        },
+        {
+          "id": "fund-06-03",
+          "turno": 3,
+          "cena": "David menciona o próximo contato.",
+          "personagem": "David",
+          "fala": "Sounds good. I'll reach out next week.",
+          "fonetica": "SÁUNDZ gud. AIO RÍTCH áut NEKST wík.",
+          "traducao": "Ótimo. Vou entrar em contato na semana que vem.",
+          "connected": "Sounds good. I'll reach out next week.",
+          "blocos": [
+            {
+              "bloco": "Sounds good",
+              "significa": "expressão de concordância/aprovação — muito versátil"
+            },
+            {
+              "bloco": "reach out",
+              "significa": "entrar em contato — phrasal verb padrão em contexto profissional"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "Sounds good",
+              "significado": "Ótimo / Está bom (concordância)",
+              "acento": "SOUNDS good",
+              "fonetica": "SÁUNDZ gud"
+            },
+            {
+              "palavra": "reach out",
+              "significado": "entrar em contato",
+              "acento": "REACH out",
+              "fonetica": "RÍTCH áut"
+            }
+          ],
+          "nativo": "'Sounds good' é uma das expressões mais versáteis do inglês profissional — use para concordar com qualquer proposta.",
+          "erro": "Não diga 'contact me' quando quer dizer que VAI entrar em contato — diga 'I'll reach out' ou 'I'll be in touch'."
+        },
+        {
+          "id": "fund-06-04",
+          "turno": 4,
+          "cena": "Você confirma.",
+          "personagem": "Você",
+          "fala": "Perfect. I'll be around. Safe travels if you're heading out!",
+          "fonetica": "PÉR-fekt. AIO bi e-RÁUND. SÊIF TRÉ-velz if yer HÉD-ing áut!",
+          "traducao": "Perfeito. Estou por aqui. Boa viagem se você estiver saindo!",
+          "sua_vez": true,
+          "acento": "PERfect. I'll be aROUND. SAFE TRAVels if you're HEADing out!",
+          "alternativas": [
+            "Sounds good! I'll keep an eye on my email.",
+            "Perfect. Looking forward to it.",
+            "Great. I'll be waiting for your message."
+          ],
+          "alts_traducoes": [
+            "Ótimo! Vou ficar de olho no meu email.",
+            "Perfeito. Aguardo com expectativa.",
+            "Ótimo. Vou esperar sua mensagem."
+          ],
+          "vocab": [
+            {
+              "palavra": "Safe travels",
+              "significado": "Boa viagem / Viagem segura",
+              "acento": "SAFE TRAVels",
+              "fonetica": "SÊIF TRÉ-velz"
+            },
+            {
+              "palavra": "heading out",
+              "significado": "saindo / partindo",
+              "acento": "HEADing OUT",
+              "fonetica": "HÉD-ing ÁUT"
+            },
+            {
+              "palavra": "I'll be around",
+              "significado": "estarei por aqui / disponível",
+              "acento": "I'll be aROUND",
+              "fonetica": "AIO bi e-RÁUND"
+            }
+          ],
+          "nativo": "'Safe travels' é o desejo de boa viagem mais natural em inglês — muito mais usado que 'Have a good trip' em contexto profissional.",
+          "erro": "Não responda 'Safe travels' com 'Thank you, you too' se a outra pessoa não está viajando — diga 'Thank you so much!'",
+          "connected_voce": "Perfect. I'll be around. Safe travels if you're heading out!"
+        },
+        {
+          "id": "fund-06-05",
+          "turno": 5,
+          "cena": "David se despede.",
+          "personagem": "David",
+          "fala": "Thanks! Take care, Juliano. Hope to see you again soon.",
+          "fonetica": "THÊNKS! TÊIK KÊER, Dju-LIA-no. HÓUP te SÍ ya e-GÉN SUN.",
+          "traducao": "Obrigado! Cuide-se, Juliano. Espero te ver de novo em breve.",
+          "connected": "Thanks! Take care, Juliano. Hope ta see ya again soon.",
+          "blocos": [
+            {
+              "bloco": "Hope to see you",
+              "significa": "Hope ta see ya — 'to see you' some em fala rápida"
+            },
+            {
+              "bloco": "Take care",
+              "significa": "despedida calorosa — mais pessoal que 'goodbye'"
+            }
+          ],
+          "sua_vez": false,
+          "vocab": [
+            {
+              "palavra": "Take care",
+              "significado": "Cuide-se (despedida calorosa)",
+              "acento": "TAKE care",
+              "fonetica": "TÊIK KÊER"
+            },
+            {
+              "palavra": "Hope to see you again",
+              "significado": "Espero te ver de novo",
+              "acento": "HOPE to SEE you aGAIN",
+              "fonetica": "HÓUP te SÍ ya e-GÉN"
+            }
+          ],
+          "nativo": "'Take care' é uma despedida genuinamente calorosa — use com pessoas que você acabou de conhecer e quer manter contato.",
+          "erro": "Não responda 'Hope to see you again' com 'Me too' — o correto é 'Same here!' ou 'Hope so too!'"
+        },
+        {
+          "id": "fund-06-06",
+          "turno": 6,
+          "cena": "Você se despede.",
+          "personagem": "Você",
+          "fala": "Same here! Take care, David. It was a pleasure.",
+          "fonetica": "SÊIM HÍER! TÊIK KÊER, Dêi-vid. It wez e PLÉ-jher.",
+          "traducao": "Igualmente! Cuide-se, David. Foi um prazer.",
+          "sua_vez": true,
+          "acento": "SAME here! TAKE care, David. It was a PLEAsure.",
+          "alternativas": [
+            "Absolutely! Take care. Hope to see you around.",
+            "You too! It was really nice meeting you.",
+            "Same! Great meeting you, David. Until next time."
+          ],
+          "alts_traducoes": [
+            "Com certeza! Cuide-se. Espero te ver por aí.",
+            "Você também! Foi muito bom te conhecer.",
+            "Igualmente! Ótimo te conhecer, David. Até a próxima."
+          ],
+          "vocab": [
+            {
+              "palavra": "It was a pleasure",
+              "significado": "Foi um prazer",
+              "acento": "it was a PLEAsure",
+              "fonetica": "it wez e PLÉ-jher"
+            },
+            {
+              "palavra": "Until next time",
+              "significado": "Até a próxima",
+              "acento": "unTIL NEXT time",
+              "fonetica": "an-TÍL NEKST taim"
+            }
+          ],
+          "nativo": "'It was a pleasure' encerra qualquer conversa de forma elegante e genuína — use sempre que for uma despedida significativa.",
+          "erro": "Não diga 'It was pleasure' sem o artigo — sempre 'It was A pleasure'.",
+          "connected_voce": "Same here! Take care, David. It was a pleasure."
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "You run into David again at the elevator a few minutes later.",
+        "turnos": [
+          {
+            "id": "dl-fund06-01",
+            "personagem": "David",
+            "fala": "Hey! Going down?",
+            "fonetica": "HÊI! GÓU-ing DÁUN?",
+            "traducao": "Ei! Vai descer?",
+            "connected": "Hey! Going down?",
+            "respostas_esperadas": [
+              "Yes!",
+              "Yes, lobby please.",
+              "Yep, lobby.",
+              "Yes, headed to the lobby."
+            ],
+            "resposta_modelo": "Yes! Lobby, please. Small world, huh?",
+            "feedback_modelo": "'Small world!' é uma expressão muito usada quando você encontra alguém inesperadamente — equivale a 'que coincidência!' em português. 'Huh?' no final é como 'né?' — convida a outra pessoa a concordar. 'Lobby' sem 'the' também é aceito em linguagem de elevador."
+          }
+        ]
+      }
+    }
+  ]
+}
