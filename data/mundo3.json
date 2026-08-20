@@ -1,0 +1,1171 @@
+{
+  "id": "mundo3",
+  "titulo": "Imigração",
+  "fase": "Fase 1 — Sobrevivência",
+  "descricao": "Passe pelo controle de fronteira com segurança. Do formulário de entrada à inspeção secundária — cada pergunta tem uma resposta certa.",
+  "audio_rate": 1.0,
+  "situacoes": [
+    {
+      "id": "s1",
+      "titulo": "Na fila do passaporte",
+      "descricao": "Você acabou de desembarcar e está na fila para o controle de imigração. O agente chama você.",
+      "registro": "neutro-cordial",
+      "ancora_presente": [
+        "Can I get",
+        "Here you go"
+      ],
+      "turnos": [
+        {
+          "id": "s1_t1",
+          "sua_vez": false,
+          "nativo": "Agentes de imigração são diretos e objetivos — não estão sendo grosseiros, é protocolo. Manter eye contact e responder sem hesitação transmite confiança.",
+          "erro": "Não diga 'I am tourist' — o correto é 'I'm here as a tourist' ou simplesmente 'I'm a tourist'.",
+          "fala": "Next, please. Passport and arrival card.",
+          "fonetica": "NEXT, PLI-ze. PÁS-por an e-RÁI-vel CARD.",
+          "connected": "Nex(t), please. Passport an(d) arrival card.",
+          "traducao": "Próximo, por favor. Passaporte e cartão de chegada.",
+          "blocos": [
+            {
+              "texto": "Next, please.",
+              "fonetica": "NEXT, PLI-ze.",
+              "traducao": "Próximo, por favor."
+            },
+            {
+              "texto": "Passport and arrival card.",
+              "fonetica": "PÁS-por an e-RÁI-vel CARD.",
+              "traducao": "Passaporte e cartão de chegada."
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "passport",
+              "fonetica": "PÁS-port",
+              "traducao": "passaporte"
+            },
+            {
+              "palavra": "arrival card",
+              "fonetica": "e-RÁI-vel CARD",
+              "traducao": "cartão de chegada / formulário de entrada"
+            },
+            {
+              "palavra": "next",
+              "fonetica": "NEXT",
+              "traducao": "próximo"
+            },
+            {
+              "palavra": "please",
+              "fonetica": "PLI-ze",
+              "traducao": "por favor"
+            }
+          ]
+        },
+        {
+          "id": "s1_t2",
+          "sua_vez": true,
+          "nativo": "Entregar os documentos antes de falar é natural — os agentes esperam isso. Dizer 'here you go' ao entregar é educado e soa fluente.",
+          "erro": "Não diga 'Here is my passport' de forma isolada — o natural é 'Here you go' ao entregar, depois complementar se precisar.",
+          "fala": "Here you go. My passport and the arrival card.",
+          "fonetica": "HIR iu GOU. MAI PÁS-por an de e-RÁI-vel CARD.",
+          "connected_voce": "Here ya go. My passport an(d) the arrival card.",
+          "traducao": "Aqui está. Meu passaporte e o cartão de chegada.",
+          "acento": "americano",
+          "alternativas": [
+            "Here you go. Passport and arrival card.",
+            "Here's my passport and the form."
+          ],
+          "alts_traducoes": [
+            "Aqui está. Passaporte e cartão de chegada.",
+            "Aqui está meu passaporte e o formulário."
+          ]
+        },
+        {
+          "id": "s1_t3",
+          "sua_vez": false,
+          "nativo": "O agente vai olhar para você, não para o passaporte, ao fazer essa pergunta — é uma técnica padrão de verificação.",
+          "erro": "Não diga 'I come for vacation' — o correto é 'I'm here for vacation' ou 'I came for vacation'.",
+          "fala": "What's the purpose of your visit?",
+          "fonetica": "UÁTS de PÔR-pes ov IUR VI-zit?",
+          "connected": "What's the purpose of your visit?",
+          "traducao": "Qual é o objetivo da sua visita?",
+          "blocos": [
+            {
+              "texto": "What's the purpose",
+              "fonetica": "UÁTS de PÔR-pes",
+              "traducao": "Qual é o objetivo"
+            },
+            {
+              "texto": "of your visit?",
+              "fonetica": "ov IUR VI-zit?",
+              "traducao": "da sua visita?"
+            }
+          ]
+        },
+        {
+          "id": "s1_t4",
+          "sua_vez": true,
+          "nativo": "Respostas curtas e diretas são o padrão em imigração. Elaborar demais pode gerar mais perguntas desnecessariamente.",
+          "erro": "Não diga 'I am coming for tourism' — o correto é 'I'm here for tourism' ou 'Tourism' diretamente.",
+          "fala": "Tourism. I'm here for two weeks.",
+          "fonetica": "TÚ-ri-zm. AIM HIR for TU UI-ks.",
+          "connected_voce": "Tourism. I'm here fer two weeks.",
+          "traducao": "Turismo. Estou aqui por duas semanas.",
+          "acento": "americano",
+          "alternativas": [
+            "I'm here as a tourist. Two weeks.",
+            "Vacation. I'll be here for two weeks."
+          ],
+          "alts_traducoes": [
+            "Estou aqui como turista. Duas semanas.",
+            "Férias. Estarei aqui por duas semanas."
+          ]
+        },
+        {
+          "id": "s1_t5",
+          "sua_vez": false,
+          "nativo": "Essa é uma pergunta-padrão — o agente quer saber se você tem um endereço concreto, não apenas o nome da cidade.",
+          "erro": "Não diga 'I stay in hotel' — o correto é 'I'm staying at a hotel' (uso do artigo e do gerúndio).",
+          "fala": "Where will you be staying?",
+          "fonetica": "UÉAR UIL IU BI STEI-ing?",
+          "connected": "Where'll ya be staying?",
+          "traducao": "Onde você vai se hospedar?",
+          "blocos": [
+            {
+              "texto": "Where will you be staying?",
+              "fonetica": "UÉAR UIL IU BI STEI-ing?",
+              "traducao": "Onde você vai se hospedar?"
+            }
+          ]
+        },
+        {
+          "id": "s1_t6",
+          "sua_vez": true,
+          "nativo": "Ter o nome e endereço do hotel prontos na memória (ou no celular) evita hesitação — hesitação chama atenção em imigração.",
+          "erro": "Não diga 'I will stay in Marriott' — o correto é 'I'll be staying at the Marriott' (preposição 'at' para hotel específico).",
+          "fala": "I'll be staying at the Marriott Downtown. I have the reservation on my phone.",
+          "fonetica": "AIL BI STEI-ing AT de MÉ-ri-ot DAUN-taun. AI HÁV de RÉ-zer-VEI-shon ON MAI FOUN.",
+          "connected_voce": "I'll be staying at the Marriott Downtown. I have the reservation on my phone.",
+          "traducao": "Estarei hospedado no Marriott Downtown. Tenho a reserva no meu celular.",
+          "acento": "americano",
+          "alternativas": [
+            "At the Marriott, downtown. I can show you the booking.",
+            "I'm staying at a hotel downtown. Marriott."
+          ],
+          "alts_traducoes": [
+            "No Marriott, no centro. Posso te mostrar a reserva.",
+            "Estou hospedado em um hotel no centro. Marriott."
+          ]
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "O agente encerrou as perguntas padrão mas faz uma última observação antes de devolver o passaporte.",
+        "fala_personagem": "Enjoy your stay. Welcome to the United States.",
+        "fonetica": "en-DJÓI IUR STEI. UÉL-kom TU de IU-NAI-ted STÉITS.",
+        "traducao": "Aproveite sua estadia. Bem-vindo aos Estados Unidos.",
+        "connected": "Enjoy yer stay. Welcome to the United States.",
+        "resposta_modelo": "Thank you so much. I appreciate it.",
+        "feedback_modelo": "Perfeito — curto, educado e natural. 'I appreciate it' é uma das estruturas-âncora mais usadas por nativos em despedidas.",
+        "turno_imprevisto": {
+          "fala": "By the way — do you have a return ticket?",
+          "fonetica": "BAI de UÉI — DU IU HÁV e ri-TÔRN TI-ket?",
+          "connected": "By the way — d'ya have a return ticket?",
+          "traducao": "A propósito — você tem passagem de volta?"
+        },
+        "vocab_apoio": [
+          {
+            "palavra": "enjoy your stay",
+            "fonetica": "en-DJÓI IUR STEI",
+            "traducao": "aproveite sua estadia"
+          },
+          {
+            "palavra": "welcome",
+            "fonetica": "UÉL-kom",
+            "traducao": "bem-vindo"
+          },
+          {
+            "palavra": "return ticket",
+            "fonetica": "ri-TÔRN TI-ket",
+            "traducao": "passagem de volta"
+          },
+          {
+            "palavra": "by the way",
+            "fonetica": "BAI de UÉI",
+            "traducao": "a propósito / aliás"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2",
+      "titulo": "Perguntas sobre a viagem",
+      "descricao": "O agente faz perguntas mais detalhadas sobre sua viagem. Você precisa responder com clareza e sem hesitar.",
+      "registro": "neutro-cordial",
+      "ancora_presente": [
+        "I'm not sure",
+        "It depends on",
+        "I'll be right back"
+      ],
+      "turnos": [
+        {
+          "id": "s2_t1",
+          "sua_vez": false,
+          "nativo": "'Traveling alone' é a forma padrão — não precisa dizer 'by myself' ou 'solo', apesar de serem corretos também.",
+          "erro": "Não diga 'I travel alone' sem marcação de tempo — o correto é 'I'm traveling alone' (presente contínuo para situação atual).",
+          "fala": "Are you traveling alone or with someone?",
+          "fonetica": "AR IU TRÁ-ve-ling e-LOUN OR uid SÂM-uon?",
+          "connected": "Are ya traveling alone or with someone?",
+          "traducao": "Você está viajando sozinho ou com alguém?",
+          "blocos": [
+            {
+              "texto": "Are you traveling alone",
+              "fonetica": "AR IU TRÁ-ve-ling e-LOUN",
+              "traducao": "Você está viajando sozinho"
+            },
+            {
+              "texto": "or with someone?",
+              "fonetica": "OR uid SÂM-uon?",
+              "traducao": "ou com alguém?"
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "traveling alone",
+              "fonetica": "TRÁD-ve-ling e-LOUN",
+              "traducao": "viajando sozinho"
+            },
+            {
+              "palavra": "with someone",
+              "fonetica": "uid SÂM-uon",
+              "traducao": "com alguém"
+            },
+            {
+              "palavra": "business trip",
+              "fonetica": "BÍZ-nes TRIP",
+              "traducao": "viagem de negócios"
+            },
+            {
+              "palavra": "leisure",
+              "fonetica": "LI-jer",
+              "traducao": "lazer"
+            }
+          ]
+        },
+        {
+          "id": "s2_t2",
+          "sua_vez": true,
+          "nativo": "Se você não tiver certeza de algo secundário (como planos exatos), pode dizer 'I'm not sure yet' — isso é normal e não chama atenção.",
+          "erro": "Não diga 'I travel alone' — o correto no contexto presente é 'I'm traveling alone'.",
+          "fala": "Alone. It's a leisure trip.",
+          "fonetica": "e-LOUN. ITS e LÍ-jer TRIP.",
+          "connected_voce": "Alone. It's a leisure trip.",
+          "traducao": "Sozinho. É uma viagem de lazer.",
+          "acento": "americano",
+          "alternativas": [
+            "Just me. I'm here for vacation.",
+            "Traveling alone. Leisure trip."
+          ],
+          "alts_traducoes": [
+            "Só eu. Estou aqui de férias.",
+            "Viajando sozinho. Viagem de lazer."
+          ]
+        },
+        {
+          "id": "s2_t3",
+          "sua_vez": false,
+          "nativo": "Agentes perguntam sobre cidades visitadas para checar consistência com o visto e o tempo de estadia declarado.",
+          "erro": "Não diga 'I will visit many places' sem especificar — o agente quer nomes concretos.",
+          "fala": "Which cities are you planning to visit?",
+          "fonetica": "UÍTCH SÍ-tiz AR IU PLÁ-ning TU VI-zit?",
+          "connected": "Which cities are ya planning ta visit?",
+          "traducao": "Quais cidades você planeja visitar?",
+          "blocos": [
+            {
+              "texto": "Which cities",
+              "fonetica": "UÍTCH SÍ-tiz",
+              "traducao": "Quais cidades"
+            },
+            {
+              "texto": "are you planning to visit?",
+              "fonetica": "AR IU PLÁ-ning TU VI-zit?",
+              "traducao": "você planeja visitar?"
+            }
+          ]
+        },
+        {
+          "id": "s2_t4",
+          "sua_vez": true,
+          "nativo": "Ter um roteiro básico na cabeça antes de chegar à imigração é essencial — mesmo que os planos mudem, demonstra organização.",
+          "erro": "Não diga 'It depends of my plans' — o correto é 'It depends on my plans' (sempre 'depends on', nunca 'depends of').",
+          "fala": "New York first, then Miami. It depends on the weather, but maybe Orlando too.",
+          "fonetica": "NU IÓRK FÔRST, DEN mai-Á-mi. IT di-PÉNDS ON de UÉ-der, BOT MEI-bi or-LÁN-do TU.",
+          "connected_voce": "New York first, then Miami. It depends on the weather, but maybe Orlando too.",
+          "traducao": "Nova York primeiro, depois Miami. Depende do tempo, mas talvez Orlando também.",
+          "acento": "americano",
+          "alternativas": [
+            "New York and Miami. Maybe Orlando, it depends on the time.",
+            "Starting in New York, then Miami. It depends on how things go."
+          ],
+          "alts_traducoes": [
+            "Nova York e Miami. Talvez Orlando, depende do tempo disponível.",
+            "Começando em Nova York, depois Miami. Depende de como as coisas correrem."
+          ]
+        },
+        {
+          "id": "s2_t5",
+          "sua_vez": false,
+          "nativo": "Essa pergunta sobre dinheiro é padrão — os EUA querem garantir que o visitante tem meios de se sustentar. Mencionar cartão de crédito é suficiente.",
+          "erro": "Não diga 'I have money in my card' — o correto é 'I have money on my card' ou simplesmente 'I have a credit card'.",
+          "fala": "How much money are you bringing into the country?",
+          "fonetica": "HAU MÂTCH MÂ-ni AR IU BRÍNG-ing ÍN-tu de KÂN-tri?",
+          "connected": "How much money are ya bringing into the country?",
+          "traducao": "Quanto dinheiro você está trazendo para o país?",
+          "blocos": [
+            {
+              "texto": "How much money",
+              "fonetica": "HAU MÂTCH MÂ-ni",
+              "traducao": "Quanto dinheiro"
+            },
+            {
+              "texto": "are you bringing into the country?",
+              "fonetica": "AR IU BRÍNG-ing ÍN-tu de KÂN-tri?",
+              "traducao": "você está trazendo para o país?"
+            }
+          ]
+        },
+        {
+          "id": "s2_t6",
+          "sua_vez": true,
+          "nativo": "Valores acima de USD 10.000 em espécie precisam ser declarados — por isso mencionar cartão de crédito é a resposta mais simples e honesta para turistas.",
+          "erro": "Não diga 'I don't have much cash, but I have card' — o correto é 'I don't have much cash, but I have a credit card'.",
+          "fala": "I don't have much cash — about three hundred dollars. But I have a credit card.",
+          "fonetica": "AI DÓNT HÁV MÂTCH KÁSH — e-BÁUT THRÍ HÂN-dred DÁ-lerz. BOT AI HÁV e KRÉ-dit CARD.",
+          "connected_voce": "I don't have much cash — about three hundred dollars. But I have a credit card.",
+          "traducao": "Não tenho muito dinheiro em espécie — cerca de trezentos dólares. Mas tenho cartão de crédito.",
+          "acento": "americano",
+          "alternativas": [
+            "Around three hundred in cash, plus a credit card.",
+            "Not much cash, about three hundred. I mainly use my card."
+          ],
+          "alts_traducoes": [
+            "Cerca de trezentos em espécie, mais um cartão de crédito.",
+            "Pouco dinheiro em espécie, cerca de trezentos. Uso principalmente o cartão."
+          ]
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "O agente verifica o formulário e encontra um campo que parece estar em branco.",
+        "fala_personagem": "Did you declare all the items you're bringing in?",
+        "fonetica": "DID IU di-KLÉAR OL de ÁI-temz IUR BRÍNG-ing IN?",
+        "traducao": "Você declarou todos os itens que está trazendo?",
+        "connected": "Did ya declare all the items you're bringing in?",
+        "resposta_modelo": "Yes, I did. I don't have anything to declare.",
+        "feedback_modelo": "'I don't have anything to declare' é a frase exata usada em imigração — natural e direta. Funciona melhor do que 'I have nothing'.",
+        "turno_imprevisto": {
+          "fala": "What about food? Any fruits, meats, or plant products?",
+          "fonetica": "UÁT e-BÁUT FUD? Á-ni FRUTS, MITS, OR PLÁNT PRÁ-dokts?",
+          "connected": "What about food? Any fruits, meats, or plant products?",
+          "traducao": "E alimentos? Alguma fruta, carne ou produto vegetal?"
+        },
+        "vocab_apoio": [
+          {
+            "palavra": "declare",
+            "fonetica": "di-KLÉAR",
+            "traducao": "declarar"
+          },
+          {
+            "palavra": "anything to declare",
+            "fonetica": "Á-ni-thing TU di-KLÉAR",
+            "traducao": "algo a declarar"
+          },
+          {
+            "palavra": "food items",
+            "fonetica": "FUD ÁI-temz",
+            "traducao": "itens alimentícios"
+          },
+          {
+            "palavra": "plant products",
+            "fonetica": "PLÁNT PRÁ-dokts",
+            "traducao": "produtos vegetais"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3",
+      "titulo": "Inspeção secundária — Tensão",
+      "descricao": "Um agente te pede para sair da fila principal e ir para uma sala separada. É a inspeção secundária — mais intensa, mas com procedimento claro.",
+      "registro": "tensao",
+      "ancora_presente": [
+        "I need help with",
+        "Could you repeat that",
+        "I didn't catch that",
+        "Sorry to bother you"
+      ],
+      "turnos": [
+        {
+          "id": "s3_t1",
+          "sua_vez": false,
+          "nativo": "Ser chamado para inspeção secundária não significa que você fez algo errado — é aleatório e rotineiro. Manter calma e cooperar é o caminho mais rápido para sair.",
+          "erro": "Não diga 'Why I am here?' — o correto é 'Why am I here?' (inversão obrigatória em perguntas diretas).",
+          "fala": "Sir, please come with me. We need to ask you a few more questions.",
+          "fonetica": "SÔR, PLI-ze KOM uid MI. UI NID TU ASK IU e FIU MOR KUÉSCH-ons.",
+          "connected": "Sir, please come with me. We need ta ask ya a few more questions.",
+          "traducao": "Senhor, venha comigo, por favor. Precisamos fazer mais algumas perguntas.",
+          "blocos": [
+            {
+              "texto": "Sir, please come with me.",
+              "fonetica": "SÔR, PLI-ze KOM uid MI.",
+              "traducao": "Senhor, venha comigo, por favor."
+            },
+            {
+              "texto": "We need to ask you a few more questions.",
+              "fonetica": "UI NID TU ASK IU e FIU MOR KUÉSCH-ons.",
+              "traducao": "Precisamos fazer mais algumas perguntas."
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "secondary inspection",
+              "fonetica": "SÉ-kon-dé-ri in-SPEC-shon",
+              "traducao": "inspeção secundária"
+            },
+            {
+              "palavra": "come with me",
+              "fonetica": "KOM uid MI",
+              "traducao": "venha comigo"
+            },
+            {
+              "palavra": "a few more",
+              "fonetica": "e FIU MOR",
+              "traducao": "mais alguns/algumas"
+            },
+            {
+              "palavra": "questions",
+              "fonetica": "KUÉSCH-ons",
+              "traducao": "perguntas"
+            }
+          ]
+        },
+        {
+          "id": "s3_t2",
+          "sua_vez": true,
+          "nativo": "Demonstrar cooperação imediata — sem questionar, sem argumentar — é o comportamento correto. Qualquer hesitação ou resistência prolonga o processo.",
+          "erro": "Não diga 'OK, I go' — o correto é 'Of course' ou 'Sure, no problem' (respostas completas soam mais naturais e confiantes).",
+          "fala": "Of course. No problem.",
+          "fonetica": "ov CORS. NOU PRÁ-blem.",
+          "connected_voce": "Of course. No problem.",
+          "traducao": "Claro. Sem problema.",
+          "acento": "americano",
+          "alternativas": [
+            "Sure. Lead the way.",
+            "Of course, no problem at all."
+          ],
+          "alts_traducoes": [
+            "Claro. Me mostre o caminho.",
+            "Claro, sem nenhum problema."
+          ]
+        },
+        {
+          "id": "s3_t3",
+          "sua_vez": false,
+          "nativo": "Na inspeção secundária, o agente pode repetir perguntas que você já respondeu — isso é intencional para verificar consistência nas respostas.",
+          "erro": "Não diga 'I already said' de forma defensiva — parece hostilidade. Responda normalmente como se fosse a primeira vez.",
+          "fala": "Can you tell me the purpose of your visit again, and how long you plan to stay?",
+          "fonetica": "KAN IU TEL MI de PÔR-pes ov IUR VI-zit e-GÉN, AN HAU LONG IU PLAN TU STEI?",
+          "connected": "Can ya tell me the purpose of yer visit again, an' how long ya plan ta stay?",
+          "traducao": "Você pode me dizer o objetivo da sua visita novamente, e por quanto tempo planeja ficar?",
+          "blocos": [
+            {
+              "texto": "Can you tell me the purpose of your visit again,",
+              "fonetica": "KAN IU TEL MI de PÔR-pes ov IUR VI-zit e-GÉN,",
+              "traducao": "Você pode me dizer o objetivo da sua visita novamente,"
+            },
+            {
+              "texto": "and how long you plan to stay?",
+              "fonetica": "AN HAU LONG IU PLAN TU STEI?",
+              "traducao": "e por quanto tempo planeja ficar?"
+            }
+          ]
+        },
+        {
+          "id": "s3_t4",
+          "sua_vez": true,
+          "nativo": "Repetir as mesmas informações sem alterar detalhes é o que o agente quer verificar. Consistência = credibilidade.",
+          "erro": "Não mude os detalhes em relação à resposta anterior — o agente está comparando. Se você disse 'duas semanas', diga 'duas semanas' de novo.",
+          "fala": "Tourism. I'm here for two weeks — visiting New York and Miami.",
+          "fonetica": "TÚ-ri-zm. AIM HIR for TU UI-ks — VI-zi-ting NU IÓRK AN mai-Á-mi.",
+          "connected_voce": "Tourism. I'm here for two weeks — visiting New York an' Miami.",
+          "traducao": "Turismo. Estou aqui por duas semanas — visitando Nova York e Miami.",
+          "acento": "americano",
+          "alternativas": [
+            "It's a vacation trip. Two weeks, New York and Miami.",
+            "Leisure. Two weeks — New York first, then Miami."
+          ],
+          "alts_traducoes": [
+            "É uma viagem de férias. Duas semanas, Nova York e Miami.",
+            "Lazer. Duas semanas — Nova York primeiro, depois Miami."
+          ]
+        },
+        {
+          "id": "s3_t5",
+          "sua_vez": false,
+          "nativo": "Mostrar reservas de hotel e passagem de volta é o que fecha o processo na maioria dos casos. Ter esses documentos acessíveis no celular é preparação básica.",
+          "erro": "Não diga 'I have the reservation in my email' sem mostrar — o agente quer ver, não só ouvir.",
+          "fala": "Do you have proof of accommodation and a return ticket?",
+          "fonetica": "DU IU HÁV PRUF ov á-kó-mo-DÉI-shon AN e ri-TÔRN TI-ket?",
+          "connected": "D'ya have proof of accommodation an' a return ticket?",
+          "traducao": "Você tem comprovante de hospedagem e passagem de volta?",
+          "blocos": [
+            {
+              "texto": "Do you have proof of accommodation",
+              "fonetica": "DU IU HÁV PRUF ov á-kó-mo-DÉI-shon",
+              "traducao": "Você tem comprovante de hospedagem"
+            },
+            {
+              "texto": "and a return ticket?",
+              "fonetica": "AN e ri-TÔRN TI-ket?",
+              "traducao": "e passagem de volta?"
+            }
+          ]
+        },
+        {
+          "id": "s3_t6",
+          "sua_vez": true,
+          "nativo": "Manter o celular carregado e os documentos organizados numa pasta de favoritos ou PDF offline é prática recomendada para viagens internacionais.",
+          "erro": "Não diga 'Let me search my email' — isso demonstra desorganização. O correto é ter os documentos acessíveis em segundos.",
+          "fala": "Yes. I have the hotel reservation and my return flight right here.",
+          "fonetica": "IÉS. AI HÁV de HOU-tel RÉ-zer-VEI-shon AN MAI ri-TÔRN FLAIT RAIT HIR.",
+          "connected_voce": "Yes. I have the hotel reservation an' my return flight right here.",
+          "traducao": "Sim. Tenho a reserva do hotel e meu voo de volta bem aqui.",
+          "acento": "americano",
+          "alternativas": [
+            "Yes, I have both — hotel booking and return ticket on my phone.",
+            "Right here — hotel confirmation and return flight."
+          ],
+          "alts_traducoes": [
+            "Sim, tenho os dois — reserva do hotel e passagem de volta no meu celular.",
+            "Bem aqui — confirmação do hotel e voo de volta."
+          ]
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "O agente analisa os documentos e faz uma última pergunta mais pessoal antes de liberar.",
+        "fala_personagem": "Have you ever been to the United States before?",
+        "fonetica": "HÁV IU É-ver BIN TU de IU-NAI-ted STÉITS bi-FÓR?",
+        "traducao": "Você já esteve nos Estados Unidos antes?",
+        "connected": "Have ya ever been to the United States before?",
+        "resposta_modelo": "Yes, I visited once, about three years ago. Just for a week.",
+        "feedback_modelo": "'About three years ago' é a forma mais natural de indicar tempo no passado. 'Three years before' soa como tradução direta do português — evite.",
+        "turno_imprevisto": {
+          "fala": "And what was the reason for that visit?",
+          "fonetica": "AN UÁT UÓZ de RÍ-zon for DÁT VI-zit?",
+          "connected": "An' what was the reason for that visit?",
+          "traducao": "E qual foi o motivo daquela visita?"
+        },
+        "vocab_apoio": [
+          {
+            "palavra": "ever been",
+            "fonetica": "É-ver BIN",
+            "traducao": "já esteve / já foi"
+          },
+          {
+            "palavra": "once",
+            "fonetica": "UÔNS",
+            "traducao": "uma vez"
+          },
+          {
+            "palavra": "about three years ago",
+            "fonetica": "e-BÁUT THRÍ IIRS e-GÓU",
+            "traducao": "há cerca de três anos"
+          },
+          {
+            "palavra": "reason",
+            "fonetica": "RÍ-zon",
+            "traducao": "motivo / razão"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s4",
+      "titulo": "Bagagem e alfândega",
+      "descricao": "Você passou pela imigração e agora está na alfândega. O agente inspeciona sua bagagem.",
+      "registro": "neutro-cordial",
+      "ancora_presente": [
+        "I'm looking for",
+        "Just this one",
+        "Is it okay if"
+      ],
+      "turnos": [
+        {
+          "id": "s4_t1",
+          "sua_vez": false,
+          "nativo": "Agentes de alfândega têm autoridade para abrir e inspecionar qualquer bagagem — cooperar plenamente é a única postura correta.",
+          "erro": "Não diga 'This is my bag' defensivamente antes de ser perguntado — espere as instruções do agente.",
+          "fala": "Is this all your luggage?",
+          "fonetica": "IZ DIS OL IUR LÂ-gidj?",
+          "connected": "Is this all yer luggage?",
+          "traducao": "Esta é toda a sua bagagem?",
+          "blocos": [
+            {
+              "texto": "Is this all your luggage?",
+              "fonetica": "IZ DIS OL IUR LÂ-gidj?",
+              "traducao": "Esta é toda a sua bagagem?"
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "luggage",
+              "fonetica": "LÂ-gidj",
+              "traducao": "bagagem"
+            },
+            {
+              "palavra": "customs",
+              "fonetica": "KÂS-tomz",
+              "traducao": "alfândega"
+            },
+            {
+              "palavra": "declare",
+              "fonetica": "di-KLÉAR",
+              "traducao": "declarar"
+            },
+            {
+              "palavra": "inspection",
+              "fonetica": "in-SPEC-shon",
+              "traducao": "inspeção"
+            }
+          ]
+        },
+        {
+          "id": "s4_t2",
+          "sua_vez": true,
+          "nativo": "'Just this one' e 'just one bag' são formas naturais de dizer que é só uma mala — muito mais fluente do que 'I have only one bag'.",
+          "erro": "Não diga 'I have one only bag' — o correto é 'Just this one' ou 'Just one bag'.",
+          "fala": "Just this one and my carry-on.",
+          "fonetica": "DJÂST DIS UÔN AN MAI KÉ-ri-ON.",
+          "connected_voce": "Just this one an' my carry-on.",
+          "traducao": "Só esta e minha bagagem de mão.",
+          "acento": "americano",
+          "alternativas": [
+            "Yes, just the one checked bag and my backpack.",
+            "That's it — this suitcase and my carry-on."
+          ],
+          "alts_traducoes": [
+            "Sim, só a mala despachada e minha mochila.",
+            "É isso — esta mala e minha bagagem de mão."
+          ]
+        },
+        {
+          "id": "s4_t3",
+          "sua_vez": false,
+          "nativo": "O agente pode pedir para abrir a mala sem explicação — isso é rotineiro e não é um sinal negativo.",
+          "erro": "Não diga 'Why you want to open?' — além de grammaticalmente incorreto ('why do you want'), soa confrontador. Coopere sem perguntar.",
+          "fala": "Could you open your suitcase for me, please?",
+          "fonetica": "KUD IU Ó-pen IUR SÚT-keis for MI, PLI-ze?",
+          "connected": "Could ya open yer suitcase for me, please?",
+          "traducao": "Você poderia abrir sua mala para mim, por favor?",
+          "blocos": [
+            {
+              "texto": "Could you open your suitcase",
+              "fonetica": "KUD IU Ó-pen IUR SÚT-keis",
+              "traducao": "Você poderia abrir sua mala"
+            },
+            {
+              "texto": "for me, please?",
+              "fonetica": "for MI, PLI-ze?",
+              "traducao": "para mim, por favor?"
+            }
+          ]
+        },
+        {
+          "id": "s4_t4",
+          "sua_vez": true,
+          "nativo": "Dizer 'of course' antes de agir demonstra cooperação ativa — é diferente de simplesmente obedecer em silêncio.",
+          "erro": "Não diga 'Yes, yes, wait' com pressa — soa nervoso. 'Of course, just a moment' é mais calmo e profissional.",
+          "fala": "Of course. Just a moment.",
+          "fonetica": "ov CORS. DJÂST e MÓU-ment.",
+          "connected_voce": "Of course. Just a moment.",
+          "traducao": "Claro. Só um momento.",
+          "acento": "americano",
+          "alternativas": [
+            "Sure, no problem.",
+            "Of course. Let me get it open."
+          ],
+          "alts_traducoes": [
+            "Claro, sem problema.",
+            "Claro. Deixa eu abrir."
+          ]
+        },
+        {
+          "id": "s4_t5",
+          "sua_vez": false,
+          "nativo": "Agentes de alfândega são treinados para observar reações — manter postura tranquila durante a inspeção é tão importante quanto responder corretamente.",
+          "erro": "Não diga 'Those are just my personal things' — parece defensivo. Deixe o agente verificar e responda apenas se perguntado.",
+          "fala": "What's in this bag here?",
+          "fonetica": "UÁTS IN DIS BÁG HIR?",
+          "connected": "What's in this bag here?",
+          "traducao": "O que tem nessa bolsa aqui?",
+          "blocos": [
+            {
+              "texto": "What's in this bag here?",
+              "fonetica": "UÁTS IN DIS BÁG HIR?",
+              "traducao": "O que tem nessa bolsa aqui?"
+            }
+          ]
+        },
+        {
+          "id": "s4_t6",
+          "sua_vez": true,
+          "nativo": "Especificar o que há na bolsa de forma direta e sem ansiedade é o comportamento esperado. 'Just' (apenas) antes de itens comuns soa natural e não defensivo.",
+          "erro": "Não diga 'It's only my things, nothing illegal' — mencionar 'illegal' espontaneamente chama atenção desnecessária.",
+          "fala": "Just my laptop and some cables. I'm looking for my adapter — it might be in there too.",
+          "fonetica": "DJÂST MAI LÁP-top AN SÂM KÉI-belz. AIM LÚ-king for MAI e-DÁP-ter — IT MAIT BI IN DÉR TU.",
+          "connected_voce": "Just my laptop an' some cables. I'm looking for my adapter — it might be in there too.",
+          "traducao": "Só meu notebook e alguns cabos. Estou procurando meu adaptador — pode estar lá também.",
+          "acento": "americano",
+          "alternativas": [
+            "My laptop, chargers, and some cables. Just electronics.",
+            "Electronics — laptop, cables. I'm looking for my power adapter in there."
+          ],
+          "alts_traducoes": [
+            "Meu notebook, carregadores e alguns cabos. Só eletrônicos.",
+            "Eletrônicos — notebook, cabos. Estou procurando meu adaptador de energia lá dentro."
+          ]
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "O agente termina a inspeção e devolve seus documentos.",
+        "fala_personagem": "Everything looks good. You're free to go. Enjoy your trip.",
+        "fonetica": "É-vri-thing LUKS GUD. IUR FRII TU GOU. en-DJÓI IUR TRIP.",
+        "traducao": "Tudo certo. Você está liberado. Aproveite sua viagem.",
+        "connected": "Everything looks good. You're free ta go. Enjoy yer trip.",
+        "resposta_modelo": "Thank you so much. Have a good one.",
+        "feedback_modelo": "'Have a good one' é a despedida informal padrão — funciona em qualquer situação casual. Muito mais natural do que 'goodbye' em contextos cotidianos.",
+        "turno_imprevisto": {
+          "fala": "Oh, wait — did you pick up all your documents from the counter?",
+          "fonetica": "OU, UÉIT — DID IU PIK ÂP OL IUR DÁ-kiu-ments from de KÁUN-ter?",
+          "connected": "Oh, wait — did ya pick up all yer documents from the counter?",
+          "traducao": "Oh, espera — você pegou todos os seus documentos do balcão?"
+        },
+        "vocab_apoio": [
+          {
+            "palavra": "you're free to go",
+            "fonetica": "IUR FRII TU GOU",
+            "traducao": "você está liberado"
+          },
+          {
+            "palavra": "pick up",
+            "fonetica": "PIK ÂP",
+            "traducao": "pegar / recolher"
+          },
+          {
+            "palavra": "counter",
+            "fonetica": "KÁUN-ter",
+            "traducao": "balcão / mesa do agente"
+          },
+          {
+            "palavra": "have a good one",
+            "fonetica": "HÁV e GUD UÔN",
+            "traducao": "tenha um bom dia (despedida informal)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "titulo": "Precisando de ajuda na imigração",
+      "descricao": "Você não entendeu uma instrução do agente ou tem dúvida sobre o formulário. Precisa pedir ajuda sem parecer despreparado.",
+      "registro": "neutro-cordial",
+      "ancora_presente": [
+        "Sorry to bother you",
+        "Could you repeat that",
+        "I didn't catch that",
+        "I need help with"
+      ],
+      "turnos": [
+        {
+          "id": "s5_t1",
+          "sua_vez": true,
+          "nativo": "Pedir para repetir é um direito e uma estratégia inteligente — agentes de imigração preferem que você pergunte a que você responda errado.",
+          "erro": "Não diga 'I don't understand' como única resposta — é genérico. 'Could you repeat that?' ou 'I didn't catch that' indicam que o problema é velocidade ou clareza, não incapacidade.",
+          "fala": "Sorry to bother you — could you repeat that? I didn't catch the last part.",
+          "fonetica": "SÓ-ri TU BÁ-der IU — KUD IU ri-PÍT DÁT? AI DÍ-dent KÁTCH de LÁST PART.",
+          "connected_voce": "Sorry ta bother you — could ya repeat that? I didn't catch the last part.",
+          "traducao": "Desculpe incomodá-lo — você poderia repetir? Não entendi a última parte.",
+          "acento": "americano",
+          "alternativas": [
+            "I'm sorry — could you say that again? I didn't catch it.",
+            "Excuse me — I didn't catch that. Could you repeat, please?"
+          ],
+          "alts_traducoes": [
+            "Desculpe — você poderia repetir? Não entendi.",
+            "Com licença — não entendi. Poderia repetir, por favor?"
+          ],
+          "vocab": [
+            {
+              "palavra": "sorry to bother you",
+              "fonetica": "SÓ-ri TU BÁ-der IU",
+              "traducao": "desculpe incomodá-lo"
+            },
+            {
+              "palavra": "could you repeat that",
+              "fonetica": "KUD IU ri-PÍT DÁT",
+              "traducao": "você poderia repetir isso?"
+            },
+            {
+              "palavra": "I didn't catch that",
+              "fonetica": "AI DÍ-dent KÁTCH DÁT",
+              "traducao": "não entendi / não peguei isso"
+            },
+            {
+              "palavra": "the last part",
+              "fonetica": "de LÁST PART",
+              "traducao": "a última parte"
+            }
+          ]
+        },
+        {
+          "id": "s5_t2",
+          "sua_vez": false,
+          "nativo": "Agentes costumam repetir mais devagar quando percebem que o viajante não é falante nativo — é um comportamento normal e esperado.",
+          "erro": "Não diga 'What?' como única resposta a algo que não entendeu — soa rude. Sempre use uma frase completa de pedido.",
+          "fala": "I said — please proceed to counter three. Counter three, over there.",
+          "fonetica": "AI SED — PLI-ze pro-SÍID TU KÁUN-ter THRÍ. KÁUN-ter THRÍ, Ó-ver DÉR.",
+          "connected": "I said — please proceed ta counter three. Counter three, over there.",
+          "traducao": "Eu disse — prossiga para o guichê três. Guichê três, ali.",
+          "blocos": [
+            {
+              "texto": "Please proceed to counter three.",
+              "fonetica": "PLI-ze pro-SÍID TU KÁUN-ter THRÍ.",
+              "traducao": "Por favor, prossiga para o guichê três."
+            },
+            {
+              "texto": "Counter three, over there.",
+              "fonetica": "KÁUN-ter THRÍ, Ó-ver DÉR.",
+              "traducao": "Guichê três, ali."
+            }
+          ]
+        },
+        {
+          "id": "s5_t3",
+          "sua_vez": true,
+          "nativo": "Confirmar o entendimento com 'got it' ou 'counter three — thank you' demonstra que você processou a informação e evita mais explicações.",
+          "erro": "Não diga 'Ah, okay, I go there' — soa informal demais e com erro gramatical. Use 'Got it' ou 'Counter three, thank you'.",
+          "fala": "Got it. Counter three. Thank you.",
+          "fonetica": "GÁT IT. KÁUN-ter THRÍ. THÉNK IU.",
+          "connected_voce": "Got it. Counter three. Thank you.",
+          "traducao": "Entendido. Guichê três. Obrigado.",
+          "acento": "americano",
+          "alternativas": [
+            "Counter three — got it. Thanks.",
+            "Understood. Counter three. Thank you very much."
+          ],
+          "alts_traducoes": [
+            "Guichê três — entendido. Obrigado.",
+            "Entendido. Guichê três. Muito obrigado."
+          ]
+        },
+        {
+          "id": "s5_t4",
+          "sua_vez": false,
+          "nativo": "Funcionários de imigração às vezes oferecem ajuda proativamente quando percebem que o viajante está confuso — aceite sempre com gratidão.",
+          "erro": "Não diga 'Is okay, I know' — parece arrogante e pode fechar a ajuda. Aceitar assistência é sempre a escolha mais inteligente.",
+          "fala": "Do you need help filling out the form?",
+          "fonetica": "DU IU NID HELP FÍ-ling AUT de FORM?",
+          "connected": "D'ya need help filling out the form?",
+          "traducao": "Você precisa de ajuda para preencher o formulário?",
+          "blocos": [
+            {
+              "texto": "Do you need help",
+              "fonetica": "DU IU NID HELP",
+              "traducao": "Você precisa de ajuda"
+            },
+            {
+              "texto": "filling out the form?",
+              "fonetica": "FÍ-ling AUT de FORM?",
+              "traducao": "para preencher o formulário?"
+            }
+          ]
+        },
+        {
+          "id": "s5_t5",
+          "sua_vez": true,
+          "nativo": "'I need help with' seguido do item específico é a estrutura mais direta e útil — muito melhor do que descrever o problema de forma circular.",
+          "erro": "Não diga 'Yes please help me because I don't understand the form' — longo demais. 'I need help with this section' é direto e suficiente.",
+          "fala": "Actually, yes. I need help with this section here — I'm not sure what they're asking.",
+          "fonetica": "ÁK-tchu-e-li, IÉS. AI NID HELP uid DIS SÉK-shon HIR — AIM NOT SHUR UÁTS DÉR ÁS-king.",
+          "connected_voce": "Actually, yes. I need help with this section here — I'm not sure what they're asking.",
+          "traducao": "Na verdade, sim. Preciso de ajuda com esta seção aqui — não tenho certeza do que estão perguntando.",
+          "acento": "americano",
+          "alternativas": [
+            "Yes, please. I need help with this part — I'm not sure what it means.",
+            "Actually, yes — this section here. I'm not sure what they want."
+          ],
+          "alts_traducoes": [
+            "Sim, por favor. Preciso de ajuda com esta parte — não tenho certeza do que significa.",
+            "Na verdade, sim — esta seção aqui. Não tenho certeza do que querem."
+          ]
+        },
+        {
+          "id": "s5_t6",
+          "sua_vez": false,
+          "nativo": "Funcionários bilíngues em imigração são comuns em aeroportos internacionais — mas confiar apenas no inglês é melhor para sua autonomia em qualquer situação.",
+          "erro": "Não assuma que o funcionário fala português — sempre inicie em inglês mesmo que você prefira o português.",
+          "fala": "This section asks for your port of entry — that's the city where you're entering the US.",
+          "fonetica": "DIS SÉK-shon ÁSKS for IUR PORT ov ÉN-tri — DÁT'S de SÍ-ti UÉAR IUR ÉN-te-ring de IU-ES.",
+          "connected": "This section asks for yer port of entry — that's the city where you're entering the US.",
+          "traducao": "Esta seção pede seu porto de entrada — ou seja, a cidade onde você está entrando nos EUA.",
+          "blocos": [
+            {
+              "texto": "This section asks for your port of entry —",
+              "fonetica": "DIS SÉK-shon ÁSKS for IUR PORT ov ÉN-tri —",
+              "traducao": "Esta seção pede seu porto de entrada —"
+            },
+            {
+              "texto": "that's the city where you're entering the US.",
+              "fonetica": "DÁT'S de SÍ-ti UÉAR IUR ÉN-te-ring de IU-ES.",
+              "traducao": "ou seja, a cidade onde você está entrando nos EUA."
+            }
+          ]
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "Você preencheu o formulário e volta ao guichê para entregar.",
+        "fala_personagem": "Got it, thank you. Is there anything else you need?",
+        "fonetica": "GÁT IT, THÉNK IU. IZ DÉR Á-ni-thing ELS IU NID?",
+        "traducao": "Entendido, obrigado. Tem mais alguma coisa que você precisa?",
+        "connected": "Got it, thank you. Is there anything else ya need?",
+        "resposta_modelo": "No, I think that's everything. Thank you for your help.",
+        "feedback_modelo": "'I think that's everything' é mais natural do que 'I have all' — indica que você está processando ativamente, não apenas respondendo mecanicamente.",
+        "turno_imprevisto": {
+          "fala": "Actually, do you have a pen? Mine just ran out.",
+          "fonetica": "ÁK-tchu-e-li, DU IU HÁV e PEN? MAIN DJÂST RAN AUT.",
+          "connected": "Actually, d'ya have a pen? Mine just ran out.",
+          "traducao": "Na verdade, você tem uma caneta? A minha acabou de acabar."
+        },
+        "vocab_apoio": [
+          {
+            "palavra": "port of entry",
+            "fonetica": "PORT ov ÉN-tri",
+            "traducao": "porto de entrada (cidade de chegada nos EUA)"
+          },
+          {
+            "palavra": "fill out",
+            "fonetica": "FIL AUT",
+            "traducao": "preencher (formulário)"
+          },
+          {
+            "palavra": "run out",
+            "fonetica": "RÂN AUT",
+            "traducao": "acabar / esgotar"
+          },
+          {
+            "palavra": "anything else",
+            "fonetica": "Á-ni-thing ELS",
+            "traducao": "mais alguma coisa"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "titulo": "Saída e orientação no terminal",
+      "descricao": "Você passou por tudo e agora precisa encontrar seu transporte. Pede orientação para um funcionário do aeroporto.",
+      "registro": "entusiasmo",
+      "ancora_presente": [
+        "Let me know",
+        "How long does it take",
+        "I'm looking for",
+        "That works for me"
+      ],
+      "turnos": [
+        {
+          "id": "s6_t1",
+          "sua_vez": true,
+          "nativo": "Funcionários de aeroporto ficam felizes em ajudar — abrir com 'excuse me' seguido de uma pergunta direta é o padrão.",
+          "erro": "Não diga 'Where is the taxi?' sem contexto — o correto é 'Where can I get a taxi?' ou 'Where's the taxi stand?'.",
+          "fala": "Excuse me — I'm looking for the taxi stand. Could you point me in the right direction?",
+          "fonetica": "ek-SKIÚZ MI — AIM LÚ-king for de TÁK-si STAND. KUD IU POINT MI IN de RAIT di-RÉK-shon?",
+          "connected_voce": "Excuse me — I'm looking for the taxi stand. Could ya point me in the right direction?",
+          "traducao": "Com licença — estou procurando o ponto de táxi. Você poderia me apontar a direção certa?",
+          "acento": "americano",
+          "alternativas": [
+            "Excuse me, where's the taxi stand from here?",
+            "Hi — I'm looking for a taxi. Where do I go?"
+          ],
+          "alts_traducoes": [
+            "Com licença, onde fica o ponto de táxi daqui?",
+            "Oi — estou procurando um táxi. Para onde eu vou?"
+          ],
+          "vocab": [
+            {
+              "palavra": "taxi stand",
+              "fonetica": "TÁK-si STAND",
+              "traducao": "ponto de táxi"
+            },
+            {
+              "palavra": "rideshare",
+              "fonetica": "RÁID-shér",
+              "traducao": "aplicativo de transporte (Uber, Lyft)"
+            },
+            {
+              "palavra": "ground transportation",
+              "fonetica": "GRAUND trans-por-TÉI-shon",
+              "traducao": "transporte terrestre"
+            },
+            {
+              "palavra": "terminal",
+              "fonetica": "TÔR-mi-nel",
+              "traducao": "terminal"
+            }
+          ]
+        },
+        {
+          "id": "s6_t2",
+          "sua_vez": false,
+          "nativo": "Em aeroportos americanos, Uber e Lyft têm áreas de embarque designadas separadas dos táxis — perguntar especificamente faz diferença.",
+          "erro": "Não confunda 'taxi stand' com 'rideshare pickup' — são locais diferentes e o funcionário vai perguntar qual você quer se não especificar.",
+          "fala": "Sure! Are you looking for a regular taxi or a rideshare like Uber?",
+          "fonetica": "SHUR! AR IU LÚ-king for e RÉ-giu-ler TÁK-si OR e RÁID-shér LAIK IÚ-ber?",
+          "connected": "Sure! Are ya looking for a regular taxi or a rideshare like Uber?",
+          "traducao": "Claro! Você está procurando um táxi convencional ou um aplicativo como Uber?",
+          "blocos": [
+            {
+              "texto": "Are you looking for a regular taxi",
+              "fonetica": "AR IU LÚ-king for e RÉ-giu-ler TÁK-si",
+              "traducao": "Você está procurando um táxi convencional"
+            },
+            {
+              "texto": "or a rideshare like Uber?",
+              "fonetica": "OR e RÁID-shér LAIK IÚ-ber?",
+              "traducao": "ou um aplicativo como Uber?"
+            }
+          ]
+        },
+        {
+          "id": "s6_t3",
+          "sua_vez": true,
+          "nativo": "Em cidades americanas, Uber e Lyft costumam ser mais baratos e mais convenientes do que táxis — e os motoristas já sabem exatamente onde pegar os passageiros.",
+          "erro": "Não diga 'I use Uber, so where?' — gramaticalmente incompleto. 'I'll be using Uber — where's the pickup area?' é mais claro e fluente.",
+          "fala": "Uber, actually. Where's the rideshare pickup area?",
+          "fonetica": "IÚ-ber, ÁK-tchu-e-li. UÉARS de RÁID-shér PIK-ÂP É-ri-e?",
+          "connected_voce": "Uber, actually. Where's the rideshare pickup area?",
+          "traducao": "Uber, na verdade. Onde fica a área de embarque de aplicativos?",
+          "acento": "americano",
+          "alternativas": [
+            "I'll be using Uber. Where do I wait for the pickup?",
+            "Rideshare — Uber. Where's the pickup zone?"
+          ],
+          "alts_traducoes": [
+            "Vou usar o Uber. Onde fico esperando a busca?",
+            "Aplicativo — Uber. Onde fica a zona de embarque?"
+          ]
+        },
+        {
+          "id": "s6_t4",
+          "sua_vez": false,
+          "nativo": "Funcionários de aeroporto costumam dar referências visuais ('look for the blue signs') além de direções abstratas — prestar atenção nas duas facilita muito.",
+          "erro": "Não diga 'I don't understand the direction' se você entendeu parte — repita o que entendeu e pergunte sobre o restante.",
+          "fala": "Head straight out those doors, then follow the blue signs to Level 1. Rideshare pickups are on the lower level. How long does it take to get downtown?",
+          "fonetica": "HED STREIT AUT DÓUZ DORS, DEN FÁ-lou de BLU SAINS TU LÉ-vel UÔN. RÁID-shér PIK-ÂPS AR ON de LÓU-er LÉ-vel. HAU LONG DOZ IT TEIK TU GET DAUN-taun?",
+          "connected": "Head straight out those doors, then follow the blue signs ta Level 1. Rideshare pickups are on the lower level. How long does it take ta get downtown?",
+          "traducao": "Siga reto por aquelas portas, depois siga as placas azuis para o Nível 1. Os embarques de aplicativos ficam no andar inferior. Quanto tempo leva para chegar ao centro?",
+          "blocos": [
+            {
+              "texto": "Head straight out those doors, then follow the blue signs to Level 1.",
+              "fonetica": "HED STREIT AUT DÓUZ DORS, DEN FÁ-lou de BLU SAINS TU LÉ-vel UÔN.",
+              "traducao": "Siga reto por aquelas portas, depois siga as placas azuis para o Nível 1."
+            },
+            {
+              "texto": "Rideshare pickups are on the lower level.",
+              "fonetica": "RÁID-shér PIK-ÂPS AR ON de LÓU-er LÉ-vel.",
+              "traducao": "Os embarques de aplicativos ficam no andar inferior."
+            }
+          ]
+        },
+        {
+          "id": "s6_t5",
+          "sua_vez": true,
+          "nativo": "'How long does it take' é uma das estruturas mais versáteis do inglês — funciona para trânsito, entrega, procedimentos, qualquer tempo de espera.",
+          "erro": "Não diga 'How much time to downtown?' — a estrutura correta é 'How long does it take to get to downtown?' ou simplesmente 'How long to downtown?'.",
+          "fala": "Got it. How long does it take to get downtown from here?",
+          "fonetica": "GÁT IT. HAU LONG DOZ IT TEIK TU GET DAUN-taun FROM HIR?",
+          "connected_voce": "Got it. How long does it take ta get downtown from here?",
+          "traducao": "Entendido. Quanto tempo leva para chegar ao centro daqui?",
+          "acento": "americano",
+          "alternativas": [
+            "Thanks. And how long is the ride downtown?",
+            "Got it. How long does it usually take to downtown?"
+          ],
+          "alts_traducoes": [
+            "Obrigado. E quanto tempo dura o trajeto até o centro?",
+            "Entendido. Quanto tempo costuma levar até o centro?"
+          ]
+        },
+        {
+          "id": "s6_t6",
+          "sua_vez": false,
+          "nativo": "Americanos frequentemente oferecem informação extra não solicitada quando estão sendo prestativos — é sinal de boa vontade, não de julgamento.",
+          "erro": "Não ignore informações extras que o funcionário ofereça espontaneamente — elas costumam ser úteis e relevantes.",
+          "fala": "Depends on traffic — usually about thirty to forty minutes. Let me know if you need anything else!",
+          "fonetica": "di-PÉNDS ON TRÁ-fik — IÚ-zhu-e-li e-BÁUT THÔR-ti TU FÓR-ti MÍ-nits. LET MI NOU IF IU NID Á-ni-thing ELS!",
+          "connected": "Depends on traffic — usually about thirty ta forty minutes. Let me know if ya need anything else!",
+          "traducao": "Depende do trânsito — normalmente cerca de trinta a quarenta minutos. Me avise se precisar de mais alguma coisa!",
+          "blocos": [
+            {
+              "texto": "Depends on traffic —",
+              "fonetica": "di-PÉNDS ON TRÁ-fik —",
+              "traducao": "Depende do trânsito —"
+            },
+            {
+              "texto": "usually about thirty to forty minutes.",
+              "fonetica": "IÚ-zhu-e-li e-BÁUT THÔR-ti TU FÓR-ti MÍ-nits.",
+              "traducao": "normalmente cerca de trinta a quarenta minutos."
+            },
+            {
+              "texto": "Let me know if you need anything else!",
+              "fonetica": "LET MI NOU IF IU NID Á-ni-thing ELS!",
+              "traducao": "Me avise se precisar de mais alguma coisa!"
+            }
+          ]
+        }
+      ],
+      "dialogo_livre": {
+        "contexto": "Você agradece o funcionário e está prestes a sair. Ele oferece mais uma informação.",
+        "fala_personagem": "Oh, one more thing — the Uber app might ask you to confirm terminal 3. Just so you know.",
+        "fonetica": "OU, UÔN MOR THING — de IÚ-ber ÁP MAIT ASK IU TU KON-fôrm TÔR-mi-nel THRÍ. DJÂST SOU IU NOU.",
+        "traducao": "Ah, mais uma coisa — o app do Uber pode pedir para confirmar o terminal 3. Só para você saber.",
+        "connected": "Oh, one more thing — the Uber app might ask ya ta confirm terminal 3. Just so ya know.",
+        "resposta_modelo": "That works for me. Thanks so much — you've been really helpful.",
+        "feedback_modelo": "'That works for me' confirma aceitação de forma natural e calorosa. 'You've been really helpful' é o agradecimento mais genuíno possível — muito melhor do que 'thank you' repetido.",
+        "turno_imprevisto": {
+          "fala": "Are you visiting for the first time?",
+          "fonetica": "AR IU VI-zi-ting for de FÔRST TAIM?",
+          "connected": "Are ya visiting for the first time?",
+          "traducao": "É sua primeira visita?"
+        },
+        "vocab_apoio": [
+          {
+            "palavra": "that works for me",
+            "fonetica": "DÁT UÔRKS for MI",
+            "traducao": "isso funciona para mim / combinado"
+          },
+          {
+            "palavra": "you've been helpful",
+            "fonetica": "IUV BIN HÉL-pful",
+            "traducao": "você foi muito prestativo"
+          },
+          {
+            "palavra": "just so you know",
+            "fonetica": "DJÂST SOU IU NOU",
+            "traducao": "só para você saber / aviso informal"
+          },
+          {
+            "palavra": "for the first time",
+            "fonetica": "for de FÔRST TAIM",
+            "traducao": "pela primeira vez"
+          }
+        ]
+      }
+    }
+  ]
+}
