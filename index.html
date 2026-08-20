@@ -835,8 +835,8 @@ function gConclusoes(sitId){
 
 function pctMundo(m){
   const p=gP();
-  const tot=m.situacoes.reduce((a,s)=>a+s.dialogos.filter(t=>t.sua_vez).length,0);
-  const dom=m.situacoes.reduce((a,s)=>a+s.dialogos.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);
+  const tot=m.situacoes.reduce((a,s)=>a+(s.dialogos||[]).filter(t=>t.sua_vez).length,0);
+  const dom=m.situacoes.reduce((a,s)=>a+(s.dialogos||[]).filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);
   return tot>0?dom/tot:0;
 }
 
@@ -912,25 +912,18 @@ function esconderLoader(){
 let mundosFalhados=[];
 async function init(){
   const loaderTxt=document.getElementById('loader-txt');
-  // DIAGNÓSTICO: mostra URL base para confirmar de onde está servindo
-  const baseUrl=window.location.href;
-  console.log('=== INIT BASE URL:', baseUrl);
-  if(loaderTxt)loaderTxt.textContent='Iniciando... ('+baseUrl.split('/').slice(0,3).join('/')+')';
   for(const mc of MCFG){
     if(loaderTxt)loaderTxt.textContent='Carregando: '+mc.nome;
     if(mc.disponivel&&mc.arquivo){
       try{
-        const urlCompleta=new URL(mc.arquivo,window.location.href).href;
-        console.log('Fetching:', urlCompleta);
         const r=await fetch(mc.arquivo);
-        if(!r.ok)throw new Error('HTTP '+r.status+' em '+urlCompleta);
+        if(!r.ok)throw new Error('HTTP '+r.status);
         const d=await r.json();
-        if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido — keys: '+Object.keys(d).join(','));
+        if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
         mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
-        console.log('OK:', mc.arquivo, '— situacoes:', d.situacoes.length);
       }catch(e){
-        console.error('ERRO ao carregar',mc.arquivo,e.message);
-        mundosFalhados.push(mc.nome+' ('+e.message+')');
+        console.warn('Erro ao carregar',mc.arquivo,e);
+        mundosFalhados.push(mc.nome);
         mundos.push({...mc,situacoes:[],disponivel:false});
       }
     }else{
@@ -939,11 +932,7 @@ async function init(){
   }
   carregarVoz();
   esconderLoader();
-  if(mundosFalhados.length){
-    const msg='Erro: '+mundosFalhados[0];
-    console.error('Mundos falhados:',mundosFalhados);
-    setTimeout(()=>mostrarToast(msg),600);
-  }
+  if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
   // Sempre exige login ao carregar — sessão só persiste dentro da aba
   const sessaoAtiva=verificarSessao();
   irPara(sessaoAtiva?'fases':'login');
@@ -980,8 +969,8 @@ const DEF_FASES=[
 function calcProg(num){
   const p=gP();
   const mcs=MCFG.filter(mc=>mc.fase===num);
-  const tv=mcs.reduce((a,mc)=>{const m=mundos.find(x=>x.id===mc.id)||{situacoes:[]};return a+m.situacoes.reduce((b,s)=>b+s.dialogos.filter(t=>t.sua_vez).length,0);},0);
-  const dom=mcs.reduce((a,mc)=>{const m=mundos.find(x=>x.id===mc.id)||{situacoes:[]};return a+m.situacoes.reduce((b,s)=>b+s.dialogos.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);},0);
+  const tv=mcs.reduce((a,mc)=>{const m=mundos.find(x=>x.id===mc.id)||{situacoes:[]};return a+m.situacoes.reduce((b,s)=>b+(s.dialogos||[]).filter(t=>t.sua_vez).length,0);},0);
+  const dom=mcs.reduce((a,mc)=>{const m=mundos.find(x=>x.id===mc.id)||{situacoes:[]};return a+m.situacoes.reduce((b,s)=>b+(s.dialogos||[]).filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);},0);
   return {tv,dom,pct:tv>0?Math.round((dom/tv)*100):0};
 }
 
@@ -1032,8 +1021,8 @@ function renderDash(){
   grid.innerHTML="";
   MCFG.filter(mc=>mc.fase===faseAtual).forEach(mc=>{
     const m=mundos.find(x=>x.id===mc.id)||{...mc,situacoes:[]};
-    const tv=m.situacoes.reduce((a,s)=>a+s.dialogos.filter(t=>t.sua_vez).length,0);
-    const dom=m.situacoes.reduce((a,s)=>a+s.dialogos.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);
+    const tv=m.situacoes.reduce((a,s)=>a+(s.dialogos||[]).filter(t=>t.sua_vez).length,0);
+    const dom=m.situacoes.reduce((a,s)=>a+(s.dialogos||[]).filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length,0);
     const pct=tv>0?Math.round((dom/tv)*100):0;
     const tem=m.situacoes&&m.situacoes.length>0;
     const el=document.createElement("div");
@@ -1068,8 +1057,8 @@ function abrirMundo(m){
   const nvnomes={1:'Iniciante',2:'Intermediário',3:'Avançado'};
   const nvFallback=s=>s.nivel?nvnomes[s.nivel]||('Nível '+s.nivel):'Iniciante';
   m.situacoes.forEach(s=>{
-    const tot=s.dialogos.filter(t=>t.sua_vez).length;
-    const dom=s.dialogos.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length;
+    const tot=(s.dialogos||[]).filter(t=>t.sua_vez).length;
+    const dom=(s.dialogos||[]).filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length;
     const pct=tot>0?Math.round((dom/tot)*100):0;
     const concls=gConclusoes(s.id);
     const ultima=concls.length?'Concluída '+new Date(concls[concls.length-1]).toLocaleDateString('pt-BR'):'';
@@ -1111,10 +1100,7 @@ function coletarVocabSituacao(s){
 function coletarExpressoesSituacao(s){
   // Coleta todas as falas (nativas e do usuário) com traducao + connected como expressões
   const exprs=[];
-  s.dialogos.forEach(t=>{
-    if(t.fala&&t.traducao){
-      exprs.push({
-        fala: t.fala,
+  (s.dialogos||[]).forEach(t=>{
         traducao: t.traducao,
         connected: t.sua_vez ? (t.connected_voce||null) : (t.connected||null),
         sua_vez: t.sua_vez,
@@ -2585,7 +2571,7 @@ function renderVocab(){
   const todos=[];
   const vistos=new Set();
   for(const m of mundos)for(const s of m.situacoes){
-    const sitPraticada=s.dialogos.some(t=>t.sua_vez&&p[t.id]&&p[t.id].hist.length>0);
+    const sitPraticada=(s.dialogos||[]).some(t=>t.sua_vez&&p[t.id]&&p[t.id].hist.length>0);
     if(!sitPraticada)continue;
     for(const t of s.dialogos){
       if(t.vocab){
@@ -2623,9 +2609,9 @@ function renderExpr(){
   const p=gP();
   const todas=[];
   for(const m of mundos)for(const s of m.situacoes){
-    const sitPraticada=s.dialogos.some(t=>t.sua_vez&&p[t.id]&&p[t.id].hist.length>0);
+    const sitPraticada=(s.dialogos||[]).some(t=>t.sua_vez&&p[t.id]&&p[t.id].hist.length>0);
     if(!sitPraticada)continue;
-    for(const t of s.dialogos){
+    for(const t of (s.dialogos||[])){
       todas.push({fala:t.fala,traducao:t.traducao||'',mundo:m.nome,sit:s.titulo,connected:t.connected||null,sua_vez:t.sua_vez});
     }
   }
@@ -2968,7 +2954,7 @@ function bibSetFase(f){
 function bibColetarVocab(s){
   const items=[];
   const vistas=new Set();
-  s.dialogos.forEach(t=>{
+  (s.dialogos||[]).forEach(t=>{
     if(t.vocab&&t.vocab.length){
       t.vocab.forEach(v=>{
         if(!vistas.has(v.palavra)){
