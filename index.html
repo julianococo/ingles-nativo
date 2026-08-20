@@ -741,25 +741,25 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── CONFIGURAÇÃO MUNDOS ───────────────────
 const MCFG=[
   // INTRODUÇÃO
-  {id:0,arquivo:'dados/mundo0.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,nome:'Fundamentos',desc:'Saudações, apresentações, conversas básicas',fase:0},
+  {id:0,arquivo:'data/mundo0.json',disponivel:true,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,nome:'Fundamentos',desc:'Saudações, apresentações, conversas básicas',fase:0},
   // FASE 1 — SOBREVIVÊNCIA
-  {id:1,arquivo:'dados/mundo1.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>`,nome:'Aeroporto',desc:'Check-in, segurança, embarque, mala perdida',fase:1},
-  {id:2,arquivo:'dados/mundo2.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.09-1.09a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,nome:'No Avião',desc:'Tripulação, refeições, problemas no voo',fase:1},
-  {id:3,arquivo:'dados/mundo3.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>`,nome:'Imigração',desc:'Controle de fronteira, visto, declaração',fase:1},
-  {id:4,arquivo:'dados/mundo4.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="9" width="22" height="11" rx="2"/><path d="M5.5 9V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v3"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>`,nome:'Transportes',desc:'Táxi, Uber, metrô, ônibus, aluguel de carro',fase:1},
-  {id:5,arquivo:'dados/mundo5.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,nome:'Hotel — Check-in',desc:'Reserva, quarto, problemas na chegada',fase:1},
-  {id:6,arquivo:'dados/mundo6.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,nome:'Hotel — Serviços',desc:'Room service, problemas, check-out',fase:1},
+  {id:1,arquivo:'data/mundo1.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>`,nome:'Aeroporto',desc:'Check-in, segurança, embarque, mala perdida',fase:1},
+  {id:2,arquivo:'data/mundo2.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.9 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.09-1.09a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,nome:'No Avião',desc:'Tripulação, refeições, problemas no voo',fase:1},
+  {id:3,arquivo:'data/mundo3.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>`,nome:'Imigração',desc:'Controle de fronteira, visto, declaração',fase:1},
+  {id:4,arquivo:'data/mundo4.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="9" width="22" height="11" rx="2"/><path d="M5.5 9V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v3"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>`,nome:'Transportes',desc:'Táxi, Uber, metrô, ônibus, aluguel de carro',fase:1},
+  {id:5,arquivo:'data/mundo5.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,nome:'Hotel — Check-in',desc:'Reserva, quarto, problemas na chegada',fase:1},
+  {id:6,arquivo:'data/mundo6.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,nome:'Hotel — Serviços',desc:'Room service, problemas, check-out',fase:1},
   // FASE 2 — FLUÊNCIA FUNCIONAL
-  {id:7,arquivo:'dados/mundo7.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>`,nome:'Restaurante',desc:'Pedido, menu, problemas, conta',fase:2},
-  {id:8,arquivo:'dados/mundo8.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,nome:'Compras',desc:'Lojas, tamanhos, pagamento, troca',fase:2},
-  {id:9,arquivo:'dados/mundo9.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>`,nome:'Direções',desc:'Pedir e dar direções, referências, GPS',fase:2},
-  {id:10,arquivo:'dados/mundo10.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,nome:'Passeios e Turismo',desc:'Ingressos, visitas, pontos turísticos',fase:2},
-  {id:11,arquivo:'dados/mundo11.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="18" height="20" rx="1"/><path d="M9 22V12h6v10"/><path d="M12 7v6m-3-3h6"/></svg>`,nome:'Hospital',desc:'Sintomas, triagem, farmácia, receita',fase:2},
-  {id:12,arquivo:'dados/mundo12.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M4.6 4.6l1.4 1.4"/><path d="M18 4.6l-1.4 1.4"/><path d="M12 2v2"/></svg>`,nome:'Emergências',desc:'Roubo, perda de documentos, socorro',fase:2},
+  {id:7,arquivo:'data/mundo7.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>`,nome:'Restaurante',desc:'Pedido, menu, problemas, conta',fase:2},
+  {id:8,arquivo:'data/mundo8.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,nome:'Compras',desc:'Lojas, tamanhos, pagamento, troca',fase:2},
+  {id:9,arquivo:'data/mundo9.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>`,nome:'Direções',desc:'Pedir e dar direções, referências, GPS',fase:2},
+  {id:10,arquivo:'data/mundo10.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,nome:'Passeios e Turismo',desc:'Ingressos, visitas, pontos turísticos',fase:2},
+  {id:11,arquivo:'data/mundo11.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="18" height="20" rx="1"/><path d="M9 22V12h6v10"/><path d="M12 7v6m-3-3h6"/></svg>`,nome:'Hospital',desc:'Sintomas, triagem, farmácia, receita',fase:2},
+  {id:12,arquivo:'data/mundo12.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="13" r="8"/><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M4.6 4.6l1.4 1.4"/><path d="M18 4.6l-1.4 1.4"/><path d="M12 2v2"/></svg>`,nome:'Emergências',desc:'Roubo, perda de documentos, socorro',fase:2},
   // FASE 3 — NEGÓCIOS
-  {id:13,arquivo:'dados/mundo13.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,nome:'Networking',desc:'Eventos, apresentações profissionais',fase:3},
-  {id:14,arquivo:'dados/mundo14.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,nome:'Reuniões',desc:'Apresentações, negociações, feedback',fase:3},
-  {id:15,arquivo:'dados/mundo15.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,nome:'Pitch',desc:'Startups, investidores, vendas',fase:3},
+  {id:13,arquivo:'data/mundo13.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,nome:'Networking',desc:'Eventos, apresentações profissionais',fase:3},
+  {id:14,arquivo:'data/mundo14.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,nome:'Reuniões',desc:'Apresentações, negociações, feedback',fase:3},
+  {id:15,arquivo:'data/mundo15.json',disponivel:false,icon:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,nome:'Pitch',desc:'Startups, investidores, vendas',fase:3},
 ];
 const LIMITE=0; // todos desbloqueados
 
@@ -912,18 +912,25 @@ function esconderLoader(){
 let mundosFalhados=[];
 async function init(){
   const loaderTxt=document.getElementById('loader-txt');
+  // DIAGNÓSTICO: mostra URL base para confirmar de onde está servindo
+  const baseUrl=window.location.href;
+  console.log('=== INIT BASE URL:', baseUrl);
+  if(loaderTxt)loaderTxt.textContent='Iniciando... ('+baseUrl.split('/').slice(0,3).join('/')+')';
   for(const mc of MCFG){
     if(loaderTxt)loaderTxt.textContent='Carregando: '+mc.nome;
     if(mc.disponivel&&mc.arquivo){
       try{
+        const urlCompleta=new URL(mc.arquivo,window.location.href).href;
+        console.log('Fetching:', urlCompleta);
         const r=await fetch(mc.arquivo);
-        if(!r.ok)throw new Error('HTTP '+r.status);
+        if(!r.ok)throw new Error('HTTP '+r.status+' em '+urlCompleta);
         const d=await r.json();
-        if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
+        if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido — keys: '+Object.keys(d).join(','));
         mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
+        console.log('OK:', mc.arquivo, '— situacoes:', d.situacoes.length);
       }catch(e){
-        console.warn('Erro ao carregar',mc.arquivo,e);
-        mundosFalhados.push(mc.nome);
+        console.error('ERRO ao carregar',mc.arquivo,e.message);
+        mundosFalhados.push(mc.nome+' ('+e.message+')');
         mundos.push({...mc,situacoes:[],disponivel:false});
       }
     }else{
@@ -932,7 +939,11 @@ async function init(){
   }
   carregarVoz();
   esconderLoader();
-  if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
+  if(mundosFalhados.length){
+    const msg='Erro: '+mundosFalhados[0];
+    console.error('Mundos falhados:',mundosFalhados);
+    setTimeout(()=>mostrarToast(msg),600);
+  }
   // Sempre exige login ao carregar — sessão só persiste dentro da aba
   const sessaoAtiva=verificarSessao();
   irPara(sessaoAtiva?'fases':'login');
