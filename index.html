@@ -912,30 +912,33 @@ function esconderLoader(){
 let mundosFalhados=[];
 async function init(){
   const loaderTxt=document.getElementById('loader-txt');
-  for(const mc of MCFG){
-    if(loaderTxt)loaderTxt.textContent='Carregando: '+mc.nome;
-    if(mc.disponivel&&mc.arquivo){
-      try{
-        const r=await fetch(mc.arquivo);
-        if(!r.ok)throw new Error('HTTP '+r.status);
-        const d=await r.json();
-        if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
-        mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
-      }catch(e){
-        console.warn('Erro ao carregar',mc.arquivo,e);
-        mundosFalhados.push(mc.nome);
+  try{
+    for(const mc of MCFG){
+      if(loaderTxt)loaderTxt.textContent='Carregando: '+mc.nome;
+      if(mc.disponivel&&mc.arquivo){
+        try{
+          const r=await fetch(mc.arquivo);
+          if(!r.ok)throw new Error('HTTP '+r.status);
+          const d=await r.json();
+          if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
+          mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
+        }catch(e){
+          console.warn('Erro ao carregar',mc.arquivo,e);
+          mundosFalhados.push(mc.nome);
+          mundos.push({...mc,situacoes:[],disponivel:false});
+        }
+      }else{
         mundos.push({...mc,situacoes:[],disponivel:false});
       }
-    }else{
-      mundos.push({...mc,situacoes:[],disponivel:false});
     }
+    carregarVoz();
+  }catch(e){
+    console.error('Erro crítico no init:',e);
+  }finally{
+    esconderLoader();
+    if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
+    irPara(verificarSessao()?'fases':'login');
   }
-  carregarVoz();
-  esconderLoader();
-  if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
-  // Sempre exige login ao carregar — sessão só persiste dentro da aba
-  const sessaoAtiva=verificarSessao();
-  irPara(sessaoAtiva?'fases':'login');
 }
 
 // ── ABAS ─────────────────────────────────
