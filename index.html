@@ -621,6 +621,18 @@ button:focus-visible,a:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
   </div>
 </div>
 
+<!-- MODAL LOGOUT -->
+<div id="modal-logout" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:28px 24px;max-width:340px;width:100%;text-align:center;">
+    <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;">Sair da conta?</div>
+    <div style="font-size:13px;color:var(--tx2);margin-bottom:24px;line-height:1.6;">Seu progresso fica salvo.<br>Você precisará fazer login novamente.</div>
+    <div style="display:flex;gap:10px;">
+      <button onclick="confirmarLogoutNao()" style="flex:1;padding:12px;border-radius:var(--r);border:1px solid var(--bd);background:var(--s2);color:var(--tx2);font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">Cancelar</button>
+      <button onclick="confirmarLogoutSim()" style="flex:1;padding:12px;border-radius:var(--r);border:none;background:var(--red);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">Sair</button>
+    </div>
+  </div>
+</div>
+
 <!-- BIBLIOTECA -->
 <!-- PROGRESSO / KPIs -->
 <div id="tela-progresso" class="tela">
@@ -697,11 +709,18 @@ function entrarNaApp() {
 }
 
 function fazerLogout() {
-  if (!confirm('Sair da sua conta?')) return;
+  document.getElementById('modal-logout').style.display='flex';
+}
+function confirmarLogoutSim(){
+  document.getElementById('modal-logout').style.display='none';
   limparSessao();
-  usuarioAtual = null;
-  document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
+  usuarioAtual=null;
+  history.replaceState({tela:'login'},'',window.location.pathname);
+  document.querySelectorAll('.tela').forEach(t=>t.classList.remove('ativa'));
   document.getElementById('tela-login').classList.add('ativa');
+}
+function confirmarLogoutNao(){
+  document.getElementById('modal-logout').style.display='none';
 }
 
 function verificarSessao() {
@@ -711,6 +730,7 @@ function verificarSessao() {
 }
 
 // Enter nos campos de login
+window.addEventListener('beforeunload',()=>{ limparSessao(); });
 document.addEventListener('DOMContentLoaded', () => {
   ['inp-tel', 'inp-senha', 'inp-nome'].forEach(id => {
     const el = document.getElementById(id);
@@ -821,9 +841,16 @@ function pctMundo(m){
 }
 
 // ── NAVEGAÇÃO ────────────────────────────
-function irPara(t){
+const TELAS_INTERNAS=['sessao','vocab-intro','dialogo-livre','resultado','fim'];
+let _navLock=false;
+function irPara(t,addHistory=true){
   document.querySelectorAll('.tela').forEach(el=>el.classList.remove('ativa'));
-  document.getElementById('tela-'+t).classList.add('ativa');
+  const el=document.getElementById('tela-'+t);
+  if(!el){console.warn('Tela não encontrada:',t);return;}
+  el.classList.add('ativa');
+  if(addHistory&&!_navLock){
+    history.pushState({tela:t},'',window.location.pathname);
+  }
   if(t==='fases')renderFases();
   if(t==='dashboard')renderDash();
   if(t==='biblioteca'){bibRenderFiltros();bibRender();}
@@ -831,6 +858,25 @@ function irPara(t){
   if(t==='sessao'||t==='vocab-intro'||t==='dialogo-livre')exibirAvisoMic(t==='dialogo-livre'?'sessao':t);
   _a11yMelhorar();
   pararTimer();
+}
+window.addEventListener('popstate',function(e){
+  _navLock=true;
+  const t=(e.state&&e.state.tela)||'fases';
+  // Telas de sessão ativa: impede voltar com confirm
+  const telaAtiva=document.querySelector('.tela.ativa');
+  const telaId=telaAtiva?telaAtiva.id.replace('tela-',''):'';
+  if(TELAS_INTERNAS.includes(telaId)&&telaId!=='resultado'&&telaId!=='fim'){
+    history.pushState({tela:telaId},'',window.location.pathname);
+    _navLock=false;
+    mostrarModalSair();
+    return;
+  }
+  if(!verificarSessao()&&t!=='login'){irPara('login',false);_navLock=false;return;}
+  irPara(t,false);
+  _navLock=false;
+});
+function mostrarModalSair(){
+  const m=document.getElementById('modal-sair');if(m)m.style.display='flex';
 }
 
 // ── ACESSIBILIDADE PÓS-RENDER ──────────
@@ -887,7 +933,9 @@ async function init(){
   carregarVoz();
   esconderLoader();
   if(mundosFalhados.length)setTimeout(()=>mostrarToast('Não carreguei: '+mundosFalhados.join(', ')+' — recarregue a página.'),600);
-  irPara(verificarSessao()?'fases':'login');
+  // Sempre exige login ao carregar — sessão só persiste dentro da aba
+  const sessaoAtiva=verificarSessao();
+  irPara(sessaoAtiva?'fases':'login');
 }
 
 // ── ABAS ─────────────────────────────────
@@ -946,7 +994,8 @@ function renderFases(){
     const el=document.createElement("div");
     el.className="fase-card f"+f.num;
     el.onclick=()=>{faseAtual=f.num;irPara("dashboard");};
-    const progTxt=tv>0?dom+"/"+tv+" dominados — "+pct+"%":"Em breve";
+    const temMundo=MCFG.filter(mc=>mc.fase===f.num).some(mc=>mc.disponivel&&mundos.find(x=>x.id===mc.id&&x.situacoes&&x.situacoes.length));
+    const progTxt=temMundo?(tv>0?dom+"/"+tv+" dominados — "+pct+"%":"0% concluído"):"Em breve";
     el.innerHTML=
       `<div class="fase-card-hdr">`
       +`<div class="fase-num f${f.num}">${f.num}</div>`
@@ -1006,6 +1055,7 @@ function abrirMundo(m){
   }
   const p=gP();
   const nvnomes={1:'Iniciante',2:'Intermediário',3:'Avançado'};
+  const nvFallback=s=>s.nivel?nvnomes[s.nivel]||('Nível '+s.nivel):'Iniciante';
   m.situacoes.forEach(s=>{
     const tot=s.dialogos.filter(t=>t.sua_vez).length;
     const dom=s.dialogos.filter(t=>t.sua_vez&&(p[t.id]?.n||0)>=3).length;
@@ -1018,7 +1068,7 @@ function abrirMundo(m){
       <div>
         <div class="si-titulo">${s.titulo}</div>
         <div class="si-meta">
-          <span class="nv nv${s.nivel}">${nvnomes[s.nivel]||'N'+s.nivel}</span>
+          <span class="nv nv${s.nivel}">${nvFallback(s)}</span>
           <span class="si-info">${dom}/${tot} dominados (${pct}%)</span>
         </div>
         ${ultima?`<div class="si-completo"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ${ultima}</div>`:''}
@@ -3078,7 +3128,12 @@ function exibirAvisoMic(tela){
 }
 
 // ── MODAL: fechar com ESC ────────────────
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){const m=document.getElementById('modal-sair');if(m&&m.style.display==='flex')confirmarSairNao();}});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    const ms=document.getElementById('modal-sair');if(ms&&ms.style.display==='flex')confirmarSairNao();
+    const ml=document.getElementById('modal-logout');if(ml&&ml.style.display==='flex')confirmarLogoutNao();
+  }
+});
 
 // ── TEMA ─────────────────────────────────
 function toggleTema(){
