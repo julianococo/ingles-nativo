@@ -1101,6 +1101,9 @@ function coletarExpressoesSituacao(s){
   // Coleta todas as falas (nativas e do usuário) com traducao + connected como expressões
   const exprs=[];
   (s.dialogos||[]).forEach(t=>{
+    if(t.fala&&t.traducao){
+      exprs.push({
+        fala: t.fala,
         traducao: t.traducao,
         connected: t.sua_vez ? (t.connected_voce||null) : (t.connected||null),
         sua_vez: t.sua_vez,
