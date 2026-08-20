@@ -921,7 +921,7 @@ async function init(){
           if(!r.ok)throw new Error('HTTP '+r.status);
           const d=await r.json();
           if(!d||!d.situacoes||!Array.isArray(d.situacoes))throw new Error('JSON inválido');
-          mundos.push({...d,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
+          mundos.push({...d,id:mc.id,disponivel:true,icon:mc.icon,nome:mc.nome||d.nome,desc:mc.desc||d.descricao});
         }catch(e){
           console.warn('Erro ao carregar',mc.arquivo,e);
           mundosFalhados.push(mc.nome);
