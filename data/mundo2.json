@@ -1,0 +1,1150 @@
+{
+  "id": "mundo2",
+  "titulo": "No Avião",
+  "descricao": "Você está a bordo. Chegou a hora de pedir, confirmar, resolver e sobreviver às horas em altitude.",
+  "fase": 1,
+  "rate": 0.8,
+  "situacoes": [
+    {
+      "id": "s1",
+      "titulo": "Acomodando-se no assento",
+      "registro": "neutro-cordial",
+      "dialogos": [
+        {
+          "id": "s1_t1",
+          "sua_vez": false,
+          "fala": "Excuse me, I think you're in my seat. I'm in 14C.",
+          "fonetica": "ex-KIÚZ mi, ai THÍNK yur in mai SÍT. aim in FOR-TÍN SÍ.",
+          "traducao": "Com licença, acho que você está no meu assento. Estou no 14C.",
+          "connected": "Excuse me → ex-KIÚZ mi | you're → yur | I'm in → aim in",
+          "blocos": [
+            {
+              "texto": "Excuse me,",
+              "fonetica": "ex-KIÚZ mi"
+            },
+            {
+              "texto": "I think you're in my seat.",
+              "fonetica": "ai THÍNK yur in mai SÍT"
+            },
+            {
+              "texto": "I'm in 14C.",
+              "fonetica": "aim in FOR-TÍN SÍ"
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "seat",
+              "fonetica": "SÍT",
+              "traducao": "assento"
+            },
+            {
+              "palavra": "excuse me",
+              "fonetica": "ex-KIÚZ mi",
+              "traducao": "com licença",
+              "connected": "ex-KIÚZ-mi (palavras coladas em fala natural)"
+            },
+            {
+              "palavra": "I think",
+              "fonetica": "ai THÍNK",
+              "traducao": "eu acho"
+            },
+            {
+              "palavra": "boarding pass",
+              "fonetica": "BOR-ding pæs",
+              "traducao": "cartão de embarque"
+            }
+          ],
+          "nativo": "Nativos dizem 'Excuse me' com tom suave, não acusatório — é uma abertura diplomática, não uma reclamação. Raramente dizem 'you are in MY seat' com ênfase no MY, pois soa agressivo.",
+          "erro": "Não diga 'This is my place' — o correto é 'This is my seat'. 'Place' para assento soa como tradução literal do português."
+        },
+        {
+          "id": "s1_t2",
+          "sua_vez": true,
+          "fala": "Oh, I'm sorry! Let me check my boarding pass.",
+          "fonetica": "óu, aim SOR-ri! let mi CHEK mai BOR-ding pæs.",
+          "traducao": "Oh, desculpe! Deixa eu verificar meu cartão de embarque.",
+          "connected_voce": "Let me → LEM-mi | boarding pass → BOR-ding-pæs (colado)",
+          "acento": "SOR-ri, CHEK, BOR-ding",
+          "alternativas": [
+            "Sorry about that! I must have the wrong row.",
+            "My apologies — I'll move right away."
+          ],
+          "alts_traducoes": [
+            "Desculpe por isso! Devo estar na fileira errada.",
+            "Minhas desculpas — vou me mover agora."
+          ]
+        },
+        {
+          "id": "s1_t3",
+          "sua_vez": false,
+          "fala": "No worries! It happens all the time. Looks like you're actually in 14B — right here.",
+          "fonetica": "nóu UÓ-riz! it HÆ-penz ol de TÁIM. luks laik yur Æ-chli in FOR-TÍN BI — ráit HIR.",
+          "traducao": "Sem problemas! Acontece o tempo todo. Parece que você está no 14B — bem aqui.",
+          "connected": "No worries → nóu-UÓ-riz (colado) | all the time → ol-de-TÁIM | you're actually → yur-Æ-chli",
+          "blocos": [
+            {
+              "texto": "No worries!",
+              "fonetica": "nóu UÓ-riz"
+            },
+            {
+              "texto": "It happens all the time.",
+              "fonetica": "it HÆ-penz ol de TÁIM"
+            },
+            {
+              "texto": "Looks like you're actually in 14B — right here.",
+              "fonetica": "luks laik yur Æ-chli in FOR-TÍN BI — ráit HIR"
+            }
+          ],
+          "nativo": "'No worries' é a resposta mais natural e amigável que um americano ou australiano daria. Em contexto formal, 'No problem' também funciona. Evite 'Never mind' — pode soar dismissivo.",
+          "erro": "Não diga 'No problems' no plural — o correto é 'No problem' (sem s) ou 'No worries'."
+        },
+        {
+          "id": "s1_t4",
+          "sua_vez": true,
+          "fala": "Got it, thank you! Is it okay if I put my bag in the overhead bin?",
+          "fonetica": "GÓ-rit, THÆNK yu! iz it Ó-kei if ai put mai bæg in de Ó-ver-hed bin?",
+          "traducao": "Entendi, obrigado! Tudo bem se eu colocar minha mala no compartimento acima?",
+          "connected_voce": "Got it → GÓ-rit (T some) | Is it okay → iz-it-Ó-kei | overhead bin → Ó-ver-hed-bin",
+          "acento": "GÓ-rit, Ó-kei, Ó-ver-hed, bin",
+          "alternativas": [
+            "Thanks! Do you mind if I use the overhead bin?",
+            "Perfect, thanks! Can I store my bag up there?"
+          ],
+          "alts_traducoes": [
+            "Obrigado! Você se importa se eu usar o compartimento acima?",
+            "Perfeito, obrigado! Posso guardar minha mala lá em cima?"
+          ]
+        },
+        {
+          "id": "s1_t5",
+          "sua_vez": false,
+          "fala": "Of course, go ahead! There's plenty of room.",
+          "fonetica": "ov KOR-s, góu e-HED! ders PLEN-ti ov rum.",
+          "traducao": "Claro, pode ir! Tem bastante espaço.",
+          "connected": "Of course → ov-KOR-s | go ahead → góu-e-HED | there's → ders",
+          "blocos": [
+            {
+              "texto": "Of course, go ahead!",
+              "fonetica": "ov KOR-s, góu e-HED"
+            },
+            {
+              "texto": "There's plenty of room.",
+              "fonetica": "ders PLEN-ti ov rum"
+            }
+          ],
+          "nativo": "'Go ahead' é o equivalente natural do 'pode' ou 'fique à vontade' brasileiro. Muito mais usado que 'You can do it' ou 'Feel free' nesse contexto casual.",
+          "erro": "Não diga 'Have space' — o correto é 'There's room' ou 'There's space'. 'Have space' soa como tradução literal."
+        },
+        {
+          "id": "s1_t6",
+          "sua_vez": true,
+          "fala": "Perfect, I appreciate it!",
+          "fonetica": "PER-fekt, ai e-PRI-chi-eit it!",
+          "traducao": "Perfeito, agradeço!",
+          "connected_voce": "I appreciate it → ai-e-PRI-chi-eit-it (fluido)",
+          "acento": "PER-fekt, e-PRI-chi-eit",
+          "alternativas": [
+            "Thanks so much, I appreciate it!",
+            "Great, thank you!"
+          ],
+          "alts_traducoes": [
+            "Muito obrigado, agradeço!",
+            "Ótimo, obrigado!"
+          ]
+        }
+      ],
+      "dialogo_livre": {
+        "id": "s1_livre",
+        "contexto": "Você já se acomodou. O vizinho de assento começa uma conversa casual.",
+        "fala_personagem": "So, where are you headed? Business or vacation?",
+        "fonetica": "sóu, UER ar yu HE-did? BIZ-nis or vei-KEI-shen?",
+        "traducao": "Então, para onde você vai? Negócios ou férias?",
+        "connected": "where are you → UER-ar-ya | headed → HE-did",
+        "resposta_modelo": "I'm heading to New York for work, actually. First time flying internationally — a little nervous, to be honest.",
+        "feedback_modelo": "Ótima resposta — 'actually' aparece naturalmente, 'to be honest' é uma expressão autêntica de registro casual. 'I'm heading to' é mais fluente que 'I'm going to' nesse contexto.",
+        "turno_imprevisto": "Oh nice! Hey, do you know the WiFi password on this flight? I can never figure it out.",
+        "vocab_apoio": [
+          {
+            "palavra": "headed",
+            "fonetica": "HE-did",
+            "traducao": "indo para / com destino a"
+          },
+          {
+            "palavra": "business trip",
+            "fonetica": "BIZ-nis trip",
+            "traducao": "viagem de negócios"
+          },
+          {
+            "palavra": "vacation",
+            "fonetica": "vei-KEI-shen",
+            "traducao": "férias"
+          },
+          {
+            "palavra": "to be honest",
+            "fonetica": "te bi Ó-nest",
+            "traducao": "pra ser honesto"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2",
+      "titulo": "Pedido de bebida e lanche",
+      "registro": "neutro-cordial",
+      "dialogos": [
+        {
+          "id": "s2_t1",
+          "sua_vez": false,
+          "fala": "Hi there! Can I get you something to drink? We have water, juice, coffee, tea, and soft drinks.",
+          "fonetica": "hái der! kæn ai get yu SOM-thing te DRINK? wi hæv UÁ-der, DJUS, KÓ-fi, ti, ænd soft DRINKS.",
+          "traducao": "Olá! Posso te trazer algo para beber? Temos água, suco, café, chá e refrigerantes.",
+          "connected": "Can I get → kæn-ai-get | something to → SOM-thing-te | soft drinks → soft-DRINKS",
+          "blocos": [
+            {
+              "texto": "Hi there!",
+              "fonetica": "hái der"
+            },
+            {
+              "texto": "Can I get you something to drink?",
+              "fonetica": "kæn ai get yu SOM-thing te DRINK"
+            },
+            {
+              "texto": "We have water, juice, coffee, tea, and soft drinks.",
+              "fonetica": "wi hæv UÁ-der, DJUS, KÓ-fi, ti, ænd soft DRINKS"
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "soft drink",
+              "fonetica": "soft DRINK",
+              "traducao": "refrigerante"
+            },
+            {
+              "palavra": "juice",
+              "fonetica": "DJUS",
+              "traducao": "suco"
+            },
+            {
+              "palavra": "sparkling water",
+              "fonetica": "SPAR-kling UÁ-der",
+              "traducao": "água com gás"
+            },
+            {
+              "palavra": "still water",
+              "fonetica": "stil UÁ-der",
+              "traducao": "água sem gás"
+            },
+            {
+              "palavra": "snack",
+              "fonetica": "snæk",
+              "traducao": "lanche / petisco"
+            }
+          ],
+          "nativo": "'Hi there!' é o cumprimento padrão de comissários de bordo nos EUA — mais caloroso que só 'Hi'. 'Soft drink' é o termo americano para refrigerante; britânicos dizem 'fizzy drink'.",
+          "erro": "Não diga 'I want a water' — o correto é 'I'll have water' ou 'Can I get water?' O 'I want' funciona, mas soa menos educado em contexto de serviço."
+        },
+        {
+          "id": "s2_t2",
+          "sua_vez": true,
+          "fala": "I'll have a coffee, please. Black, no sugar.",
+          "fonetica": "ail hæv e KÓ-fi, PLÍZ. blæk, nóu SHU-ger.",
+          "traducao": "Vou querer um café, por favor. Preto, sem açúcar.",
+          "connected_voce": "I'll have → ail-hæv | no sugar → nóu-SHU-ger",
+          "acento": "KÓ-fi, PLÍZ, blæk, SHU-ger",
+          "alternativas": [
+            "Could I get a coffee? Black, please.",
+            "I'll take a coffee — just black, thank you."
+          ],
+          "alts_traducoes": [
+            "Posso pedir um café? Preto, por favor.",
+            "Vou pegar um café — só preto, obrigado."
+          ]
+        },
+        {
+          "id": "s2_t3",
+          "sua_vez": false,
+          "fala": "Absolutely! And would you like anything to eat? We have pretzels, cookies, or mixed nuts.",
+          "fonetica": "æb-so-LÚT-li! ænd UUD yu laik Æ-ni-thing te ÍT? wi hæv PRET-zelz, KU-kiz, or MIKST nots.",
+          "traducao": "Com certeza! E você gostaria de algo para comer? Temos pretzels, biscoitos ou mix de castanhas.",
+          "connected": "would you like → UUD-ya-laik | anything to eat → Æ-ni-thing-te-ÍT | mixed nuts → MIKST-nots",
+          "blocos": [
+            {
+              "texto": "Absolutely!",
+              "fonetica": "æb-so-LÚT-li"
+            },
+            {
+              "texto": "And would you like anything to eat?",
+              "fonetica": "ænd UUD yu laik Æ-ni-thing te ÍT"
+            },
+            {
+              "texto": "We have pretzels, cookies, or mixed nuts.",
+              "fonetica": "wi hæv PRET-zelz, KU-kiz, or MIKST nots"
+            }
+          ],
+          "nativo": "'Absolutely!' é a versão entusiasmada de 'Of course' — muito usada em serviço americano para soar prestativo. Não é exagero — é padrão de serviço nos EUA.",
+          "erro": "Não diga 'mixed nuts' como 'miksed nats' — a pronúncia correta é MIKST nots. O 'ed' de 'mixed' some quase completamente em fala natural."
+        },
+        {
+          "id": "s2_t4",
+          "sua_vez": true,
+          "fala": "Just the coffee, thanks. Actually, do you have any water too?",
+          "fonetica": "djost de KÓ-fi, THÆNKS. Æk-chli, du yu hæv Æ-ni UÁ-der TÚ?",
+          "traducao": "Só o café, obrigado. Na verdade, você tem água também?",
+          "connected_voce": "Just the → djost-de | do you have → d'ya-hæv | any water → Æ-ni-UÁ-der",
+          "acento": "KÓ-fi, THÆNKS, Æk-chli, UÁ-der, TÚ",
+          "alternativas": [
+            "The coffee is fine, thanks. Oh, and could I get some water too?",
+            "Just coffee, please — and a water if you have it."
+          ],
+          "alts_traducoes": [
+            "O café está ótimo, obrigado. Ah, e posso pegar água também?",
+            "Só café, por favor — e uma água se tiver."
+          ]
+        },
+        {
+          "id": "s2_t5",
+          "sua_vez": false,
+          "fala": "Sure! Still or sparkling?",
+          "fonetica": "SHUR! stil or SPAR-kling?",
+          "traducao": "Claro! Com gás ou sem gás?",
+          "connected": "Still or → stil-or (ligado em fala rápida)",
+          "blocos": [
+            {
+              "texto": "Sure!",
+              "fonetica": "SHUR"
+            },
+            {
+              "texto": "Still or sparkling?",
+              "fonetica": "stil or SPAR-kling"
+            }
+          ],
+          "nativo": "A pergunta 'still or sparkling?' é automática nos EUA quando se pede água em qualquer contexto de serviço. Aprenda essa resposta de cor: 'Still, please' (sem gás) ou 'Sparkling, please' (com gás).",
+          "erro": "Não diga 'water without gas' — em inglês é 'still water'. 'Without gas' não existe nesse contexto e vai confundir o comissário."
+        },
+        {
+          "id": "s2_t6",
+          "sua_vez": true,
+          "fala": "Still, please. Thank you so much.",
+          "fonetica": "stil, PLÍZ. THÆNK yu sóu MOCH.",
+          "traducao": "Sem gás, por favor. Muito obrigado.",
+          "connected_voce": "Thank you so much → THÆNK-yu-sóu-MOCH (fluido)",
+          "acento": "stil, PLÍZ, THÆNK, MOCH",
+          "alternativas": [
+            "Still water, please — thanks!",
+            "Still is perfect, thank you."
+          ],
+          "alts_traducoes": [
+            "Água sem gás, por favor — obrigado!",
+            "Sem gás está perfeito, obrigado."
+          ]
+        }
+      ],
+      "dialogo_livre": {
+        "id": "s2_livre",
+        "contexto": "O serviço de bordo está quase acabando e você quer pedir mais alguma coisa antes que recolham.",
+        "fala_personagem": "I'll be collecting the cups in just a moment — is there anything else you need?",
+        "fonetica": "ail bi ke-LEK-ting de KOPS in djost e MÓ-ment — iz der Æ-ni-thing els yu NÍD?",
+        "traducao": "Vou recolher os copos daqui a pouco — precisa de mais alguma coisa?",
+        "connected": "I'll be → ail-bi | collecting the → ke-LEK-ting-de | anything else → Æ-ni-thing-els",
+        "resposta_modelo": "Actually, could I get one more water? And let me know if you have any snacks left.",
+        "feedback_modelo": "'Actually' para introduzir um pedido adicional é exatamente como um nativo faria. 'Let me know' em contexto de serviço é natural e educado. 'Any snacks left' mostra fluência — 'left' no sentido de 'sobrando'.",
+        "turno_imprevisto": "Of course! By the way, we're about to hit some turbulence — the captain just announced it. You might want to fasten your seatbelt.",
+        "vocab_apoio": [
+          {
+            "palavra": "collect",
+            "fonetica": "ke-LEKT",
+            "traducao": "recolher / coletar"
+          },
+          {
+            "palavra": "in a moment",
+            "fonetica": "in e MÓ-ment",
+            "traducao": "daqui a pouco"
+          },
+          {
+            "palavra": "left",
+            "fonetica": "left",
+            "traducao": "sobrando / que sobrou"
+          },
+          {
+            "palavra": "seatbelt",
+            "fonetica": "SÍT-belt",
+            "traducao": "cinto de segurança"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3",
+      "titulo": "Turbulência — passageiro nervoso",
+      "registro": "tensão + confusão",
+      "dialogos": [
+        {
+          "id": "s3_t1",
+          "sua_vez": false,
+          "fala": "Ladies and gentlemen, we're experiencing some turbulence. Please return to your seats and fasten your seatbelts. The crew will pause service until further notice.",
+          "fonetica": "LEI-diz ænd DJEN-tel-men, wir ek-SPIR-ri-en-sing som TOR-byu-lens. PLÍZ ri-TORN te yor SÍTS ænd FÆ-sen yor SÍT-belts. de KRU wil POZ SOR-vis on-til FOR-der NOÚ-tis.",
+          "traducao": "Senhoras e senhores, estamos passando por turbulência. Por favor, retornem aos assentos e afivelem os cintos. A tripulação vai pausar o serviço até novo aviso.",
+          "connected": "we're experiencing → wir-ek-SPIR-ri-en-sing | your seats → yor-SÍTS | until further → on-til-FOR-der",
+          "blocos": [
+            {
+              "texto": "Ladies and gentlemen,",
+              "fonetica": "LEI-diz ænd DJEN-tel-men"
+            },
+            {
+              "texto": "we're experiencing some turbulence.",
+              "fonetica": "wir ek-SPIR-ri-en-sing som TOR-byu-lens"
+            },
+            {
+              "texto": "Please return to your seats and fasten your seatbelts.",
+              "fonetica": "PLÍZ ri-TORN te yor SÍTS ænd FÆ-sen yor SÍT-belts"
+            },
+            {
+              "texto": "The crew will pause service until further notice.",
+              "fonetica": "de KRU wil POZ SOR-vis on-til FOR-der NOÚ-tis"
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "turbulence",
+              "fonetica": "TOR-byu-lens",
+              "traducao": "turbulência"
+            },
+            {
+              "palavra": "fasten",
+              "fonetica": "FÆ-sen",
+              "traducao": "afivelar / apertar"
+            },
+            {
+              "palavra": "seatbelt",
+              "fonetica": "SÍT-belt",
+              "traducao": "cinto de segurança"
+            },
+            {
+              "palavra": "crew",
+              "fonetica": "KRU",
+              "traducao": "tripulação"
+            },
+            {
+              "palavra": "until further notice",
+              "fonetica": "on-til FOR-der NOÚ-tis",
+              "traducao": "até novo aviso"
+            }
+          ],
+          "nativo": "'Until further notice' é uma expressão formal usada em avisos oficiais — significa 'não sabemos quando vai mudar'. Em contexto de voo, é sinal de que a turbulência pode durar. 'Ladies and gentlemen' está caindo em desuso em favor de 'folks' ou sem vocativo, mas ainda é padrão em avisos de bordo.",
+          "erro": "Não confunda 'fasten' com 'fast' (rápido). 'Fasten' (FÆ-sen) significa 'prender' ou 'afivelar'. O T é quase silencioso: FÆ-sen, não FÆS-ten."
+        },
+        {
+          "id": "s3_t2",
+          "sua_vez": false,
+          "fala": "Oh my God... I hate turbulence. Is this normal? Are we going to be okay?",
+          "fonetica": "óu mai GOD... ai HEIT TOR-byu-lens. iz dis NOR-mel? ar wi GOÚ-ing te bi Ó-kei?",
+          "traducao": "Meu Deus... Eu odeio turbulência. Isso é normal? A gente vai ficar bem?",
+          "connected": "Are we going to → ar-wi-GOÚ-ing-te | going to be → GOÚ-ing-te-bi",
+          "blocos": [
+            {
+              "texto": "Oh my God...",
+              "fonetica": "óu mai GOD"
+            },
+            {
+              "texto": "I hate turbulence.",
+              "fonetica": "ai HEIT TOR-byu-lens"
+            },
+            {
+              "texto": "Is this normal?",
+              "fonetica": "iz dis NOR-mel"
+            },
+            {
+              "texto": "Are we going to be okay?",
+              "fonetica": "ar wi GOÚ-ing te bi Ó-kei"
+            }
+          ],
+          "nativo": "Quando alguém ao lado está visivelmente nervoso, americanos costumam oferecer reassurance (tranquilização) de forma direta e calorosa. Não é raro tocar levemente no braço do desconhecido — o contexto de voo justifica esse grau de contato.",
+          "erro": "Não diga 'Are we going to be fine?' como 'ar wi going to bi FAÍN' com ênfase no fine — em fala rápida fica 'ar-wi-GOÚ-ne-bi-Ó-kei'. 'Gonna be okay' é a versão mais comum em fala informal."
+        },
+        {
+          "id": "s3_t3",
+          "sua_vez": true,
+          "fala": "Don't worry, it's just turbulence — totally normal. We'll be through it in a few minutes.",
+          "fonetica": "dóunt UÓ-ri, its djost TOR-byu-lens — TOÚ-tel-li NOR-mel. wil bi THRU it in e fyu MI-nits.",
+          "traducao": "Não se preocupe, é só turbulência — totalmente normal. A gente vai passar por isso em alguns minutos.",
+          "connected_voce": "Don't worry → dóunt-UÓ-ri | it's just → its-djost | We'll be → wil-bi | through it → THRU-it",
+          "acento": "UÓ-ri, djost, TOÚ-tel-li, NOR-mel, THRU, MI-nits",
+          "alternativas": [
+            "It's completely normal — planes are built for this. We're going to be fine.",
+            "I know it's scary, but this happens on every flight. We'll be okay."
+          ],
+          "alts_traducoes": [
+            "É completamente normal — aviões são feitos para isso. A gente vai ficar bem.",
+            "Eu sei que assusta, mas isso acontece em todo voo. A gente vai ficar bem."
+          ]
+        },
+        {
+          "id": "s3_t4",
+          "sua_vez": false,
+          "fala": "You think so? I'm sorry, I just... I'm not a great flyer.",
+          "fonetica": "yu THÍNK sóu? aim SOR-ri, ai djost... aim not e GREIT FLAI-er.",
+          "traducao": "Você acha? Desculpe, eu só... não sou muito bom de avião.",
+          "connected": "You think so → yu-THÍNK-sóu | I'm not a → aim-not-e",
+          "blocos": [
+            {
+              "texto": "You think so?",
+              "fonetica": "yu THÍNK sóu"
+            },
+            {
+              "texto": "I'm sorry, I just...",
+              "fonetica": "aim SOR-ri, ai djost"
+            },
+            {
+              "texto": "I'm not a great flyer.",
+              "fonetica": "aim not e GREIT FLAI-er"
+            }
+          ],
+          "nativo": "'I'm not a great flyer' é a expressão idiomática americana para 'tenho medo de avião' — mais suave e socialmente aceita do que dizer 'I'm afraid of flying'. 'Flyer' no sentido de quem voa — não de panfleto.",
+          "erro": "Não diga 'I don't like to fly planes' — isso implica que você pilota. O correto é 'I don't like flying' ou 'I'm not a great flyer' para dizer que você é passageiro com medo."
+        },
+        {
+          "id": "s3_t5",
+          "sua_vez": true,
+          "fala": "I get it — I used to feel the same way. Try to breathe slowly. It'll pass.",
+          "fonetica": "ai get it — ai YUZD te fil de SEIM uei. TRAI te BRÍDH SLÓ-li. itl PÆS.",
+          "traducao": "Entendo — eu costumava me sentir assim também. Tente respirar devagar. Vai passar.",
+          "connected_voce": "I get it → ai-GE-rit | used to → YUZD-te | feel the same → fil-de-SEIM | It'll pass → it-el-PÆS",
+          "acento": "GE-rit, YUZD, SEIM, BRÍDH, SLÓ-li, PÆS",
+          "alternativas": [
+            "Totally understand. Deep breaths help — try to focus on something else.",
+            "I hear you. Just keep your eyes closed and breathe — it really does pass."
+          ],
+          "alts_traducoes": [
+            "Entendo completamente. Respirações profundas ajudam — tente focar em outra coisa.",
+            "Entendo. Só feche os olhos e respire — realmente passa."
+          ]
+        },
+        {
+          "id": "s3_t6",
+          "sua_vez": false,
+          "fala": "Thank you... you're very kind. I appreciate it.",
+          "fonetica": "THÆNK yu... yur VE-ri kaind. ai e-PRI-chi-eit it.",
+          "traducao": "Obrigado... você é muito gentil. Agradeço.",
+          "connected": "you're very → yur-VE-ri | I appreciate it → ai-e-PRI-chi-eit-it",
+          "blocos": [
+            {
+              "texto": "Thank you...",
+              "fonetica": "THÆNK yu"
+            },
+            {
+              "texto": "you're very kind.",
+              "fonetica": "yur VE-ri kaind"
+            },
+            {
+              "texto": "I appreciate it.",
+              "fonetica": "ai e-PRI-chi-eit it"
+            }
+          ],
+          "nativo": "'You're very kind' é um elogio genuíno e caloroso — não é bajulação. Em contexto de tensão, esse tipo de troca cria conexão real com desconhecidos. Americanos são muito abertos a esse tipo de interação em situações estressantes como voos.",
+          "erro": "Não diga 'You are very kind person' — em inglês, sem artigo antes de adjetivo: 'You are very kind' ou 'You're a very kind person' (com artigo antes do substantivo 'person')."
+        }
+      ],
+      "dialogo_livre": {
+        "id": "s3_livre",
+        "contexto": "A turbulência passou. O vizinho, aliviado, quer conversar para se distrair.",
+        "fala_personagem": "Oh thank goodness... that was rough. Hey, have you flown this route before?",
+        "fonetica": "óu THÆNK GUD-nes... dæt uoz ROF. hei, hæv yu flóun dis RÚT bi-FOR?",
+        "traducao": "Graças a Deus... foi pesado. Ei, você já voou nessa rota antes?",
+        "connected": "have you flown → hæv-yu-flóun | this route → dis-RÚT",
+        "resposta_modelo": "Yeah, a couple of times actually. It's a long flight but I usually sleep through most of it. Glad you're feeling better now!",
+        "feedback_modelo": "'A couple of times' é mais natural que 'two times' em inglês americano. 'Sleep through most of it' é uma expressão idiomática autêntica. 'Glad you're feeling better' é caloroso sem ser exagerado.",
+        "turno_imprevisto": "Lucky! I can never sleep on planes. By the way, do you have any idea what time zone we'll land in?",
+        "vocab_apoio": [
+          {
+            "palavra": "rough",
+            "fonetica": "ROF",
+            "traducao": "pesado / difícil (informal)"
+          },
+          {
+            "palavra": "route",
+            "fonetica": "RÚT",
+            "traducao": "rota (americano pronuncia como 'root')"
+          },
+          {
+            "palavra": "a couple of",
+            "fonetica": "e KO-pel ov",
+            "traducao": "um par de / alguns"
+          },
+          {
+            "palavra": "sleep through",
+            "fonetica": "slíp THRU",
+            "traducao": "dormir durante / passar dormindo"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s4",
+      "titulo": "Problema com o assento — reclinando no outro",
+      "registro": "confusão + frustração leve",
+      "dialogos": [
+        {
+          "id": "s4_t1",
+          "sua_vez": false,
+          "fala": "Um, excuse me — I'm really sorry to bother you, but your seat is pushed all the way back into my space.",
+          "fonetica": "om, ex-KIÚZ mi — aim RI-li SOR-ri te BOder yu, bot yor SÍT iz PUSHT ol de uei BÆK in-te mai SPEIS.",
+          "traducao": "Com licença — sinto muito incomodar, mas seu assento está inclinado completamente no meu espaço.",
+          "connected": "I'm really → aim-RI-li | sorry to bother → SOR-ri-te-BOder | all the way → ol-de-uei | pushed all the way back → PUSHT-ol-de-uei-BÆK",
+          "blocos": [
+            {
+              "texto": "Um, excuse me —",
+              "fonetica": "om, ex-KIÚZ mi"
+            },
+            {
+              "texto": "I'm really sorry to bother you,",
+              "fonetica": "aim RI-li SOR-ri te BOder yu"
+            },
+            {
+              "texto": "but your seat is pushed all the way back into my space.",
+              "fonetica": "bot yor SÍT iz PUSHT ol de uei BÆK in-te mai SPEIS"
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "recline",
+              "fonetica": "ri-KLÁIN",
+              "traducao": "reclinar"
+            },
+            {
+              "palavra": "all the way back",
+              "fonetica": "ol de uei BÆK",
+              "traducao": "completamente inclinado para trás"
+            },
+            {
+              "palavra": "bother",
+              "fonetica": "BOder",
+              "traducao": "incomodar / perturbar"
+            },
+            {
+              "palavra": "space",
+              "fonetica": "SPEIS",
+              "traducao": "espaço"
+            },
+            {
+              "palavra": "sorry to bother you",
+              "fonetica": "SOR-ri te BOder yu",
+              "traducao": "desculpe incomodar"
+            }
+          ],
+          "nativo": "Americanos pedem isso com muito cuidado — há uma etiqueta não escrita em torno de reclinar assentos em aviões (é um tema social tenso nos EUA). O pedido começa sempre com uma desculpa genuína para não parecer agressivo.",
+          "erro": "Não diga 'Your chair is falling on me' — em avião o correto é 'your seat is reclined' ou 'your seat is pushed back'. 'Chair' não é o termo correto para assento de avião."
+        },
+        {
+          "id": "s4_t2",
+          "sua_vez": true,
+          "fala": "Oh! I'm so sorry — I didn't realize. Let me put it up.",
+          "fonetica": "óu! aim sóu SOR-ri — ai DID-nt RI-e-laiz. let mi put it OP.",
+          "traducao": "Oh! Sinto muito — não percebi. Deixa eu levantar.",
+          "connected_voce": "I'm so sorry → aim-sóu-SOR-ri | I didn't → ai-DID-nt | Let me → LEM-mi | put it up → put-it-OP",
+          "acento": "SOR-ri, DID-nt, RI-e-laiz, LEM-mi, OP",
+          "alternativas": [
+            "Oh gosh, I'm sorry! Of course — I'll bring it forward right away.",
+            "Sorry about that! I'll put it up — no problem."
+          ],
+          "alts_traducoes": [
+            "Nossa, desculpe! Claro — vou levantar agora mesmo.",
+            "Desculpe por isso! Vou levantar — sem problema."
+          ]
+        },
+        {
+          "id": "s4_t3",
+          "sua_vez": false,
+          "fala": "Actually... would it be okay if you left it just slightly reclined? Not all the way — just a little.",
+          "fonetica": "Æk-chli... UUD it bi Ó-kei if yu LEFT it djost SLAIT-li ri-KLÁIND? not ol de uei — djost e LI-del.",
+          "traducao": "Na verdade... tudo bem se você deixar um pouco reclinado? Não totalmente — só um pouco.",
+          "connected": "would it be → UUD-it-bi | is it okay → iz-it-Ó-kei | just slightly → djost-SLAIT-li | a little → e-LI-del",
+          "blocos": [
+            {
+              "texto": "Actually...",
+              "fonetica": "Æk-chli"
+            },
+            {
+              "texto": "would it be okay if you left it just slightly reclined?",
+              "fonetica": "UUD it bi Ó-kei if yu LEFT it djost SLAIT-li ri-KLÁIND"
+            },
+            {
+              "texto": "Not all the way — just a little.",
+              "fonetica": "not ol de uei — djost e LI-del"
+            }
+          ],
+          "nativo": "Esse tipo de negociação em voo é muito comum e americanos normalmente chegam a um acordo rapidamente. 'Would it be okay if...' é a estrutura de pedido de permissão mais educada possível — impossível recusar sem soar rude.",
+          "erro": "Não diga 'Is it okay that' — o correto é 'Is it okay if'. 'If' introduz a condição; 'that' muda o significado da frase."
+        },
+        {
+          "id": "s4_t4",
+          "sua_vez": true,
+          "fala": "Of course — that works for me. I'll just go halfway. Sorry again!",
+          "fonetica": "ov KOR-s — dæt WORKS for mi. ail djost góu HAF-uei. SOR-ri e-GEN!",
+          "traducao": "Claro — isso funciona para mim. Vou só deixar na metade. Desculpe de novo!",
+          "connected_voce": "Of course → ov-KOR-s | that works for me → dæt-WORKS-for-mi | I'll just → ail-djost | go halfway → góu-HAF-uei",
+          "acento": "KOR-s, WORKS, djost, HAF-uei, SOR-ri, e-GEN",
+          "alternativas": [
+            "No problem at all — halfway is fine. Sorry for the trouble!",
+            "Sure, that's totally fine. I'll keep it halfway — my apologies!"
+          ],
+          "alts_traducoes": [
+            "Sem problema — na metade está ótimo. Desculpe pelo transtorno!",
+            "Claro, totalmente bem. Vou deixar na metade — minhas desculpas!"
+          ]
+        },
+        {
+          "id": "s4_t5",
+          "sua_vez": false,
+          "fala": "That's perfect, thank you so much! I really appreciate it.",
+          "fonetica": "dæts PER-fekt, THÆNK yu sóu MOCH! ai RI-li e-PRI-chi-eit it.",
+          "traducao": "Perfeito, muito obrigado! Agradeço de verdade.",
+          "connected": "That's perfect → dæts-PER-fekt | thank you so much → THÆNK-yu-sóu-MOCH | I really → ai-RI-li",
+          "blocos": [
+            {
+              "texto": "That's perfect,",
+              "fonetica": "dæts PER-fekt"
+            },
+            {
+              "texto": "thank you so much!",
+              "fonetica": "THÆNK yu sóu MOCH"
+            },
+            {
+              "texto": "I really appreciate it.",
+              "fonetica": "ai RI-li e-PRI-chi-eit it"
+            }
+          ],
+          "nativo": "A resolução rápida e calorosa é o padrão americano em conflitos cotidianos de baixo impacto. Quanto mais rápido o problema é resolvido, mais elogio flui — é quase um ritual social.",
+          "erro": "Não diga 'I thank you very much' — soa formal e antiquado. Em inglês contemporâneo: 'Thank you so much' ou 'Thanks a lot'."
+        }
+      ],
+      "dialogo_livre": {
+        "id": "s4_livre",
+        "contexto": "Horas depois, o vizinho anterior passou por você no corredor e tropeçou levemente no seu pé.",
+        "fala_personagem": "Oh! Sorry about that — did I step on you?",
+        "fonetica": "óu! SOR-ri e-BÁUT dæt — did ai step on yu?",
+        "traducao": "Oh! Desculpe — pisei em você?",
+        "connected": "sorry about that → SOR-ri-e-BÁUT-dæt | did I → did-ai",
+        "resposta_modelo": "No worries at all — you're fine! It's pretty tight in here anyway.",
+        "feedback_modelo": "'No worries at all' é o grau máximo de tranquilização — mais enfático que só 'no worries'. 'You're fine' no sentido de 'tudo bem com você' (não deu problema). 'It's pretty tight in here' é observação natural sobre o espaço reduzido — 'tight' aqui = apertado.",
+        "turno_imprevisto": "Ha, yeah — economy class, right? Hey, I'm going to grab something from the overhead bin. Could you hold this for a second?",
+        "vocab_apoio": [
+          {
+            "palavra": "step on",
+            "fonetica": "step on",
+            "traducao": "pisar em (alguém)"
+          },
+          {
+            "palavra": "tight",
+            "fonetica": "TÁIT",
+            "traducao": "apertado / sem espaço"
+          },
+          {
+            "palavra": "anyway",
+            "fonetica": "Æ-ni-uei",
+            "traducao": "de qualquer forma / de todo jeito"
+          },
+          {
+            "palavra": "hold this",
+            "fonetica": "hóuld dis",
+            "traducao": "segura isso"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s5",
+      "titulo": "Problemas com o entretenimento de bordo",
+      "registro": "confusão + frustração leve",
+      "dialogos": [
+        {
+          "id": "s5_t1",
+          "sua_vez": true,
+          "fala": "Excuse me — I'm having trouble with my screen. It doesn't seem to be working.",
+          "fonetica": "ex-KIÚZ mi — aim HÆ-ving TRO-bel uid mai SKRÍN. it DÓZE-nt sím te bi WOR-king.",
+          "traducao": "Com licença — estou tendo problema com minha tela. Parece que não está funcionando.",
+          "connected_voce": "I'm having → aim-HÆ-ving | trouble with → TRO-bel-uid | doesn't seem → DÓZE-nt-sím | to be → te-bi",
+          "acento": "TRO-bel, SKRÍN, DÓZE-nt, sím, WOR-king",
+          "alternativas": [
+            "Sorry to bother you, but my entertainment screen isn't working.",
+            "Hi, I need help with my seat — the screen is frozen."
+          ],
+          "alts_traducoes": [
+            "Desculpe incomodar, mas minha tela de entretenimento não está funcionando.",
+            "Oi, preciso de ajuda com meu assento — a tela está travada."
+          ]
+        },
+        {
+          "id": "s5_t2",
+          "sua_vez": false,
+          "fala": "I'm sorry to hear that! Let me take a look. Did you try restarting it? There's a reset button underneath the screen.",
+          "fonetica": "aim SOR-ri te HIR dæt! let mi teik e LUK. did yu TRAI ri-STAR-ting it? ders e RI-set BO-ten on-der-NÍTH de SKRÍN.",
+          "traducao": "Sinto muito! Deixa eu dar uma olhada. Você tentou reiniciar? Tem um botão de reset embaixo da tela.",
+          "connected": "Let me take → LEM-mi-teik | a look → e-LUK | Did you try → did-ya-TRAI | restarting it → ri-STAR-ting-it | underneath the → on-der-NÍTH-de",
+          "blocos": [
+            {
+              "texto": "I'm sorry to hear that!",
+              "fonetica": "aim SOR-ri te HIR dæt"
+            },
+            {
+              "texto": "Let me take a look.",
+              "fonetica": "let mi teik e LUK"
+            },
+            {
+              "texto": "Did you try restarting it?",
+              "fonetica": "did yu TRAI ri-STAR-ting it"
+            },
+            {
+              "texto": "There's a reset button underneath the screen.",
+              "fonetica": "ders e RI-set BO-ten on-der-NÍTH de SKRÍN"
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "restart",
+              "fonetica": "ri-START",
+              "traducao": "reiniciar"
+            },
+            {
+              "palavra": "reset button",
+              "fonetica": "RI-set BO-ten",
+              "traducao": "botão de reinicialização"
+            },
+            {
+              "palavra": "underneath",
+              "fonetica": "on-der-NÍTH",
+              "traducao": "embaixo de"
+            },
+            {
+              "palavra": "frozen",
+              "fonetica": "FRÓU-zen",
+              "traducao": "travado / congelado (tela)"
+            },
+            {
+              "palavra": "I'm sorry to hear that",
+              "fonetica": "aim SOR-ri te HIR dæt",
+              "traducao": "sinto muito ouvir isso (expressão de empatia)"
+            }
+          ],
+          "nativo": "'I'm sorry to hear that' é a expressão de empatia padrão nos EUA para problemas alheios — não confundir com 'I'm sorry' (pedido de desculpa). Aqui, significa 'que pena'. 'Let me take a look' é muito mais natural que 'let me see' nesse contexto técnico.",
+          "erro": "Não diga 'The screen is blocked' para tela travada — o correto é 'The screen is frozen' ou 'The screen is not responding'. 'Blocked' em inglês implica acesso bloqueado intencionalmente."
+        },
+        {
+          "id": "s5_t3",
+          "sua_vez": true,
+          "fala": "I didn't catch that — where exactly is the reset button?",
+          "fonetica": "ai DID-nt kæch dæt — UER ek-ZÆKT-li iz de RI-set BO-ten?",
+          "traducao": "Não entendi — onde exatamente fica o botão de reset?",
+          "connected_voce": "I didn't → ai-DID-nt | didn't catch → DID-nt-kæch | where exactly → UER-ek-ZÆKT-li",
+          "acento": "DID-nt, kæch, UER, ek-ZÆKT-li, RI-set",
+          "alternativas": [
+            "I'm not sure where to find it — could you show me?",
+            "Could you repeat that? I didn't quite get where the button is."
+          ],
+          "alts_traducoes": [
+            "Não sei onde encontrar — você pode me mostrar?",
+            "Pode repetir? Não entendi bem onde fica o botão."
+          ]
+        },
+        {
+          "id": "s5_t4",
+          "sua_vez": false,
+          "fala": "Right here — see this small hole? You can use a pen to press it. Hold it for three seconds.",
+          "fonetica": "ráit HIR — si dis smol hóul? yu kæn yuz e pen te PRES it. hóuld it for THRÍ SEK-endz.",
+          "traducao": "Bem aqui — vê esse furinho? Você pode usar uma caneta para apertar. Segure por três segundos.",
+          "connected": "Right here → ráit-HIR | see this → si-dis | you can use → yu-kæn-yuz | to press it → te-PRES-it",
+          "blocos": [
+            {
+              "texto": "Right here — see this small hole?",
+              "fonetica": "ráit HIR — si dis smol hóul"
+            },
+            {
+              "texto": "You can use a pen to press it.",
+              "fonetica": "yu kæn yuz e pen te PRES it"
+            },
+            {
+              "texto": "Hold it for three seconds.",
+              "fonetica": "hóuld it for THRÍ SEK-endz"
+            }
+          ],
+          "nativo": "'Right here' com ênfase no 'right' significa 'exatamente aqui' — é um indicativo de localização precisa. 'See this?' com entonação ascendente é um convite para o interlocutor olhar, não uma pergunta real.",
+          "erro": "Não diga 'Press during three seconds' — em inglês é 'Press for three seconds'. 'For' indica duração; 'during' indica algo que acontece ao mesmo tempo que outra coisa."
+        },
+        {
+          "id": "s5_t5",
+          "sua_vez": true,
+          "fala": "Got it, let me try. Oh — it's working now! Thank you so much.",
+          "fonetica": "GÓ-rit, let mi TRÁI. óu — its WOR-king náu! THÆNK yu sóu MOCH.",
+          "traducao": "Entendi, deixa eu tentar. Oh — está funcionando agora! Muito obrigado.",
+          "connected_voce": "Got it → GÓ-rit | Let me → LEM-mi | it's working → its-WOR-king",
+          "acento": "GÓ-rit, LEM-mi, TRÁI, WOR-king, náu, THÆNK, MOCH",
+          "alternativas": [
+            "Ah, I see it now. Let me try... yes, it came back on! Thanks!",
+            "Perfect — got it working! Really appreciate your help."
+          ],
+          "alts_traducoes": [
+            "Ah, agora vi. Deixa eu tentar... sim, voltou! Obrigado!",
+            "Perfeito — consegui! Agradeço muito sua ajuda."
+          ]
+        },
+        {
+          "id": "s5_t6",
+          "sua_vez": false,
+          "fala": "Great! Let me know if it happens again and I'll have someone take a proper look.",
+          "fonetica": "GREIT! let mi NOÚ if it HÆ-penz e-GEN ænd ail hæv SOM-won teik e PRO-per LUK.",
+          "traducao": "Ótimo! Me avise se acontecer de novo e vou pedir para alguém dar uma olhada de verdade.",
+          "connected": "Let me know → let-mi-NOÚ | if it happens → if-it-HÆ-penz | I'll have → ail-hæv | a proper look → e-PRO-per-LUK",
+          "blocos": [
+            {
+              "texto": "Great!",
+              "fonetica": "GREIT"
+            },
+            {
+              "texto": "Let me know if it happens again",
+              "fonetica": "let mi NOÚ if it HÆ-penz e-GEN"
+            },
+            {
+              "texto": "and I'll have someone take a proper look.",
+              "fonetica": "ænd ail hæv SOM-won teik e PRO-per LUK"
+            }
+          ],
+          "nativo": "'Take a proper look' significa uma inspeção mais séria — 'proper' aqui intensifica 'look'. 'Have someone do something' é estrutura causativa muito comum em inglês americano: 'I'll have someone fix it' = vou mandar alguém consertar.",
+          "erro": "Não diga 'I will call someone to look' — o correto é 'I'll have someone take a look'. A estrutura causativa (have + someone + verb) é o padrão em inglês."
+        }
+      ],
+      "dialogo_livre": {
+        "id": "s5_livre",
+        "contexto": "Você está assistindo um filme e o comissário passa para verificar se está tudo bem.",
+        "fala_personagem": "Everything okay with your screen now? Can I get you anything else?",
+        "fonetica": "EV-ri-thing Ó-kei uid yor SKRÍN náu? kæn ai get yu Æ-ni-thing ELS?",
+        "traducao": "Está tudo bem com sua tela agora? Posso trazer mais alguma coisa?",
+        "connected": "Everything okay → EV-ri-thing-Ó-kei | Can I get → kæn-ai-get | anything else → Æ-ni-thing-ELS",
+        "resposta_modelo": "Yes, working perfectly now — thank you! Actually, could I get a blanket? It's a bit cold.",
+        "feedback_modelo": "'Working perfectly now' é resposta concisa e natural. 'Actually' para introduzir um pedido adicional é o uso clássico — transiciona suavemente para um novo tópico. 'A bit cold' é mais suave e natural que 'very cold'.",
+        "turno_imprevisto": "Of course! Oh, and just so you know — we'll be landing in about two hours, so we'll be serving a light meal in forty-five minutes.",
+        "vocab_apoio": [
+          {
+            "palavra": "blanket",
+            "fonetica": "BLÆN-ket",
+            "traducao": "coberta / manta"
+          },
+          {
+            "palavra": "a bit",
+            "fonetica": "e BIT",
+            "traducao": "um pouco"
+          },
+          {
+            "palavra": "just so you know",
+            "fonetica": "djost sóu yu NOÚ",
+            "traducao": "só para você saber (aviso informal)"
+          },
+          {
+            "palavra": "light meal",
+            "fonetica": "láit MÍL",
+            "traducao": "refeição leve"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s6",
+      "titulo": "Preparação para o pouso",
+      "registro": "urgência leve + tensão",
+      "dialogos": [
+        {
+          "id": "s6_t1",
+          "sua_vez": false,
+          "fala": "Ladies and gentlemen, we've begun our descent into New York. Please return your seat backs and tray tables to their upright positions, and make sure your seatbelts are fastened.",
+          "fonetica": "LEI-diz ænd DJEN-tel-men, wiv bi-GON áur di-SENT in-te NU YORK. PLÍZ ri-TORN yor SÍT bæks ænd TREI TEI-belz te der OP-ráit pe-ZI-shenz, ænd meik SHUR yor SÍT-belts ar FÆ-send.",
+          "traducao": "Senhoras e senhores, iniciamos a descida para Nova York. Por favor, coloquem os encostos e mesas dobráveis na posição vertical, e certifiquem-se de que os cintos estão afivelados.",
+          "connected": "we've begun → wiv-bi-GON | into New York → in-te-NU-YORK | seat backs → SÍT-bæks | tray tables → TREI-TEI-belz | make sure → meik-SHUR",
+          "blocos": [
+            {
+              "texto": "Ladies and gentlemen,",
+              "fonetica": "LEI-diz ænd DJEN-tel-men"
+            },
+            {
+              "texto": "we've begun our descent into New York.",
+              "fonetica": "wiv bi-GON áur di-SENT in-te NU YORK"
+            },
+            {
+              "texto": "Please return your seat backs and tray tables to their upright positions,",
+              "fonetica": "PLÍZ ri-TORN yor SÍT bæks ænd TREI TEI-belz te der OP-ráit pe-ZI-shenz"
+            },
+            {
+              "texto": "and make sure your seatbelts are fastened.",
+              "fonetica": "ænd meik SHUR yor SÍT-belts ar FÆ-send"
+            }
+          ],
+          "vocab": [
+            {
+              "palavra": "descent",
+              "fonetica": "di-SENT",
+              "traducao": "descida (de avião)"
+            },
+            {
+              "palavra": "tray table",
+              "fonetica": "TREI TEI-bel",
+              "traducao": "mesa dobrável do assento"
+            },
+            {
+              "palavra": "upright position",
+              "fonetica": "OP-ráit pe-ZI-shen",
+              "traducao": "posição vertical / ereta"
+            },
+            {
+              "palavra": "make sure",
+              "fonetica": "meik SHUR",
+              "traducao": "certifique-se / garanta"
+            },
+            {
+              "palavra": "fastened",
+              "fonetica": "FÆ-send",
+              "traducao": "afivelado / preso"
+            }
+          ],
+          "nativo": "O aviso de pouso é quase idêntico em todo voo americano — os termos são padronizados. 'Seat back' (encosto) e 'tray table' (mesa dobrável) são as palavras que você precisa reconhecer de imediato. 'Make sure' nesse contexto é uma ordem educada, não uma sugestão.",
+          "erro": "Não diga 'folding table' para a mesa do avião — o termo correto é 'tray table'. 'Folding table' remete a mesas de camping ou eventos."
+        },
+        {
+          "id": "s6_t2",
+          "sua_vez": false,
+          "fala": "Excuse me — I need to get to my bag in the overhead bin. Could you let me out for just a second?",
+          "fonetica": "ex-KIÚZ mi — ai NÍD te get te mai bæg in de Ó-ver-hed bin. KUD yu let mi áut for djost e SEK-end?",
+          "traducao": "Com licença — preciso pegar minha mala no compartimento. Você pode me deixar passar por um segundo?",
+          "connected": "I need to → ai-NÍD-te | get to → get-te | Could you let → KUD-ya-let | let me out → let-mi-áut",
+          "blocos": [
+            {
+              "texto": "Excuse me —",
+              "fonetica": "ex-KIÚZ mi"
+            },
+            {
+              "texto": "I need to get to my bag in the overhead bin.",
+              "fonetica": "ai NÍD te get te mai bæg in de Ó-ver-hed bin"
+            },
+            {
+              "texto": "Could you let me out for just a second?",
+              "fonetica": "KUD yu let mi áut for djost e SEK-end"
+            }
+          ],
+          "nativo": "'Could you let me out?' é a forma educada de pedir para alguém se levantar e deixar você passar na fileira. 'For just a second' minimiza o inconveniente — é uma estratégia de polidez automática entre americanos.",
+          "erro": "Não diga 'Can you give me pass?' — o correto é 'Could you let me out?' ou 'Could you let me through?' para pedir passagem numa fileira de assentos."
+        },
+        {
+          "id": "s6_t3",
+          "sua_vez": true,
+          "fala": "Of course — just a moment. Actually, we're about to land, is it okay if you wait until we touch down?",
+          "fonetica": "ov KOR-s — djost e MÓ-ment. Æk-chli, wir e-BÁUT te lænd, iz it Ó-kei if yu UEIT on-til wi toch DÁUN?",
+          "traducao": "Claro — só um momento. Na verdade, estamos quase pousando — tudo bem se você esperar até a gente pousar?",
+          "connected_voce": "Of course → ov-KOR-s | we're about to → wir-e-BÁUT-te | is it okay → iz-it-Ó-kei | touch down → toch-DÁUN",
+          "acento": "KOR-s, MÓ-ment, Æk-chli, BÁUT, Ó-kei, UEIT, DÁUN",
+          "alternativas": [
+            "Sure! Just one second... Actually, we're landing soon — maybe wait until we touch down?",
+            "Of course. Though we're almost there — it might be safer to wait and grab it after we land."
+          ],
+          "alts_traducoes": [
+            "Claro! Só um segundo... Na verdade, estamos pousando em breve — talvez espere até pousar?",
+            "Claro. Mas estamos quase chegando — pode ser mais seguro esperar e pegar depois que pousar."
+          ]
+        },
+        {
+          "id": "s6_t4",
+          "sua_vez": false,
+          "fala": "Oh, you're right — I'll wait. I just need my passport before we get to immigration.",
+          "fonetica": "óu, yur ráit — ail UEIT. ai djost NÍD mai PÆS-port bi-FOR wi get te i-mi-GREI-shen.",
+          "traducao": "Ah, você tem razão — vou esperar. Só preciso do meu passaporte antes de ir para a imigração.",
+          "connected": "you're right → yur-RÁIT | I'll wait → ail-UEIT | before we get → bi-FOR-wi-get",
+          "blocos": [
+            {
+              "texto": "Oh, you're right —",
+              "fonetica": "óu, yur ráit"
+            },
+            {
+              "texto": "I'll wait.",
+              "fonetica": "ail UEIT"
+            },
+            {
+              "texto": "I just need my passport before we get to immigration.",
+              "fonetica": "ai djost NÍD mai PÆS-port bi-FOR wi get te i-mi-GREI-shen"
+            }
+          ],
+          "nativo": "Passageiros frequentemente tentam se levantar antes do avião parar completamente — é um comportamento universal e os comissários de bordo sempre avisam para esperar. 'You're right' como resposta imediata é sinal de que a pessoa aceitou o argumento sem resistência — tom amigável e sem ego.",
+          "erro": "Não diga 'I need to pick my passport' — o correto é 'I need to get my passport' ou 'I need to grab my passport'. 'Pick' com este sentido não existe em inglês americano da mesma forma."
+        },
+        {
+          "id": "s6_t5",
+          "sua_vez": true,
+          "fala": "Good thinking! I'll let you know as soon as we stop. It depends on how busy the gates are today.",
+          "fonetica": "gud THÍNK-ing! ail let yu NOÚ æz SUN æz wi STOP. it di-PENDS on háu BI-zi de geits ar te-DEI.",
+          "traducao": "Boa ideia! Vou te avisar assim que parar. Depende de como estão os portões hoje.",
+          "connected_voce": "I'll let you know → ail-let-ya-NOÚ | as soon as → æz-SUN-æz | It depends on → it-di-PENDS-on",
+          "acento": "THÍNK-ing, NOÚ, SUN, STOP, di-PENDS, BI-zi, geits, te-DEI",
+          "alternativas": [
+            "Sure! The moment we stop, I'll step aside so you can grab it.",
+            "No problem — I'll move as soon as we land. It depends on how long it takes to taxi."
+          ],
+          "alts_traducoes": [
+            "Claro! No momento em que parar, vou me afastar para você pegar.",
+            "Sem problema — vou me mover assim que pousar. Depende de quanto tempo vai levar para taxiar."
+          ]
+        },
+        {
+          "id": "s6_t6",
+          "sua_vez": false,
+          "fala": "Thank you — I really appreciate it. Have a good one!",
+          "fonetica": "THÆNK yu — ai RI-li e-PRI-chi-eit it. hæv e GUD UON!",
+          "traducao": "Obrigado — agradeço de verdade. Tenha um bom dia!",
+          "connected": "I really → ai-RI-li | appreciate it → e-PRI-chi-eit-it | Have a good one → hæv-e-GUD-UON",
+          "blocos": [
+            {
+              "texto": "Thank you —",
+              "fonetica": "THÆNK yu"
+            },
+            {
+              "texto": "I really appreciate it.",
+              "fonetica": "ai RI-li e-PRI-chi-eit it"
+            },
+            {
+              "texto": "Have a good one!",
+              "fonetica": "hæv e GUD UON"
+            }
+          ],
+          "nativo": "'Have a good one' é a despedida informal mais comum nos EUA — significa 'tenha um bom dia/tarde/noite' sem especificar o período. É a despedida universal entre desconhecidos. Mais casual que 'Have a nice day', que soa mais formal ou de serviço.",
+          "erro": "Não diga 'Have a good day' como única opção — 'Have a good one' é mais versátil e soa mais natural. Em voos noturnos, 'Have a good one' funciona em qualquer horário; 'Have a good day' pode soar deslocado se for de madrugada."
+        }
+      ],
+      "dialogo_livre": {
+        "id": "s6_livre",
+        "contexto": "O avião acabou de parar. Todos estão se levantando ao mesmo tempo para pegar as malas.",
+        "fala_personagem": "Oh wow, everyone's jumping up at once! Do you have a connecting flight?",
+        "fonetica": "óu UAU, EV-ri-UON z DJOM-ping op æt UON-s! du yu hæv e ke-NEK-ting FLÁIT?",
+        "traducao": "Todo mundo levantando ao mesmo tempo! Você tem conexão?",
+        "connected": "everyone's → EV-ri-UON-z | jumping up → DJOM-ping-op | at once → æt-UON-s | connecting flight → ke-NEK-ting-FLÁIT",
+        "resposta_modelo": "Yeah, I do — I need to catch a flight to Chicago in about two hours. I'm not sure if I'll make it, honestly.",
+        "feedback_modelo": "'I need to catch a flight' é exatamente como americanos dizem 'pegar um voo de conexão'. 'Make it' no sentido de 'conseguir chegar a tempo' é expressão idiomática essencial. 'Honestly' no final adiciona vulnerabilidade natural e autenticidade.",
+        "turno_imprevisto": "Oh no, that's cutting it close! Which terminal? I know this airport pretty well — I might be able to help.",
+        "vocab_apoio": [
+          {
+            "palavra": "connecting flight",
+            "fonetica": "ke-NEK-ting FLÁIT",
+            "traducao": "voo de conexão"
+          },
+          {
+            "palavra": "catch a flight",
+            "fonetica": "kæch e FLÁIT",
+            "traducao": "pegar um voo"
+          },
+          {
+            "palavra": "make it",
+            "fonetica": "MEIK-it",
+            "traducao": "conseguir chegar a tempo"
+          },
+          {
+            "palavra": "cutting it close",
+            "fonetica": "KO-ting it KLÓUS",
+            "traducao": "no limite do tempo / quase não dá"
+          }
+        ]
+      }
+    }
+  ]
+}

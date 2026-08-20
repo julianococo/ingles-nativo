@@ -1,0 +1,614 @@
+{
+  "id": 1,
+  "titulo": "Aeroporto",
+  "fase": "Fase 1 — Sobrevivência",
+  "rate": 0.80,
+  "situacoes": [
+    {
+      "id": "s1",
+      "titulo": "Check-in do voo",
+      "contexto": "Você chegou ao balcão de check-in com sua bagagem. A atendente vai pedir seus documentos e fazer perguntas padrão de segurança.",
+      "registro": "neutro-cordial",
+      "dialogos": [
+        {
+          "id": "s1t1",
+          "sua_vez": false,
+          "fala": "Good morning! Can I see your passport and booking confirmation?",
+          "fonetica": "gud MÓR-ning! ken ai sî yor PÁS-port en BÚ-king kon-fêr-MÊI-chen? (and átono: 'en'; booking: BÚ-king)",
+          "traducao": "Bom dia! Posso ver seu passaporte e confirmação de reserva?",
+          "connected": "gud-MÓRning! ke-nai-SÎ-yor-PÁSport-en-BÚking-kon-fêr-MÊIchen?",
+          "blocos": [
+            { "texto": "Good morning!", "traducao": "Bom dia!" },
+            { "texto": "Can I see your passport", "traducao": "Posso ver seu passaporte" },
+            { "texto": "and booking confirmation?", "traducao": "e confirmação de reserva?" }
+          ],
+          "vocab": [
+            { "palavra": "passport", "fonetica": "PÁS-port", "traducao": "passaporte" },
+            { "palavra": "booking", "fonetica": "BÚ-king", "traducao": "reserva" },
+            { "palavra": "confirmation", "fonetica": "kon-fêr-MÊI-chen", "traducao": "confirmação" },
+            { "palavra": "check-in", "fonetica": "TCHÉK-in", "traducao": "check-in" },
+            { "palavra": "counter", "fonetica": "KÁUN-der", "traducao": "balcão (flap T)" }
+          ],
+          "nativo": "Nos EUA o atendente de check-in sempre pede passaporte E confirmação de reserva — ter os dois na mão antes de chegar ao balcão economiza tempo e passa imagem de viajante experiente.",
+          "erro": "Não diga 'Here is my documents' — o correto é 'Here are my documents' porque 'documents' é plural. Ou simplifique: 'Here's my passport'."
+        },
+        {
+          "id": "s1t2",
+          "sua_vez": true,
+          "fala": "Here's my passport. Here's my confirmation.",
+          "fonetica": "HÍERS mai PÁS-port. HÍERS mai kon-fêr-MÊI-chen.",
+          "traducao": "Aqui está meu passaporte. Aqui está minha confirmação.",
+          "connected_voce": "HÍERS-mai-PÁSport. HÍERS-mai-konfêrMÊIchen.",
+          "acento": "Tônica em HÍERS e PÁS",
+          "alternativas": [
+            "Here you go — passport and confirmation.",
+            "Sure, here's everything."
+          ],
+          "alts_traducoes": [
+            "Aqui está — passaporte e confirmação.",
+            "Claro, aqui está tudo."
+          ],
+          "nativo": "'Here you go' ao entregar documentos é a expressão mais natural — mais fluente que 'Here is my passport' repetido duas vezes.",
+          "erro": "Não diga 'Take my passport' — soa como ordem. O correto é 'Here's my passport' ou 'Here you go'."
+        },
+        {
+          "id": "s1t3",
+          "sua_vez": false,
+          "fala": "Thank you. Do you have any bags to check?",
+          "fonetica": "THANK yu. de yu hav ÉNI bágz te TCHÉK? ('do you' junto: 'dya'; 'to' átono: 'te')",
+          "traducao": "Obrigada. Você tem alguma mala para despachar?",
+          "connected": "THANK-ya. d'ya-hav-ÉNI-bágz-te-TCHÉK?",
+          "blocos": [
+            { "texto": "Thank you.", "traducao": "Obrigada." },
+            { "texto": "Do you have any bags to check?", "traducao": "Você tem alguma mala para despachar?" }
+          ],
+          "nativo": "'Bags to check' significa malas para despachar no porão. 'Carry-on' é a bagagem de mão. Saber essa distinção evita confusão no balcão.",
+          "erro": "Não diga 'I have a bag to send' — 'send' não se usa para bagagem. O correto é 'I have a bag to check' ou 'one bag to check in'."
+        },
+        {
+          "id": "s1t4",
+          "sua_vez": true,
+          "fala": "Just one bag to check. And one carry-on.",
+          "fonetica": "jâst uân bág te TCHÉK. en uân KÉ-ri-on. ('just' introduz quantidade mínima; 'and' átono: 'en')",
+          "traducao": "Só uma mala para despachar. E uma de mão.",
+          "connected_voce": "jâst-uân-bág-te-TCHÉK. en-uân-KÉri-on.",
+          "acento": "Tônica em TCHÉK e KÉ-ri",
+          "alternativas": [
+            "One checked bag and one carry-on.",
+            "Just this one — the other's a carry-on."
+          ],
+          "alts_traducoes": [
+            "Uma mala despachada e uma de mão.",
+            "Só essa — a outra é de mão."
+          ],
+          "nativo": "Sempre informe checked bag E carry-on logo de início — economiza perguntas e agiliza o processo. 'Just one' sinaliza que você sabe o que está fazendo.",
+          "erro": "Não diga 'hand bag' para bagagem de mão — hand bag é bolsa feminina. O correto é 'carry-on' ou 'carry-on bag'."
+        },
+        {
+          "id": "s1t5",
+          "sua_vez": false,
+          "fala": "Perfect. Would you like a window or aisle seat?",
+          "fonetica": "PÊR-fekt. uud yu LÁIK e UÍN-dou or áil sît? (aisle: 'áil' — o 's' é mudo!)",
+          "traducao": "Perfeito. Você prefere janela ou corredor?",
+          "connected": "PÊRfekt. uud-ya-LÁIK-e-UÍNdou-or-ÁIL-sît?",
+          "blocos": [
+            { "texto": "Perfect.", "traducao": "Perfeito." },
+            { "texto": "Would you like a window or aisle seat?", "traducao": "Você prefere janela ou corredor?" }
+          ],
+          "nativo": "'Aisle' (corredor) é uma das palavras mais silenciosas do inglês — o 's' some completamente. Nativos ficam surpresos quando alguém pronuncia o 's'.",
+          "erro": "Não pronuncie o 's' de 'aisle' — é completamente mudo. 'Aisle' soa como 'áil', não 'ái-sel' ou 'ais-le'."
+        },
+        {
+          "id": "s1t6",
+          "sua_vez": true,
+          "fala": "Aisle, please. Is it okay if I sit near the front?",
+          "fonetica": "ÁIL, plîz. iz it ÓU-kei if ai sit NÍER de front? ('is it okay if' — pedido de permissão natural)",
+          "traducao": "Corredor, por favor. Tudo bem se eu sentar perto da frente?",
+          "connected_voce": "ÁIL-plîz. IZ-it-ÓUkei-if-ai-sit-NÍER-de-front?",
+          "acento": "Tônica em ÓU-kei e FRONT",
+          "alternativas": [
+            "Aisle, please — closer to the front if possible.",
+            "Aisle seat, near the front if you can."
+          ],
+          "alts_traducoes": [
+            "Corredor, por favor — mais perto da frente se possível.",
+            "Corredor, perto da frente se der."
+          ],
+          "nativo": "'Is it okay if...?' é o pedido de permissão mais suave e versátil do inglês americano — menos formal que 'Would it be possible' e mais educado que 'Can I'.",
+          "erro": "Não diga 'Can I sit in the front?' — soa como se você fosse decidir sozinho. O correto para pedir preferência de assento é 'Is it okay if I sit near the front?'"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "titulo": "Informações sobre o voo",
+      "contexto": "Você quer confirmar detalhes do seu voo — horário de embarque, portão e duração. Informações críticas que você precisa entender mesmo quando ditas rapidamente.",
+      "registro": "neutro-cordial",
+      "dialogos": [
+        {
+          "id": "s2t1",
+          "sua_vez": true,
+          "fala": "Sorry to bother you — what time does boarding start?",
+          "fonetica": "SÓ-ri te BÓ-der yu — uát táim dez BÓR-ding STÁRT? (boarding: BÓR-ding; 'does' átono: 'dez')",
+          "traducao": "Desculpe incomodar — a que horas começa o embarque?",
+          "connected_voce": "SÓ-ri-te-BÓder-yu — UÁT-taim-dez-BÓRding-STÁRT?",
+          "acento": "Tônica em BÓR e STÁRT",
+          "alternativas": [
+            "Excuse me — when does boarding begin?",
+            "What time do we board?"
+          ],
+          "alts_traducoes": [
+            "Com licença — quando começa o embarque?",
+            "A que horas embarcamos?"
+          ],
+          "vocab": [
+            { "palavra": "boarding", "fonetica": "BÓR-ding", "traducao": "embarque" },
+            { "palavra": "gate", "fonetica": "gêit", "traducao": "portão de embarque" },
+            { "palavra": "departure", "fonetica": "di-PÁR-cher", "traducao": "partida / decolagem" },
+            { "palavra": "on time", "fonetica": "on TÁIM", "traducao": "no horário" },
+            { "palavra": "delay", "fonetica": "di-LÊI", "traducao": "atraso" }
+          ],
+          "nativo": "Perguntar sobre boarding time logo no check-in é hábito de viajante experiente — os atendentes dão a informação de bom grado e você evita ficar de olho no painel.",
+          "erro": "Não diga 'What time is the boarding?' — o artigo 'the' aqui soa estranho. O correto é 'What time does boarding start?' sem artigo."
+        },
+        {
+          "id": "s2t2",
+          "sua_vez": false,
+          "fala": "Boarding starts at two-forty. The flight's on time.",
+          "fonetica": "BÓR-ding stárts et TÚ-fór-ri. de fláits on TÁIM. (forty: FÓR-ri — flap T; 'at' átono: 'et')",
+          "traducao": "O embarque começa às duas e quarenta. O voo está no horário.",
+          "connected": "BÓRding-stárts-et-TÚfóri. de-FLÁITS-on-TÁIM.",
+          "blocos": [
+            { "texto": "Boarding starts at two-forty.", "traducao": "O embarque começa às duas e quarenta." },
+            { "texto": "The flight's on time.", "traducao": "O voo está no horário." }
+          ],
+          "nativo": "Nativos dizem 'two-forty' para 2:40 — nunca 'two hours and forty minutes'. Horas em inglês americano são sempre no formato compacto.",
+          "erro": "Não diga 'The flight is in time' — 'in time' significa 'a tempo de' (cumprir prazo). Para voo no horário, o correto é 'on time'."
+        },
+        {
+          "id": "s2t3",
+          "sua_vez": true,
+          "fala": "Got it. And which gate is it?",
+          "fonetica": "GÓ-rit. en uítch GÊIT IZ it? ('and' átono: 'en'; 'got it' junto: 'gorit')",
+          "traducao": "Entendido. E qual é o portão?",
+          "connected_voce": "GÓ-rit. en-UÍTCH-gêit-IZ-it?",
+          "acento": "Tônica em GÊIT",
+          "alternativas": [
+            "Got it! What gate do I go to?",
+            "And the gate number?"
+          ],
+          "alts_traducoes": [
+            "Entendido! Para qual portão vou?",
+            "E o número do portão?"
+          ],
+          "nativo": "'Which gate' é mais natural que 'what gate' quando há opções específicas — 'which' implica seleção entre alternativas conhecidas, como portões numerados.",
+          "erro": "Não diga 'Where is the gate?' sem saber o número — você pode estar perguntando onde fica o portão fisicamente. 'Which gate?' pergunta o número/letra do portão."
+        },
+        {
+          "id": "s2t4",
+          "sua_vez": false,
+          "fala": "Gate B fourteen. It's a bit of a walk — about ten minutes from security.",
+          "fonetica": "gêit BÎ fôr-TÎN. its e bit ev e UÓK — e-BÁUT ten MÍ-nits from si-KIÚ-ri-ri. (fourteen: fôr-TÎN — tônica na segunda; security tem flap T)",
+          "traducao": "Portão B quatorze. É uma caminhada — uns dez minutos da segurança.",
+          "connected": "gêit-BÎ-fôrTÎN. its-e-bit-ev-e-UÓK — e-BÁUT-ten-MÍnits-from-si-KIÚ-riri.",
+          "blocos": [
+            { "texto": "Gate B fourteen.", "traducao": "Portão B quatorze." },
+            { "texto": "It's a bit of a walk —", "traducao": "É uma caminhada —" },
+            { "texto": "about ten minutes from security.", "traducao": "uns dez minutos da segurança." }
+          ],
+          "nativo": "'A bit of a walk' é uma expressão tipicamente americana para dizer que é longe sem parecer reclamação — equivale a 'não é pertinho não' dito com leveza.",
+          "erro": "Não confunda 'fourteen' (fôr-TÎN = 14) com 'forty' (FÓR-ri = 40) — a tônica muda: fourteen tem acento na segunda sílaba, forty na primeira."
+        },
+        {
+          "id": "s2t5",
+          "sua_vez": true,
+          "fala": "How long does it take to get through security?",
+          "fonetica": "ráu LÓNG dez it TEIK te gét thrû si-KIÚ-ri-ri? ('how long' junto; 'to' átono: 'te')",
+          "traducao": "Quanto tempo leva para passar pela segurança?",
+          "connected_voce": "ráu-LÓNG-dez-it-TEIK-te-gét-thrû-si-KIÚriri?",
+          "acento": "Tônica em LÓNG e TEIK",
+          "alternativas": [
+            "How long is the security line usually?",
+            "Does security take long?"
+          ],
+          "alts_traducoes": [
+            "A fila da segurança costuma demorar muito?",
+            "A segurança demora muito?"
+          ],
+          "nativo": "'How long does it take?' é a estrutura de prazo mais versátil do inglês — funciona para segurança, trajeto, espera, qualquer processo com duração.",
+          "erro": "Não diga 'How much time does it take?' — em inglês americano o correto é 'How long does it take?' sem 'much time'."
+        },
+        {
+          "id": "s2t6",
+          "sua_vez": false,
+          "fala": "It depends on the time of day. Right now it's pretty quick — maybe fifteen minutes.",
+          "fonetica": "it di-PÊNDS on de táim ev DÊI. ráit náu its PRÎ-ri KUÍK — MÊI-bi fif-TÎN MÍ-nits. (pretty: flap T; fifteen: fif-TÎN)",
+          "traducao": "Depende do horário do dia. Agora está bem rápido — talvez quinze minutos.",
+          "connected": "it-di-PÊNDS-on-de-táim-ev-DÊI. ráit-náu-its-PRÎri-KUÍK — MÊIbi-fifTÎN-MÍnits.",
+          "blocos": [
+            { "texto": "It depends on the time of day.", "traducao": "Depende do horário do dia." },
+            { "texto": "Right now it's pretty quick —", "traducao": "Agora está bem rápido —" },
+            { "texto": "maybe fifteen minutes.", "traducao": "talvez quinze minutos." }
+          ],
+          "nativo": "'Right now' para indicar o momento presente é muito mais natural que 'at this moment' — nativos usam 'right now' em qualquer contexto coloquial.",
+          "erro": "Não diga 'In this moment it's quick' — tradução literal do português que não existe em inglês. O correto é 'Right now it's quick'."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "titulo": "Segurança do aeroporto",
+      "contexto": "Você está na fila da segurança. O agente dá instruções rápidas e diretas — sem tempo para hesitação. Este é um dos contextos mais tensos para um A1.",
+      "registro": "neutro-cordial",
+      "dialogos": [
+        {
+          "id": "s3t1",
+          "sua_vez": false,
+          "fala": "Boarding pass and ID, please.",
+          "fonetica": "BÓR-ding pás en ai-DÎ, plîz. ('and' átono: 'en')",
+          "traducao": "Cartão de embarque e documento, por favor.",
+          "connected": "BÓRding-pás-en-ai-DÎ-plîz.",
+          "blocos": [
+            { "texto": "Boarding pass", "traducao": "Cartão de embarque" },
+            { "texto": "and ID, please.", "traducao": "e documento, por favor." }
+          ],
+          "vocab": [
+            { "palavra": "boarding pass", "fonetica": "BÓR-ding pás", "traducao": "cartão de embarque" },
+            { "palavra": "ID", "fonetica": "ai-DÎ", "traducao": "documento de identidade" },
+            { "palavra": "laptop", "fonetica": "LÁP-top", "traducao": "notebook" },
+            { "palavra": "bin", "fonetica": "bin", "traducao": "bandeja (da esteira)" },
+            { "palavra": "liquids", "fonetica": "LÍ-kuids", "traducao": "líquidos" }
+          ],
+          "nativo": "Agentes de segurança nos EUA são diretos e rápidos — não usam 'please' sempre. Não interprete a secura como hostilidade; é protocolo padrão.",
+          "erro": "Não diga 'Here is my boarding card' — nos EUA usa-se 'boarding pass', não 'boarding card'. 'Boarding card' é inglês britânico."
+        },
+        {
+          "id": "s3t2",
+          "sua_vez": true,
+          "fala": "Here you go.",
+          "fonetica": "HÍER yu gou. ('here you go' junto em fala natural)",
+          "traducao": "Aqui está.",
+          "connected_voce": "HÍER-ya-gou.",
+          "acento": "Tônica em HÍER",
+          "alternativas": [
+            "Here's my boarding pass.",
+            "Sure, here you go."
+          ],
+          "alts_traducoes": [
+            "Aqui está meu cartão de embarque.",
+            "Claro, aqui está."
+          ],
+          "nativo": "'Here you go' ao entregar qualquer coisa é automático para nativos — é mais fluido do que qualquer outra opção e funciona em qualquer contexto de entrega.",
+          "erro": "Não diga 'Here it is' quando entregar documentos para uma pessoa — 'Here it is' aponta para um objeto. 'Here you go' é o correto ao entregar diretamente a alguém."
+        },
+        {
+          "id": "s3t3",
+          "sua_vez": false,
+          "fala": "Take off your shoes and belt. Laptop out of the bag, in a separate bin.",
+          "fonetica": "teik ÓF yor shûz en bélt. LÁP-top áut ev de bág, in e SÉ-pe-ret bin. ('out of' junto: 'áudov')",
+          "traducao": "Tire os sapatos e o cinto. Notebook fora da bolsa, em uma bandeja separada.",
+          "connected": "teik-ÓF-yor-SHÛZ-en-BÉLT. LÁP-top-ÁUDOV-de-bág, in-e-SÉperet-BIN.",
+          "blocos": [
+            { "texto": "Take off your shoes and belt.", "traducao": "Tire os sapatos e o cinto." },
+            { "texto": "Laptop out of the bag,", "traducao": "Notebook fora da bolsa," },
+            { "texto": "in a separate bin.", "traducao": "em uma bandeja separada." }
+          ],
+          "nativo": "Agentes de segurança americanos falam em fragmentos — não em frases completas. 'Laptop out of the bag' não tem verbo, mas é perfeitamente compreensível. Isso é inglês real.",
+          "erro": "Não diga 'I need to remove my shoes?' como pergunta — você não precisa pedir permissão. Simplesmente faça e confirme: 'Shoes off, got it.'"
+        },
+        {
+          "id": "s3t4",
+          "sua_vez": true,
+          "fala": "Got it. Do I need to take out my liquids too?",
+          "fonetica": "GÓ-rit. de ai nîd te teik áut mai LÍ-kuids tû? ('do I' junto; 'to' átono: 'te')",
+          "traducao": "Entendido. Preciso tirar meus líquidos também?",
+          "connected_voce": "GÓ-rit. d'ai-nîd-te-TEIK-áut-mai-LÍkuids-TÛ?",
+          "acento": "Tônica em TEIK e LÍ",
+          "alternativas": [
+            "Understood — liquids out too?",
+            "Got it! And my liquids bag?"
+          ],
+          "alts_traducoes": [
+            "Entendido — líquidos fora também?",
+            "Entendido! E minha bolsa de líquidos?"
+          ],
+          "nativo": "Perguntar sobre líquidos proativamente demonstra que você conhece o protocolo — agentes de segurança respondem melhor a passageiros que participam do processo.",
+          "erro": "Não diga 'Must I take out my liquids?' — 'must' soa formal demais para segurança casual. O correto é 'Do I need to take out my liquids?'"
+        },
+        {
+          "id": "s3t5",
+          "sua_vez": false,
+          "fala": "Yes — liquids in a clear bag, separate bin. Go ahead when you're ready.",
+          "fonetica": "yes — LÍ-kuids in e klíer bág, SÉ-pe-ret bin. gou e-HÉD uén yor RÉ-di. ('when you're' junto)",
+          "traducao": "Sim — líquidos em bolsa transparente, bandeja separada. Pode ir quando estiver pronto.",
+          "connected": "yes — LÍkuids-in-e-KLÍER-bág, SÉperet-BIN. gou-e-HÉD-uén-yor-RÉdi.",
+          "blocos": [
+            { "texto": "Yes — liquids in a clear bag, separate bin.", "traducao": "Sim — líquidos em bolsa transparente, bandeja separada." },
+            { "texto": "Go ahead when you're ready.", "traducao": "Pode ir quando estiver pronto." }
+          ],
+          "nativo": "'Go ahead' é autorização para prosseguir — mais natural que 'you can go' e muito mais comum. 'When you're ready' é cortesia padrão de agentes americanos.",
+          "erro": "Não diga 'I can pass now?' para pedir autorização — parece inseguro. Aguarde o 'go ahead' ou pergunte 'Can I go through now?'"
+        },
+        {
+          "id": "s3t6",
+          "sua_vez": true,
+          "fala": "Thank you. Just in case — is there anything else I should know?",
+          "fonetica": "THANK yu. jâst in KÊIS — iz dér ÉNI-thing els ai shud NOU? ('just in case' — precaução)",
+          "traducao": "Obrigado. Só por precaução — tem mais alguma coisa que eu deva saber?",
+          "connected_voce": "THANK-ya. jâst-in-KÊIS — iz-dér-ÉNIthing-els-ai-shud-NOU?",
+          "acento": "Tônica em KÊIS e NOU",
+          "alternativas": [
+            "Got it! Anything else?",
+            "Thanks — just to be safe, anything I'm missing?"
+          ],
+          "alts_traducoes": [
+            "Entendido! Mais alguma coisa?",
+            "Obrigado — só para garantir, tem algo que estou esquecendo?"
+          ],
+          "nativo": "'Just in case' antes de uma pergunta de confirmação é sinal de passageiro experiente — mostra que você quer evitar surpresas, não que está inseguro.",
+          "erro": "Não diga 'Is there something more?' — soa como tradução literal. O correto é 'Is there anything else?' ou 'Anything else I should know?'"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "titulo": "Voo cancelado — portão mudado",
+      "contexto": "Você chegou ao portão e o painel mostra que seu voo foi cancelado. Você precisa agir rápido, falar com o agente e resolver a situação. Este é o registro de urgência e frustração do mundo 1.",
+      "registro": "urgencia-frustracao",
+      "dialogos": [
+        {
+          "id": "s4t1",
+          "sua_vez": true,
+          "fala": "Excuse me — I just saw my flight was cancelled. What happened?",
+          "fonetica": "ek-SKIÛZ mi — ai jâst só mai fláit uez KÁN-seld. uát HÁ-pend? (cancelled: KÁN-seld; happened: HÁ-pend — flap T)",
+          "traducao": "Com licença — acabei de ver que meu voo foi cancelado. O que aconteceu?",
+          "connected_voce": "ek-SKIÛZ-mi — ai-jâst-SÓ-mai-FLÁIT-uez-KÁNseld. UÁT-HÁpend?",
+          "acento": "Tônica em FLÁIT e HÁ",
+          "alternativas": [
+            "Hi — my flight just got cancelled. Can you help me?",
+            "Sorry — I need help. My flight is cancelled."
+          ],
+          "alts_traducoes": [
+            "Oi — meu voo acabou de ser cancelado. Pode me ajudar?",
+            "Desculpe — preciso de ajuda. Meu voo foi cancelado."
+          ],
+          "vocab": [
+            { "palavra": "cancelled", "fonetica": "KÁN-seld", "traducao": "cancelado" },
+            { "palavra": "rebooking", "fonetica": "rî-BÚ-king", "traducao": "remarcar voo" },
+            { "palavra": "next flight", "fonetica": "nékst fláit", "traducao": "próximo voo" },
+            { "palavra": "voucher", "fonetica": "VÁU-cher", "traducao": "voucher / vale" },
+            { "palavra": "compensation", "fonetica": "kom-pen-SÊI-chen", "traducao": "compensação" }
+          ],
+          "nativo": "Em situação de voo cancelado, nativos vão direto ao ponto — sem introdução longa. 'Excuse me' + problema é o padrão. Agentes esperam passageiros diretos, não apologéticos.",
+          "erro": "Não comece com 'I'm so sorry to bother you but...' em situação de urgência — você tem direito de pedir ajuda diretamente. Reserve 'sorry to bother you' para pedidos não urgentes."
+        },
+        {
+          "id": "s4t2",
+          "sua_vez": false,
+          "fala": "I understand — there was a mechanical issue. We're working on rebooking all passengers.",
+          "fonetica": "ai ân-dêr-STÁND — dér uez e me-KÁ-ni-kel Í-shu. uîr UÊR-king on rî-BÚ-king ól PÁ-sen-jers. (working on: 'uêrking on')",
+          "traducao": "Entendo — houve um problema mecânico. Estamos trabalhando para remarcar todos os passageiros.",
+          "connected": "ai-ânder-STÁND — dér-uez-e-meKÁnikel-Íshu. uîr-UÊRking-on-rîBÚking-ól-PÁsenjers.",
+          "blocos": [
+            { "texto": "I understand —", "traducao": "Entendo —" },
+            { "texto": "there was a mechanical issue.", "traducao": "houve um problema mecânico." },
+            { "texto": "We're working on rebooking all passengers.", "traducao": "Estamos trabalhando para remarcar todos os passageiros." }
+          ],
+          "nativo": "'Mechanical issue' é o eufemismo oficial de companhias aéreas para qualquer problema técnico — vago por design. 'We're working on it' é a resposta padrão de agente sob pressão.",
+          "erro": "Não confunda 'issue' (problema, questão) com 'issue' como 'emissão' — em contexto de aviação 'issue' sempre significa problema ou contratempo."
+        },
+        {
+          "id": "s4t3",
+          "sua_vez": true,
+          "fala": "I need to get to Miami today. What's the next available flight?",
+          "fonetica": "ai nîd te gét te mai-Á-mi te-DÊI. uáts de nékst e-VÊI-le-bel fláit? ('to' átono: 'te'; available: e-VÊI-le-bel)",
+          "traducao": "Preciso chegar em Miami hoje. Qual é o próximo voo disponível?",
+          "connected_voce": "ai-nîd-te-GÉT-te-maiÁmi-teDÊI. UÁTS-de-nékst-eVÊIlebel-FLÁIT?",
+          "acento": "Tônica em GÉT e VÊI",
+          "alternativas": [
+            "I have to be in Miami today — what are my options?",
+            "What's the earliest flight you can put me on?"
+          ],
+          "alts_traducoes": [
+            "Preciso estar em Miami hoje — quais são minhas opções?",
+            "Qual é o voo mais cedo em que você pode me colocar?"
+          ],
+          "nativo": "Dizer 'I need to get to [cidade] today' estabelece urgência sem agressividade — é assertivo sem ser hostil. O agente entende que você precisa de solução, não de desculpa.",
+          "erro": "Não diga 'I must arrive today' — 'must' soa como ameaça em inglês americano informal. O correto para urgência sem hostilidade é 'I need to get there today'."
+        },
+        {
+          "id": "s4t4",
+          "sua_vez": false,
+          "fala": "Let me check... I can get you on the four-fifteen, but it's a connection through Atlanta.",
+          "fonetica": "lét mi tchék... ai ken gét yu on de fôr-fif-TÎN, bet its e ke-NÉK-chen thrû et-LÁN-te. (let me: 'lémmi'; fifteen: fif-TÎN)",
+          "traducao": "Deixa eu verificar... Posso te colocar no quatro e quinze, mas é uma conexão via Atlanta.",
+          "connected": "LÉMMI-tchék... ai-ken-GÉT-ya-on-de-fôr-fifTÎN, bet-its-e-keNÉKchen-thrû-etLÁNte.",
+          "blocos": [
+            { "texto": "Let me check...", "traducao": "Deixa eu verificar..." },
+            { "texto": "I can get you on the four-fifteen,", "traducao": "Posso te colocar no quatro e quinze," },
+            { "texto": "but it's a connection through Atlanta.", "traducao": "mas é uma conexão via Atlanta." }
+          ],
+          "nativo": "'Let me check' é a frase que todo agente diz enquanto olha para a tela — é sinal de que estão trabalhando no seu problema, não ignorando. Aguarde sem repetir a pergunta.",
+          "erro": "Não diga 'connection flight' — o correto é 'connecting flight' ou apenas 'connection'. 'I have a connection in Atlanta' é o uso natural."
+        },
+        {
+          "id": "s4t5",
+          "sua_vez": true,
+          "fala": "That works for me. And is there any compensation for the cancellation?",
+          "fonetica": "dát UÊRKs for mi. en iz dér ÉNI kom-pen-SÊI-chen for de kan-se-LÊI-chen? (and átono: 'en')",
+          "traducao": "Isso funciona para mim. E tem alguma compensação pelo cancelamento?",
+          "connected_voce": "dat-UÊRKS-for-mi. en-iz-dér-ÉNI-kompên-SÊIchen-for-de-kanse-LÊIchen?",
+          "acento": "Tônica em UÊRKS e SÊI",
+          "alternativas": [
+            "That works. Do passengers get any vouchers?",
+            "Okay, I'll take it. What about compensation?"
+          ],
+          "alts_traducoes": [
+            "Funciona. Os passageiros recebem algum voucher?",
+            "Certo, aceito. E quanto a compensação?"
+          ],
+          "nativo": "Perguntar sobre compensação é seu direito e nativos fazem isso normalmente — não é grosseria. No DOT (Department of Transportation) dos EUA há regras específicas para cancelamentos.",
+          "erro": "Não diga 'Will you compensate me?' — soa como acusação. O correto é 'Is there any compensation?' — pergunta sobre política, não ataque ao agente."
+        },
+        {
+          "id": "s4t6",
+          "sua_vez": false,
+          "fala": "Yes — you'll get a meal voucher and we'll rebook you at no charge. I'll be right back with your new boarding pass.",
+          "fonetica": "yes — yul gét e MÎL VÁU-cher en uîl rî-BÚK yu et nou TCHÁRJ. ail bi RÁIT bák uith yor niû BÓR-ding pás. ('I'll be right back' — saída temporária)",
+          "traducao": "Sim — você receberá um voucher de refeição e remarcaremos sem custo. Já volto com seu novo cartão de embarque.",
+          "connected": "yes — yul-GÉT-e-MÎL-VÁUcher-en-uîl-rîBÚK-ya-et-nou-TCHÁRJ. AIL-bi-RÁIT-bák-uith-yor-niû-BÓRding-pás.",
+          "blocos": [
+            { "texto": "Yes — you'll get a meal voucher", "traducao": "Sim — você receberá um voucher de refeição" },
+            { "texto": "and we'll rebook you at no charge.", "traducao": "e remarcaremos sem custo." },
+            { "texto": "I'll be right back with your new boarding pass.", "traducao": "Já volto com seu novo cartão de embarque." }
+          ],
+          "nativo": "'I'll be right back' é a frase padrão americana para saída temporária — educada, clara e universal. Mais natural que 'wait a moment' ou 'one second'.",
+          "erro": "Não diga 'at no cost' e 'at no charge' como se fossem sinônimos perfeitos — ambos funcionam, mas 'at no charge' é mais formal e comum em contexto de serviço ao cliente."
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "titulo": "Loja duty-free e lanchonete",
+      "contexto": "Você tem tempo antes do voo e entra no duty-free ou na lanchonete do aeroporto. Interação casual, sem pressão — boa oportunidade para praticar pedidos e perguntas simples.",
+      "registro": "neutro-cordial",
+      "dialogos": [
+        {
+          "id": "s5t1",
+          "sua_vez": false,
+          "fala": "Hi! Can I help you find something today?",
+          "fonetica": "rái! ke-nai HÉLP yu fáind SÂM-thing te-DÊI? ('can I' junto: 'kenai')",
+          "traducao": "Olá! Posso te ajudar a encontrar algo hoje?",
+          "connected": "rái! ke-nai-HÉLP-ya-fáind-SÂMthing-teDÊI?",
+          "blocos": [
+            { "texto": "Hi!", "traducao": "Olá!" },
+            { "texto": "Can I help you find something today?", "traducao": "Posso te ajudar a encontrar algo hoje?" }
+          ],
+          "vocab": [
+            { "palavra": "duty-free", "fonetica": "DIÛ-ri-frî", "traducao": "duty-free (sem imposto; flap T)" },
+            { "palavra": "perfume", "fonetica": "PÊR-fium", "traducao": "perfume" },
+            { "palavra": "gift", "fonetica": "gift", "traducao": "presente / lembrança" },
+            { "palavra": "limit", "fonetica": "LÍ-mit", "traducao": "limite" },
+            { "palavra": "receipt", "fonetica": "ri-SÎT", "traducao": "recibo (o P é mudo!)" }
+          ],
+          "nativo": "Em duty-free de aeroporto americano, atendentes são proativos — abordam logo. Não é pressão de venda, é protocolo. Resposta curta e direta é o padrão.",
+          "erro": "Não diga 'I'm just looking, thank you very much' — longo demais. O natural é 'Just looking, thanks' ou 'I'm looking for something specific, actually'."
+        },
+        {
+          "id": "s5t2",
+          "sua_vez": true,
+          "fala": "I'm looking for a gift — something small. Any suggestions?",
+          "fonetica": "aim LÚ-king for e gift — SÂM-thing smól. ÉNI se-JÉSS-tchens? ('I'm looking for' — busca universal)",
+          "traducao": "Estou procurando um presente — algo pequeno. Alguma sugestão?",
+          "connected_voce": "aim-LÚking-for-e-GIFT — SÂMthing-SMÓL. ÉNI-seJÉStchens?",
+          "acento": "Tônica em LÚ e GIFT",
+          "alternativas": [
+            "Looking for a small gift — what do you recommend?",
+            "I need something for a gift, under twenty dollars."
+          ],
+          "alts_traducoes": [
+            "Procurando um presente pequeno — o que você recomenda?",
+            "Preciso de algo para presente, até vinte dólares."
+          ],
+          "nativo": "Dar o orçamento logo ('under twenty dollars') agiliza muito a conversa em lojas americanas — vendedores direcionam melhor quando sabem o limite.",
+          "erro": "Não diga 'I search a gift' — 'search' é para pesquisa em banco de dados ou internet. Para procurar em loja, use 'I'm looking for' ou 'I'm trying to find'."
+        },
+        {
+          "id": "s5t3",
+          "sua_vez": false,
+          "fala": "Sure! We've got chocolates, keychains, and these little travel kits — all under fifteen.",
+          "fonetica": "shúer! uîvs gót TCHÓK-lets, KÎ-tchênz, en dîz LÍ-rel TRÁ-vel kits — ól ân-dêr fif-TÎN. (little: LÍ-rel — flap T duplo)",
+          "traducao": "Claro! Temos chocolates, chaveiros e esses kits de viagem pequenos — tudo abaixo de quinze.",
+          "connected": "shúer! uîvs-GÓT-tchóklets-KÎtchenz-en-DÎZ-lÍrel-TRÁvel-kits — ól-ânder-fifTÎN.",
+          "blocos": [
+            { "texto": "We've got chocolates, keychains,", "traducao": "Temos chocolates, chaveiros," },
+            { "texto": "and these little travel kits —", "traducao": "e esses kits de viagem pequenos —" },
+            { "texto": "all under fifteen.", "traducao": "tudo abaixo de quinze." }
+          ],
+          "nativo": "'We've got' é mais casual e natural que 'we have' em contexto de loja — indica estoque disponível agora, com energia de venda mais leve.",
+          "erro": "Não confunda 'keychain' (chaveiro) com 'chain' (corrente) — keychain é a palavra correta para o objeto de presente. 'Key ring' também funciona."
+        },
+        {
+          "id": "s5t4",
+          "sua_vez": true,
+          "fala": "I'll take the travel kit. Actually — do you have gift wrapping?",
+          "fonetica": "ail TEIK de TRÁ-vel kit. ÁK-chu-li — de yu hav GIFT RÁ-ping? (gift wrapping: o W de wrapping é mudo — 'ráping')",
+          "traducao": "Vou levar o kit de viagem. Na verdade — vocês têm embrulho para presente?",
+          "connected_voce": "ail-TEIK-de-TRÁvel-kit. ÁKchuli — d'ya-hav-GIFT-RÁping?",
+          "acento": "Tônica em TEIK e RÁ",
+          "alternativas": [
+            "I'll go with the travel kit — and can you gift wrap it?",
+            "The travel kit, please. Is gift wrapping available?"
+          ],
+          "alts_traducoes": [
+            "Vou de kit de viagem — e vocês fazem embrulho?",
+            "O kit de viagem, por favor. Tem embrulho disponível?"
+          ],
+          "nativo": "O 'W' de 'wrapping', 'wrap', 'write', 'wrong' e 'wrist' é sempre mudo — uma das armadilhas mais frequentes para brasileiros em lojas.",
+          "erro": "Não pronuncie o W de 'wrapping' — é completamente mudo. 'Gift wrapping' soa como 'gift rapping', não 'gift wrapping' com W audível."
+        },
+        {
+          "id": "s5t5",
+          "sua_vez": false,
+          "fala": "We don't do gift wrapping, but I can grab you a nice bag for it.",
+          "fonetica": "ui DOUNT dû GIFT RÁ-ping, bet ai ken gráb yu e náis bág for it. ('don't do' junto; 'grab you' junto)",
+          "traducao": "Não fazemos embrulho, mas posso pegar uma sacolinha bonita para você.",
+          "connected": "ui-DOUNT-dû-GIFT-RÁping, bet-ai-ken-GRÁB-ya-e-NÁIS-bág-for-it.",
+          "blocos": [
+            { "texto": "We don't do gift wrapping,", "traducao": "Não fazemos embrulho para presente," },
+            { "texto": "but I can grab you a nice bag for it.", "traducao": "mas posso pegar uma sacolinha bonita para você." }
+          ],
+          "nativo": "'Grab you a bag' é inglês americano muito natural — 'grab' significa pegar rapidamente com boa vontade. Mais informal e caloroso que 'get you a bag'.",
+          "erro": "Não diga 'It's okay, it doesn't matter' se ainda quiser a sacola — isso encerra a conversa. Se quiser, diga 'That'd be great, thanks!'"
+        },
+        {
+          "id": "s5t6",
+          "sua_vez": true,
+          "fala": "That'd be great — I appreciate it!",
+          "fonetica": "dád bi GRÉIT — ai e-PRÎ-shi-eit it! ('that'd' contração de 'that would': 'dáde')",
+          "traducao": "Seria ótimo — agradeço!",
+          "connected_voce": "dáde-bi-GRÉIT — ai-ePRÎshi-eit-IT!",
+          "acento": "Tônica em GRÉIT e PRÎ",
+          "alternativas": [
+            "Perfect, thank you so much!",
+            "That works! Thanks a lot."
+          ],
+          "alts_traducoes": [
+            "Perfeito, muito obrigado!",
+            "Ótimo! Muito obrigado."
+          ],
+          "nativo": "'That'd be great' é a aceitação mais calorosa de uma oferta — mais entusiasmada que 'okay' e mais natural que 'yes, please'. Nativos usam constantemente.",
+          "erro": "Não diga 'That would be great' na fala — soa escrito. Em conversa casual a contração é automática: 'that'd be great' ou até 'that'dbe great' conectado."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "titulo": "Diálogo livre — conversa no portão de embarque",
+      "contexto": "Você está sentado no portão esperando o voo. O passageiro ao lado inicia uma conversa. Não há script — responda naturalmente.",
+      "dialogo_livre": {
+        "id": "s6dl",
+        "fala": "Heading to Miami too?",
+        "fonetica": "HÉ-ding te mai-Á-mi tû? ('heading to' junto; 'to' átono: 'te')",
+        "traducao": "Indo para Miami também?",
+        "connected": "HÉding-te-maiÁmi-TÛ?",
+        "resposta_modelo": "Yeah! First time there. You live there or just visiting?",
+        "feedback_modelo": "'First time there' e 'just visiting' são fragmentos naturais — nativos usam frases curtas em conversa casual, não frases completas com sujeito e verbo sempre. Perguntar de volta mostra engajamento.",
+        "turno_imprevisto": {
+          "fala": "Oh nice! Hey — do you know if there's a lounge around here? I lost track of where everything is.",
+          "fonetica": "ou NÁIS! réi — de yu NOU if dérz e LÁUNJ e-RÁUND híer? ai lóst trák ev UÊR ÉVri-thing iz. ('lost track of' junto)",
+          "traducao": "Que legal! Ei — você sabe se tem uma sala VIP por aqui? Perdi o fio de onde fica tudo.",
+          "connected": "ou-NÁIS! réi — d'ya-NOU-if-dérz-e-LÁUNJ-eRÁUND-híer? ai-lóst-TRÁK-ev-UÊR-ÉVrithing-iz.",
+          "dica": "A conversa mudou — agora é sobre o aeroporto. Se souber, responda. Se não souber, use 'I'm not sure' e sugira perguntar a alguém."
+        },
+        "vocab_apoio": [
+          { "palavra": "heading to", "fonetica": "HÉ-ding te", "traducao": "indo para" },
+          { "palavra": "lounge", "fonetica": "láunj", "traducao": "sala VIP / lounge" },
+          { "palavra": "lost track", "fonetica": "lóst trák", "traducao": "perdi o fio / me perdi" },
+          { "palavra": "around here", "fonetica": "e-RÁUND híer", "traducao": "por aqui" },
+          { "palavra": "visiting", "fonetica": "VÍ-zi-ting", "traducao": "visitando" }
+        ]
+      }
+    }
+  ]
+}
