@@ -816,7 +816,7 @@ function gRevs(){
 }
 
 function gItemById(id){
-  for(const m of mundos)for(const s of m.situacoes)for(const t of s.dialogos)if(t.id===id)return t;
+  for(const m of mundos)for(const s of m.situacoes)for(const t of (s.dialogos||[]))if(t.id===id)return t;
   return null;
 }
 
@@ -1090,7 +1090,7 @@ let viEtapa='vocab'; // 'vocab' | 'expr'
 let viExpr=[],viExprIdx=0,viExprModo='um';
 
 function coletarVocabSituacao(s){
-  const primeiro=s.dialogos[0];
+  const primeiro=(s.dialogos||[])[0];
   if(primeiro&&primeiro.vocab&&primeiro.vocab.length){
     return [...primeiro.vocab];
   }
@@ -1579,7 +1579,7 @@ function viMostrarTodas(){
 function viIniciarDialogo(){
   if(!viSitPendente)return;
   const s=viSitPendente;
-  sitAt=s;dq=[...s.dialogos];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
+  sitAt=s;dq=[...(s.dialogos||[])];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
   dlAcertos=0;dlTotal=0;
   irPara('sessao');renderTurno();
 }
@@ -1592,7 +1592,7 @@ function iniciarSessao(s){
   if(vocab.length>0){
     iniciarVocabIntro(s);
   } else {
-    sitAt=s;dq=[...s.dialogos];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
+    sitAt=s;dq=[...(s.dialogos||[])];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=false;
     dlAcertos=0;dlTotal=0;
     irPara('sessao');renderTurno();
   }
@@ -1600,7 +1600,7 @@ function iniciarSessao(s){
 
 function refazer(s){
   if(typeof s==='string')s=JSON.parse(s);
-  sitAt=s;dq=[...s.dialogos];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=true;
+  sitAt=s;dq=[...(s.dialogos||[])];di=0;stats={sim:0,qse:0,nao:0};modoRefazer=true;
   dlAcertos=0;dlTotal=0;
   irPara('sessao');renderTurno();
 }
@@ -1746,7 +1746,7 @@ function avancarLeitura(){di++;renderTurno();}
 
 function gerarOps(item){
   const todas=[];
-  for(const m of mundos)for(const s of m.situacoes)for(const t of s.dialogos)
+  for(const m of mundos)for(const s of m.situacoes)for(const t of (s.dialogos||[]))
     if(t.sua_vez&&t.id!==item.id)todas.push({t:t.fala,trad:t.traducao||''});
   const sh=a=>a.sort(()=>Math.random()-.5);
   const dist=sh(todas).slice(0,2);
@@ -2573,7 +2573,7 @@ function renderVocab(){
   for(const m of mundos)for(const s of m.situacoes){
     const sitPraticada=(s.dialogos||[]).some(t=>t.sua_vez&&p[t.id]&&p[t.id].hist.length>0);
     if(!sitPraticada)continue;
-    for(const t of s.dialogos){
+    for(const t of (s.dialogos||[])){
       if(t.vocab){
         t.vocab.forEach(v=>{
           const key=v.palavra+'|'+m.nome;
@@ -2737,7 +2737,7 @@ function renderProgresso(){
     if(!m.situacoes||!m.situacoes.length)continue;
     let mTot=0,mDom=0,mAc=0,mEr=0;
     for(const s of m.situacoes){
-      for(const t of s.dialogos){
+      for(const t of (s.dialogos||[])){
         if(!t.sua_vez)continue;
         mTot++;totalTurnos++;
         const h=p[t.id];
@@ -2766,7 +2766,7 @@ function renderProgresso(){
   for(const m of mundos){
     if(!m.situacoes)continue;
     for(const s of m.situacoes){
-      for(const t of s.dialogos){
+      for(const t of (s.dialogos||[])){
         if(!t.sua_vez)continue;
         const h=p[t.id];
         if(!h||!h.hist.length)continue;
@@ -2968,7 +2968,7 @@ function bibColetarVocab(s){
 }
 
 function bibColetarExpr(s){
-  return s.dialogos
+  return (s.dialogos||[])
     .filter(t=>t.fala&&t.traducao)
     .map(t=>({
       fala:t.fala,
